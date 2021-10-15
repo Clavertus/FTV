@@ -1,0 +1,55 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Selectable : MonoBehaviour
+{
+    
+    //the canvas that lets the player know the object can be selected
+    [SerializeField] Canvas selectableCanvas; 
+    void Start()
+    {
+        selectableCanvas.enabled = false;  
+    }
+
+    void Update()
+    {
+        
+    }
+
+    //enables canvas that lets player know the object can be selected
+    public void DisplaySelectable()
+    {
+       
+        selectableCanvas.enabled = true; 
+    }
+
+    
+    public void DisableSelectable()
+    {
+        
+        selectableCanvas.enabled = false; 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if player enters this objects selection zone, change its tag to selectable
+        if (other.CompareTag("Player"))
+        {
+            gameObject.tag = ("Selectable"); 
+            
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        //if player exits this objects selection zone, change its tag to untagged
+        if (other.CompareTag("Player"))
+        {
+            gameObject.tag = ("Untagged");  
+            
+        }
+    }
+
+
+}
