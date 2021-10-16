@@ -18,16 +18,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundMask; 
 
     Vector3 velocity;
-    bool isGrounded; 
-    
+    bool isGrounded;
+    bool movementLock;
+    private void Start()
+    {
+        movementLock = false; 
+    }
     void Update()
     {
         Move();
         PlayerGravity();
     }
-
+    public void LockPlayer() { movementLock = true; }
+    public void UnlockPlayer() { movementLock = false; } 
     private void Move()
     {
+        if (movementLock) { return; } 
         //get the negative or positive x and z player inputs
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
