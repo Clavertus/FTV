@@ -5,11 +5,11 @@ using UnityEngine;
 public class MementosInteractions : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
-    [SerializeField] GameObject dialogueBox; 
-    DialogueUI dialogueUi; 
+    [SerializeField] GameObject windows; 
+
     void Start()
     {
-        
+        windows.SetActive(false);  
     }
 
     void Update()
@@ -18,9 +18,9 @@ public class MementosInteractions : MonoBehaviour
     }
 
     void FirstInteraction()
-    {
-         
+    {    
         gameObject.tag = ("Untagged");
-        FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue); 
+        FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue);
+        windows.SetActive(true);
     } 
 }
