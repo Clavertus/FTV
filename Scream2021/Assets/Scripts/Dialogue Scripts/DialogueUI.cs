@@ -19,7 +19,10 @@ public class DialogueUI : MonoBehaviour
     public void ShowDialogue(DialogueObject dialogueObject)
     {
         dialogueBox.SetActive(true);
-        FindObjectOfType<SelectionManager>().LockSelection(); 
+
+        FindObjectOfType<PlayerMovement>().LockPlayer(); 
+        FindObjectOfType<SelectionManager>().LockSelection();
+        
         StartCoroutine(StepThroughDialogue(dialogueObject)); 
     }
 
@@ -39,6 +42,8 @@ public class DialogueUI : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+
+        FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
         FindObjectOfType<SelectionManager>().UnlockSelection();
     } 
     
