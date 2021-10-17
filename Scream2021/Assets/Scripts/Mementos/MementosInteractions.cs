@@ -5,7 +5,13 @@ using UnityEngine;
 public class MementosInteractions : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
-    [SerializeField] GameObject windows; 
+    [SerializeField] DialogueObject secondDialogue;
+    [SerializeField] GameObject windows;
+
+    //State
+    bool checkedWindows = false; 
+    bool interactedOnce = false;
+    bool interactedTwice = false;
 
     void Start()
     {
@@ -14,7 +20,9 @@ public class MementosInteractions : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.tag == "Selected") { FirstInteraction(); } 
+        if (gameObject.tag == "Selected" && !interactedOnce) { FirstInteraction(); }
+        if (gameObject.tag == "Selected" && checkedWindows) { SecondInteraction(); }
+
     }
 
     void FirstInteraction()
@@ -22,5 +30,13 @@ public class MementosInteractions : MonoBehaviour
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue);
         windows.SetActive(true);
-    } 
+        interactedOnce = true; 
+    }
+    public void AreWindowsChecked() { checkedWindows = true; }
+    void SecondInteraction()
+    {
+        gameObject.tag = ("Untagged");
+        FindObjectOfType<DialogueUI>().ShowDialogue(secondDialogue);  
+        interactedTwice = true; 
+    }
 }
