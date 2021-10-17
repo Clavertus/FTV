@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OneTrainCar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5724670146676392358, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42541b12cde0d55498ab600a4bcd5500, type: 2}
     - target: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_RootOrder
       value: 6
