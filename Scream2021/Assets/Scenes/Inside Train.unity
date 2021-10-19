@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OneTrainCar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3558413137284628714, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: enableCombine
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5724670146676392358, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -197,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311916070261983838, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: enableCombine
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
