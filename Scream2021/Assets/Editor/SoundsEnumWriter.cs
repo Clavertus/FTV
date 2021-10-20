@@ -10,7 +10,7 @@ using UnityEngine;
 public class SoundsEnumWriter : Editor
 {
     AudioManager audioManager;
-    string filePath = "Assets/Scripts/Audio";
+    string filePath = "Assets/Scripts/Audio/";
     string fileName = "soundsEnum";
 
     private void OnEnable()
@@ -23,10 +23,6 @@ public class SoundsEnumWriter : Editor
     {
         //Making a custom Inspector
         base.OnInspectorGUI();
-
-        //GUI Elements
-        filePath = EditorGUILayout.TextField("Path", filePath);
-        fileName = EditorGUILayout.TextField("Name", fileName);
 
         List<string> names = new List<string>();
 

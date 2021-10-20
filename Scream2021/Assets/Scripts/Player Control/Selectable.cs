@@ -2,12 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Selectable : MonoBehaviour
 {
     
     //the canvas that lets the player know the object can be selected
-    [SerializeField] Canvas selectableCanvas; 
+    [SerializeField] Canvas selectableCanvas;
+    AudioSource myAudioSource;
+    void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.UI1);
+    }
+
     void Start()
     {
         selectableCanvas.enabled = false;  
@@ -34,6 +46,7 @@ public class Selectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        FindObjectOfType<AudioManager>().PlayFromGameObject(myAudioSource);
         //if player enters this objects selection zone, change its tag to selectable
         if (other.CompareTag("Player"))
         {

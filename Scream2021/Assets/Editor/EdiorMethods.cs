@@ -17,7 +17,7 @@ public class EditorMethods : Editor
         using (StreamWriter file = File.CreateText(path + name + extension))
         {
             //writing the code in the .cs file with the help of StreamWriter
-            file.WriteLine("public enum " + name + " \n{");
+            file.WriteLine("public enum " + name + " \r\n{");
 
             int i = 0;
             //adding every element of the data list as an enum element whilst giving it a value that may be used as an index
@@ -32,10 +32,11 @@ public class EditorMethods : Editor
                 }
             }
 
-            file.WriteLine("\n}");
+            file.WriteLine("\r\n}");
         }
         //this imports an Asset at the specified path
         AssetDatabase.ImportAsset(path + name + extension);
+        Debug.Log(name + extension + "Saved succesfully in" + path + "!");
     }
 
     public static void DeleteEnum(string path, string name)
