@@ -220,7 +220,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bc99b0acaa1054f9eb145393d03a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationId: 0
+  isPose: 0
+  animationId: 9
+  animationFrame: 51063
+  animationClips:
+  - {fileID: 5430058682927419537, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 723337424586682896, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 5347391467059602998, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -1538364574434386349, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 7386567708494879246, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -5622302269103411538, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 2795672735603755519, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -6198862855047316022, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -8309756628789453448, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 5650622737070831216, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  animationPoses:
+  - {fileID: 1660751410850861760, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -1896647337085244165, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 1457133679953395967, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -7308103380408579362, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: 7209690244635566552, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  - {fileID: -2843012764617531947, guid: 86651a756364efd48961e8bb081c167b, type: 3}
+  isInEditorMode: 0
 --- !u!1 &1299860892001222841
 GameObject:
   m_ObjectHideFlags: 0

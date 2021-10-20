@@ -1,114 +1,104 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class PassengerAnimation : MonoBehaviour
-{
-    [SerializeField] bool isPose = false;
-    [Range(0, 10)]
+{   
+    [SerializeField] bool isPose;
+    [Range(0, 9)]
     [SerializeField] int animationId = 0;
-    int curranimationId = 0;
+    [Range(0f, 100000f)]
+    [SerializeField] int animationFrame = 0;
+    public AnimationClip[] animationClips;
+    public AnimationClip[] animationPoses;
+    int currentAnimId = 0;
+    
+    [HideInInspector]
+    public bool isInEditorMode = false;
+    private Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnSceneLoaded()
     {
-
+        AnimationMode.StopAnimationMode();
+        AnimationMode.EndSampling();
+        animationClips = null;
+        animationPoses = null;
+        animationFrame = 0;
+        foreach (var item in FindObjectsOfType<PassengerAnimation>())
+        {
+            item.isInEditorMode = false;
+        }
     }
 
-    // Update is called once per frame
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+      
+        foreach (var item in FindObjectsOfType<PassengerAnimation>())
+        {
+            item.isInEditorMode = false;
+        }
+    }
+
     void Update()
     {
-        if (curranimationId != animationId)
+        if (currentAnimId != animationId && !isInEditorMode)
         {
-            curranimationId = animationId;
+            currentAnimId = animationId;
             if (isPose)
             {
-                selectPose();
+                SelectPose();
             }
             else
             {
-                selectAnim();
+                SelectAnim();
+            }
+        }
+        if (isInEditorMode)
+        {
+          
+            if (isPose)
+            {
+                SelectPose();
+            }
+            else
+            {
+                SelectAnim();
             }
         }
     }
 
-    private void selectAnim()
+    private void SelectAnim()
     {
-        Animator animator = GetComponent<Animator>();
+        if (!animator) return;
+        if (isInEditorMode)
+            AnimationMode.SampleAnimationClip(gameObject, animationClips[animationId], animationClips[animationId].length / 100000f * animationFrame);
+        else
+            animator.SetTrigger(animationId.ToString());
+    }
+
+    private void SelectPose()
+    {
 
         if (!animator) return;
-        switch (animationId)
+
+        if (animationId <= 5)
         {
-            case 0:
-                animator.SetTrigger("0");
-                break;
-            case 1:
-                animator.SetTrigger("1");
-                break;
-            case 2:
-                animator.SetTrigger("2");
-                break;
-            case 3:
-                animator.SetTrigger("3");
-                break;
-            case 4:
-                animator.SetTrigger("4");
-                break;
-            case 5:
-                animator.SetTrigger("5");
-                break;
-            case 6:
-                animator.SetTrigger("6");
-                break;
-            case 7:
-                animator.SetTrigger("7");
-                break;
-            case 8:
-                animator.SetTrigger("8");
-                break;
-            case 9:
-                animator.SetTrigger("9");
-                break;
-            case 10:
-                animator.SetTrigger("10");
-                break;
-            default:
-                //set to last
-                animator.SetTrigger("10");
-                break;
+            if (isInEditorMode)
+                AnimationMode.SampleAnimationClip(gameObject, animationPoses[animationId], animationClips[animationId].length / 100000f * animationFrame);
+            else
+                animator.SetTrigger("Pose" + animationId);
+        }
+        else
+        {
+            if (isInEditorMode)
+                AnimationMode.SampleAnimationClip(gameObject, animationPoses[5], animationClips[animationId].length / 100000f * animationFrame);
+            else
+                animator.SetTrigger("Pose" + 5);
         }
     }
 
-    private void selectPose()
-    {
-        Animator animator = GetComponent<Animator>();
-
-        if (!animator) return;
-        switch (animationId)
-        {
-            case 0:
-                animator.SetTrigger("Pose0");
-                break;
-            case 1:
-                animator.SetTrigger("Pose1");
-                break;
-            case 2:
-                animator.SetTrigger("Pose2");
-                break;
-            case 3:
-                animator.SetTrigger("Pose3");
-                break;
-            case 4:
-                animator.SetTrigger("Pose4");
-                break;
-            case 5:
-                animator.SetTrigger("Pose5");
-                break;
-            default:
-                //set to last
-                animator.SetTrigger("Pose5");
-                break;
-        }
-    }
 }

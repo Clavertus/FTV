@@ -12,16 +12,16 @@ public class MouseLook : MonoBehaviour
 
     [SerializeField] Transform playerBody;
 
-    float xRotation = 0f; 
+    float xRotation = 0f;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        
-    }
+
+    } 
     private void LateUpdate()
     {
         LookWithMouse();
