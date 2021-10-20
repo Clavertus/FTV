@@ -21,7 +21,7 @@ public class Selectable : MonoBehaviour
 
     void Start()
     {
-        selectableCanvas.enabled = false;  
+        selectableCanvas.enabled = false;
     }
 
     void Update()
