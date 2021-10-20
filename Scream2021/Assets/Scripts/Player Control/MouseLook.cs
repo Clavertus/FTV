@@ -20,9 +20,12 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        
+    }
+    private void LateUpdate()
+    {
         LookWithMouse();
     }
-
     private void LookWithMouse()
     {
         //getting that mouse x and y movement
