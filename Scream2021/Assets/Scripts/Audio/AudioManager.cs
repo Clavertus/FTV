@@ -11,11 +11,11 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup audioMixerGroup;
     public Sound[] sounds;
 
-    public static AudioManager instance;
+    //public static AudioManager instance;
     void Awake()
     {
         //checking if there is more than one AudioManager in the scene
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
         }
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);//Not destroying it between scenes so the sound is persistened between transitions
+        DontDestroyOnLoad(gameObject);//Not destroying it between scenes so the sound is persistened between transitions*/
 
         //assigning the properties of the values of our Sound objects to the actual audio sources
         foreach (Sound s in sounds)
