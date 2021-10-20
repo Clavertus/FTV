@@ -34,18 +34,22 @@ public class Examine : MonoBehaviour
 
     void ClickObject()
     {
-        if (Input.GetKeyDown(KeyCode.E) && examineMode == false)
+        if (examineMode == false)
         {
+            
             RaycastHit hit;
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); 
+
 
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log(hit.transform); 
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
-
-                if (clickedObject.gameObject.GetComponent<Memento>())  
+                Debug.Log(clickedObject.name); 
+                if (clickedObject.CompareTag("Examinable") && Input.GetMouseButtonDown(0))   
                 {
+                    Debug.Log("hit object"); 
                     //Save The Original Postion And Rotation
                     originaPosition = clickedObject.transform.position;
                     originalRotation = clickedObject.transform.rotation.eulerAngles;
