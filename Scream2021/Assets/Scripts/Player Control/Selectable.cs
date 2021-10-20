@@ -12,7 +12,6 @@ public class Selectable : MonoBehaviour
     AudioSource myAudioSource;
     void OnEnable()
     {
-        Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
