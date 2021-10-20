@@ -9,9 +9,8 @@ public class MementosInteractions : MonoBehaviour
     [SerializeField] GameObject windows;
 
     //State
-    bool checkedWindows = false; 
-    bool interactedOnce = false;
-    bool interactedTwice = false;
+    bool checkedWindows = false;
+    int interactionCounter = 0;
 
     void Start()
     {
@@ -20,7 +19,7 @@ public class MementosInteractions : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.tag == "Selected" && !interactedOnce) { FirstInteraction(); }
+        if (gameObject.tag == "Selected" && interactionCounter == 0) { FirstInteraction(); }
         if (gameObject.tag == "Selected" && checkedWindows) { SecondInteraction(); }
 
     }
@@ -30,13 +29,13 @@ public class MementosInteractions : MonoBehaviour
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue);
         windows.SetActive(true);
-        interactedOnce = true; 
+        interactionCounter++; 
     }
     public void AreWindowsChecked() { checkedWindows = true; }
     void SecondInteraction()
     {
         gameObject.tag = ("Untagged");
-        FindObjectOfType<DialogueUI>().ShowDialogue(secondDialogue);  
-        interactedTwice = true; 
+        FindObjectOfType<DialogueUI>().ShowDialogue(secondDialogue); 
+        interactionCounter++;
     }
 }
