@@ -1798,6 +1798,7 @@ GameObject:
   - component: {fileID: 4272440944666162269}
   - component: {fileID: 456921791269572480}
   - component: {fileID: 5053502667544879132}
+  - component: {fileID: 2400375791010338120}
   m_Layer: 0
   m_Name: Posters
   m_TagString: Untagged
@@ -1868,6 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d8fe845f0357b499e7799d20dfe9f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matSwitch: {fileID: 2400375791010338120}
   enableCombine: 1
 --- !u!33 &456921791269572480
 MeshFilter:
@@ -1918,6 +1920,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2400375791010338120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621387930697368265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0954e0f48c7a548bdaacfd58ba91a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialList:
+  - {fileID: 2100000, guid: 42541b12cde0d55498ab600a4bcd5500, type: 2}
+  - {fileID: 2100000, guid: 90e540bb1e688e04694233531588f2e7, type: 2}
 --- !u!1 &6132645828101628759
 GameObject:
   m_ObjectHideFlags: 0
