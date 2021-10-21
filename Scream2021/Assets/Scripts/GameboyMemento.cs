@@ -72,8 +72,8 @@ public class GameboyMemento : MonoBehaviour
     {
         yield return new WaitUntil(() => examineMode == false);  
 
-        FindObjectOfType<MouseLook>().UnlockCamera(); 
-
+        FindObjectOfType<MouseLook>().UnlockCamera();
+        Debug.Log("test"); 
         heldDPadCanvas.enabled = true;
         Destroy(dPad);
         GetComponentInParent<SymbolInteractions>().IsDPadPocketed();  
