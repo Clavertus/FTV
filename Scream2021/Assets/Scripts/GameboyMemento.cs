@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameboyMemento : MonoBehaviour
 {
+    [SerializeField] DialogueObject inspectionDialogue;
+
+    int interactionCounter = 0; 
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,12 @@ public class GameboyMemento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.tag == ("Selected") && interactionCounter == 0) { FirstInteraction(); }
+    }
+
+    void FirstInteraction()
+    {
+        gameObject.tag = ("Untagged");
+        FindObjectOfType<DialogueUI>().ShowDialogue(inspectionDialogue); 
     }
 }

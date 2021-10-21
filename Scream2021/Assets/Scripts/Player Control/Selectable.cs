@@ -9,6 +9,8 @@ public class Selectable : MonoBehaviour
     
     //the canvas that lets the player know the object can be selected
     [SerializeField] Canvas selectableCanvas;
+    
+
     AudioSource myAudioSource;
     void OnEnable()
     {
@@ -16,12 +18,12 @@ public class Selectable : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.UI1);
+        myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.UI1); 
     }
 
     void Start()
     {
-        selectableCanvas.enabled = false;  
+        selectableCanvas.gameObject.SetActive(false);  
     }
 
     void Update()
@@ -32,15 +34,15 @@ public class Selectable : MonoBehaviour
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-       
-        selectableCanvas.enabled = true; 
+
+        selectableCanvas.gameObject.SetActive(true);
     }
 
     
     public void DisableSelectable()
     {
-        
-        selectableCanvas.enabled = false; 
+
+        selectableCanvas.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

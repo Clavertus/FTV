@@ -7,6 +7,7 @@ public class MementosInteractions : MonoBehaviour
     [SerializeField] DialogueObject firstDialogue;
     [SerializeField] DialogueObject secondDialogue;
     [SerializeField] GameObject windows;
+    [SerializeField] GameObject gameBoyMemento; 
 
     //State
     bool checkedWindows = false;
@@ -35,7 +36,8 @@ public class MementosInteractions : MonoBehaviour
     void SecondInteraction()
     {
         gameObject.tag = ("Untagged");
-        FindObjectOfType<DialogueUI>().ShowDialogue(secondDialogue); 
+        FindObjectOfType<DialogueUI>().ShowDialogue(secondDialogue);
+        gameBoyMemento.SetActive(true); 
         interactionCounter++;
-    }
+    } 
 }

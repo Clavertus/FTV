@@ -45,6 +45,7 @@ public class DialogueUI : MonoBehaviour
 
         FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
         FindObjectOfType<SelectionManager>().UnlockSelection();
+        FindObjectOfType<Examine>().ExitExamineMode();
     } 
     
 }
