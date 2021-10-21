@@ -1,7 +1,8 @@
 public enum soundsEnum 
 {
-	Commuting = 0,
+	Drone = 0,
 	UI1 = 1,
-	Drone = 2,
+	Change4 = 2,
+	Change7 = 3,
 
 }

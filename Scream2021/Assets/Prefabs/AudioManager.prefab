@@ -75,3 +75,33 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
+  - name: Change4
+    clip: {fileID: 8300000, guid: 1b356d03a0ffa674fb418150b96a3bb8, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Change7
+    clip: {fileID: 8300000, guid: 0f85d86e2859ee446ad7773e0b1b7936, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
