@@ -7,7 +7,7 @@ public class DoorToCar : MonoBehaviour
     [SerializeField] DialogueObject firstDialogue;
     
     [SerializeField] GameObject windows;
-    [SerializeField] GameObject gameBoyMemento;
+    
 
     //State
     
