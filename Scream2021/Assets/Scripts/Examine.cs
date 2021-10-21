@@ -11,7 +11,7 @@ public class Examine : MonoBehaviour
     //Holds Original Postion And Rotation So The Object Can Be Replaced Correctly
     Vector3 originaPosition;
     Vector3 originalRotation;
-    [SerializeField] float distanceFromCam; 
+    [SerializeField] float distanceFromCam;
 
 
     //If True Allow Rotation Of Object
@@ -21,8 +21,8 @@ public class Examine : MonoBehaviour
     {
         mainCam = Camera.main;
         examineMode = false;
-        
-        
+
+
     }
 
     private void Update()
@@ -32,9 +32,9 @@ public class Examine : MonoBehaviour
 
         TurnObject();//Allows Object To Be Rotated
 
-        
 
-        
+
+
     }
 
 
@@ -42,18 +42,18 @@ public class Examine : MonoBehaviour
     {
         if (examineMode == false)
         {
-            
+
             RaycastHit hit;
-            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); 
+            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
 
             if (Physics.Raycast(ray, out hit))
             {
-                 
+
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
-                 
-                if (clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))   
+
+                if (clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))
                 {
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
@@ -73,7 +73,7 @@ public class Examine : MonoBehaviour
 
                     //Turn Examine Mode To True
                     examineMode = true;
-                    
+
                 }
             }
         }
@@ -107,11 +107,13 @@ public class Examine : MonoBehaviour
             clickedObject.transform.position = originaPosition;
             clickedObject.transform.eulerAngles = originalRotation;
 
+
             //Unpause Game
             /*Time.timeScale = 1; */
 
             //Return To Normal State
-            examineMode = false;  
+            examineMode = false;
+            FindObjectOfType<GameboyMemento>().ExitedExamineMode(); 
         }
     }
 }

@@ -11,15 +11,7 @@ public class Selectable : MonoBehaviour
     [SerializeField] Canvas selectableCanvas;
     
 
-    AudioSource myAudioSource;
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.UI1); 
-    }
+  
 
     void Start()
     {
@@ -47,7 +39,7 @@ public class Selectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<AudioManager>().PlayFromGameObject(myAudioSource);
+        
         //if player enters this objects selection zone, change its tag to selectable
         if (other.CompareTag("Player"))
         {

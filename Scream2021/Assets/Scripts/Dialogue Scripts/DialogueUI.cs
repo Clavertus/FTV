@@ -26,7 +26,7 @@ public class DialogueUI : MonoBehaviour
         StartCoroutine(StepThroughDialogue(dialogueObject)); 
     }
 
-    IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
+    public IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
         
         foreach(string dialogue in dialogueObject.Dialogue) 
