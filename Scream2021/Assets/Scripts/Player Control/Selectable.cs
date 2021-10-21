@@ -15,7 +15,9 @@ public class Selectable : MonoBehaviour
 
     void Start()
     {
+
         selectableCanvas.gameObject.SetActive(false);  
+
     }
 
     void Update()

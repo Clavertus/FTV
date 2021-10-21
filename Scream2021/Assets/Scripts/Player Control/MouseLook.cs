@@ -15,17 +15,20 @@ public class MouseLook : MonoBehaviour
     bool lockCamera = false; 
 
     float xRotation = 0f; 
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
+
         
     }
     public void LockCamera() { lockCamera = true; }
     public void UnlockCamera() { lockCamera = false; }
+
 
     private void LateUpdate()
     {
