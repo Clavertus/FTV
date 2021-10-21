@@ -33,8 +33,7 @@ public class SelectionManager : MonoBehaviour
         }
 
         //a ray originating at the center of the screen
-        var ray = Camera.main.ScreenPointToRay
-            (new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         RaycastHit hit;
         //returns true if the raycast hit something, ie the player is looking at an object
@@ -44,6 +43,7 @@ public class SelectionManager : MonoBehaviour
             var selection = hit.transform;
             if (selection.CompareTag("Selectable"))
             {
+                
                 //enable the canvas on the selectable
                 selection.GetComponent<Selectable>().DisplaySelectable();
                 _selection = selection;
@@ -51,7 +51,7 @@ public class SelectionManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     selection.gameObject.tag = ("Selected");
-                    
+                    selection.GetComponent<Selectable>().DisableSelectable();
                 }
             }
 

@@ -26,7 +26,7 @@ public class DialogueUI : MonoBehaviour
         StartCoroutine(StepThroughDialogue(dialogueObject)); 
     }
 
-    IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
+    public IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
         
         foreach(string dialogue in dialogueObject.Dialogue) 
@@ -45,6 +45,7 @@ public class DialogueUI : MonoBehaviour
 
         FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
         FindObjectOfType<SelectionManager>().UnlockSelection();
+        FindObjectOfType<Examine>().ExitExamineMode();
     } 
     
 }
