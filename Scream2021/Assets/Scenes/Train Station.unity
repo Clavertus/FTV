@@ -10544,8 +10544,7 @@ MonoBehaviour:
   train: {fileID: 1075780762}
   image: {fileID: 221004456}
   fadeSpeed: 0.01
-  index: 0
-  executedOnce: 0
+  duration: 3
 --- !u!114 &1565766061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12388,7 +12387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864877414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.71, y: 2.89, z: -94.44292}
+  m_LocalPosition: {x: 8.71, y: 2.89, z: -110.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
