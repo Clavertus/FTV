@@ -555,14 +555,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc521b63ef3b41440a4c634de112ce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   inspectionDialogue: {fileID: 11400000, guid: d2c8b4972b574144fad8e4b8f1d78898, type: 2}
   dPadFell: {fileID: 11400000, guid: 9f4e83452e159ec40af144be638b1979, type: 2}
   DialogueBox: {fileID: 2074534958}
   dPad: {fileID: 949130733}
   dPadCanvas: {fileID: 27251263}
   heldDPadCanvas: {fileID: 277602153}
-
 --- !u!114 &179575110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3536,10 +3534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3046544c432e7384bab7136eb9308afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   examineCanvas: {fileID: 295281069}
   distanceFromCam: 2
-
 --- !u!1 &1375233118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,7 +3810,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4311,7 +4307,7 @@ RectTransform:
   - {fileID: 255595879}
   - {fileID: 1173543166}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4420,7 +4416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1688117393
 PrefabInstance:
@@ -5602,10 +5598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87cd3115dc317d4ab4cb639e2405f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   firstDialogue: {fileID: 11400000, guid: d48b7407796b8e54dbc2622739601271, type: 2}
   windows: {fileID: 538588704}
-
 --- !u!1 &1955390048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3187296087666795994, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
