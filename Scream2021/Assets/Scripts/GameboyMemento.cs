@@ -6,6 +6,10 @@ public class GameboyMemento : MonoBehaviour
 {
     [SerializeField] DialogueObject inspectionDialogue;
     [SerializeField] DialogueObject dPadFell;
+    [SerializeField] GameObject DialogueBox; 
+
+    [SerializeField] Canvas dPadCanvas;
+    [SerializeField] Canvas heldDPadCanvas;
 
     [SerializeField] GameObject dPad;
     int interactionCounter = 0;
@@ -15,6 +19,7 @@ public class GameboyMemento : MonoBehaviour
     void Start()
     {
         dPad.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        heldDPadCanvas.enabled = false; 
     }
 
     public void ExitedExamineMode() { examineMode = false; }
@@ -26,8 +31,9 @@ public class GameboyMemento : MonoBehaviour
 
         if (interactionCounter == 1 && examineMode == false)
         {
-            DPadFell();
+            StartCoroutine(DPadFell());
         }
+        
         
     }
 
@@ -40,14 +46,26 @@ public class GameboyMemento : MonoBehaviour
         interactionCounter = 1;
     }
 
-    void DPadFell()
+    IEnumerator DPadFell()
     {
-        dPad.gameObject.GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = false;
         
-        gameObject.tag = ("Untagged");
-        FindObjectOfType<DialogueUI>().ShowDialogue(dPadFell);
-        dPad.SetActive(true);
+        dPad.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        dPadCanvas.gameObject.SetActive(true); 
+
+        gameObject.tag = ("Selectable");
         interactionCounter = 2;
+        FindObjectOfType<DialogueUI>().ShowDialogue(dPadFell);
+
+        yield return new WaitUntil(() => !DialogueBox.activeSelf); 
+        StartCoroutine(InspectDPad());
+    }
+
+    IEnumerator InspectDPad()
+    {
+        yield return new WaitUntil(() => examineMode == false);  
+        
+        heldDPadCanvas.enabled = true;
+        Destroy(dPad); 
     }
 }
