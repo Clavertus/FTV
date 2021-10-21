@@ -424,6 +424,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc521b63ef3b41440a4c634de112ce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectionDialogue: {fileID: 0}
+  dPadFell: {fileID: 0}
+  DialogueBox: {fileID: 0}
+  dPad: {fileID: 0}
+  dPadCanvas: {fileID: 0}
+  heldDPadCanvas: {fileID: 0}
 --- !u!114 &179575110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3043,6 +3049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3046544c432e7384bab7136eb9308afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  examineCanvas: {fileID: 0}
+  distanceFromCam: 0
 --- !u!1 &1375233118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,6 +3316,63 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1497905623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314312, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433092106314315, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_Name
+      value: ElderGodEnv
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
 --- !u!1 &1502093392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,9 +4790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4be23a760e34ca41a52853e3d65ec32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstDialogue: {fileID: 11400000, guid: d48b7407796b8e54dbc2622739601271, type: 2}
-  secondDialogue: {fileID: 11400000, guid: 6cf36e038f7e59c49a5fdeba39afa0eb, type: 2}
-  windows: {fileID: 538588704}
 --- !u!1 &1955390048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3187296087666795994, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
