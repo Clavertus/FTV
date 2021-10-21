@@ -17,6 +17,6 @@ public class CameraShaker : MonoBehaviour
 
     void Update()
     {
-            camera.localPosition = startPosition + Random.insideUnitSphere * power;
+        camera.localPosition = startPosition + Random.insideUnitSphere * power;
     }
 }
