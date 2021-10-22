@@ -7,7 +7,7 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] DialogueObject firstDialogue;
     [SerializeField] DialogueObject zipperDialogue;
     [SerializeField] DialogueObject frameStandDialogue;
-
+    [SerializeField] GameObject dialogueBox; 
 
     [SerializeField] GameObject gameBoyMemento;
     [SerializeField] GameObject zipperMemento;
@@ -28,7 +28,7 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] Material zipperMat;
     [SerializeField] Material frameMat;
 
-
+    [SerializeField] GameObject trainMonster; 
 
 
     bool pocketed = false;
@@ -68,7 +68,7 @@ public class SymbolInteractions : MonoBehaviour
         }
         if (pocketed && interactionCounter == 3 && gameObject.tag == "Selected" && pocketItem == ("Frame Stand"))
         {
-            ApplyFrameStand();
+            StartCoroutine(ApplyFrameStand());
         }
 
     }
@@ -102,14 +102,21 @@ public class SymbolInteractions : MonoBehaviour
         interactionCounter++;
     }
 
-    void ApplyFrameStand() 
+    IEnumerator ApplyFrameStand() 
     {
         gameObject.tag = ("Untagged");
         chain.GetComponent<MeshRenderer>().material = frameMat;
         FindObjectOfType<DialogueUI>().ShowDialogue(frameStandDialogue);
         interactionCounter++;
 
+        yield return new WaitUntil(() => !dialogueBox.activeSelf);
+        StartMonster();
 
+    }
+
+    void StartMonster()
+    {
+        trainMonster.SetActive(true);  
     }
 
 }
