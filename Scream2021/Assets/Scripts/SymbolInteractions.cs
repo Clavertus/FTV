@@ -88,6 +88,7 @@ public class SymbolInteractions : MonoBehaviour
         chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
         interactionCounter++;
         zipperMemento.SetActive(true);
+        gameBoyMemento.SetActive(false);
     }
 
     void ApplyZipper()
@@ -96,7 +97,8 @@ public class SymbolInteractions : MonoBehaviour
         chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         elderGodMove.SetActive(true);
         FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue);
-        photoMemento.SetActive(true); 
+        photoMemento.SetActive(true);
+        zipperMemento.SetActive(false); 
         interactionCounter++;
     }
 
