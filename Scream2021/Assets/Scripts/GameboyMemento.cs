@@ -13,7 +13,7 @@ public class GameboyMemento : MonoBehaviour
     [SerializeField] Canvas dPadCanvas;
     [SerializeField] Canvas heldDPadCanvas;
 
-    
+    [SerializeField] string pocketItem;
 
     int interactionCounter = 0;
     bool examineMode = false;
@@ -76,6 +76,6 @@ public class GameboyMemento : MonoBehaviour
         Debug.Log("test"); 
         heldDPadCanvas.enabled = true;
         Destroy(dPad);
-        GetComponentInParent<SymbolInteractions>().IsDPadPocketed();  
+        GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItem);  
     }
 }

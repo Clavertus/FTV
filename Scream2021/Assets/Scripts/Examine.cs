@@ -53,7 +53,7 @@ public class Examine : MonoBehaviour
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
 
-                if (clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))
+                if (clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))  
                 {
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
