@@ -30,7 +30,7 @@ public class Examine : MonoBehaviour
 
         ClickObject();//Decide What Object To Examine
 
-       // TurnObject();//Allows Object To Be Rotated
+        TurnObject();//Allows Object To Be Rotated
 
 
 

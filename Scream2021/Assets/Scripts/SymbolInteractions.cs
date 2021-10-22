@@ -6,9 +6,13 @@ public class SymbolInteractions : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
     [SerializeField] DialogueObject zipperDialogue;
+    [SerializeField] DialogueObject frameStandDialogue;
+
 
     [SerializeField] GameObject gameBoyMemento;
     [SerializeField] GameObject zipperMemento;
+    [SerializeField] GameObject photoMemento;
+
     [SerializeField] GameObject dPadClone;
     [SerializeField] GameObject zipperClone;
     [SerializeField] GameObject elderGodMove;
@@ -22,7 +26,9 @@ public class SymbolInteractions : MonoBehaviour
 
     [SerializeField] Material dPadMat;
     [SerializeField] Material zipperMat;
-    
+    [SerializeField] Material frameMat;
+
+
 
 
     bool pocketed = false;
@@ -60,6 +66,10 @@ public class SymbolInteractions : MonoBehaviour
         {
             ApplyZipper();
         }
+        if (pocketed && interactionCounter == 3 && gameObject.tag == "Selected" && pocketItem == ("Frame Stand"))
+        {
+            ApplyFrameStand();
+        }
 
     }
     public void AreWindowsChecked() { checkedWindows = true; }
@@ -85,7 +95,19 @@ public class SymbolInteractions : MonoBehaviour
         gameObject.tag = ("Untagged");
         chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         elderGodMove.SetActive(true);
-        FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue); 
+        FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue);
+        photoMemento.SetActive(true); 
         interactionCounter++;
     }
+
+    void ApplyFrameStand() 
+    {
+        gameObject.tag = ("Untagged");
+        chain.GetComponent<MeshRenderer>().material = frameMat;
+        FindObjectOfType<DialogueUI>().ShowDialogue(frameStandDialogue);
+        interactionCounter++;
+
+
+    }
+
 }
