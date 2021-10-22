@@ -46,9 +46,9 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 24300002, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
   sounds:
   - name: Drone
-    clip: {fileID: 8300000, guid: 93ee8e4cae6b7424bb0e43596d4ac922, type: 3}
+    clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.2
     pitch: 0.66
     loop: 1
     playOnAwake: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   - name: Change4
     clip: {fileID: 8300000, guid: 1b356d03a0ffa674fb418150b96a3bb8, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.7
     pitch: 0
     loop: 0
     playOnAwake: 0
@@ -93,7 +93,22 @@ MonoBehaviour:
   - name: Change7
     clip: {fileID: 8300000, guid: 0f85d86e2859ee446ad7773e0b1b7936, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.7
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Change5
+    clip: {fileID: 8300000, guid: 829e58da7150d7c4db239fe064ab4478, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.7
     pitch: 0
     loop: 0
     playOnAwake: 0
