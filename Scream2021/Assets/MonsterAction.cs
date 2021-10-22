@@ -21,15 +21,23 @@ public class MonsterAction : MonoBehaviour
     };
 
     [SerializeField] Animator myAnimator = null;
+
+    [Header("State machine feedback")]
     [SerializeField] monsterStatesEnm currentState = monsterStatesEnm.idle;
     monsterStatesEnm lastState = monsterStatesEnm.idle;
 
+    [Header("Speed controls")]
     [SerializeField] float walkSpeed = 2f;
-    [SerializeField] float pauseAfterReveal = 1f;
     [SerializeField] float walkAfterDoorSpeed = 4f;
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
 
+    [Header("Gameplay controls")]
+    [SerializeField] float pauseAfterReveal = 1f;
+    [SerializeField] int numberOfTriesToOpenDoor = 5;
+    [SerializeField] float jumpDistance = 20f;
+
+    [Header("References to transforms")]
     [SerializeField] Transform revealZone = null;
     bool revealZoneTriggered = false;
     [SerializeField] Transform doorZone = null;
@@ -38,10 +46,10 @@ public class MonsterAction : MonoBehaviour
     bool actionZoneTriggered = false;
     [SerializeField] Transform Player = null;
 
+    [Header("Change StartSequence to true to start monster final sequence")]
+    [Header("TODO: it is also now triggered by OnEnable (CHANGE THIS!)")]
     public bool StartSequence = false;
-    [SerializeField] int numberOfTriesToOpenDoor = 5;
 
-    [SerializeField] float jumpDistance = 20f;
     bool InJump = false;
 
     // Start is called before the first frame update
@@ -50,6 +58,26 @@ public class MonsterAction : MonoBehaviour
         if(!myAnimator)
         {
             Debug.LogError("Monster need animation controller to work!");
+        }
+
+        if(!revealZone)
+        {
+            Debug.LogError("reveal zone must be applied!");
+        }
+
+        if (!doorZone)
+        {
+            Debug.LogError("door zone must be applied!");
+        }
+
+        if (!actionZone)
+        {
+            Debug.LogError("action zone must be applied!");
+        }
+
+        if (!Player)
+        {
+            Debug.LogError("player transform must be applied!");
         }
     }
 
