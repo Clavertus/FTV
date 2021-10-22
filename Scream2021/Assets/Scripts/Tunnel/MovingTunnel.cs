@@ -12,6 +12,7 @@ public class MovingTunnel : MonoBehaviour
     public float zStart;
 
     private Vector3 position;
+    private float t;
     void Awake()
     {
         zStart = Array.Find(FindObjectsOfType<MovingTunnel>(), item => item.isFirstTunnel).transform.position.z;
@@ -19,7 +20,8 @@ public class MovingTunnel : MonoBehaviour
 
     void Update()
     {
-        float movingSpeed = Mathf.Lerp(0, speed, acceleration);
+        float movingSpeed = Mathf.Lerp(0, speed, t);
+        t += acceleration * Time.deltaTime;
         position = transform.position;
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(position.x, position.y, zDestination), movingSpeed * Time.deltaTime);
         if (zDestination == position.z)
