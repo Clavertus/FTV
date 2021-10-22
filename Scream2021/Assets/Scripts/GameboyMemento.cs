@@ -13,7 +13,7 @@ public class GameboyMemento : MonoBehaviour
     [SerializeField] Canvas dPadCanvas;
     [SerializeField] Canvas heldDPadCanvas;
 
-    
+    [SerializeField] string pocketItem;
 
     int interactionCounter = 0;
     bool examineMode = false;
@@ -27,8 +27,8 @@ public class GameboyMemento : MonoBehaviour
         heldDPadCanvas.enabled = false; 
     }
 
-    public void ExitedExamineMode() { examineMode = false; }
-    public void EnteredExamineMode() { examineMode = true; }
+    public void ExitedExamineMode() { examineMode = false; Debug.Log("Exited Examine Mode"); }
+    public void EnteredExamineMode() { examineMode = true; Debug.Log("Entered Examine Mode"); }
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +37,7 @@ public class GameboyMemento : MonoBehaviour
         if (interactionCounter == 1 && examineMode == false)
         {
             StartCoroutine(DPadFell());
+            Debug.Log("dropped");
         }
         
         
@@ -53,6 +54,7 @@ public class GameboyMemento : MonoBehaviour
 
     IEnumerator DPadFell()
     {
+
         GetComponent<BoxCollider>().enabled = false;
         
         dPad.gameObject.GetComponent<MeshRenderer>().enabled = true;
@@ -76,6 +78,7 @@ public class GameboyMemento : MonoBehaviour
         Debug.Log("test"); 
         heldDPadCanvas.enabled = true;
         Destroy(dPad);
-        GetComponentInParent<SymbolInteractions>().IsDPadPocketed();  
+        GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItem);
+         
     }
 }
