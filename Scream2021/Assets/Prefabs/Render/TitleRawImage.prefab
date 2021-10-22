@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8511264892660013953}
   - component: {fileID: 8511264892660013959}
   - component: {fileID: 8511264892660013958}
+  - component: {fileID: 1749920963}
   m_Layer: 5
   m_Name: TitleRawImage
   m_TagString: Untagged
@@ -25,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8511264892660013952}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0811898, z: 2.0146906}
   m_Children: []
@@ -72,3 +73,17 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1749920963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511264892660013952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171896a09039eb140aee9092b146fe5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PixelateRate: 4
+  rawImage: {fileID: 8400000, guid: 273814065f96b374cbdfbff40f212574, type: 2}
