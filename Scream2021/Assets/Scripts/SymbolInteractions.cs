@@ -5,20 +5,30 @@ using UnityEngine;
 public class SymbolInteractions : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
+    [SerializeField] DialogueObject zipperDialogue;
+
     [SerializeField] GameObject gameBoyMemento;
+    [SerializeField] GameObject zipperMemento;
     [SerializeField] GameObject dPadClone;
+    [SerializeField] GameObject zipperClone;
+    [SerializeField] GameObject elderGodMove;
+
+    [SerializeField] GameObject chain;
+    [SerializeField] GameObject chainDPad;
+    [SerializeField] GameObject chainZip;
 
     [SerializeField] float applyMementosOffset = .5f;
     [SerializeField] float moveToSymbolRate = .1f;
 
-
+    [SerializeField] Material dPadMat;
+    [SerializeField] Material zipperMat;
     
-    GameObject dClone;
 
-    bool pocketedDPad = false;
+
+    bool pocketed = false;
     bool checkedWindows = false;
-    bool dPadInstantiated = false; 
 
+    string pocketItem;
     int interactionCounter = 0; 
     void Start()
     {
@@ -33,6 +43,7 @@ public class SymbolInteractions : MonoBehaviour
     {
         if (checkedWindows )
         {
+            chain.SetActive(true); 
             GetComponent<Selectable>().enabled = true; 
             if (gameObject.tag == ("Selected") && interactionCounter == 0)
             {
@@ -40,15 +51,19 @@ public class SymbolInteractions : MonoBehaviour
             }
         } 
 
-        if (pocketedDPad && interactionCounter == 1 && gameObject.tag == "Selected") 
+        if (pocketed && interactionCounter == 1 && gameObject.tag == "Selected" && pocketItem == ("DPad")) 
         {
             ApplyDPad();
         }
 
-        if (dPadInstantiated) { dClone.transform.Translate(new Vector3(0, 0, -moveToSymbolRate) * Time.deltaTime); }
+        if (pocketed && interactionCounter == 2 && gameObject.tag == "Selected" && pocketItem == ("Zipper"))
+        {
+            ApplyZipper();
+        }
+
     }
     public void AreWindowsChecked() { checkedWindows = true; }
-    public void IsDPadPocketed() { pocketedDPad = true; } 
+    public void IsPocketed(string pocketedItem) { pocketed = true; pocketItem = pocketedItem; } 
     void FirstInteraction()
     {
         gameObject.tag = ("Untagged");
@@ -60,9 +75,17 @@ public class SymbolInteractions : MonoBehaviour
     void ApplyDPad()
     {
         gameObject.tag = ("Untagged");
-        var transformOffset = new Vector3(transform.position.x, transform.position.y + .7f, transform.position.z + applyMementosOffset);  
-        dClone = Instantiate(dPadClone, transformOffset, Quaternion.identity);
-        dPadInstantiated = true;  
+        chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
+        interactionCounter++;
+        zipperMemento.SetActive(true);
+    }
+
+    void ApplyZipper()
+    {
+        gameObject.tag = ("Untagged");
+        chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
+        elderGodMove.SetActive(true);
+        FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue); 
         interactionCounter++;
     }
 }
