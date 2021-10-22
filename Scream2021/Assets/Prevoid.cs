@@ -5,14 +5,17 @@ using UnityEngine;
 public class Prevoid : MonoBehaviour
 {
     public Light[] lights;
+    public GameObject[] figures;
     Color tinted;
+
+   
 
     float accumulatedTime;
 
 
     public void Awake()
     {
-
+        AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
         accumulatedTime = 0;     
         StartCoroutine("Timer");
         tinted = new Color(0.6650944f, 0.9123682f, 1);
@@ -291,7 +294,7 @@ public class Prevoid : MonoBehaviour
 
 
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 20; i++)
         {
             yield return new WaitForSeconds(.3f - accumulatedTime);
             accumulatedTime = 0;
@@ -301,12 +304,38 @@ public class Prevoid : MonoBehaviour
             {
                 LowFlick(4);
                 yield return new WaitForSeconds(FlickTime());
+                
+                if (i == 20) 
+                    // mannequinnes stand up
+                {
+                    for(int k = 0; k < figures.Length; k++)
+                    {
+                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
+                    }
+                }
+
                 LowUnFlick();
                 yield return new WaitForSeconds(FlickTime(2));
             }
         }
 
-        
+
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1f - accumulatedTime);
+            accumulatedTime = 0;
+
+
+            for (int j = 0; j < 3; j++)
+            {
+                Flick();
+                yield return new WaitForSeconds(FlickTime());
+                UnFlick();
+                yield return new WaitForSeconds(FlickTime(2));
+            }
+        }
+
+
 
 
 
@@ -384,7 +413,7 @@ public class Prevoid : MonoBehaviour
         foreach (Light a in lights)
         {
             a.type = LightType.Point;
-            a.color = tinted;
+            a.color = Color.black;
         }
     }
 
