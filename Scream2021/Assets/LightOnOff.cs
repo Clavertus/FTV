@@ -16,7 +16,7 @@ public class LightOnOff : MonoBehaviour
     float LightOnTime = 0.1f;
     private void Start()
     {
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.TV);
+        
     }
 
     // Update is called once per frame
