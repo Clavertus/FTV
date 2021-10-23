@@ -62,7 +62,7 @@ MonoBehaviour:
     max: 500
     source: {fileID: 0}
   - name: UI1
-    clip: {fileID: 8300000, guid: b3f37542009bd89469a93c71483290cc, type: 3}
+    clip: {fileID: 8300000, guid: 37ecc8cdd33ed264492316cdbbaac1e5, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.15
     pitch: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   - name: Drone
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.057
+    volume: 0.2
     pitch: 0
     loop: 1
     playOnAwake: 1
@@ -92,12 +92,12 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Change4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.107
+    volume: 0.3
     pitch: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -107,12 +107,12 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Change5
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 829e58da7150d7c4db239fe064ab4478, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.134
+    volume: 0.3
     pitch: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -122,12 +122,12 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Change7
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6b5c79646c6cacc45afd1090a68a426a, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.098
+    volume: 0.3
     pitch: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -137,12 +137,12 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: TV
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: ebe193286f3b61845aad4fe6899959e6, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.023
-    pitch: 0.1
+    volume: 1
+    pitch: 0.4
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0

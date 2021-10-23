@@ -1114,6 +1114,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   fadeStep: 0.01
   fadeTime: 0.01
+  ending: 0
 --- !u!1 &1126198810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,14 +1924,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216274, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[6].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[6].playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

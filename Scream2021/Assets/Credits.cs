@@ -69,7 +69,7 @@ public class Credits : MonoBehaviour
                 
             }
             StartCoroutine(FadeInText(credits[i]));
-            yield return new WaitForSeconds(textDuration);
+            yield return new WaitForSecondsRealtime(textDuration);
             StartCoroutine(FadeOutText(credits[i]));
         }
         yield return StartCoroutine(FadeInPanel(finalPanel));
