@@ -255,6 +255,8 @@ public class MonsterAction : MonoBehaviour
                 {
                     transform.LookAt(Player);
                     InJump = true;
+                    FindObjectOfType<MouseLook>().MonsterIsJumping();
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                 }
 
                 if(InJump)
@@ -262,7 +264,7 @@ public class MonsterAction : MonoBehaviour
                     MonsterJump();
                     if(PlayerFound)
                     {
-                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                        
                         BadEndGameTrigger();
                     }
                 }

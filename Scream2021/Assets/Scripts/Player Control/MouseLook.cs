@@ -9,10 +9,11 @@ public class MouseLook : MonoBehaviour
     //these are the upper and lower boundaries of the camera
     [SerializeField] int lowLookClamp = -90;
     [SerializeField] int highLookClamp = 90;
-
+    [SerializeField] float lookOffset = 3f; 
     [SerializeField] Transform playerBody;
 
-    bool lockCamera = false; 
+    bool lockCamera = false;
+    bool monsterJumping = false; 
 
     float xRotation = 0f; 
 
@@ -23,7 +24,6 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-
         
     }
     public void LockCamera() { lockCamera = true; }
@@ -47,8 +47,16 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         //rotate around y axis for horizontal looking
-        playerBody.Rotate(Vector3.up * mouseX);
-        
-
+        playerBody.Rotate(Vector3.up * mouseX);       
     }
+
+    public void MonsterIsJumping() { 
+        monsterJumping = true;
+        LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+        var monsterTransform = FindObjectOfType<MonsterAction>().gameObject.transform.position;
+        transform.LookAt(new Vector3(monsterTransform.x, monsterTransform.y + lookOffset, monsterTransform.z));
+    }
+
+    
 }
