@@ -8,6 +8,7 @@ public class Begin : MonoBehaviour
     void Start()
     {
         AudioManager.instance.PlayFromAudioManager(soundsEnum.TV);
+        AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
     }
 
     // Update is called once per frame

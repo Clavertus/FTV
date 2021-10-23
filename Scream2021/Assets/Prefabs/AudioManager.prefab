@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixerGroup: {fileID: 24300002, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
-  audioFadeSpeed: 0.5
+  audioFadeSpeed: 0.1
   sounds:
   - name: Drone
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.2
     pitch: 0.1
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 0
     stereoPan: -0.38
@@ -127,6 +127,21 @@ MonoBehaviour:
     volume: 1
     pitch: 0.24
     loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: 8a25e88165e375749831859ee90ac8ea, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3

@@ -6,5 +6,6 @@ public enum soundsEnum
 	Change7 = 3,
 	Change5 = 4,
 	TV = 5,
+	Credits = 6,
 
 }
