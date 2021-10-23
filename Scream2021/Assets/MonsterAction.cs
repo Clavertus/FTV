@@ -96,7 +96,7 @@ public class MonsterAction : MonoBehaviour
             TriggerAnimationWithId((int)currentState);
         }
 
-        AnimationStateMachine();
+        StartCoroutine(AnimationStateMachine());
     }
 
     private void TriggerAnimationWithId(int currentState)
@@ -112,7 +112,7 @@ public class MonsterAction : MonoBehaviour
     }
 
     float timeCounter = 0f;
-    private void AnimationStateMachine()
+    private IEnumerator AnimationStateMachine()
     {
         switch(currentState)
         {
@@ -127,12 +127,15 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(walkSpeed);
                 if (revealZoneTriggered)
                 {
+                    yield return new WaitUntil(() => !dialogueBox.activeSelf);
+                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     currentState = monsterStatesEnm.reveal;
                 }
                 break;
             case monsterStatesEnm.reveal:
                 if (timeCounter >= pauseAfterReveal)
                 {
+                    
                     currentState = monsterStatesEnm.run;
                 }
                 timeCounter += Time.deltaTime;
