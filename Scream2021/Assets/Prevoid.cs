@@ -335,8 +335,6 @@ public class Prevoid : MonoBehaviour
                 LowFlick(4);
                 yield return new WaitForSecondsRealtime(FlickTime());
 
-
-
                 LowUnFlick();
                 yield return new WaitForSecondsRealtime(FlickTime(2));
             }

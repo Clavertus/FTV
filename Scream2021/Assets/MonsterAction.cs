@@ -137,6 +137,9 @@ public class MonsterAction : MonoBehaviour
         transform.position = monsterInTheDoor.position;
         transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
     }
+
+    [SerializeField] float offsetJumpY = 2f;
+    float offsetY = 0f; 
     float timeCounter = 0f;
     private IEnumerator AnimationStateMachine()
     {
@@ -210,27 +213,27 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.walk_after_open:
                 
                 MonsterMove(walkAfterDoorSpeed);
+
+                if (Vector3.Distance(transform.position, Player.position) <= minDistance)
+                {
+                    currentState = monsterStatesEnm.jump_and_kill;
+                    break;
+                }
+
                 if (actionZoneTriggered)
                 {
-
-
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
-
-                    if (Vector3.Distance(transform.position, Player.position) <= minDistance)
-                    {
-                        currentState = monsterStatesEnm.jump_and_kill;
-                    }
-                    else
-                    {
-                        currentState = monsterStatesEnm.action;
-                    }
+                    
+                    currentState = monsterStatesEnm.action;
                 }
                 break;
             case monsterStatesEnm.action:
+
                 if (finishedAction)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
                     AudioManager.instance.PlayFromGameObject(monsterAttack);
+
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
@@ -243,7 +246,6 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.run_to_player:
-                //move to jump positions between monster and player (Z) 
                 MonsterMove(runSpeed);
                 if(Vector3.Distance(transform.position, Player.position ) <= jumpDistance)
                 {
@@ -255,6 +257,9 @@ public class MonsterAction : MonoBehaviour
                 {
                     transform.LookAt(Player);
                     InJump = true;
+                    FindObjectOfType<MouseLook>().MonsterIsJumping();
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                    offsetY = transform.position.y + offsetJumpY;
                 }
 
                 if(InJump)
@@ -262,7 +267,7 @@ public class MonsterAction : MonoBehaviour
                     MonsterJump();
                     if(PlayerFound)
                     {
-                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                        
                         BadEndGameTrigger();
                     }
                 }
@@ -279,7 +284,7 @@ public class MonsterAction : MonoBehaviour
     {
         Vector3 newPosition = Vector3.MoveTowards(transform.position, Player.position, jumpSpeed * Time.deltaTime);
 
-        newPosition = new Vector3(newPosition.x, transform.position.y, newPosition.z);
+        newPosition = new Vector3(newPosition.x, offsetY, newPosition.z);
 
         transform.position = newPosition;
     }

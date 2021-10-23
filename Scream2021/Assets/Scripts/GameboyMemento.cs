@@ -15,6 +15,8 @@ public class GameboyMemento : MonoBehaviour
 
     [SerializeField] string pocketItem;
 
+    GameObject tv;
+
     int interactionCounter = 0;
     bool examineMode = false;
     bool pocketedDPad = false; 
@@ -22,6 +24,7 @@ public class GameboyMemento : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tv = GameObject.Find("TV front");
         dPad.gameObject.GetComponent<MeshRenderer>().enabled = false;
         dPad.gameObject.GetComponent<BoxCollider>().enabled = false;
         heldDPadCanvas.enabled = false; 
@@ -79,6 +82,15 @@ public class GameboyMemento : MonoBehaviour
         heldDPadCanvas.enabled = true;
         Destroy(dPad);
         GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItem);
+        changeTVstatic();
+
          
     }
+
+
+    void changeTVstatic()
+    {
+        tv.GetComponent<VoidTV>().materialState++;
+    }
+
 }

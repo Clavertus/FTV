@@ -141,7 +141,7 @@ public class SymbolInteractions : MonoBehaviour
     {
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
         doorToCar.SetActive(true);
-        doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX();
+        doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX(); 
         FindObjectOfType<SecondTrain>().TriggerTrain();
         FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked); 
     }

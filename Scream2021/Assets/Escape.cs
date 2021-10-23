@@ -10,7 +10,6 @@ public class Escape : MonoBehaviour
     [SerializeField] GameObject door1;
     [SerializeField] GameObject door2;
     [SerializeField] GameObject monster;
-    [SerializeField] GameObject playerCam; 
 
     [SerializeField] Transform pointB;
     [SerializeField] Transform pointC;
