@@ -83,12 +83,12 @@ public class Prevoid : MonoBehaviour
          * It's done on purpose, lol*/
 
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSecondsRealtime(5f);
 
 
         //single flick 10 seconds in
         LowFlick(1);
-        yield return new WaitForSeconds(FlickTime());
+        yield return new WaitForSecondsRealtime(FlickTime());
         LowUnFlick();
 
 
@@ -97,16 +97,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(4f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -115,16 +115,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(2f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -133,16 +133,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(4f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -151,16 +151,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(3f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -169,48 +169,30 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(3f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
 
-        yield return new WaitForSeconds(4f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSeconds(2f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -219,16 +201,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(4f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -237,16 +219,16 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(3f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
@@ -255,31 +237,49 @@ public class Prevoid : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(3f - accumulatedTime);
+        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 2; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(1));
+            yield return new WaitForSecondsRealtime(FlickTime(1));
         }
 
 
 
 
-        yield return new WaitForSeconds(5f - accumulatedTime);
+
+
+
+        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSecondsRealtime(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSecondsRealtime(FlickTime(1));
+        }
+
+
+
+
+        yield return new WaitForSecondsRealtime(5f - accumulatedTime);
         accumulatedTime = 0;
 
 
         for (int i = 0; i < 5; i++)
         {
             LowFlick(2);
-            yield return new WaitForSeconds(FlickTime());
+            yield return new WaitForSecondsRealtime(FlickTime());
             LowUnFlick();
-            yield return new WaitForSeconds(FlickTime(2));
+            yield return new WaitForSecondsRealtime(FlickTime(2));
         }
 
 
@@ -288,16 +288,16 @@ public class Prevoid : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(1f - accumulatedTime);
+            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
             accumulatedTime = 0;
 
 
             for (int j = 0; j < 3; j++)
             {
                 LowFlick(2);
-                yield return new WaitForSeconds(FlickTime());
+                yield return new WaitForSecondsRealtime(FlickTime());
                 LowUnFlick();
-                yield return new WaitForSeconds(FlickTime(2));
+                yield return new WaitForSecondsRealtime(FlickTime(2));
             }
         }
 
@@ -309,16 +309,16 @@ public class Prevoid : MonoBehaviour
 
         for(int i = 0; i < 10; i++)
         {
-            yield return new WaitForSeconds(.5f - accumulatedTime);
+            yield return new WaitForSecondsRealtime(.5f - accumulatedTime);
             accumulatedTime = 0;
 
 
             for (int j = 0; j < 3; j++)
             {
                 LowFlick(4);
-                yield return new WaitForSeconds(FlickTime());
+                yield return new WaitForSecondsRealtime(FlickTime());
                 LowUnFlick();
-                yield return new WaitForSeconds(FlickTime(2));
+                yield return new WaitForSecondsRealtime(FlickTime(2));
             }
         }
 
@@ -326,33 +326,33 @@ public class Prevoid : MonoBehaviour
 
         for (int i = 0; i < 20; i++)
         {
-            yield return new WaitForSeconds(.3f - accumulatedTime);
+            yield return new WaitForSecondsRealtime(.3f - accumulatedTime);
             accumulatedTime = 0;
 
 
             for (int j = 0; j < 3; j++)
             {
                 LowFlick(4);
-                yield return new WaitForSeconds(FlickTime());
+                yield return new WaitForSecondsRealtime(FlickTime());
                 
                 
 
                 LowUnFlick();
-                yield return new WaitForSeconds(FlickTime(2));
+                yield return new WaitForSecondsRealtime(FlickTime(2));
             }
         }
 
 
         for (int i = 0; i < 2; i++)
         {
-            yield return new WaitForSeconds(1f - accumulatedTime);
+            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
             accumulatedTime = 0;
 
 
             for (int j = 0; j < 3; j++)
             {
                 Flick();
-                yield return new WaitForSeconds(FlickTime());
+                yield return new WaitForSecondsRealtime(FlickTime());
 
                 UnFlick();
                 if (j == 1)
@@ -374,7 +374,7 @@ public class Prevoid : MonoBehaviour
                     }
 
                 }
-                yield return new WaitForSeconds(FlickTime(2));
+                yield return new WaitForSecondsRealtime(FlickTime(2));
             }
         }
 
