@@ -20,6 +20,8 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] GameObject dPadClone;
     [SerializeField] GameObject zipperClone;
     [SerializeField] GameObject elderGodMove;
+    [SerializeField] GameObject secondTrainMove; 
+
 
     [SerializeField] GameObject chain;
     [SerializeField] GameObject chainDPad;
@@ -115,6 +117,7 @@ public class SymbolInteractions : MonoBehaviour
 
         chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         elderGodMove.SetActive(true);
+        secondTrainMove.SetActive(true);
         FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue);
         photoMemento.SetActive(true);
         zipperMemento.SetActive(false); 
@@ -139,6 +142,7 @@ public class SymbolInteractions : MonoBehaviour
     {
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
         trainMonster.SetActive(true);
+        FindObjectOfType<SecondTrain>().IsLastMementoPlaced();
         FindObjectOfType<DialogueUI>().ShowDialogue(heardMonster); 
     }
 
