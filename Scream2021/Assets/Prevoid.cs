@@ -9,7 +9,9 @@ public class Prevoid : MonoBehaviour
     Color tinted;
 
     public Transform player;
+    public GameObject player2;
     public GameObject cam;
+    public GameObject cam2;
 
     public float camXrot;
     public float playerYrot;
@@ -17,13 +19,34 @@ public class Prevoid : MonoBehaviour
 
     float accumulatedTime;
 
+    public static Prevoid instance;
+
+
+
 
     public void Awake()
     {
+
+     
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+
         AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
         accumulatedTime = 0;     
         StartCoroutine("Timer");
         tinted = new Color(0.6650944f, 0.9123682f, 1);
+        DontDestroyOnLoad(gameObject);
+        
 
     }
 
@@ -353,9 +376,6 @@ public class Prevoid : MonoBehaviour
             }
         }
 
-        playerYrot = player.rotation.eulerAngles.y;
-        camXrot = cam.transform.rotation.eulerAngles.x;
-        Debug.Log("Transition!");
 
 
 
@@ -367,6 +387,15 @@ public class Prevoid : MonoBehaviour
 
         #endregion
 
+        playerYrot = player.rotation.eulerAngles.y;
+        camXrot = cam.transform.rotation.eulerAngles.x;
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+
+        /*
+       
+
+        
+    */
 
 
 
