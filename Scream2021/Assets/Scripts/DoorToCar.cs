@@ -25,7 +25,7 @@ public class DoorToCar : MonoBehaviour
     {
         myAudioSource = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.UnlockDoor);
         myAudioSource2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.OpenDoor);
-
+    
     }
     void Start()
     {
