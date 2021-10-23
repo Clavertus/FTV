@@ -3632,7 +3632,6 @@ MonoBehaviour:
   door1: {fileID: 339001466}
   door2: {fileID: 1156593692}
   monster: {fileID: 1290869243}
-  playerCam: {fileID: 1341483291}
   pointB: {fileID: 1403201469}
   pointC: {fileID: 1017699707}
   pointD: {fileID: 1847479576}
@@ -6976,7 +6975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Height
@@ -6993,6 +6992,18 @@ PrefabInstance:
     - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Center.z
       value: 1.0344135
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665047850812074390, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665047851845298611, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665047851991914283, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -35.1
       objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
