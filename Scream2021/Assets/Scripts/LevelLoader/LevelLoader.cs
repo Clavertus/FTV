@@ -68,18 +68,24 @@ public class LevelLoader : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
+        float t = 0;
         while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += fadeStep;
-            yield return new WaitForSeconds(fadeTime);
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, t);
+            t += fadeStep * Time.deltaTime;
+            yield return new WaitForSeconds(0);
         }
     }
 
     public IEnumerator FadeOut()
     {
+        float t = 0;
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= fadeStep;
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, t);
+            t += fadeStep * Time.deltaTime;
             yield return new WaitForSeconds(fadeTime);
         }
     }

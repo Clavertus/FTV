@@ -16,8 +16,8 @@ public class Prevoid : MonoBehaviour
     public float camXrot;
     public float playerYrot;
 
-    
-   
+
+
 
     float accumulatedTime;
 
@@ -29,7 +29,7 @@ public class Prevoid : MonoBehaviour
     public void Awake()
     {
 
-     
+
         if (instance == null)
         {
             instance = this;
@@ -44,11 +44,11 @@ public class Prevoid : MonoBehaviour
 
 
         AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
-        accumulatedTime = 0;     
+        accumulatedTime = 0;
         StartCoroutine("Timer");
         tinted = new Color(0.6650944f, 0.9123682f, 1);
         DontDestroyOnLoad(gameObject);
-        
+
 
     }
 
@@ -63,7 +63,7 @@ public class Prevoid : MonoBehaviour
         }
         else
         {
-           
+
             float b = Random.Range(0.02f, 0.1f);
             accumulatedTime += b;
 
@@ -302,12 +302,12 @@ public class Prevoid : MonoBehaviour
         }
 
 
-      
-        
 
 
 
-        for(int i = 0; i < 10; i++)
+
+
+        for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSecondsRealtime(.5f - accumulatedTime);
             accumulatedTime = 0;
@@ -334,8 +334,6 @@ public class Prevoid : MonoBehaviour
             {
                 LowFlick(4);
                 yield return new WaitForSecondsRealtime(FlickTime());
-                
-                
 
                 LowUnFlick();
                 yield return new WaitForSecondsRealtime(FlickTime(2));
@@ -411,9 +409,11 @@ public class Prevoid : MonoBehaviour
         {
             a.type = LightType.Point;
             a.color = tinted;
-            switch (flickIntensity) {
+            switch (flickIntensity)
+            {
 
-                case 0:  a.intensity = Random.Range(3f, 4f);
+                case 0:
+                    a.intensity = Random.Range(3f, 4f);
                     break;
 
                 case 1:
