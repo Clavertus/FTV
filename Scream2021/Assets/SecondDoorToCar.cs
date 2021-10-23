@@ -51,7 +51,8 @@ public class SecondDoorToCar : MonoBehaviour
         FindObjectOfType<MouseLook>().LockCamera();
         GetComponent<Selectable>().enabled = false;
         firstInteraction = true;
-        selectableCanvas.transform.position = new Vector3(100, 100, 100); 
+        selectableCanvas.transform.position = new Vector3(100, 100, 100);
+
     }
     public void OpenDoor()
     {
