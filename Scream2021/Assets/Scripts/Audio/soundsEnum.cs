@@ -16,11 +16,8 @@ public enum soundsEnum
 	MonsterAttack = 13,
 	MonsterMildAggressive = 14,
 	MonsterMildAggressive2 = 15,
-
 	PushDoor = 16,
-
-	PrevoidTrack = 17,
-
-	Credits = 18,
+	Credits = 17,
+	PrevoidTrack = 18,
 
 }

@@ -54,18 +54,19 @@ public class Credits : MonoBehaviour
         {
             if (i == 0)
             {
-                if (LevelLoader.instance.ending == Ending.Bad)
+                if (LevelLoader.instance.ending == Ending.Unknow)
+                {
+                    credits[i].text = "UNKNOWN\nENDING";
+                }
+                else if (LevelLoader.instance.ending == Ending.Bad)
                 {
                     credits[i].text = "BAD\nENDING";
                 }
                 else if (LevelLoader.instance.ending == Ending.Good)
                 {
-                    credits[i].text = "GOOD\nENDING";
+                    credits[i].text = "GOOD\nENDING"; 
                 }
-                else if(LevelLoader.instance.ending == Ending.Unknow)
-                {
-                    credits[i].text = "UNKNOWN\nENDING";
-                }
+                
             }
             StartCoroutine(FadeInText(credits[i]));
             yield return new WaitForSeconds(textDuration);

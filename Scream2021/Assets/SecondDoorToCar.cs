@@ -8,9 +8,13 @@ public class SecondDoorToCar : MonoBehaviour
     [SerializeField] GameObject trainMonster;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject physicalDoor;
+    [SerializeField] GameObject selectableSideDoor;
+    [SerializeField] GameObject sideDoor; 
     [SerializeField] Transform doorOpenPosition;
     [SerializeField] float openSpeed = 1;
+    [SerializeField] Canvas selectableCanvas;
     bool openDoor = false;
+    bool firstInteraction = false; 
     AudioSource myAudioSource;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +29,7 @@ public class SecondDoorToCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.tag == ("Selected")) { StartCoroutine(FirstInteraction()); }
+        if(gameObject.tag == ("Selected") && !firstInteraction) { StartCoroutine(FirstInteraction()); }
         if (openDoor) {
             Debug.Log("opening");
             physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorOpenPosition.position, openSpeed * Time.deltaTime);
@@ -40,8 +44,14 @@ public class SecondDoorToCar : MonoBehaviour
         gameObject.tag = ("Untagged");
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
         trainMonster.SetActive(true);
+        selectableSideDoor.SetActive(true);
+        sideDoor.GetComponent<OpenSideDoor>().PushDoor(); 
+        FindObjectOfType<SecondTrain>().TriggerTrain();
         FindObjectOfType<PlayerMovement>().LockPlayer();
         FindObjectOfType<MouseLook>().LockCamera();
+        GetComponent<Selectable>().enabled = false;
+        firstInteraction = true;
+        selectableCanvas.transform.position = new Vector3(100, 100, 100); 
     }
     public void OpenDoor()
     {

@@ -7,6 +7,7 @@ public class WindowOne : MonoBehaviour
 {
     [SerializeField] DialogueObject windowOneInspection;
     [SerializeField] DialogueObject windowTwoInspection;
+    [SerializeField] GameObject symbol; 
 
     static bool inspectedOnce;
     static bool inspectedTwice; 
@@ -31,7 +32,6 @@ public class WindowOne : MonoBehaviour
 
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(windowOneInspection);
-        FindObjectOfType<DoorToCar>().gameObject.SetActive(false); 
         inspectedOnce = true;  
     }
 
@@ -40,6 +40,6 @@ public class WindowOne : MonoBehaviour
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(windowTwoInspection);
         FindObjectOfType<WindowOne>().InspectedTwice();
-        FindObjectOfType<SymbolInteractions>().AreWindowsChecked();  
+        symbol.gameObject.SetActive(true);   
     }
 }

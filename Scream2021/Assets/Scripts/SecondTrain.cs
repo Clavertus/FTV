@@ -11,7 +11,7 @@ public class SecondTrain : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float speedBoost = 10f;
     bool hitPointB = false;
-    bool placedLastMemento = false; 
+    bool triggerTrain = false; 
     bool enableMovement = false;
 
     // Start is called before the first frame update
@@ -49,15 +49,15 @@ public class SecondTrain : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 90, 0);   
             
         }
-        if (hitPointB && placedLastMemento) 
+        if (hitPointB && triggerTrain) 
         {
             MoveToPointC();
         }
     }
 
-    public void IsLastMementoPlaced()
+    public void TriggerTrain()
     {
-        placedLastMemento = true; 
+        triggerTrain = true; 
     }
     private void MoveToPointB()
     {

@@ -64,7 +64,7 @@ MonoBehaviour:
   - name: UI1
     clip: {fileID: 8300000, guid: b3f37542009bd89469a93c71483290cc, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.733
+    volume: 0.15
     pitch: 0
     loop: 0
     playOnAwake: 0
@@ -286,10 +286,10 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
-  - name: PrevoidTrack
-    clip: {fileID: 8300000, guid: 4ab2e3765b5cea84286e8ba21722a61f, type: 3}
+  - name: PushDoor
+    clip: {fileID: 8300000, guid: 3175d961001ac3f4e88521f6daaec656, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.902
+    volume: 1
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -302,9 +302,24 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Credits
-    clip: {fileID: 8300000, guid: f1d5d124a3f1f8c42aee1ac1e294150c, type: 3}
+    clip: {fileID: 8300000, guid: 8a25e88165e375749831859ee90ac8ea, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.902
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: PrevoidTrack
+    clip: {fileID: 8300000, guid: 4ab2e3765b5cea84286e8ba21722a61f, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
     pitch: 0.1
     loop: 0
     playOnAwake: 0

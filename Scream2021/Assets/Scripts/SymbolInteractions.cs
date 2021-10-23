@@ -6,6 +6,8 @@ public class SymbolInteractions : MonoBehaviour
 {
     [Header("Dialogue Data")]
     [SerializeField] DialogueObject firstDialogue;
+    [SerializeField] DialogueObject dPadDialogue;
+
     [SerializeField] DialogueObject zipperDialogue;
     [SerializeField] DialogueObject frameStandDialogue;
     [SerializeField] DialogueObject doorUnlocked;
@@ -59,15 +61,11 @@ public class SymbolInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (checkedWindows )
+        if (gameObject.tag == ("Selected") && interactionCounter == 0)
         {
-            chain.SetActive(true); 
-            GetComponent<Selectable>().enabled = true; 
-            if (gameObject.tag == ("Selected") && interactionCounter == 0)
-            {
-                FirstInteraction();
-            }
-        } 
+           FirstInteraction();
+        }
+        
 
         if (pocketed && interactionCounter == 1 && gameObject.tag == "Selected" && pocketItem == ("DPad")) 
         {
@@ -97,7 +95,8 @@ public class SymbolInteractions : MonoBehaviour
     void ApplyDPad()
     {
         AudioManager.instance.PlayFromAudioManager(soundsEnum.ApplyDPad);
-
+        FindObjectOfType<DialogueUI>().ShowDialogue(dPadDialogue);
+         
         gameObject.tag = ("Untagged");
 
         chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
@@ -127,6 +126,7 @@ public class SymbolInteractions : MonoBehaviour
 
         gameObject.tag = ("Untagged");
 
+        photoMemento.SetActive(false);
         chain.GetComponent<MeshRenderer>().material = frameMat;
         FindObjectOfType<DialogueUI>().ShowDialogue(frameStandDialogue);
         interactionCounter++;
@@ -142,7 +142,7 @@ public class SymbolInteractions : MonoBehaviour
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
         doorToCar.SetActive(true);
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX();
-        FindObjectOfType<SecondTrain>().IsLastMementoPlaced();
+        FindObjectOfType<SecondTrain>().TriggerTrain();
         FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked); 
     }
 
