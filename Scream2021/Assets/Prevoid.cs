@@ -15,6 +15,8 @@ public class Prevoid : MonoBehaviour
 
     public float camXrot;
     public float playerYrot;
+
+    
    
 
     float accumulatedTime;
