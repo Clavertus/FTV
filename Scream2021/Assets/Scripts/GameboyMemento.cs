@@ -46,7 +46,7 @@ public class GameboyMemento : MonoBehaviour
     void FirstInteraction()
     {
         examineMode = true; 
-        gameObject.tag = ("Untagged");
+        
         FindObjectOfType<DialogueUI>().ShowDialogue(inspectionDialogue);
         
         interactionCounter = 1;
@@ -54,7 +54,7 @@ public class GameboyMemento : MonoBehaviour
 
     IEnumerator DPadFell()
     {
-
+        gameObject.tag = ("Untagged");
         GetComponent<BoxCollider>().enabled = false;
         
         dPad.gameObject.GetComponent<MeshRenderer>().enabled = true;

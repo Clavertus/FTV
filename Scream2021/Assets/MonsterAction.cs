@@ -46,6 +46,12 @@ public class MonsterAction : MonoBehaviour
     bool actionZoneTriggered = false;
     [SerializeField] Transform Player = null;
 
+    [Header("Player Dialogue")]
+    [SerializeField] GameObject dialogueBox; 
+    [SerializeField] DialogueObject gTFO;
+
+
+
     [Header("Change StartSequence to true to start monster final sequence")]
     [Header("TODO: it is also now triggered by OnEnable (CHANGE THIS!)")]
     public bool StartSequence = false;
@@ -274,4 +280,5 @@ public class MonsterAction : MonoBehaviour
     {
         finishedAction = true;
     }
+   
 }
