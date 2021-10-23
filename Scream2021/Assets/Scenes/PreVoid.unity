@@ -9091,6 +9091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Center Cursor
       objectReference: {fileID: 0}
+    - target: {fileID: 9070595961071553731, guid: a0b6bd778e56ed64faacfdcc67c35816, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9070595961071553743, guid: a0b6bd778e56ed64faacfdcc67c35816, type: 3}
       propertyPath: m_Pivot.x
       value: 0
