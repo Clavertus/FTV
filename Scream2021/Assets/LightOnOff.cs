@@ -14,6 +14,7 @@ public class LightOnOff : MonoBehaviour
     float TimeCount = 0f;
     float LightOffTime = 0.1f;
     float LightOnTime = 0.1f;
+
     // Update is called once per frame
     void Update()
     {

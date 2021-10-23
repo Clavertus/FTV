@@ -20,6 +20,7 @@ public class DialogueUI : MonoBehaviour
     {
         dialogueBox.SetActive(true);
 
+        FindObjectOfType<MouseLook>().LockCamera();
         FindObjectOfType<PlayerMovement>().LockPlayer(); 
         FindObjectOfType<SelectionManager>().LockSelection();
         
@@ -43,6 +44,7 @@ public class DialogueUI : MonoBehaviour
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
 
+        FindObjectOfType<MouseLook>().UnlockCamera();
         FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
         FindObjectOfType<SelectionManager>().UnlockSelection();
         FindObjectOfType<Examine>().ExitExamineMode();

@@ -7,8 +7,9 @@ public class GodPointMovement : MonoBehaviour
 {
     [SerializeField] Transform pointA = null;
     [SerializeField] Transform pointB = null;
-    [SerializeField] float speed = 10f;
 
+    [SerializeField] float speed = 10f;
+    [SerializeField] float speedBoost = 10f;
     bool enableMovement = false;
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class GodPointMovement : MonoBehaviour
         {
             MoveToPointB();
         }
+        
     }
 
     private void MoveToPointB()
@@ -45,6 +47,12 @@ public class GodPointMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(pointA.position, pointB.position, speed * Time.deltaTime);
     }
 
+    
+
+    public void increaseSpeed()
+    {
+        speed = speedBoost;
+    }
     public void OnEnable()
     {
         enableMovement = true;
