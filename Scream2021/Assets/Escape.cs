@@ -78,22 +78,16 @@ public class Escape : MonoBehaviour
     }
     void MoveToPointD()
     {
-        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Drone);
-        
-        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
-        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive);
-        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive2);
-        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAttack);
-        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterBreathe);
-        
-
-
-
-
-
-
-
         if (player.transform.position == pointD.transform.position) { return; }
+        if (FindObjectOfType<MonsterAction>())
+        {
+            AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive);
+            AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive2);
+            AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAttack);
+            AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterBreathe);
+        }
+
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
         LevelLoader.instance.ending = Ending.Good;
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());   
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeed * Time.deltaTime);

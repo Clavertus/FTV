@@ -55,8 +55,7 @@ public class LevelLoader : MonoBehaviour
         StopAllCoroutines();
         yield return StartCoroutine(FadeIn());
         LoadNextScene();
-        yield return new WaitForSeconds(5f);
-        yield return StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut());
     }
 
     public IEnumerator StartLoadingScene(int index)
@@ -64,7 +63,7 @@ public class LevelLoader : MonoBehaviour
         StopAllCoroutines();
         yield return StartCoroutine(FadeIn());
         LoadScene(index);
-        yield return StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut());
     }
 
     public IEnumerator FadeIn()

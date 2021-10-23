@@ -296,7 +296,6 @@ public class MonsterAction : MonoBehaviour
         //currently just disables monster
         LevelLoader.instance.ending = Ending.Bad;
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene()); 
-        this.gameObject.SetActive(false);
     }
 
     bool PlayerFound = false;

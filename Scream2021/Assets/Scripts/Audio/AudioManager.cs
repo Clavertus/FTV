@@ -189,7 +189,7 @@ public class AudioManager : MonoBehaviour
     {
         StopCoroutine(instance.FadeInSound(audioSource));
         float t = 0;
-        while (audioSource.volume != 0)
+        while (audioSource != null && audioSource.volume != 0) 
         {
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0, t);
             t += audioFadeSpeed * Time.deltaTime;
@@ -209,8 +209,8 @@ public class AudioManager : MonoBehaviour
         Debug.Log(audioSource.volume);
         Debug.Log(audioSource.clip);
 
-        Debug.Log(audioSource.gameObject.name); 
-        while (audioSource.volume != volume)
+        Debug.Log(audioSource.gameObject.name);
+        while (audioSource != null && audioSource.volume != volume)
         {
             audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
             t += audioFadeSpeed * Time.deltaTime;
