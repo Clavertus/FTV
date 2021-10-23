@@ -5,7 +5,8 @@ using UnityEngine;
 public class Examine : MonoBehaviour
 {
     [SerializeField] Canvas examineCanvas;
-    [SerializeField] GameObject dialogueBox; 
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject player; 
     Camera mainCam;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
 
@@ -78,6 +79,8 @@ public class Examine : MonoBehaviour
                     //Turn Examine Mode To True
                     examineMode = true;
 
+                    player.tag = ("Untagged"); 
+
                 }
             }
         }
@@ -103,6 +106,8 @@ public class Examine : MonoBehaviour
     {
         if (examineMode)
         {
+            player.tag = ("Player");
+
             GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
 

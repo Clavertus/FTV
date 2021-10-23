@@ -5,14 +5,28 @@ using UnityEngine;
 public class DoorToCar : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
+    [SerializeField] DialogueObject openDoorDialogue;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject physicalDoor;
+
+    [SerializeField] Transform doorOpenPosition;
+    [SerializeField] float openSpeed = 5f; 
 
     [SerializeField] GameObject windows;
-    
+
+    AudioSource myAudioSource;
+    AudioSource myAudioSource2;
 
     //State
-    
+    bool openingDoor = false; 
     int interactionCounter = 0;
 
+    private void OnEnable()
+    {
+        myAudioSource = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.UnlockDoor);
+        myAudioSource2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.OpenDoor);
+
+    }
     void Start()
     {
         windows.SetActive(false);
@@ -21,6 +35,8 @@ public class DoorToCar : MonoBehaviour
     void Update()
     {
         if (gameObject.tag == "Selected" && interactionCounter == 0) { FirstInteraction(); }
+        if (gameObject.tag == "Selected" && interactionCounter == 1) { StartCoroutine(SecondInteraction()); }
+        if (openingDoor) { OpenDoor(); }
     }
 
     void FirstInteraction()
@@ -30,6 +46,24 @@ public class DoorToCar : MonoBehaviour
         windows.SetActive(true);
         interactionCounter++;
     }
-    
-    
+    public void UnlockDoorSFX() {
+        AudioManager.instance.PlayFromGameObject(myAudioSource);  
+    }
+    IEnumerator SecondInteraction()
+    {
+        gameObject.tag = ("Untagged");
+        FindObjectOfType<DialogueUI>().ShowDialogue(openDoorDialogue);
+        interactionCounter++;
+        yield return new WaitUntil(() => !dialogueBox.activeSelf);
+        openingDoor = true;
+        AudioManager.instance.PlayFromGameObject(myAudioSource2);  
+    }
+    void OpenDoor()
+    {
+        Debug.Log("opening");
+        physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorOpenPosition.position, openSpeed * Time.deltaTime);
+
+        if(physicalDoor.transform.position == doorOpenPosition.position) { gameObject.SetActive(false); }
+    }
+
 }

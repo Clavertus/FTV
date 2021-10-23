@@ -46,12 +46,11 @@ public class SecondTrain : MonoBehaviour
         {
             Debug.Log("hit");
             hitPointB = true;
-            transform.rotation = Quaternion.Euler(0, 0, 0);   
+            transform.rotation = Quaternion.Euler(0, 90, 0);   
             
         }
         if (hitPointB && placedLastMemento) 
         {
-            Debug.Log("moveC");
             MoveToPointC();
         }
     }
