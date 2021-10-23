@@ -12,5 +12,9 @@ public enum soundsEnum
 	ApplyZipper = 9,
 	OpenDoor = 10,
 	UnlockDoor = 11,
+	MonsterBreathe = 12,
+	MonsterAttack = 13,
+	MonsterMildAggressive = 14,
+	MonsterMildAggressive2 = 15,
 
 }
