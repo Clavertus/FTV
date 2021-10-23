@@ -9,7 +9,7 @@ public class PassengerAnimation : MonoBehaviour
 {   
     [SerializeField] bool isPose;
     [Range(0, 9)]
-    [SerializeField] int animationId = 0;
+    [SerializeField] public int animationId = 0;
     [Range(0f, 100000f)]
     [SerializeField] int animationFrame = 0;
     public AnimationClip[] animationClips;

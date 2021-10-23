@@ -46,28 +46,43 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 24300002, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
   audioFadeSpeed: 0.1
   sounds:
-  - name: Drone
+  - name: Commuting
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.2
+    volume: 0.057
     pitch: 0.1
     loop: 0
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 0
-    stereoPan: -0.38
+    stereoPan: 0
     sourceCurveType: 0
     rolloffMode: 0
-    min: 1999
-    max: 2000
+    min: 1
+    max: 500
     source: {fileID: 0}
   - name: UI1
     clip: {fileID: 8300000, guid: b3f37542009bd89469a93c71483290cc, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.733
     pitch: 0
     loop: 0
     playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Drone
+    clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.057
+    pitch: 0
+    loop: 1
+    playOnAwake: 1
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -77,27 +92,12 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Change4
-    clip: {fileID: 8300000, guid: 1b356d03a0ffa674fb418150b96a3bb8, type: 3}
+    clip: {fileID: 0}
     audioMixerGroup: {fileID: 0}
-    volume: 0.7
+    volume: 0.107
     pitch: 0
-    loop: 0
-    playOnAwake: 0
-    advancedMode: 0
-    spatialBlend: 3
-    stereoPan: 0
-    sourceCurveType: 3
-    rolloffMode: 1
-    min: 0
-    max: 5
-    source: {fileID: 0}
-  - name: Change7
-    clip: {fileID: 8300000, guid: 0f85d86e2859ee446ad7773e0b1b7936, type: 3}
-    audioMixerGroup: {fileID: 0}
-    volume: 0.7
-    pitch: 0
-    loop: 0
-    playOnAwake: 0
+    loop: 1
+    playOnAwake: 1
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -107,10 +107,55 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: Change5
-    clip: {fileID: 8300000, guid: 829e58da7150d7c4db239fe064ab4478, type: 3}
+    clip: {fileID: 0}
     audioMixerGroup: {fileID: 0}
-    volume: 0.7
+    volume: 0.134
     pitch: 0
+    loop: 1
+    playOnAwake: 1
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Change7
+    clip: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.098
+    pitch: 0
+    loop: 1
+    playOnAwake: 1
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: TV
+    clip: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.023
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 1
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: ApplyDPad
+    clip: {fileID: 8300000, guid: 517b9d9d507484940bf406daf2599439, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.808
+    pitch: 0.1
     loop: 0
     playOnAwake: 0
     advancedMode: 0
@@ -121,11 +166,71 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
-  - name: TV
-    clip: {fileID: 8300000, guid: 0989e00304b49b34aa7e1baec1b4676d, type: 3}
+  - name: ApplyFrameStand
+    clip: {fileID: 8300000, guid: 26504bb77eacb2f4e947780fc331200c, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 1
-    pitch: 0.24
+    volume: 0.816
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: ApplyZipper
+    clip: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: 3c948790f74a7fb439893d3646237312, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: UnlockDoor
+    clip: {fileID: 8300000, guid: e2356062d1ccf274eb40d3bcff7cb0f0, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: MonsterBreathe
+    clip: {fileID: 8300000, guid: 49586eb0340628a42b7cac3349b69a82, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
     loop: 1
     playOnAwake: 0
     advancedMode: 0
@@ -136,10 +241,70 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
-  - name: Credits
-    clip: {fileID: 8300000, guid: 8a25e88165e375749831859ee90ac8ea, type: 3}
+  - name: MonsterAttack
+    clip: {fileID: 8300000, guid: a849c4de9b717104c9cc2e5bac25e61b, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 1
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: MonsterMildAggressive
+    clip: {fileID: 8300000, guid: 79f043d13cb589a4184095458967fdf4, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: MonsterMildAggressive2
+    clip: {fileID: 8300000, guid: 87d02f37a1f92b547a47601fa4c35073, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: PrevoidTrack
+    clip: {fileID: 8300000, guid: 4ab2e3765b5cea84286e8ba21722a61f, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: f1d5d124a3f1f8c42aee1ac1e294150c, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.902
     pitch: 0.1
     loop: 0
     playOnAwake: 0

@@ -5,41 +5,449 @@ using UnityEngine;
 public class Prevoid : MonoBehaviour
 {
     public Light[] lights;
+    public GameObject[] figures;
     Color tinted;
+
+    public Transform player;
+    public GameObject player2;
+    public GameObject cam;
+    public GameObject cam2;
+
+    public float camXrot;
+    public float playerYrot;
+   
+
+    float accumulatedTime;
+
+    public static Prevoid instance;
+
+
+
 
     public void Awake()
     {
+
+     
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+
+        AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
+        accumulatedTime = 0;     
         StartCoroutine("Timer");
         tinted = new Color(0.6650944f, 0.9123682f, 1);
+        DontDestroyOnLoad(gameObject);
+        
+
     }
 
-    
+    public float FlickTime(int a = 1)
+    {
+        if (a == 0)
+        {
+            float b = Random.Range(0.05f, 0.15f);
+            accumulatedTime += b;
+
+            return b;                           //long
+        }
+        else
+        {
+           
+            float b = Random.Range(0.02f, 0.1f);
+            accumulatedTime += b;
+
+            return b;
+            //short
+        }
+
+    }
 
     public IEnumerator Timer()
     {
-        yield return new WaitForSeconds(3f);
+        //DURATION OF THE SOUNDTRACK - 1:07
 
-        
+        #region flickingSequence
 
-       
-        for(int i = 0; i < 20; i++)
+        /* This sequence is hard-coded to get a good non-repeatable expierience.
+         * It's done on purpose, lol*/
+
+
+        yield return new WaitForSeconds(5f);
+
+
+        //single flick 10 seconds in
+        LowFlick(1);
+        yield return new WaitForSeconds(FlickTime());
+        LowUnFlick();
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(4f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
         {
-            Flick();
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
-            Unflick();
-            yield return new WaitForSeconds(Random.Range(0.02f, 0.06f));
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
         }
 
+
+
+
+
+
+
+        yield return new WaitForSeconds(2f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(4f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(3f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(3f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+        yield return new WaitForSeconds(4f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(2f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(4f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(3f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(3f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(1));
+        }
+
+
+
+
+        yield return new WaitForSeconds(5f - accumulatedTime);
+        accumulatedTime = 0;
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            LowFlick(2);
+            yield return new WaitForSeconds(FlickTime());
+            LowUnFlick();
+            yield return new WaitForSeconds(FlickTime(2));
+        }
+
+
+
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(1f - accumulatedTime);
+            accumulatedTime = 0;
+
+
+            for (int j = 0; j < 3; j++)
+            {
+                LowFlick(2);
+                yield return new WaitForSeconds(FlickTime());
+                LowUnFlick();
+                yield return new WaitForSeconds(FlickTime(2));
+            }
+        }
+
+
+      
         
 
 
 
+        for(int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(.5f - accumulatedTime);
+            accumulatedTime = 0;
 
+
+            for (int j = 0; j < 3; j++)
+            {
+                LowFlick(4);
+                yield return new WaitForSeconds(FlickTime());
+                LowUnFlick();
+                yield return new WaitForSeconds(FlickTime(2));
+            }
+        }
+
+
+
+        for (int i = 0; i < 20; i++)
+        {
+            yield return new WaitForSeconds(.3f - accumulatedTime);
+            accumulatedTime = 0;
+
+
+            for (int j = 0; j < 3; j++)
+            {
+                LowFlick(4);
+                yield return new WaitForSeconds(FlickTime());
+                
+                
+
+                LowUnFlick();
+                yield return new WaitForSeconds(FlickTime(2));
+            }
+        }
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            yield return new WaitForSeconds(1f - accumulatedTime);
+            accumulatedTime = 0;
+
+
+            for (int j = 0; j < 3; j++)
+            {
+                Flick();
+                yield return new WaitForSeconds(FlickTime());
+
+                UnFlick();
+                if (j == 1)
+                // mannequinnes stand up
+                {
+                    for (int k = 0; k < figures.Length; k++)
+                    {
+                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
+                        figures[k].transform.position += figures[k].transform.forward;
+                    }
+                }
+
+                if (j == 2)
+                {
+
+                    for (int k = 0; k < figures.Length; k++)
+                    {
+                        figures[k].GetComponent<Transform>().LookAt(player);
+                    }
+
+                }
+                yield return new WaitForSeconds(FlickTime(2));
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        #endregion
+
+        playerYrot = player.rotation.eulerAngles.y;
+        camXrot = cam.transform.rotation.eulerAngles.x;
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+
+        /*
+       
+
+        
+    */
 
 
 
 
     }
+
+
+    public void LowFlick(int flickIntensity = 0)
+    {
+        foreach (Light a in lights)
+        {
+            a.type = LightType.Point;
+            a.color = tinted;
+            switch (flickIntensity) {
+
+                case 0:  a.intensity = Random.Range(3f, 4f);
+                    break;
+
+                case 1:
+                    a.intensity = Random.Range(2f, 4f);
+                    break;
+
+                case 2:
+                    a.intensity = Random.Range(1f, 3f);
+                    break;
+
+                case 3:
+                    a.intensity = Random.Range(.5f, 2f);
+                    break;
+
+                case 4:
+                    a.intensity = Random.Range(.1f, 1f);
+                    break;
+
+
+            }
+        }
+    }
+
+    public void LowUnFlick()
+    {
+        foreach (Light a in lights)
+        {
+            a.type = LightType.Point;
+            a.color = tinted;
+            a.intensity = 6f;
+        }
+    }
+
+
+
+
 
 
     public void Flick()
@@ -51,12 +459,12 @@ public class Prevoid : MonoBehaviour
         }
     }
 
-    public void Unflick()
+    public void UnFlick()
     {
         foreach (Light a in lights)
         {
             a.type = LightType.Point;
-            a.color = tinted;
+            a.color = Color.black;
         }
     }
 

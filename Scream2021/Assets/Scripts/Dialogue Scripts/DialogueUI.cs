@@ -13,7 +13,7 @@ public class DialogueUI : MonoBehaviour
         displayDialogue = GetComponent<DisplayDialogue>();
         CloseDialogueBox();
         //gives the desired dialogue object
-        ShowDialogue(testDialogue); 
+       // ShowDialogue(testDialogue); 
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
