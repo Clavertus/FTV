@@ -38,10 +38,19 @@ public class Selectable : MonoBehaviour
     
     public void DisableSelectable()
     {
-
         selectableCanvas.gameObject.SetActive(false);
-    }
 
+    }
+    public void DelayedDisableSelectable()
+    {
+        StartCoroutine(WaitAndDisable());
+    }
+    private IEnumerator WaitAndDisable()
+    {
+        yield return new WaitForSeconds(.2f);
+        selectableCanvas.gameObject.SetActive(false);
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         

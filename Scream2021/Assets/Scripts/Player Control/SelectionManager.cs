@@ -53,7 +53,8 @@ public class SelectionManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     selection.gameObject.tag = ("Selected");
-                    selection.GetComponent<Selectable>().DisableSelectable();
+
+                    selection.GetComponent<Selectable>().DelayedDisableSelectable();   
                 }
             }
 

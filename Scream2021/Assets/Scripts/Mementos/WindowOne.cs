@@ -31,7 +31,7 @@ public class WindowOne : MonoBehaviour
 
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(windowOneInspection);
-        FindObjectOfType<DoorToCar>().enabled = false;   
+        FindObjectOfType<DoorToCar>().gameObject.SetActive(false); 
         inspectedOnce = true;  
     }
 
