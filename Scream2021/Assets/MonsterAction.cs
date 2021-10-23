@@ -58,6 +58,13 @@ public class MonsterAction : MonoBehaviour
 
     bool InJump = false;
 
+    AudioSource monsterBreathe;
+    AudioSource monsterAttack;
+    AudioSource monsterAgressive;
+    AudioSource monsterAgressive2; 
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -96,7 +103,7 @@ public class MonsterAction : MonoBehaviour
             TriggerAnimationWithId((int)currentState);
         }
 
-        AnimationStateMachine();
+        StartCoroutine(AnimationStateMachine());
     }
 
     private void TriggerAnimationWithId(int currentState)
@@ -109,10 +116,15 @@ public class MonsterAction : MonoBehaviour
     {
         //TODO: set this variable to true from another script after player has done final things
         StartSequence = true;
+
+        monsterBreathe = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
+        monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
+        monsterAgressive = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
+        monsterAgressive2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive2);
     }
 
     float timeCounter = 0f;
-    private void AnimationStateMachine()
+    private IEnumerator AnimationStateMachine()
     {
         switch(currentState)
         {
@@ -121,18 +133,24 @@ public class MonsterAction : MonoBehaviour
                 if (StartSequence)
                 {
                     currentState = monsterStatesEnm.walk;
+                    AudioManager.instance.PlayFromGameObject(monsterBreathe);  
                 }
                 break;
             case monsterStatesEnm.walk:
                 MonsterMove(walkSpeed);
                 if (revealZoneTriggered)
                 {
+                    yield return new WaitUntil(() => !dialogueBox.activeSelf);
+                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     currentState = monsterStatesEnm.reveal;
                 }
                 break;
             case monsterStatesEnm.reveal:
                 if (timeCounter >= pauseAfterReveal)
                 {
+
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive);
+
                     currentState = monsterStatesEnm.run;
                 }
                 timeCounter += Time.deltaTime;
@@ -147,6 +165,8 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.to_open:
                 if (finishedToOpen)
                 {
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive2); 
+
                     currentState = monsterStatesEnm.in_open;
                 }
                 break;
@@ -159,6 +179,7 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.final_open:
                 if(finishedFinallyOpen)
                 {
+                    AudioManager.instance.PlayFromGameObject(monsterBreathe);
                     currentState = monsterStatesEnm.walk_after_open;
                 }
                 break;
@@ -166,12 +187,16 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(walkAfterDoorSpeed);
                 if (actionZoneTriggered)
                 {
+                    AudioManager.instance.PlayFromGameObject(monsterBreathe);
                     currentState = monsterStatesEnm.action;
                 }
                 break;
             case monsterStatesEnm.action:
                 if (finishedAction)
                 {
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive);
+                    AudioManager.instance.PlayFromGameObject(monsterAttack); 
+
                     currentState = monsterStatesEnm.run_to_player;
                 }
                 break;
@@ -195,6 +220,7 @@ public class MonsterAction : MonoBehaviour
                     MonsterJump();
                     if(PlayerFound)
                     {
+                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                         BadEndGameTrigger();
                     }
                 }
@@ -264,6 +290,8 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void FinishedInOpen()
     {
+        AudioManager.instance.PlayFromGameObject(monsterBreathe); 
+
         finishedInOpen++;
     }
 

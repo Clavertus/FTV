@@ -14,7 +14,7 @@ public class Selectable : MonoBehaviour
 
     private void OnEnable()
     {
-       // myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.UI1);
+        Debug.Log(gameObject.name);  
     }
     void Start()
     {
@@ -58,8 +58,8 @@ public class Selectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameObject.tag = ("Selectable");
-           // FindObjectOfType<AudioManager>().PlayFromAudioManager(soundsEnum.UI1);
-        }
+            AudioManager.instance.PlayFromAudioManager(soundsEnum.UI1);  
+        } 
     }
     private void OnTriggerExit(Collider other)
     {
