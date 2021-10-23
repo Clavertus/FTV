@@ -5137,6 +5137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TVstatic: {fileID: 2100000, guid: b01ecf8fffd0a0b46bef5711ab865628, type: 2}
+  stageZero: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  stageOne: {r: 1, g: 0.6745283, b: 0.6745283, a: 1}
+  stageTwo: {r: 0.9150943, g: 0.33236915, b: 0.33236915, a: 1}
+  stageThree: {r: 0.745283, g: 0.16522783, b: 0.16522783, a: 1}
+  materialState: 0
 --- !u!4 &917400949
 Transform:
   m_ObjectHideFlags: 0
