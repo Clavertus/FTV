@@ -179,6 +179,8 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.final_open:
                 if(finishedFinallyOpen)
                 {
+                    FindObjectOfType<SecondDoorToCar>().OpenDoor();
+
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
                     currentState = monsterStatesEnm.walk_after_open;
                 }
