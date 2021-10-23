@@ -412,11 +412,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7590910696206586881, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
   m_PrefabInstance: {fileID: 560836765}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &50796878 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2742915340107370232, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
-  m_PrefabInstance: {fileID: 560836765}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &50796882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,12 +3724,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915997523}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -8.022003, y: 0.099999905, z: -4.2490005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 50796878}
-  m_RootOrder: 0
+  m_Father: {fileID: 867771018}
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &915997525
 BoxCollider:
@@ -4026,7 +4021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5490,7 +5485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2799433092855705048, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: speedBoost
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
@@ -5784,7 +5779,7 @@ MonoBehaviour:
   firstDialogue: {fileID: 11400000, guid: 6cf36e038f7e59c49a5fdeba39afa0eb, type: 2}
   zipperDialogue: {fileID: 11400000, guid: 20fed8a312679a846b9dae7855a814d4, type: 2}
   frameStandDialogue: {fileID: 11400000, guid: b20e9800b1e01d845befb48e427a876a, type: 2}
-  heardMonster: {fileID: 0}
+  heardMonster: {fileID: 11400000, guid: b22ad18003c4ffc439de8c3ab58665f0, type: 2}
   dialogueBox: {fileID: 2074534958}
   gameBoyMemento: {fileID: 179575102}
   zipperMemento: {fileID: 1661093980}
