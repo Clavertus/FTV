@@ -36,6 +36,8 @@ public class MonsterAction : MonoBehaviour
     [SerializeField] float pauseAfterReveal = 1f;
     [SerializeField] int numberOfTriesToOpenDoor = 5;
     [SerializeField] float jumpDistance = 20f;
+    [SerializeField] float minDistance = 4f;
+    [SerializeField] Transform monsterInTheDoor; 
 
     [Header("References to transforms")]
     [SerializeField] Transform revealZone = null;
@@ -58,10 +60,10 @@ public class MonsterAction : MonoBehaviour
 
     bool InJump = false;
 
-    AudioSource monsterBreathe;
-    AudioSource monsterAttack;
-    AudioSource monsterAgressive;
-    AudioSource monsterAgressive2; 
+    public AudioSource monsterBreathe;
+    public AudioSource monsterAttack;
+    public AudioSource monsterAgressive;
+    public AudioSource monsterAgressive2; 
 
 
     
@@ -109,6 +111,7 @@ public class MonsterAction : MonoBehaviour
     private void TriggerAnimationWithId(int currentState)
     {
         myAnimator.SetTrigger(currentState.ToString());
+        
     }
 
 
@@ -117,12 +120,22 @@ public class MonsterAction : MonoBehaviour
         //TODO: set this variable to true from another script after player has done final things
         StartSequence = true;
 
-        monsterBreathe = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
-        monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
-        monsterAgressive = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
-        monsterAgressive2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive2);
+         monsterBreathe = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
+         monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
+         monsterAgressive = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
+         monsterAgressive2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive2);
     }
 
+    public void StopMoving()
+    {
+        currentState = monsterStatesEnm.idle;
+        StartSequence = false;
+        
+    }
+    public void MonsterInTheDoor()
+    {
+        transform.position = monsterInTheDoor.position;
+    }
     float timeCounter = 0f;
     private IEnumerator AnimationStateMachine()
     {
@@ -182,10 +195,19 @@ public class MonsterAction : MonoBehaviour
                     FindObjectOfType<SecondDoorToCar>().OpenDoor();
 
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
-                    currentState = monsterStatesEnm.walk_after_open;
+
+                    if (Vector3.Distance(transform.position, Player.position) <= minDistance)
+                    {
+                        currentState = monsterStatesEnm.jump_and_kill;
+                    }
+                    else
+                    {
+                        currentState = monsterStatesEnm.walk_after_open;
+                    }
                 }
                 break;
             case monsterStatesEnm.walk_after_open:
+                
                 MonsterMove(walkAfterDoorSpeed);
                 if (actionZoneTriggered)
                 {

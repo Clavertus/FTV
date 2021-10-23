@@ -152,6 +152,7 @@ public class AudioManager : MonoBehaviour
 
     public void InstantStopFromGameObject(AudioSource audioSource)
     {
+        audioSource.Stop(); 
         Debug.Log(audioSource.gameObject.name);
     }
 
@@ -187,11 +188,9 @@ public class AudioManager : MonoBehaviour
     private IEnumerator FadeOutSound(AudioSource audioSource)
     {
         StopCoroutine(instance.FadeInSound(audioSource));
-        Debug.Log("Ehyy");
         float t = 0;
         while (audioSource.volume != 0)
         {
-            Debug.Log("Ehyy");
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0, t);
             t += audioFadeSpeed * Time.deltaTime;
             yield return new WaitForSeconds(0);
@@ -209,9 +208,10 @@ public class AudioManager : MonoBehaviour
         Debug.Log(volume);
         Debug.Log(audioSource.volume);
         Debug.Log(audioSource.clip);
+
+        Debug.Log(audioSource.gameObject.name); 
         while (audioSource.volume != volume)
         {
-            Debug.Log("Heyhyhyehye");
             audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
             t += audioFadeSpeed * Time.deltaTime;
             yield return new WaitForSeconds(0);

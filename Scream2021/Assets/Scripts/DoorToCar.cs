@@ -34,17 +34,19 @@ public class DoorToCar : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.tag == "Selected" && interactionCounter == 0) { FirstInteraction(); }
+        if (gameObject.tag == "Selected" && interactionCounter == 0) { StartCoroutine(FirstInteraction()); }
         if (gameObject.tag == "Selected" && interactionCounter == 1) { StartCoroutine(SecondInteraction()); }
         if (openingDoor) { OpenDoor(); }
     }
 
-    void FirstInteraction()
+    IEnumerator FirstInteraction()
     {
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue);
         windows.SetActive(true);
         interactionCounter++;
+        yield return new WaitUntil(() => !dialogueBox.activeSelf);
+        gameObject.SetActive(false); 
     }
     public void UnlockDoorSFX() {
         AudioManager.instance.PlayFromGameObject(myAudioSource);  

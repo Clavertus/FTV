@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public enum Ending
 {
     Unknow,
@@ -27,9 +28,11 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
+
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadScene(int index)

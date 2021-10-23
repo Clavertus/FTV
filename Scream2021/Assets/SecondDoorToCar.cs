@@ -8,6 +8,8 @@ public class SecondDoorToCar : MonoBehaviour
     [SerializeField] GameObject trainMonster;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject physicalDoor;
+    [SerializeField] GameObject selectableSideDoor;
+    [SerializeField] GameObject sideDoor; 
     [SerializeField] Transform doorOpenPosition;
     [SerializeField] float openSpeed = 1;
     bool openDoor = false;
@@ -40,6 +42,9 @@ public class SecondDoorToCar : MonoBehaviour
         gameObject.tag = ("Untagged");
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
         trainMonster.SetActive(true);
+        selectableSideDoor.SetActive(true);
+        sideDoor.GetComponent<OpenSideDoor>().PushDoor(); 
+        FindObjectOfType<SecondTrain>().TriggerTrain();
         FindObjectOfType<PlayerMovement>().LockPlayer();
         FindObjectOfType<MouseLook>().LockCamera();
     }

@@ -55,7 +55,7 @@ public class Escape : MonoBehaviour
     }
     private void StartEscape()
     {
-        FindObjectOfType<MonsterAction>().gameObject.SetActive(false); 
+        monster.GetComponent<MonsterAction>().StopMoving(); 
         player.GetComponentInChildren<CapsuleCollider>().enabled = false;
         player.GetComponent<CharacterController>().enabled = false;
         FindObjectOfType<PlayerMovement>().LockPlayer();
@@ -68,11 +68,31 @@ public class Escape : MonoBehaviour
     }
     private void MoveToPointC()
     {
+        if(player.transform.position == pointC.transform.position) { return; }
+        monster.GetComponent<MonsterAction>().MonsterInTheDoor(); 
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointC.transform.position, speedBoost * Time.deltaTime);
     }
     void MoveToPointD()
     {
+        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Drone);
+        
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive);
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive2);
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAttack);
+        AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterBreathe);
+        
+
+
+
+
+
+
+
         if (player.transform.position == pointD.transform.position) { return; }
+        LevelLoader.instance.ending = Ending.Good;
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());   
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeed * Time.deltaTime);
     }
+    
 }

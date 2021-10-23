@@ -10,7 +10,7 @@ public class OpenSideDoor : MonoBehaviour
     [SerializeField] GameObject escapeSelectable; 
     [SerializeField] GameObject doorSelectable;
 
-    AudioSource myAudioSource; 
+    public AudioSource myAudioSource; 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class OpenSideDoor : MonoBehaviour
         if(doorSelectable.tag == ("Selected") && pushCount <= 2) { PushDoor(); } 
         if(pushCount >= 2) {; doorSelectable.SetActive(false); escapeSelectable.SetActive(true);  } 
     }
-    void PushDoor()
+    public void PushDoor()
     {
         AudioManager.instance.PlayFromGameObject(myAudioSource);
         Debug.Log("push");

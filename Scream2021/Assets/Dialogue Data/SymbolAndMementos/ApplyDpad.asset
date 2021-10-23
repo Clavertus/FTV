@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a387fa7467dec344b9c13ea826f34963, type: 3}
-  m_Name: DoorToCar1
+  m_Name: ApplyDpad
   m_EditorClassIdentifier: 
   dialogue:
-  - Door's locked.
-  - .....
-  - Thought I saw something moving in there.
-  - I should check some other windows.
+  - Huh?
+  - This does go here.
+  - That must mean there's more pieces.
