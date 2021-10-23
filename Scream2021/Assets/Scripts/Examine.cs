@@ -5,6 +5,7 @@ using UnityEngine;
 public class Examine : MonoBehaviour
 {
     [SerializeField] Canvas examineCanvas;
+    [SerializeField] GameObject dialogueBox; 
     Camera mainCam;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
 
@@ -32,7 +33,10 @@ public class Examine : MonoBehaviour
 
         TurnObject();//Allows Object To Be Rotated
 
-
+        if (examineMode && !dialogueBox.activeSelf && Input.GetKeyDown(KeyCode.E))
+        {
+            ExitExamineMode();
+        }
 
 
     }
@@ -53,7 +57,7 @@ public class Examine : MonoBehaviour
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
 
-                if (clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))  
+                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))    
                 {
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
