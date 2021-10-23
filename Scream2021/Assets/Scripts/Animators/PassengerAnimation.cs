@@ -22,8 +22,8 @@ public class PassengerAnimation : MonoBehaviour
 
     public void OnSceneLoaded()
     {
-        AnimationMode.StopAnimationMode();
-        AnimationMode.EndSampling();
+     //   AnimationMode.StopAnimationMode();
+       // AnimationMode.EndSampling();
         animationClips = null;
         animationPoses = null;
         animationFrame = 0;
@@ -74,9 +74,9 @@ public class PassengerAnimation : MonoBehaviour
     private void SelectAnim()
     {
         if (!animator) return;
-        if (isInEditorMode)
+       /* if (isInEditorMode)
             AnimationMode.SampleAnimationClip(gameObject, animationClips[animationId], animationClips[animationId].length / 100000f * animationFrame);
-        else
+        else */
             animator.SetTrigger(animationId.ToString());
     }
 
@@ -87,16 +87,16 @@ public class PassengerAnimation : MonoBehaviour
 
         if (animationId <= 5)
         {
-            if (isInEditorMode)
+         /*   if (isInEditorMode)
                 AnimationMode.SampleAnimationClip(gameObject, animationPoses[animationId], animationClips[animationId].length / 100000f * animationFrame);
-            else
+            else  */
                 animator.SetTrigger("Pose" + animationId);
         }
         else
         {
-            if (isInEditorMode)
+           /* if (isInEditorMode)
                 AnimationMode.SampleAnimationClip(gameObject, animationPoses[5], animationClips[animationId].length / 100000f * animationFrame);
-            else
+            else */
                 animator.SetTrigger("Pose" + 5);
         }
     }
