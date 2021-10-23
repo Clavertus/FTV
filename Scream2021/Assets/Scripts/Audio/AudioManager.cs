@@ -82,6 +82,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //starting to play the sound that has the given name (we should give that name with the enum created after saving our changes with the Save button in Inspector)
+    //Sounds from AudioManager ----------------------
     public void PlayFromAudioManager(soundsEnum name)
     {
         Sound s = FindSound(name);
@@ -108,6 +109,20 @@ public class AudioManager : MonoBehaviour
         s.source.Pause();
     }
 
+    //Instant methods no audio fading 
+    public void InstantPlayFromAudioManager(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        s.source.PlayOneShot(s.source.clip);
+    }
+
+    public void InstantStopFromAudioManager(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        s.source.Stop();
+    }
+
+    //Sounds from GameObject ------------------------------
     public void PlayFromGameObject(AudioSource audioSource)
     {
         Debug.Log(audioSource.gameObject.name);
@@ -126,6 +141,18 @@ public class AudioManager : MonoBehaviour
         Debug.Log(audioSource.gameObject.name);
         audioSource.Play();
         StartCoroutine(FadeInSound(audioSource));
+    }
+
+    //Instant methods no audio fading 
+    public void InstantPlayFromGameObject(AudioSource audioSource)
+    {
+        Debug.Log(audioSource.gameObject.name);
+        audioSource.PlayOneShot(audioSource.clip);
+    }
+
+    public void InstantStopFromGameObject(AudioSource audioSource)
+    {
+        Debug.Log(audioSource.gameObject.name);
     }
 
     public AudioSource AddAudioSourceWithSound(GameObject otherGameObject, soundsEnum soundName)//Should always be called in the Awake method of the otherGameObject
@@ -159,10 +186,10 @@ public class AudioManager : MonoBehaviour
     }
     private IEnumerator FadeOutSound(AudioSource audioSource)
     {
-        StopCoroutine(AudioManager.instance.FadeInSound(audioSource));
+        StopCoroutine(instance.FadeInSound(audioSource));
         Debug.Log("Ehyy");
         float t = 0;
-        while (audioSource.volume > 0)
+        while (audioSource.volume != 0)
         {
             Debug.Log("Ehyy");
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0, t);
@@ -174,7 +201,7 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator FadeInSound(AudioSource audioSource)
     {
-        StopCoroutine(AudioManager.instance.FadeOutSound(audioSource));
+        StopCoroutine(instance.FadeOutSound(audioSource));
 
         float t = 0;
         float volume = audioSource.volume;
@@ -182,7 +209,7 @@ public class AudioManager : MonoBehaviour
         Debug.Log(volume);
         Debug.Log(audioSource.volume);
         Debug.Log(audioSource.clip);
-        while (audioSource.volume < volume)
+        while (audioSource.volume != volume)
         {
             Debug.Log("Heyhyhyehye");
             audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
