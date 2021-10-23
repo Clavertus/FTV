@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorToCar : MonoBehaviour
 {
     [SerializeField] DialogueObject firstDialogue;
-    
+
     [SerializeField] GameObject windows;
     
 
@@ -21,8 +21,6 @@ public class DoorToCar : MonoBehaviour
     void Update()
     {
         if (gameObject.tag == "Selected" && interactionCounter == 0) { FirstInteraction(); }
-        
-
     }
 
     void FirstInteraction()

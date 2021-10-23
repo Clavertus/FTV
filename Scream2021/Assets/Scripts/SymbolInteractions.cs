@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class SymbolInteractions : MonoBehaviour
 {
+    [Header("Dialogue Data")]
     [SerializeField] DialogueObject firstDialogue;
     [SerializeField] DialogueObject zipperDialogue;
     [SerializeField] DialogueObject frameStandDialogue;
-    [SerializeField] GameObject dialogueBox; 
+    [SerializeField] DialogueObject heardMonster;
 
+    [Header("GameObject references")]
+
+    [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject gameBoyMemento;
     [SerializeField] GameObject zipperMemento;
     [SerializeField] GameObject photoMemento;
@@ -21,21 +25,32 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] GameObject chainDPad;
     [SerializeField] GameObject chainZip;
 
-    [SerializeField] float applyMementosOffset = .5f;
-    [SerializeField] float moveToSymbolRate = .1f;
+    [SerializeField] GameObject trainMonster;
+
+    [Header("Symbol Materials")] 
 
     [SerializeField] Material dPadMat;
     [SerializeField] Material zipperMat;
     [SerializeField] Material frameMat;
 
-    [SerializeField] GameObject trainMonster; 
+    
 
 
     bool pocketed = false;
     bool checkedWindows = false;
 
+    AudioSource myAudioSource; 
+
     string pocketItem;
-    int interactionCounter = 0; 
+    int interactionCounter = 0;
+    private void OnEnable()
+    {
+        //myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.ApplyDPad);
+        //myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.ApplyZipper);
+       // myAudioSource = FindObjectOfType<AudioManager>().AddAudioSourceWithSound(gameObject, soundsEnum.ApplyFrameStand); 
+
+
+    }
     void Start()
     {
         GetComponent<Selectable>().DisableSelectable();
@@ -85,6 +100,8 @@ public class SymbolInteractions : MonoBehaviour
     void ApplyDPad()
     {
         gameObject.tag = ("Untagged");
+        //FindObjectOfType<AudioManager>().PlayFromAudioManager(soundsEnum.ApplyDPad);  
+
         chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
         interactionCounter++;
         zipperMemento.SetActive(true);
@@ -94,6 +111,8 @@ public class SymbolInteractions : MonoBehaviour
     void ApplyZipper()
     {
         gameObject.tag = ("Untagged");
+        //FindObjectOfType<AudioManager>().PlayFromAudioManager(soundsEnum.ApplyZipper); 
+
         chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         elderGodMove.SetActive(true);
         FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue);
@@ -105,6 +124,8 @@ public class SymbolInteractions : MonoBehaviour
     IEnumerator ApplyFrameStand() 
     {
         gameObject.tag = ("Untagged");
+       // FindObjectOfType<AudioManager>().PlayFromAudioManager(soundsEnum.ApplyFrameStand); 
+
         chain.GetComponent<MeshRenderer>().material = frameMat;
         FindObjectOfType<DialogueUI>().ShowDialogue(frameStandDialogue);
         interactionCounter++;
@@ -116,7 +137,9 @@ public class SymbolInteractions : MonoBehaviour
 
     void StartMonster()
     {
-        trainMonster.SetActive(true);  
+        elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
+        trainMonster.SetActive(true);
+        FindObjectOfType<DialogueUI>().ShowDialogue(heardMonster); 
     }
 
 }

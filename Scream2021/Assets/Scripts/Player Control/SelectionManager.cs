@@ -39,8 +39,10 @@ public class SelectionManager : MonoBehaviour
         //returns true if the raycast hit something, ie the player is looking at an object
         if (Physics.Raycast(ray, out hit))
         {
-
+            
             var selection = hit.transform;
+
+           
             if (selection.CompareTag("Selectable"))
             {
                 
