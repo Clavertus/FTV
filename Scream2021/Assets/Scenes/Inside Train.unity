@@ -6222,7 +6222,7 @@ MonoBehaviour:
   firstDialogue: {fileID: 11400000, guid: 6cf36e038f7e59c49a5fdeba39afa0eb, type: 2}
   zipperDialogue: {fileID: 11400000, guid: 20fed8a312679a846b9dae7855a814d4, type: 2}
   frameStandDialogue: {fileID: 11400000, guid: b20e9800b1e01d845befb48e427a876a, type: 2}
-  heardMonster: {fileID: 11400000, guid: b22ad18003c4ffc439de8c3ab58665f0, type: 2}
+  doorUnlocked: {fileID: 11400000, guid: 6f934f3137b455d46ba87860f309692b, type: 2}
   dialogueBox: {fileID: 2074534958}
   gameBoyMemento: {fileID: 179575102}
   zipperMemento: {fileID: 1661093980}
@@ -9327,7 +9327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[0].max
@@ -9363,6 +9363,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[10].max
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].max
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
@@ -9460,10 +9464,18 @@ PrefabInstance:
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
+      objectReference: {fileID: 8300000, guid: 3c948790f74a7fb439893d3646237312, type: 3}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[10].name
       value: OpenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2356062d1ccf274eb40d3bcff7cb0f0, type: 3}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].name
+      value: UnlockDoor
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[5].pitch
@@ -9511,6 +9523,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[10].volume
+      value: 0.902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].volume
       value: 0.902
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
@@ -9574,6 +9590,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[2].spatialBlend
       value: 3
       objectReference: {fileID: 0}
@@ -9602,6 +9622,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].spatialBlend
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[0].sourceCurveType
       value: 0
       objectReference: {fileID: 0}
@@ -9627,6 +9651,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: sounds.Array.data[10].sourceCurveType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
+      propertyPath: sounds.Array.data[11].sourceCurveType
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
