@@ -61,15 +61,11 @@ public class SymbolInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (checkedWindows )
+        if (gameObject.tag == ("Selected") && interactionCounter == 0)
         {
-            chain.SetActive(true); 
-            GetComponent<Selectable>().enabled = true; 
-            if (gameObject.tag == ("Selected") && interactionCounter == 0)
-            {
-                FirstInteraction();
-            }
-        } 
+           FirstInteraction();
+        }
+        
 
         if (pocketed && interactionCounter == 1 && gameObject.tag == "Selected" && pocketItem == ("DPad")) 
         {

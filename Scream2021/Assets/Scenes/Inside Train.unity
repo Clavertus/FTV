@@ -1950,6 +1950,7 @@ MonoBehaviour:
   sideDoor: {fileID: 50796877}
   doorOpenPosition: {fileID: 1379529831}
   openSpeed: 10
+  selectableCanvas: {fileID: 1830103061}
 --- !u!114 &438894741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2752,6 +2753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &581801532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2840,6 +2842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &613182562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3301,6 +3304,7 @@ MonoBehaviour:
   door1: {fileID: 339001466}
   door2: {fileID: 1156593692}
   monster: {fileID: 1290869243}
+  playerCam: {fileID: 1341483291}
   pointB: {fileID: 1403201469}
   pointC: {fileID: 1017699707}
   pointD: {fileID: 1847479576}
@@ -4382,6 +4386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &919765109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5127,6 +5132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &1121062141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5512,13 +5518,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284140656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -15.883}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.04, z: -16.521}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 1947944656}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1284140658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5685,7 +5691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 550d291ea56d09646ae533300274d256, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7339356831882890532, guid: 550d291ea56d09646ae533300274d256, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5900,6 +5906,10 @@ PrefabInstance:
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 2074534958}
+    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: minDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: monsterInTheDoor
       value: 
@@ -6849,6 +6859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &1542102166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7006,7 +7017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1579118485
 Transform:
   m_ObjectHideFlags: 0
@@ -7160,6 +7171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &1590872129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8026,6 +8038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &1775834816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9376,6 +9389,26 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
 --- !u!1 &2018743716
@@ -9440,6 +9473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowOneInspection: {fileID: 11400000, guid: 1a4206286d192264c8d50e24500e671a, type: 2}
   windowTwoInspection: {fileID: 11400000, guid: 4dfd1ec985934fa4d88ff0c3c884594b, type: 2}
+  symbol: {fileID: 1579118484}
 --- !u!65 &2018743720
 BoxCollider:
   m_ObjectHideFlags: 0

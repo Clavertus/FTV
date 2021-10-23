@@ -135,6 +135,7 @@ public class MonsterAction : MonoBehaviour
     public void MonsterInTheDoor()
     {
         transform.position = monsterInTheDoor.position;
+        transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
     }
     float timeCounter = 0f;
     private IEnumerator AnimationStateMachine()
@@ -211,17 +212,34 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(walkAfterDoorSpeed);
                 if (actionZoneTriggered)
                 {
+
+
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
-                    currentState = monsterStatesEnm.action;
+
+                    if (Vector3.Distance(transform.position, Player.position) <= minDistance)
+                    {
+                        currentState = monsterStatesEnm.jump_and_kill;
+                    }
+                    else
+                    {
+                        currentState = monsterStatesEnm.action;
+                    }
                 }
                 break;
             case monsterStatesEnm.action:
                 if (finishedAction)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
-                    AudioManager.instance.PlayFromGameObject(monsterAttack); 
+                    AudioManager.instance.PlayFromGameObject(monsterAttack);
 
-                    currentState = monsterStatesEnm.run_to_player;
+                    if (Vector3.Distance(transform.position, Player.position) <= minDistance)
+                    {
+                        currentState = monsterStatesEnm.jump_and_kill;
+                    }
+                    else
+                    {
+                        currentState = monsterStatesEnm.run_to_player;
+                    }
                 }
                 break;
             case monsterStatesEnm.run_to_player:
@@ -276,6 +294,8 @@ public class MonsterAction : MonoBehaviour
         Debug.Log("Game has been ended with BAD END! :-)");
         //make something to end the game
         //currently just disables monster
+        LevelLoader.instance.ending = Ending.Bad;
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene()); 
         this.gameObject.SetActive(false);
     }
 

@@ -9,7 +9,8 @@ public class Escape : MonoBehaviour
     [SerializeField] float speedBoost;
     [SerializeField] GameObject door1;
     [SerializeField] GameObject door2;
-    [SerializeField] GameObject monster; 
+    [SerializeField] GameObject monster;
+    [SerializeField] GameObject playerCam; 
 
     [SerializeField] Transform pointB;
     [SerializeField] Transform pointC;
@@ -64,11 +65,14 @@ public class Escape : MonoBehaviour
     void MoveToPointB()
     {
         if(player.transform.position == pointB.transform.position) { return; }
+        player.transform.rotation = Quaternion.Euler(0, 90, 0);  
+        FindObjectOfType<MouseLook>().LockCamera();
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointB.transform.position, moveSpeed * Time.deltaTime);
     }
     private void MoveToPointC()
     {
         if(player.transform.position == pointC.transform.position) { return; }
+        FindObjectOfType<MouseLook>().UnlockCamera();
         monster.GetComponent<MonsterAction>().MonsterInTheDoor(); 
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointC.transform.position, speedBoost * Time.deltaTime);
     }
