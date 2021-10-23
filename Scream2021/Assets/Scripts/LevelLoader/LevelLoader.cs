@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum Ending
+{
+    Unknow,
+    Bad,
+    Good
+}
 public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader instance;
     public CanvasGroup canvasGroup;
     public float fadeStep;
     public float fadeTime;
+
+    public Ending ending;
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();

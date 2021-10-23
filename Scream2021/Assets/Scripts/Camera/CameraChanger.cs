@@ -61,7 +61,7 @@ public class CameraChanger : MonoBehaviour
         cam2.SetActive(false);
         cam3.SetActive(false);
         train.SetActive(false);
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Change4);
+        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change4);
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(duration);
         yield return StartCoroutine(FadeIn());
@@ -69,14 +69,14 @@ public class CameraChanger : MonoBehaviour
         cam2.SetActive(true);
         cam3.SetActive(false);
         train.SetActive(true);
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Change7);
+        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change7);
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(duration);
         yield return StartCoroutine(FadeIn());
         cam1.SetActive(false);
         cam2.SetActive(false);
         cam3.SetActive(true);
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Change5);
+        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change5);
         moveDoors = true;
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(duration);
