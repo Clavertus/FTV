@@ -9,7 +9,7 @@ public class Escape : MonoBehaviour
     [SerializeField] float speedBoost;
     [SerializeField] GameObject door1;
     [SerializeField] GameObject door2;
-
+    [SerializeField] GameObject monster; 
 
     [SerializeField] Transform pointB;
     [SerializeField] Transform pointC;
