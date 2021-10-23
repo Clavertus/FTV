@@ -8,6 +8,11 @@ public class Prevoid : MonoBehaviour
     public GameObject[] figures;
     Color tinted;
 
+    public Transform player;
+    public GameObject cam;
+
+    public float camXrot;
+    public float playerYrot;
    
 
     float accumulatedTime;
@@ -305,14 +310,7 @@ public class Prevoid : MonoBehaviour
                 LowFlick(4);
                 yield return new WaitForSeconds(FlickTime());
                 
-                if (i == 20) 
-                    // mannequinnes stand up
-                {
-                    for(int k = 0; k < figures.Length; k++)
-                    {
-                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
-                    }
-                }
+                
 
                 LowUnFlick();
                 yield return new WaitForSeconds(FlickTime(2));
@@ -320,7 +318,7 @@ public class Prevoid : MonoBehaviour
         }
 
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             yield return new WaitForSeconds(1f - accumulatedTime);
             accumulatedTime = 0;
@@ -330,10 +328,34 @@ public class Prevoid : MonoBehaviour
             {
                 Flick();
                 yield return new WaitForSeconds(FlickTime());
+
                 UnFlick();
+                if (j == 1)
+                // mannequinnes stand up
+                {
+                    for (int k = 0; k < figures.Length; k++)
+                    {
+                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
+                        figures[k].transform.position += figures[k].transform.forward;
+                    }
+                }
+
+                if (j == 2)
+                {
+
+                    for (int k = 0; k < figures.Length; k++)
+                    {
+                        figures[k].GetComponent<Transform>().LookAt(player);
+                    }
+
+                }
                 yield return new WaitForSeconds(FlickTime(2));
             }
         }
+
+        playerYrot = player.rotation.eulerAngles.y;
+        camXrot = cam.transform.rotation.eulerAngles.x;
+        Debug.Log("Transition!");
 
 
 
