@@ -2030,6 +2030,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6405289612623217293, guid: c4081f30c5bf33849979db691eafd74e, type: 3}
   m_PrefabInstance: {fileID: 1736522800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &412926196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412926197}
+  m_Layer: 0
+  m_Name: GapPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412926197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412926196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.318, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 329310911}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438894738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2114,7 @@ MonoBehaviour:
   physicalDoor: {fileID: 329310910}
   selectableSideDoor: {fileID: 915997523}
   sideDoor: {fileID: 50796877}
+  doorGapPosition: {fileID: 412926197}
   doorOpenPosition: {fileID: 1379529831}
   openSpeed: 10
   selectableCanvas: {fileID: 1830103061}
@@ -7050,7 +7081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665047851991914283, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.1
+      value: -35.171
       objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
