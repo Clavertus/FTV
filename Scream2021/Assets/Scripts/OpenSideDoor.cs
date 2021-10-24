@@ -24,8 +24,16 @@ public class OpenSideDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(doorSelectable.tag == ("Selected") && pushCount <= 2) { PushDoor(); } 
-        if(pushCount >= 2) {; doorSelectable.SetActive(false); escapeSelectable.SetActive(true);  } 
+        if(doorSelectable.tag == ("Selected") && pushCount <= 2)
+        { 
+            PushDoor(); 
+        } 
+
+        if(pushCount >= 2) 
+        { 
+            doorSelectable.SetActive(false); 
+            escapeSelectable.SetActive(true);
+        } 
     }
     public void PushDoor()
     {
