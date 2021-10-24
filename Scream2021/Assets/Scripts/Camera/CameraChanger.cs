@@ -90,7 +90,7 @@ public class CameraChanger : MonoBehaviour
         while (image.alpha < 1)
         {
             image.alpha += fadeSpeed;
-            yield return new WaitForSeconds(0.00001f);
+            yield return new WaitForSeconds(fadeSpeed);
         }
     }
 
