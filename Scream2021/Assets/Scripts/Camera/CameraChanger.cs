@@ -16,8 +16,10 @@ public class CameraChanger : MonoBehaviour
     public CanvasGroup image;
 
     [Tooltip("Increase fade speed in to make scene transition faster, and sideversa")]
+    [Range(0.001f, 0.9f)]
     public float fadeInSpeed = 0.01f;
     [Tooltip("Increase fade speed in to make scene transition faster, and sideversa")]
+    [Range(0.001f, 0.9f)]
     public float fadeOutSpeed = 0.01f;
     public float duration = 3f;
 
