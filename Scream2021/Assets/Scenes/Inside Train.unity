@@ -2687,7 +2687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3656,8 +3656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1719084851}
-  moveSpeed: 0.4
-  speedBoost: 0.7
+  moveSpeedB: 0.4
+  moveSpeedC: 7
+  moveSpeedD: 8
   door1: {fileID: 339001466}
   door2: {fileID: 1156593692}
   monster: {fileID: 1290869243}
@@ -5767,7 +5768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017699706}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 12.74, y: 2.541, z: -16.813002}
+  m_LocalPosition: {x: 12.74, y: 6.07, z: -16.813002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6629,7 +6630,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1284140658
 BoxCollider:
@@ -10078,7 +10079,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &1857133600 stripped
 Canvas:
