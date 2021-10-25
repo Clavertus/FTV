@@ -5,8 +5,9 @@ using UnityEngine;
 public class Escape : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] float moveSpeed;
-    [SerializeField] float speedBoost;
+    [SerializeField] float moveSpeedB;
+    [SerializeField] float moveSpeedC;
+    [SerializeField] float moveSpeedD;
     [SerializeField] GameObject door1;
     [SerializeField] GameObject door2;
     [SerializeField] GameObject monster;
@@ -66,14 +67,14 @@ public class Escape : MonoBehaviour
         if(player.transform.position == pointB.transform.position) { return; }
         player.transform.rotation = Quaternion.Euler(0, 90, 0);  
         FindObjectOfType<MouseLook>().LockCamera();
-        player.transform.position = Vector3.MoveTowards(player.transform.position, pointB.transform.position, moveSpeed * Time.deltaTime);
+        player.transform.position = Vector3.MoveTowards(player.transform.position, pointB.transform.position, moveSpeedB * Time.deltaTime);
     }
     private void MoveToPointC()
     {
         if(player.transform.position == pointC.transform.position) { return; }
-        FindObjectOfType<MouseLook>().UnlockCamera();
+        //FindObjectOfType<MouseLook>().UnlockCamera();
         monster.GetComponent<MonsterAction>().MonsterInTheDoor(); 
-        player.transform.position = Vector3.MoveTowards(player.transform.position, pointC.transform.position, speedBoost * Time.deltaTime);
+        player.transform.position = Vector3.MoveTowards(player.transform.position, pointC.transform.position, moveSpeedC * Time.deltaTime);
     }
     void MoveToPointD()
     {
@@ -89,7 +90,7 @@ public class Escape : MonoBehaviour
         AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
         LevelLoader.instance.ending = Ending.Good;
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());   
-        player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeed * Time.deltaTime);
+        player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeedD * Time.deltaTime);
     }
     
 }

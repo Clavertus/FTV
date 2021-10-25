@@ -9,7 +9,8 @@ public class SecondDoorToCar : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject physicalDoor;
     [SerializeField] GameObject selectableSideDoor;
-    [SerializeField] GameObject sideDoor; 
+    [SerializeField] GameObject sideDoor;
+    [SerializeField] Transform doorGapPosition;
     [SerializeField] Transform doorOpenPosition;
     [SerializeField] float openSpeed = 1;
     [SerializeField] Canvas selectableCanvas;
@@ -40,6 +41,7 @@ public class SecondDoorToCar : MonoBehaviour
 
     IEnumerator FirstInteraction()
     {
+        OpenDoorToGap();
         FindObjectOfType<DialogueUI>().ShowDialogue(door2FirstLook); 
         gameObject.tag = ("Untagged");
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
@@ -59,5 +61,11 @@ public class SecondDoorToCar : MonoBehaviour
         openDoor = true;
         AudioManager.instance.PlayFromGameObject(myAudioSource);
         
+    }
+
+    void OpenDoorToGap()
+    {
+        physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorGapPosition.position, 1000 * Time.deltaTime);
+        AudioManager.instance.PlayFromGameObject(myAudioSource);
     }
 }
