@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraChanger : MonoBehaviour
 {
+    public GameObject skipText;
     public GameObject cam1;
     public GameObject cam2;
     public GameObject cam3;
@@ -29,12 +31,14 @@ public class CameraChanger : MonoBehaviour
 
     private void Start()
     {
+        skipText.SetActive(false);
         StartCoroutine(ManageTransitions());
         finalDest = new Vector3(door1.transform.localPosition.x - distance,0,0);
     }
 
     private void Update()
     {
+        //Doors and camera movement
         float movementSpeed = speed * Time.deltaTime;
         Vector3 position1 = door1.transform.localPosition;
         Vector3 newDest1 = new Vector3(position1.x - distance, position1.y, position1.z);
@@ -58,6 +62,16 @@ public class CameraChanger : MonoBehaviour
         {
             moveDoors = false;
         }
+
+        //Skip option
+        if (LevelLoader.instance.HasPlayedTheGame)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                skipText.SetActive(true);
+                StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+            }
+        }
     }
 
     IEnumerator ManageTransitions()
@@ -68,7 +82,7 @@ public class CameraChanger : MonoBehaviour
         train.SetActive(false);
         AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change4);
         yield return StartCoroutine(FadeOut());
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         yield return StartCoroutine(FadeIn());
         cam1.SetActive(false);
         cam2.SetActive(true);
@@ -76,7 +90,7 @@ public class CameraChanger : MonoBehaviour
         train.SetActive(true);
         AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change7);
         yield return StartCoroutine(FadeOut());
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         yield return StartCoroutine(FadeIn());
         cam1.SetActive(false);
         cam2.SetActive(false);
@@ -84,27 +98,31 @@ public class CameraChanger : MonoBehaviour
         AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.Change5);
         moveDoors = true;
         yield return StartCoroutine(FadeOut());
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         yield return StartCoroutine(FadeIn());
         //transition to next scene
-        LevelLoader.instance.LoadNextScene();
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 
     IEnumerator FadeIn()
     {
-        while (image.alpha < 1)
+        float t = 0;
+        while (image.alpha != 1)
         {
-            image.alpha += fadeInSpeed;
-            yield return new WaitForSeconds(fadeInSpeed);
+            image.alpha = Mathf.Lerp(image.alpha, 1, t);
+            t += fadeInSpeed * Time.deltaTime;
+            yield return new WaitForSecondsRealtime(0);
         }
     }
 
     IEnumerator FadeOut()
     {
-        while (image.alpha > 0)
+        float t = 0;
+        while (image.alpha != 0)
         {
-            image.alpha -= fadeOutSpeed;
-            yield return new WaitForSeconds(fadeOutSpeed);
+            image.alpha = Mathf.Lerp(image.alpha, 0, t);
+            t += fadeOutSpeed * Time.deltaTime;
+            yield return new WaitForSecondsRealtime(0);
         }
     }
 }
