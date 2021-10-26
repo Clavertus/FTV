@@ -195,8 +195,6 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.final_open:
                 if(finishedFinallyOpen)
                 {
-                    FindObjectOfType<SecondDoorToCar>().OpenDoor();
-
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
@@ -355,5 +353,11 @@ public class MonsterAction : MonoBehaviour
     {
         finishedAction = true;
     }
-   
+
+    // This C# function can be called by an Animation Event
+    public void StartOpenDoor()
+    {
+        FindObjectOfType<SecondDoorToCar>().OpenDoor();
+    }
+
 }
