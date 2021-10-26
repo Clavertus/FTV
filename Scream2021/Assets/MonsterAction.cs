@@ -47,6 +47,7 @@ public class MonsterAction : MonoBehaviour
     [SerializeField] Transform actionZone = null;
     bool actionZoneTriggered = false;
     [SerializeField] Transform Player = null;
+    [SerializeField] ShakeObject doorShake = null;
 
     [Header("Player Dialogue")]
     [SerializeField] GameObject dialogueBox; 
@@ -63,14 +64,16 @@ public class MonsterAction : MonoBehaviour
     public AudioSource monsterBreathe;
     public AudioSource monsterAttack;
     public AudioSource monsterAgressive;
-    public AudioSource monsterAgressive2; 
+    public AudioSource monsterAgressive2;
 
+    private CameraShaker cameraShaker = null;
 
-    
     // Start is called before the first frame update
     void Start()
     {
-        if(!myAnimator)
+        if (Player) cameraShaker = Player.GetComponentInChildren<CameraShaker>();
+
+        if (!myAnimator)
         {
             Debug.LogError("Monster need animation controller to work!");
         }
@@ -154,12 +157,15 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.walk:
-                MonsterMove(walkSpeed);
                 if (revealZoneTriggered)
                 {
                     yield return new WaitUntil(() => !dialogueBox.activeSelf);
                     FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     currentState = monsterStatesEnm.reveal;
+                }
+                else
+                {
+                    MonsterMove(walkSpeed);
                 }
                 break;
             case monsterStatesEnm.reveal:
@@ -172,31 +178,41 @@ public class MonsterAction : MonoBehaviour
                 timeCounter += Time.deltaTime;
                 break;
             case monsterStatesEnm.run:
-                MonsterMove(runSpeed);
                 if (doorZoneTriggered)
                 {
+                    if (cameraShaker) cameraShaker.enabled = true;
                     currentState = monsterStatesEnm.to_open;
+                }
+                else
+                {
+                    MonsterMove(runSpeed);
                 }
                 break;
             case monsterStatesEnm.to_open:
                 if (finishedToOpen)
                 {
+                    if(cameraShaker) cameraShaker.enabled = false;
                     AudioManager.instance.PlayFromGameObject(monsterAgressive2); 
 
                     currentState = monsterStatesEnm.in_open;
                 }
                 break;
             case monsterStatesEnm.in_open:
-                if(finishedInOpen >= numberOfTriesToOpenDoor)
+
+
+                if (finishedInOpen >= numberOfTriesToOpenDoor)
                 {
                     currentState = monsterStatesEnm.final_open;
                 }
+                else
+                {
+                    if (doorShake) doorShake.TriggerShake();
+                }
+
                 break;
             case monsterStatesEnm.final_open:
                 if(finishedFinallyOpen)
                 {
-                    FindObjectOfType<SecondDoorToCar>().OpenDoor();
-
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
@@ -211,7 +227,6 @@ public class MonsterAction : MonoBehaviour
                 break;
             case monsterStatesEnm.walk_after_open:
                 
-                MonsterMove(walkAfterDoorSpeed);
 
                 if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                 {
@@ -224,7 +239,10 @@ public class MonsterAction : MonoBehaviour
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
                     
                     currentState = monsterStatesEnm.action;
+                    break;
                 }
+
+                MonsterMove(walkAfterDoorSpeed);
                 break;
             case monsterStatesEnm.action:
 
@@ -245,11 +263,13 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.run_to_player:
-                MonsterMove(runSpeed);
                 if(Vector3.Distance(transform.position, Player.position ) <= jumpDistance)
                 {
                     currentState = monsterStatesEnm.jump_and_kill;
+                    break;
                 }
+
+                MonsterMove(runSpeed);
                 break;
             case monsterStatesEnm.jump_and_kill:
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
@@ -263,11 +283,13 @@ public class MonsterAction : MonoBehaviour
 
                 if(InJump)
                 {
-                    MonsterJump();
                     if(PlayerFound)
                     {
-                        
                         BadEndGameTrigger();
+                    }
+                    else
+                    {
+                        MonsterJump();
                     }
                 }
                 else
@@ -337,7 +359,7 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void FinishedInOpen()
     {
-        AudioManager.instance.PlayFromGameObject(monsterBreathe); 
+        AudioManager.instance.PlayFromGameObject(monsterBreathe);
 
         finishedInOpen++;
     }
@@ -355,5 +377,11 @@ public class MonsterAction : MonoBehaviour
     {
         finishedAction = true;
     }
-   
+
+    // This C# function can be called by an Animation Event
+    public void StartOpenDoor()
+    {
+        FindObjectOfType<SecondDoorToCar>().OpenDoor();
+    }
+
 }

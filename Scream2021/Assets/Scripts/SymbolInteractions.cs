@@ -13,6 +13,7 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] DialogueObject doorUnlocked;
 
     [Header("GameObject references")]
+    [SerializeField] Light redLight;
 
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject gameBoyMemento;
@@ -50,17 +51,25 @@ public class SymbolInteractions : MonoBehaviour
     string pocketItem;
     int interactionCounter = 0;
    
+    [SerializeField] float intensityMultiplier = 0.2f;
+    float startIntensity = 0f;
     void Start()
     {
         GetComponent<Selectable>().DisableSelectable();
 
-         
-        
+        startIntensity = redLight.intensity;
+    }
+
+    void glowLight()
+    {
+        redLight.intensity = startIntensity + Mathf.Sin(Time.time) * intensityMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
+        glowLight();
+
         if (gameObject.tag == ("Selected") && interactionCounter == 0)
         {
            FirstInteraction();

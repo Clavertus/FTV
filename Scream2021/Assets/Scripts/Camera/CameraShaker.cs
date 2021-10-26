@@ -19,4 +19,9 @@ public class CameraShaker : MonoBehaviour
     {
         camera.localPosition = startPosition + Random.insideUnitSphere * power;
     }
+
+    private void OnDisable()
+    {
+        camera.localPosition = startPosition;
+    }
 }
