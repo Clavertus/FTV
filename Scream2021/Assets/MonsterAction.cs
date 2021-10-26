@@ -165,7 +165,6 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.reveal:
                 if (timeCounter >= pauseAfterReveal)
                 {
-
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
 
                     currentState = monsterStatesEnm.run;

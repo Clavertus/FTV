@@ -15,7 +15,12 @@ public class CameraChanger : MonoBehaviour
     public float speed;
     public CanvasGroup image;
 
-    public float fadeSpeed = 0.01f;
+    [Tooltip("Increase fade speed in to make scene transition faster, and sideversa")]
+    [Range(0.001f, 0.9f)]
+    public float fadeInSpeed = 0.01f;
+    [Tooltip("Increase fade speed in to make scene transition faster, and sideversa")]
+    [Range(0.001f, 0.9f)]
+    public float fadeOutSpeed = 0.01f;
     public float duration = 3f;
 
     private bool moveDoors;
@@ -89,8 +94,8 @@ public class CameraChanger : MonoBehaviour
     {
         while (image.alpha < 1)
         {
-            image.alpha += fadeSpeed;
-            yield return new WaitForSeconds(0.00001f);
+            image.alpha += fadeInSpeed;
+            yield return new WaitForSeconds(fadeInSpeed);
         }
     }
 
@@ -98,8 +103,8 @@ public class CameraChanger : MonoBehaviour
     {
         while (image.alpha > 0)
         {
-            image.alpha -= 0.001f;
-            yield return new WaitForSeconds(0.001f);
+            image.alpha -= fadeOutSpeed;
+            yield return new WaitForSeconds(fadeOutSpeed);
         }
     }
 }

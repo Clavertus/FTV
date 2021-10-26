@@ -10795,8 +10795,9 @@ MonoBehaviour:
   distance: 1.6
   speed: 2
   image: {fileID: 221004456}
-  fadeSpeed: 0.0001
-  duration: 0
+  fadeInSpeed: 0.1
+  fadeOutSpeed: 0.1
+  duration: 8
 --- !u!114 &1565766061
 MonoBehaviour:
   m_ObjectHideFlags: 0
