@@ -18,6 +18,7 @@ public class LevelLoader : MonoBehaviour
     public float fadeTime;
 
     public Ending ending;
+    public bool HasPlayedTheGame;
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
