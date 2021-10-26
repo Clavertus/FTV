@@ -10798,7 +10798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c66d4ecf74a5649844e65af2c6d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipText: {fileID: 0}
+  skipText: {fileID: 1704065996}
   cam1: {fileID: 2028169404}
   cam2: {fileID: 1864877414}
   cam3: {fileID: 1223136871}
@@ -11643,7 +11643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -190.23474, y: 14.327}
+  m_AnchoredPosition: {x: -190.23474, y: 14.327026}
   m_SizeDelta: {x: 380.4637, y: 28.6539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704065998
