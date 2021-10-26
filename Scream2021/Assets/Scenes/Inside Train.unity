@@ -927,8 +927,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7712183, y: 0.95995975, z: 1.1418004}
-  m_Center: {x: 1.3545178, y: -0.020021694, z: -0.07090037}
+  m_Size: {x: 0.82028127, y: 0.95995975, z: 2.0668712}
+  m_Center: {x: 1.3790494, y: -0.020021694, z: -0.047222205}
 --- !u!4 &179575107
 Transform:
   m_ObjectHideFlags: 0
@@ -2069,7 +2069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412926196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.318, y: 0, z: -0}
+  m_LocalPosition: {x: -0.31, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 329310911}
@@ -2131,7 +2131,7 @@ MonoBehaviour:
   sideDoor: {fileID: 50796877}
   doorGapPosition: {fileID: 412926197}
   doorOpenPosition: {fileID: 1379529831}
-  openSpeed: 4
+  openSpeed: 6
   selectableCanvas: {fileID: 1830103061}
 --- !u!114 &438894741
 MonoBehaviour:
@@ -7207,7 +7207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: numberOfTriesToOpenDoor
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
@@ -7963,11 +7963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2799433093334196432, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.4
+      value: 214.2
       objectReference: {fileID: 0}
     - target: {fileID: 2799433093334196432, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.5
+      value: -95.7
       objectReference: {fileID: 0}
     - target: {fileID: 4501867352707549851, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
       propertyPath: m_IsActive
@@ -9282,14 +9282,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728299959}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.263, y: -0.47, z: -0.05}
+  m_LocalRotation: {x: -0, y: 0.89146113, z: -0, w: 0.45309725}
+  m_LocalPosition: {x: 0.2629158, y: -0.46999985, z: -0.050351046}
   m_LocalScale: {x: 1.457089, y: 3.900156, z: 1.0268515}
   m_Children:
   - {fileID: 784745667}
   m_Father: {fileID: 179575107}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 126.115, z: 0}
 --- !u!1001 &1729881559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11084,8 +11084,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.008322202, y: 0.0053474517, z: 0.012048753}
-  m_Center: {x: 0.0011447284, y: -0.00074600946, z: -0.00047210156}
+  m_Size: {x: 0.014703656, y: 0.010449608, z: 0.016327744}
+  m_Center: {x: -0.0020459937, y: -0.0008301057, z: 0.0016673973}
 --- !u!65 &1979532595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11097,8 +11097,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08824353, y: 0.10485645, z: 0.16523696}
-  m_Center: {x: -0.0059712064, y: -0.0065897712, z: -0.034324303}
+  m_Size: {x: 0.08824353, y: 0.10485645, z: 0.1683543}
+  m_Center: {x: -0.0059712064, y: -0.00658971, z: -0.032765597}
 --- !u!1001 &1984704150
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class ShakeObject : MonoBehaviour
     bool triggered = false;
     float currentTriggerTime = 0f;
     Vector3 startPosition;
+    bool calledFirstTime = false;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +21,7 @@ public class ShakeObject : MonoBehaviour
         {
             if(Random.Range(0, 100) >= pausePossibility)
             {
-                transform.localPosition = startPosition + Random.insideUnitSphere * power;
+                transform.position = startPosition + Random.insideUnitSphere * power;
             }
 
             currentTriggerTime += Time.deltaTime;
@@ -34,7 +35,11 @@ public class ShakeObject : MonoBehaviour
 
     public void TriggerShake()
     {
-        startPosition = transform.localPosition;
+        if(!calledFirstTime)
+        {
+            calledFirstTime = true;
+            startPosition = transform.position;
+        }
         triggered = true;
         currentTriggerTime = 0f;
     }
