@@ -31,7 +31,7 @@ public class Selectable : MonoBehaviour
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-
+        Debug.Log(gameObject + " showing selectable");
         selectableCanvas.gameObject.SetActive(true);
     }
 
@@ -49,8 +49,8 @@ public class Selectable : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         selectableCanvas.gameObject.SetActive(false);
-
     }
+
     private void OnTriggerEnter(Collider other)
     {
         

@@ -122,7 +122,7 @@ public class Examine : MonoBehaviour
 
             //Return To Normal State
             examineMode = false;
-            FindObjectOfType<GameboyMemento>().ExitedExamineMode();  
+            FindObjectOfType<MementoObjectInspecting>().ExitedExamineMode();  
         }
     }
 }

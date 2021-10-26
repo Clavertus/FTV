@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameboyMemento : MonoBehaviour
+public class MementoObjectInspecting : MonoBehaviour
 {
-    [SerializeField] DialogueObject inspectionDialogue;
-    [SerializeField] DialogueObject dPadFell;
+    [SerializeField] DialogueObject baseObjInspectDialogue;
+    [SerializeField] DialogueObject smallObjFellDialogue;
 
     [SerializeField] GameObject DialogueBox;
-    [SerializeField] GameObject dPad;
+    [SerializeField] GameObject smallObject;
 
-    [SerializeField] Canvas dPadCanvas;
-    [SerializeField] Canvas heldDPadCanvas;
+    [SerializeField] Canvas inspectCanvas;
+    [SerializeField] Canvas holdSmallObjCanvas;
 
-    [SerializeField] string pocketItem;
+    [SerializeField] string pocketItemName;
 
     GameObject tv;
 
@@ -25,9 +25,9 @@ public class GameboyMemento : MonoBehaviour
     void Start()
     {
         tv = GameObject.Find("TV front");
-        dPad.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        dPad.gameObject.GetComponent<BoxCollider>().enabled = false;
-        heldDPadCanvas.enabled = false; 
+        smallObject.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        smallObject.gameObject.GetComponent<BoxCollider>().enabled = false;
+        holdSmallObjCanvas.enabled = false; 
     }
 
     public void ExitedExamineMode() { examineMode = false; Debug.Log("Exited Examine Mode"); }
@@ -50,7 +50,7 @@ public class GameboyMemento : MonoBehaviour
     {
         examineMode = true; 
         
-        FindObjectOfType<DialogueUI>().ShowDialogue(inspectionDialogue);
+        FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         
         interactionCounter = 1;
     }
@@ -60,14 +60,14 @@ public class GameboyMemento : MonoBehaviour
         gameObject.tag = ("Untagged");
         GetComponent<BoxCollider>().enabled = false;
         
-        dPad.gameObject.GetComponent<MeshRenderer>().enabled = true;
-        dPad.gameObject.GetComponent<BoxCollider>().enabled = true; 
-        dPadCanvas.gameObject.SetActive(true); 
+        smallObject.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        smallObject.gameObject.GetComponent<BoxCollider>().enabled = true; 
+        inspectCanvas.gameObject.SetActive(true); 
 
         gameObject.tag = ("Selectable");
         interactionCounter = 2;
         FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<DialogueUI>().ShowDialogue(dPadFell);
+        FindObjectOfType<DialogueUI>().ShowDialogue(smallObjFellDialogue);
 
         yield return new WaitUntil(() => !DialogueBox.activeSelf); 
         StartCoroutine(InspectDPad());
@@ -75,18 +75,27 @@ public class GameboyMemento : MonoBehaviour
 
     IEnumerator InspectDPad()
     {
-        yield return new WaitUntil(() => examineMode == false);  
+        yield return new WaitUntil(() => examineMode == false);
 
         FindObjectOfType<MouseLook>().UnlockCamera();
-        Debug.Log("test"); 
-        heldDPadCanvas.enabled = true;
-        Destroy(dPad);
-        GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItem);
+        Debug.Log("test");
+        holdSmallObjCanvas.enabled = true;
+        Destroy(smallObject);
+        GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItemName);
         changeTVstatic();
 
-         
+        DisableCanvasAndTriggering();
     }
 
+    private void DisableCanvasAndTriggering()
+    {
+        inspectCanvas.enabled = false;
+        BoxCollider[] colliders = GetComponents<BoxCollider>();
+        foreach (BoxCollider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+    }
 
     void changeTVstatic()
     {
