@@ -36,6 +36,11 @@ public class LevelLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetPlayedTheGame()
+    {
+        HasPlayedTheGame = true;
+    }
+
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);

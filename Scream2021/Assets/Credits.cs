@@ -31,6 +31,7 @@ public class Credits : MonoBehaviour
     {
         StartCoroutine(StartCredits());
         AudioManager.instance.PlayFromAudioManager(soundsEnum.Credits);
+        LevelLoader.instance.SetPlayedTheGame();
     }
 
     void Update()
