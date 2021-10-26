@@ -914,8 +914,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2454826, y: 0.9999999, z: 1}
-  m_Center: {x: 0.12274148, y: 0, z: 0}
+  m_Size: {x: 1.2454826, y: 0.9999999, z: 1.316449}
+  m_Center: {x: 0.12274148, y: 0, z: 0.059900787}
 --- !u!65 &179575104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -927,8 +927,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7712183, y: 0.95995975, z: 1.1418004}
-  m_Center: {x: 1.3545178, y: -0.020021694, z: -0.07090037}
+  m_Size: {x: 0.81056905, y: 0.95995975, z: 1.8637992}
+  m_Center: {x: 1.3741932, y: -0.020021694, z: 0.021190874}
 --- !u!4 &179575107
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,7 +2478,7 @@ GameObject:
   - component: {fileID: 525125240}
   - component: {fileID: 525125239}
   m_Layer: 0
-  m_Name: Plane.004 (1)
+  m_Name: Zipper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8324,7 +8324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1579118485
 Transform:
   m_ObjectHideFlags: 0
@@ -10395,7 +10395,7 @@ GameObject:
   - component: {fileID: 1907715942}
   - component: {fileID: 1907715941}
   m_Layer: 0
-  m_Name: Plane.001 (1)
+  m_Name: FrameStandSpearated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11033,8 +11033,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.008322202, y: 0.0053474517, z: 0.012048753}
-  m_Center: {x: 0.0011447284, y: -0.00074600946, z: -0.00047210156}
+  m_Size: {x: 0.017274374, y: 0.010609903, z: 0.018910008}
+  m_Center: {x: -0.0010617179, y: -0.0033772667, z: 0.0016311402}
 --- !u!65 &1979532595
 BoxCollider:
   m_ObjectHideFlags: 0
