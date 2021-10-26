@@ -66,9 +66,9 @@ public class CameraChanger : MonoBehaviour
         //Skip option
         if (LevelLoader.instance.HasPlayedTheGame)
         {
+            skipText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                skipText.SetActive(true);
                 StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
             }
         }
