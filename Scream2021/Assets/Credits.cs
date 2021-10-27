@@ -31,7 +31,6 @@ public class Credits : MonoBehaviour
     {
         StartCoroutine(StartCredits());
         AudioManager.instance.PlayFromAudioManager(soundsEnum.Credits);
-        LevelLoader.instance.SetPlayedTheGame();
     }
 
     void Update()
@@ -75,6 +74,7 @@ public class Credits : MonoBehaviour
         }
         yield return StartCoroutine(FadeInPanel(finalPanel));
         finalPanelLoaded = true;
+        LevelLoader.instance.SetPlayedTheGame();
     }
     IEnumerator FadeInText(TextMeshProUGUI text)
     {
