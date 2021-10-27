@@ -21,15 +21,14 @@ public class Prevoid : MonoBehaviour
 
     float accumulatedTime;
 
-    public static Prevoid instance;
+    //public static Prevoid instance;
 
 
 
 
     public void Awake()
     {
-
-
+        /*
         if (instance == null)
         {
             instance = this;
@@ -40,16 +39,26 @@ public class Prevoid : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-
-
         AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
         accumulatedTime = 0;
         StartCoroutine("Timer");
         tinted = new Color(0.6650944f, 0.9123682f, 1);
         DontDestroyOnLoad(gameObject);
+        */
 
+        //DontDestroyOnLoad(gameObject);
+        StartSequence();
+    }
 
+    public void StartSequence()
+    {
+        //if(LevelLoader.instance.HasPlayedTheGame)
+        {
+            AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
+            accumulatedTime = 0;
+            StartCoroutine("Timer");
+            tinted = new Color(0.6650944f, 0.9123682f, 1);
+        }
     }
 
     public float FlickTime(int a = 1)
@@ -390,16 +399,6 @@ public class Prevoid : MonoBehaviour
         playerYrot = player.rotation.eulerAngles.y;
         camXrot = cam.transform.rotation.eulerAngles.x;
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
-
-        /*
-       
-
-        
-    */
-
-
-
-
     }
 
 

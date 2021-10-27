@@ -14,6 +14,7 @@ public class CameraCorrection : MonoBehaviour
 
     void Awake()
     {
+        /*
         preVoidManager = Prevoid.instance;
         Debug.Log(preVoidManager);
         playerYrot = preVoidManager.playerYrot;
@@ -26,6 +27,7 @@ public class CameraCorrection : MonoBehaviour
 
         Destroy(preVoidManager);
         Destroy(gameObject);
+        */
     }
 
 

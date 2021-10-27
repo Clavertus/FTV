@@ -29,6 +29,8 @@ public class CameraChanger : MonoBehaviour
     private bool moveCam;
     private Vector3 finalDest;
 
+    float skipShowUp = 1.5f;
+    float skipTimer = 0f;
     private void Start()
     {
         skipText.SetActive(false);
@@ -63,12 +65,17 @@ public class CameraChanger : MonoBehaviour
             moveDoors = false;
         }
 
+        skipTimer += Time.deltaTime;
         //Skip option
         if (LevelLoader.instance.HasPlayedTheGame)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (skipShowUp <= skipTimer)
             {
                 skipText.SetActive(true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
                 StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
             }
         }
