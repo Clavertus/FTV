@@ -3795,6 +3795,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3163530058110985185, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163530058110985185, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_Name
       value: LevelLoader
@@ -8318,7 +8326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.8784314}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9090,10 +9098,6 @@ PrefabInstance:
     - target: {fileID: 9070595961071553731, guid: a0b6bd778e56ed64faacfdcc67c35816, type: 3}
       propertyPath: m_Name
       value: Center Cursor
-      objectReference: {fileID: 0}
-    - target: {fileID: 9070595961071553731, guid: a0b6bd778e56ed64faacfdcc67c35816, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9070595961071553743, guid: a0b6bd778e56ed64faacfdcc67c35816, type: 3}
       propertyPath: m_Pivot.x
@@ -10271,7 +10275,6 @@ GameObject:
   - component: {fileID: 1912142478}
   - component: {fileID: 1912142481}
   - component: {fileID: 1912142480}
-  - component: {fileID: 1912142482}
   m_Layer: 0
   m_Name: Mementos
   m_TagString: Untagged
@@ -10333,18 +10336,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3581539, y: 2.6309125, z: 0.2565918}
   m_Center: {x: 0.008005321, y: 1.1732684, z: -0.123817444}
---- !u!114 &1912142482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912142477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4be23a760e34ca41a52853e3d65ec32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1936903301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3454282271399329884, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
