@@ -10,6 +10,11 @@ public class TrainEffectController : MonoBehaviour
     [SerializeField] public int posterMaterialId = 1;
     int currPosterMaterialId = 0;
 
+    private void Start()
+    {
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
+    }
+
     private void Update()
     {
         HandlePosters();

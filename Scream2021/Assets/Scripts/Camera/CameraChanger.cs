@@ -33,6 +33,7 @@ public class CameraChanger : MonoBehaviour
     float skipTimer = 0f;
     private void Start()
     {
+        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         skipText.SetActive(false);
         StartCoroutine(ManageTransitions());
         finalDest = new Vector3(door1.transform.localPosition.x - distance,0,0);
