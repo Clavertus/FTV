@@ -165,7 +165,6 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.reveal:
                 if (timeCounter >= pauseAfterReveal)
                 {
-                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
 
                     currentState = monsterStatesEnm.run;
@@ -176,7 +175,8 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(runSpeed);
                 if (doorZoneTriggered)
                 {
-                    if(doorStayPoint)
+                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
+                    if (doorStayPoint)
                     {
                         transform.position = doorStayPoint.position;
                     }

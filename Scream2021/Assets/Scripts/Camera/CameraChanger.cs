@@ -33,6 +33,7 @@ public class CameraChanger : MonoBehaviour
     float skipTimer = 0f;
     private void Start()
     {
+        Cursor.visible = false;
         //TODO: find another place for this function call
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
