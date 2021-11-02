@@ -7050,42 +7050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_Height
-      value: 4.5327835
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_Radius
-      value: 1.6150956
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_Center.y
-      value: 3.541388
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464276961660164033, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_Center.z
-      value: 1.0344135
-      objectReference: {fileID: 0}
-    - target: {fileID: 3665047850812074390, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -49.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 3665047851845298611, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -24.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3665047851991914283, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -35.171
-      objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
       value: MonsterEnv
@@ -7135,10 +7099,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: gTFO
-      value: 
-      objectReference: {fileID: 11400000, guid: 087c7dc8d38228e4eb81ea44579d38b2, type: 2}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1112664679}
@@ -7147,29 +7107,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2074534958}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: minDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: offsetJumpY
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: jumpDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: monsterInTheDoor
       value: 
       objectReference: {fileID: 1284140657}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: pauseAfterReveal
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: numberOfTriesToOpenDoor
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
 --- !u!1 &1358194377

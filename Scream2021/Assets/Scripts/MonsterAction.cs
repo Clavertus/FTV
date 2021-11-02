@@ -43,6 +43,7 @@ public class MonsterAction : MonoBehaviour
     [SerializeField] Transform revealZone = null;
     bool revealZoneTriggered = false;
     [SerializeField] Transform doorZone = null;
+    [SerializeField] Transform doorStayPoint = null;
     bool doorZoneTriggered = false;
     [SerializeField] Transform actionZone = null;
     bool actionZoneTriggered = false;
@@ -158,13 +159,13 @@ public class MonsterAction : MonoBehaviour
                 if (revealZoneTriggered)
                 {
                     yield return new WaitUntil(() => !dialogueBox.activeSelf);
-                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     currentState = monsterStatesEnm.reveal;
                 }
                 break;
             case monsterStatesEnm.reveal:
                 if (timeCounter >= pauseAfterReveal)
                 {
+                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
 
                     currentState = monsterStatesEnm.run;
@@ -175,6 +176,10 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(runSpeed);
                 if (doorZoneTriggered)
                 {
+                    if(doorStayPoint)
+                    {
+                        transform.position = doorStayPoint.position;
+                    }
                     currentState = monsterStatesEnm.to_open;
                 }
                 break;
