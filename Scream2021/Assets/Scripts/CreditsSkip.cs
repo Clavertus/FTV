@@ -19,14 +19,14 @@ public class CreditsSkip : MonoBehaviour
         skipTimerCnt += Time.deltaTime;
         if (skipTimerAppear <= skipTimerCnt)
         {
-            Skip.SetActive(true);
+            if(LevelLoader.instance.HasPlayedTheGame) Skip.SetActive(true);
         }
 
         if(Skip.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+                if (LevelLoader.instance.HasPlayedTheGame) StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
             }
         }
     }
