@@ -31,6 +31,7 @@ public class SecondDoorToCar : MonoBehaviour
 
     [SerializeField] float shakeDoorTime = .25f;
     [SerializeField] float shakeDoorPower = 1.5f;
+    Vector3 savedPosition = Vector3.zero;
     float shakeTimeCnt = 0f;
     // Update is called once per frame
     void Update()
@@ -55,6 +56,7 @@ public class SecondDoorToCar : MonoBehaviour
             {
                 shakeDoor = false;
                 shakeTimeCnt = 0f;
+                physicalDoor.transform.position = savedPosition;
             }
         }
     }
@@ -80,17 +82,21 @@ public class SecondDoorToCar : MonoBehaviour
     {
         openDoor = true;
         AudioManager.instance.PlayFromGameObject(myAudioSource);
-        
     }
 
     void OpenDoorToGap()
     {
         physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorGapPosition.position, 1000 * Time.deltaTime);
         AudioManager.instance.PlayFromGameObject(myAudioSource);
+        savedPosition = physicalDoor.transform.position;
     }
 
     public void ShakeDoor()
     {
+        if(savedPosition == Vector3.zero)
+        {
+            savedPosition = physicalDoor.transform.position;
+        }
         shakeDoor = true;
     }
 }
