@@ -12,8 +12,6 @@ public class TrainEffectController : MonoBehaviour
 
     private void Start()
     {
-        //TODO: find another place for this function call
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
     }
 
     private void Update()

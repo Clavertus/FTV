@@ -22,6 +22,8 @@ public class SecondDoorToCar : MonoBehaviour
     void Start()
     {
         //TODO: find another place for this function call
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
+        //TODO: find another place for this function call
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
         {
