@@ -33,6 +33,12 @@ public class CameraChanger : MonoBehaviour
     float skipTimer = 0f;
     private void Start()
     {
+        //TODO: find another place for this function call
+        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        foreach (TrainEffectController train in trains)
+        {
+            train.SetPosterMatId(0);
+        }
         AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         skipText.SetActive(false);
         StartCoroutine(ManageTransitions());
