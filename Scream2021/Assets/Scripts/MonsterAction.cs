@@ -192,13 +192,15 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.in_open:
-                if(finishedInOpen >= numberOfTriesToOpenDoor)
+                FlickerLightsInTrainUpdate();
+                if (finishedInOpen >= numberOfTriesToOpenDoor)
                 {
                     currentState = monsterStatesEnm.final_open;
                 }
                 break;
             case monsterStatesEnm.final_open:
-                if(finishedFinallyOpen)
+                FlickerLightsInTrainUpdate();
+                if (finishedFinallyOpen)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterBreathe);
 
@@ -213,7 +215,8 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.walk_after_open:
-                
+                FlickerLightsInTrainUpdate();
+
                 MonsterMove(walkAfterDoorSpeed);
 
                 if (Vector3.Distance(transform.position, Player.position) <= minDistance)
@@ -230,6 +233,7 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.action:
+                FlickerLightsInTrainUpdate();
 
                 if (finishedAction)
                 {
@@ -255,6 +259,7 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.jump_and_kill:
+
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
                 {
                     transform.LookAt(Player);
@@ -371,4 +376,27 @@ public class MonsterAction : MonoBehaviour
         FindObjectOfType<SecondDoorToCar>().ShakeDoor();
     }
 
+    private void FlickerLightsInTrain()
+    {
+        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        foreach (TrainEffectController train in trains)
+        {
+            train.FlickerLightForTime(UnityEngine.Random.Range(0.1f, 0.5f));
+        }
+    }
+
+    float FlickAfterTimeBasic = 1f;
+    float FlickAfterTime = 0.25f;
+    float FlickTriggerCnt = 0f;
+    private void FlickerLightsInTrainUpdate()
+    {
+        if(FlickAfterTime <= FlickTriggerCnt)
+        {
+            FlickAfterTime = FlickAfterTimeBasic + UnityEngine.Random.Range(-0.75f, 0.25f);
+            FlickTriggerCnt = 0;
+            FlickerLightsInTrain();
+            return;
+        }
+        FlickTriggerCnt += Time.deltaTime;
+    }
 }
