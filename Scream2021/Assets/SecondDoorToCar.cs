@@ -15,6 +15,7 @@ public class SecondDoorToCar : MonoBehaviour
     [SerializeField] float openSpeed = 1;
     [SerializeField] Canvas selectableCanvas;
     bool openDoor = false;
+    bool shakeDoor = false;
     bool firstInteraction = false; 
     AudioSource myAudioSource;
     // Start is called before the first frame update
@@ -27,15 +28,34 @@ public class SecondDoorToCar : MonoBehaviour
     {
         myAudioSource = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.OpenDoor);
     }
+
+    [SerializeField] float shakeDoorTime = .25f;
+    [SerializeField] float shakeDoorPower = 1.5f;
+    float shakeTimeCnt = 0f;
     // Update is called once per frame
     void Update()
     {
         if(gameObject.tag == ("Selected") && !firstInteraction) { StartCoroutine(FirstInteraction()); }
-        if (openDoor) {
+        if (openDoor)
+        {
+            shakeDoor = false;
             Debug.Log("opening");
             physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorOpenPosition.position, openSpeed * Time.deltaTime);
 
             if (physicalDoor.transform.position == doorOpenPosition.position) { gameObject.SetActive(false); }
+        }
+        else if(shakeDoor)
+        {
+            if(shakeDoorTime > shakeTimeCnt)
+            {
+                physicalDoor.transform.position = new Vector3(physicalDoor.transform.position.x + Random.Range(-shakeDoorPower, shakeDoorPower) * Time.deltaTime, physicalDoor.transform.position.y, physicalDoor.transform.position.z);
+                shakeTimeCnt += Time.deltaTime;
+            }
+            else
+            {
+                shakeDoor = false;
+                shakeTimeCnt = 0f;
+            }
         }
     }
 
@@ -67,5 +87,10 @@ public class SecondDoorToCar : MonoBehaviour
     {
         physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorGapPosition.position, 1000 * Time.deltaTime);
         AudioManager.instance.PlayFromGameObject(myAudioSource);
+    }
+
+    public void ShakeDoor()
+    {
+        shakeDoor = true;
     }
 }

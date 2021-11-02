@@ -360,4 +360,10 @@ public class MonsterAction : MonoBehaviour
         FindObjectOfType<SecondDoorToCar>().OpenDoor();
     }
 
+    // This C# function can be called by an Animation Event
+    public void ShakeDoor()
+    {
+        FindObjectOfType<SecondDoorToCar>().ShakeDoor();
+    }
+
 }
