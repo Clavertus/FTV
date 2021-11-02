@@ -40,7 +40,6 @@ public class CameraChanger : MonoBehaviour
         {
             train.SetPosterMatId(0);
         }
-        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         skipText.SetActive(false);
         StartCoroutine(ManageTransitions());
         finalDest = new Vector3(door1.transform.localPosition.x - distance,0,0);
