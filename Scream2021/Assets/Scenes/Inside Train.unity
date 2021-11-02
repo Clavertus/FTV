@@ -7093,6 +7093,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665047850812074390, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.89
+      objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
       value: MonsterEnv
@@ -7145,6 +7153,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1112664679}
+    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: runSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: dialogueBox
       value: 
@@ -7767,7 +7779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
@@ -11878,7 +11890,7 @@ PrefabInstance:
       objectReference: {fileID: 1341483296}
     - target: {fileID: 1150792099386658677, guid: f03b2136842d8794e9d9ee34d9e6c675, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 7
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 1150792099391395816, guid: f03b2136842d8794e9d9ee34d9e6c675, type: 3}
       propertyPath: m_LocalPosition.z
