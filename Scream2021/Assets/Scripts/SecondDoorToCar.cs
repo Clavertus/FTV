@@ -21,7 +21,12 @@ public class SecondDoorToCar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //TODO: find another place for this function call
+        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        foreach (TrainEffectController train in trains)
+        {
+            train.SetPosterMatId(1);
+        }
     }
 
     private void OnEnable()

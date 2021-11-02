@@ -45,9 +45,19 @@ public class Prevoid : MonoBehaviour
         tinted = new Color(0.6650944f, 0.9123682f, 1);
         DontDestroyOnLoad(gameObject);
         */
-
+        //TODO: find another place for this function call
+        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        foreach(TrainEffectController train in trains)
+        {
+            train.SetPosterMatId(0);
+        }
         //DontDestroyOnLoad(gameObject);
         StartSequence();
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void StartSequence()

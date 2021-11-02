@@ -12,6 +12,7 @@ public class TrainEffectController : MonoBehaviour
 
     private void Start()
     {
+        //TODO: find another place for this function call
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
     }
 
@@ -29,7 +30,12 @@ public class TrainEffectController : MonoBehaviour
         }
     }
 
-    public void changePostersMaterialRuntime(int materialId)
+    public void SetPosterMatId(int materialId)
+    {
+        posterMaterialId = materialId;
+    }
+
+    void changePostersMaterialRuntime(int materialId)
     {
         foreach (MaterialSwitcher matSwitch in Posters)
         {
