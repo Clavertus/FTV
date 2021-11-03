@@ -26,13 +26,14 @@ public class TrainEffectController : MonoBehaviour
     bool flickerLight = false;
     float flickerTime = 0f;
     float flickerTimeCnt = 0f;
+    [SerializeField] float minLightIntensityByFlick = 0.5f;
     public void FlickerLightForTime(float timeToFlick)
     {
         flickerTimeCnt = 0f;
         flickerTime = timeToFlick;
         for (int ix = 0; ix < lightsInTheTrain.Length; ix ++ )
         {
-            if(lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = 0.25f;
+            if(lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = minLightIntensityByFlick;
         }
         flickerLight = true;
     }

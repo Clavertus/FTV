@@ -392,7 +392,7 @@ public class MonsterAction : MonoBehaviour
     {
         if(FlickAfterTime <= FlickTriggerCnt)
         {
-            FlickAfterTime = FlickAfterTimeBasic + UnityEngine.Random.Range(-0.75f, 0.25f);
+            FlickAfterTime = FlickAfterTimeBasic + UnityEngine.Random.Range(-0.75f, 0.5f);
             FlickTriggerCnt = 0;
             FlickerLightsInTrain();
             return;
