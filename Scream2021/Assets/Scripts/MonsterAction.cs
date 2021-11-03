@@ -175,10 +175,10 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(runSpeed);
                 if (doorZoneTriggered)
                 {
-                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     if (doorStayPoint)
                     {
                         transform.position = doorStayPoint.position;
+                        Player.position = Player.position + Vector3.forward * 3.5f;
                     }
                     currentState = monsterStatesEnm.to_open;
                 }
@@ -186,7 +186,9 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.to_open:
                 if (finishedToOpen)
                 {
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive2); 
+                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
+                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                    FindObjectOfType<SecondDoorToCar>().ShakeDoor();
 
                     currentState = monsterStatesEnm.in_open;
                 }
