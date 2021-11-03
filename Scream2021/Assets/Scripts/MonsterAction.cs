@@ -178,7 +178,7 @@ public class MonsterAction : MonoBehaviour
                     if (doorStayPoint)
                     {
                         transform.position = doorStayPoint.position;
-                        Player.position = Player.position + Vector3.forward * 3.5f;
+                        Player.localPosition = Player.localPosition + Vector3.forward * 1.5f;
                     }
                     currentState = monsterStatesEnm.to_open;
                 }
