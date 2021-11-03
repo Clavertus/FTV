@@ -34,11 +34,17 @@ public class LevelLoader : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+
+        if(PlayerPrefs.HasKey("HasPlayedTheGame"))
+        {
+            HasPlayedTheGame = PlayerPrefs.GetInt("HasPlayedTheGame") == 1 ? true : false;
+        }
     }
 
     public void SetPlayedTheGame()
     {
         HasPlayedTheGame = true;
+        PlayerPrefs.SetInt("HasPlayedTheGame", HasPlayedTheGame ? 1 : 0);
     }
 
     public void LoadScene(int index)
