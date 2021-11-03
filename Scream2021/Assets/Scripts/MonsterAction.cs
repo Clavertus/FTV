@@ -376,9 +376,10 @@ public class MonsterAction : MonoBehaviour
         FindObjectOfType<SecondDoorToCar>().ShakeDoor();
     }
 
+    [SerializeField]
+    TrainEffectController[] trains;
     private void FlickerLightsInTrain()
     {
-        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
         {
             train.FlickerLightForTime(UnityEngine.Random.Range(0.1f, 0.5f));
