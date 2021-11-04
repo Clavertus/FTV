@@ -5,31 +5,28 @@ using UnityEngine;
 public class CameraCorrection : MonoBehaviour
 {
 
-    public GameObject player2;
-    public GameObject cam2;
-    public Prevoid preVoidManager;
+    private GameObject player;
+    private GameObject cam;
 
-    public float playerYrot;
-    public float camXrot;
+    private float playerYrot;
+    private float camXrot;
 
     void Awake()
     {
-        /*
-        preVoidManager = Prevoid.instance;
-        Debug.Log(preVoidManager);
-        playerYrot = preVoidManager.playerYrot;
-        camXrot = preVoidManager.camXrot;
+        if(PlayerPrefs.HasKey("playerYrot")) playerYrot = PlayerPrefs.GetFloat("playerYrot");
+        if (PlayerPrefs.HasKey("camXrot")) camXrot = PlayerPrefs.GetFloat("camXrot");
 
-        player2 = GameObject.Find("Player");
-        player2.transform.eulerAngles = new Vector3(0, playerYrot, 0);
-        cam2 = player2.transform.GetChild(0).gameObject;
-        cam2.transform.eulerAngles = new Vector3(camXrot, 0, 0);
-
-        Destroy(preVoidManager);
-        Destroy(gameObject);
-        */
+        if (PlayerPrefs.HasKey("playerYrot") && PlayerPrefs.HasKey("camXrot"))
+        {
+            player = GameObject.Find("Player");
+            player.transform.eulerAngles = new Vector3(0, playerYrot, 0);
+            cam = player.transform.GetChild(0).gameObject;
+            cam.transform.eulerAngles = new Vector3(camXrot, 0, 0);
+        }
+        else
+        {
+            Debug.Log("Correction could not happen, as data is missing");
+        }
     }
 
-
-   
 }

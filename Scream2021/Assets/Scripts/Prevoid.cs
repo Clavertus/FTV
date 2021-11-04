@@ -64,6 +64,8 @@ public class Prevoid : MonoBehaviour
     {
         //if(LevelLoader.instance.HasPlayedTheGame)
         {
+            PlayerPrefs.DeleteKey("playerYrot");
+            PlayerPrefs.DeleteKey("camXrot");
             AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
             accumulatedTime = 0;
             StartCoroutine("Timer");
@@ -408,6 +410,9 @@ public class Prevoid : MonoBehaviour
 
         playerYrot = player.rotation.eulerAngles.y;
         camXrot = cam.transform.rotation.eulerAngles.x;
+
+        PlayerPrefs.SetFloat("playerYrot", playerYrot);
+        PlayerPrefs.SetFloat("camXrot", camXrot);
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 
