@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,5 +29,4 @@ public class CameraCorrection : MonoBehaviour
             Debug.Log("Correction could not happen, as data is missing");
         }
     }
-
 }

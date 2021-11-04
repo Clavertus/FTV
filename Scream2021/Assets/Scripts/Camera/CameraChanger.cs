@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class CameraChanger : MonoBehaviour
 {
-    public GameObject skipText;
     public GameObject cam1;
     public GameObject cam2;
     public GameObject cam3;
@@ -29,8 +28,6 @@ public class CameraChanger : MonoBehaviour
     private bool moveCam;
     private Vector3 finalDest;
 
-    float skipShowUp = 1.5f;
-    float skipTimer = 0f;
     private void Start()
     {
         Cursor.visible = false;
@@ -40,7 +37,6 @@ public class CameraChanger : MonoBehaviour
         {
             train.SetPosterMatId(0);
         }
-        skipText.SetActive(false);
         StartCoroutine(ManageTransitions());
         finalDest = new Vector3(door1.transform.localPosition.x - distance,0,0);
     }
@@ -70,21 +66,6 @@ public class CameraChanger : MonoBehaviour
         if (position1.x < finalDest.x)
         {
             moveDoors = false;
-        }
-
-        skipTimer += Time.deltaTime;
-        //Skip option
-        if (LevelLoader.instance.HasPlayedTheGame)
-        {
-            if (skipShowUp <= skipTimer)
-            {
-                skipText.SetActive(true);
-            }
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
-            }
         }
     }
 
