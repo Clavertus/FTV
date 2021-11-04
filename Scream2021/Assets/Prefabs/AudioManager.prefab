@@ -233,13 +233,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 1
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: MonsterAttack
     clip: {fileID: 8300000, guid: a849c4de9b717104c9cc2e5bac25e61b, type: 3}
@@ -248,13 +248,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: MonsterMildAggressive
     clip: {fileID: 8300000, guid: 79f043d13cb589a4184095458967fdf4, type: 3}
@@ -263,13 +263,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: MonsterMildAggressive2
     clip: {fileID: 8300000, guid: 87d02f37a1f92b547a47601fa4c35073, type: 3}
@@ -278,13 +278,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: PushDoor
     clip: {fileID: 8300000, guid: 3175d961001ac3f4e88521f6daaec656, type: 3}
@@ -323,13 +323,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: Footstep1
     clip: {fileID: 8300000, guid: e06daf59203d2d14692be5b9b939c869, type: 3}
@@ -398,13 +398,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: HeavyFootstep2
     clip: {fileID: 8300000, guid: b6eb24260422ac842bd0a113c2cf2995, type: 3}
@@ -413,13 +413,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: HeavyFootstep3
     clip: {fileID: 8300000, guid: d071ab763837753418b357001922b547, type: 3}
@@ -428,13 +428,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: HeavyFootstep4
     clip: {fileID: 8300000, guid: a2647ff937de58644b247d413c98309a, type: 3}
@@ -443,13 +443,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: ForceDoor1
     clip: {fileID: 8300000, guid: 89b7d0514c0d278498f6e5950fce7bfc, type: 3}
@@ -458,13 +458,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: ForceDoor2
     clip: {fileID: 8300000, guid: c76b4ee1907d9364a8705e9352be28c6, type: 3}
@@ -473,11 +473,11 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
-    sourceCurveType: 3
+    sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
