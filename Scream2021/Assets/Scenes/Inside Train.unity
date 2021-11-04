@@ -754,7 +754,7 @@ Transform:
   m_LocalScale: {x: 3.520933, y: 1, z: 5.9941}
   m_Children: []
   m_Father: {fileID: 2068541746}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &152952312
 BoxCollider:
@@ -3805,8 +3805,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1719084851}
   moveSpeedB: 0.4
-  moveSpeedC: 7
-  moveSpeedD: 8
+  moveSpeedC: 14
+  moveSpeedD: 18
   door1: {fileID: 339001466}
   door2: {fileID: 1156593692}
   monster: {fileID: 1290869243}
@@ -5916,7 +5916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017699706}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 12.74, y: 6.07, z: -16.813002}
+  m_LocalPosition: {x: 12.74, y: 4.02, z: -16.813002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6051,7 +6051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 883761607736353928, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1002198589332052243, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_IsActive
@@ -6159,7 +6159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7572975760519951385, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8893581622123171016, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_IsActive
@@ -6794,7 +6794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284140656}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.04, z: -16.521}
+  m_LocalPosition: {x: -3.04, y: -0.04, z: -16.37}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7694,7 +7694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403201468}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 3.304, y: 2.541, z: -16.87}
+  m_LocalPosition: {x: -0.451, y: 2.377, z: -16.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10444,7 +10444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2068541746}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1882414680
 PrefabInstance:
@@ -11556,8 +11556,8 @@ MonoBehaviour:
   pointA: {fileID: 0}
   pointB: {fileID: 922886821}
   pointC: {fileID: 1300361735}
-  speed: 30
-  speedBoost: 38
+  speed: 45
+  speedBoost: 60
 --- !u!4 &2068541746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
