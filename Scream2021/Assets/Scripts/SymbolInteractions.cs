@@ -111,8 +111,10 @@ public class SymbolInteractions : MonoBehaviour
 
         gameObject.tag = ("Untagged");
 
-        chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         elderGodMove.SetActive(true);
+        elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
+
+        chainZip.GetComponent<MeshRenderer>().material = zipperMat; 
         secondTrainMove.SetActive(true);
         FindObjectOfType<DialogueUI>().ShowDialogue(zipperDialogue);
         photoMemento.SetActive(true);
@@ -125,6 +127,8 @@ public class SymbolInteractions : MonoBehaviour
         AudioManager.instance.PlayFromAudioManager(soundsEnum.ApplyFrameStand);
 
         gameObject.tag = ("Untagged");
+
+        elderGodMove.GetComponent<GodPointMovement>().SetToPointB();
 
         photoMemento.SetActive(false);
         chain.GetComponent<MeshRenderer>().material = frameMat;
@@ -140,6 +144,7 @@ public class SymbolInteractions : MonoBehaviour
     void UnlockDoor()
     {
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
+
         doorToCar.SetActive(true);
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX(); 
         FindObjectOfType<SecondTrain>().TriggerTrain();
