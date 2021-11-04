@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,14 @@ public class CreditsSkip : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                if (LevelLoader.instance.HasPlayedTheGame) StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+                if (LevelLoader.instance.HasPlayedTheGame) SkipScene(); 
             }
         }
+    }
+
+    private void SkipScene()
+    {
+        AudioManager.instance.PauseFromAudioManager(soundsEnum.Credits);
+        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
     }
 }
