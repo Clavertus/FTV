@@ -7222,7 +7222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3665047850812074390, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7286,7 +7286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: jumpSpeed
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: dialogueBox
@@ -7310,7 +7310,7 @@ PrefabInstance:
       objectReference: {fileID: 560836766}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: numberOfTriesToOpenDoor
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
@@ -7919,14 +7919,6 @@ PrefabInstance:
     - target: {fileID: 3163530058110985184, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3163530058110985186, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
-      propertyPath: cutStep
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3163530058110985186, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
-      propertyPath: cutTime
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_Name
