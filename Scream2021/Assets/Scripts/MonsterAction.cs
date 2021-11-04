@@ -65,9 +65,12 @@ public class MonsterAction : MonoBehaviour
     public AudioSource monsterAttack;
     public AudioSource monsterAgressive;
     public AudioSource monsterAgressive2; 
+    public AudioSource monsterFootstep;
+    public AudioSource monsterForceDoor1;
+    public AudioSource monsterForceDoor2;
 
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,6 +128,9 @@ public class MonsterAction : MonoBehaviour
          monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
          monsterAgressive = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
          monsterAgressive2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive2);
+         monsterFootstep = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.HeavyFootstep1);
+         monsterForceDoor1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.ForceDoor1);
+         monsterForceDoor2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.ForceDoor2);
     }
 
     public void StopMoving()
@@ -375,6 +381,7 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void ShakeDoor()
     {
+        AudioManager.instance.PlayFromGameObject(monsterForceDoor2);
         FindObjectOfType<SecondDoorToCar>().ShakeDoor();
     }
 
@@ -401,5 +408,17 @@ public class MonsterAction : MonoBehaviour
             return;
         }
         FlickTriggerCnt += Time.deltaTime;
+    }
+
+    // This C# function can be called by an Animation Event
+    public void Footstep()
+    {
+        AudioManager.instance.PlayFromGameObject(monsterFootstep);
+    }
+
+    // This C# function can be called by an Animation Event
+    public void ForceDoor()
+    {
+        AudioManager.instance.PlayFromGameObject(monsterForceDoor1);
     }
 }

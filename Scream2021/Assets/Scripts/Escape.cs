@@ -85,6 +85,7 @@ public class Escape : MonoBehaviour
             AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAgressive2);
             AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterAttack);
             AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterBreathe);
+            AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<MonsterAction>().monsterFootstep);
         }
 
         AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);

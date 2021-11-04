@@ -23,5 +23,11 @@ public enum soundsEnum
 	Footstep2 = 20,
 	Footstep3 = 21,
 	Footstep4 = 22,
+	HeavyFootstep1 = 23,
+	HeavyFootstep2 = 24,
+	HeavyFootstep3 = 25,
+	HeavyFootstep4 = 26,
+	ForceDoor1 = 27,
+	ForceDoor2 = 28,
 
 }
