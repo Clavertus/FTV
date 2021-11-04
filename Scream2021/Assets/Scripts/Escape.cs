@@ -23,7 +23,10 @@ public class Escape : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        door1.GetComponent<AutoOpen>().PushDoor();
+        door2.GetComponent<AutoOpen>().PushDoor();
+        door1.GetComponent<AutoOpen>().PushDoor();
+        door2.GetComponent<AutoOpen>().PushDoor();
     }
 
     // Update is called once per frame
@@ -44,10 +47,6 @@ public class Escape : MonoBehaviour
         if(player.transform.position == pointC.transform.position)
         {
             hitPointC = true;
-               
-            door1.GetComponent<AutoOpen>().PushDoor();
-            door2.GetComponent<AutoOpen>().PushDoor();
-
         }
         if (hitPointC)
         {
