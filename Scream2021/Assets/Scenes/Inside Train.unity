@@ -8036,6 +8036,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElderGodEnv
       objectReference: {fileID: 0}
+    - target: {fileID: 2799433093334196432, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 259
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799433093334196432, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 394
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082016576334143070, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 982
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082016576334143070, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 146
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833135226419122209, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833135226419122209, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -416
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
 --- !u!1 &1502093392
