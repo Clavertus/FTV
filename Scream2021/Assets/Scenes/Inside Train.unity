@@ -11246,6 +11246,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6045591278918779744, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: FootstepPlayRate
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6045591278918779746, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_SlopeLimit
       value: 0
@@ -12395,10 +12399,6 @@ PrefabInstance:
     - target: {fileID: 9053742028884216274, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[11].volume
-      value: 0.979
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}

@@ -19,5 +19,9 @@ public enum soundsEnum
 	PushDoor = 16,
 	Credits = 17,
 	PrevoidTrack = 18,
+	Footstep1 = 19,
+	Footstep2 = 20,
+	Footstep3 = 21,
+	Footstep4 = 22,
 
 }
