@@ -90,7 +90,7 @@ public class Escape : MonoBehaviour
 
         AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
         LevelLoader.instance.ending = Ending.Good;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());   
+        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut());   
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeedD * Time.deltaTime);
     }
     

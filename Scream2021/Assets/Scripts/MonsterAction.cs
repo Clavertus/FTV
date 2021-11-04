@@ -115,7 +115,6 @@ public class MonsterAction : MonoBehaviour
     private void TriggerAnimationWithId(int currentState)
     {
         myAnimator.SetTrigger(currentState.ToString());
-        
     }
 
 
@@ -214,6 +213,7 @@ public class MonsterAction : MonoBehaviour
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
+                        MakePlayerLookAtMonster();
                         currentState = monsterStatesEnm.jump_and_kill;
                     }
                     else
@@ -229,6 +229,7 @@ public class MonsterAction : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                 {
+                    MakePlayerLookAtMonster();
                     currentState = monsterStatesEnm.jump_and_kill;
                     break;
                 }
@@ -251,6 +252,7 @@ public class MonsterAction : MonoBehaviour
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
+                        MakePlayerLookAtMonster();
                         currentState = monsterStatesEnm.jump_and_kill;
                     }
                     else
@@ -263,6 +265,7 @@ public class MonsterAction : MonoBehaviour
                 MonsterMove(runSpeed);
                 if(Vector3.Distance(transform.position, Player.position ) <= jumpDistance)
                 {
+                    MakePlayerLookAtMonster();
                     currentState = monsterStatesEnm.jump_and_kill;
                 }
                 break;
@@ -270,20 +273,19 @@ public class MonsterAction : MonoBehaviour
 
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
                 {
-                    transform.LookAt(Player);
                     InJump = true;
-                    FindObjectOfType<MouseLook>().MonsterIsJumping();
                     AudioManager.instance.PlayFromGameObject(monsterAgressive2);
-                    offsetY = transform.position.y + offsetJumpY;
                 }
 
-                if(InJump)
+                if (InJump)
                 {
-                    MonsterJump();
                     if(PlayerFound)
                     {
-                        
                         BadEndGameTrigger();
+                    }
+                    else
+                    {
+                        MonsterJump();
                     }
                 }
                 else
@@ -295,6 +297,14 @@ public class MonsterAction : MonoBehaviour
                 break;
         }
     }
+
+    private void MakePlayerLookAtMonster()
+    {
+        transform.LookAt(Player);
+        FindObjectOfType<MouseLook>().MonsterIsJumping();
+        offsetY = transform.position.y + offsetJumpY;
+    }
+
     private void MonsterJump()
     {
         Vector3 newPosition = Vector3.MoveTowards(transform.position, Player.position, jumpSpeed * Time.deltaTime);
@@ -315,7 +325,7 @@ public class MonsterAction : MonoBehaviour
         //make something to end the game
         //currently just disables monster
         LevelLoader.instance.ending = Ending.Bad;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene()); 
+        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut()); 
     }
 
     bool PlayerFound = false;
