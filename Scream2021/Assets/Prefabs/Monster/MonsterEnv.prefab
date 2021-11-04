@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123216544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.02, z: -37.75}
+  m_LocalPosition: {x: 0, y: -0.02, z: -37.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3665047852208467769}
@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665047850812074389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -49.63}
+  m_LocalPosition: {x: 0, y: 1.91, z: -51.89}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 3665047852208467769}
@@ -423,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 3665047851991914283}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: runSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: jumpSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: ActionZone
@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 3665047850812074390}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: minDistance
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: offsetJumpY
@@ -455,15 +455,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: jumpDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: doorStayPoint
       value: 
       objectReference: {fileID: 123216545}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: lookAtDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: pauseAfterReveal
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: trains.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: numberOfTriesToOpenDoor

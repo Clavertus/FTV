@@ -35,7 +35,8 @@ public class MonsterAction : MonoBehaviour
     [Header("Gameplay controls")]
     [SerializeField] float pauseAfterReveal = 1f;
     [SerializeField] int numberOfTriesToOpenDoor = 5;
-    [SerializeField] float jumpDistance = 20f;
+    [SerializeField] float jumpDistance = 20f; 
+    [SerializeField] float lookAtDistance = 30f;
     [SerializeField] float minDistance = 4f;
     [SerializeField] Transform monsterInTheDoor; 
 
@@ -219,14 +220,12 @@ public class MonsterAction : MonoBehaviour
                     }
                     else
                     {
-                        currentState = monsterStatesEnm.walk_after_open;
+                        currentState = monsterStatesEnm.run_to_player;
                     }
                 }
                 break;
             case monsterStatesEnm.walk_after_open:
                 FlickerLightsInTrainUpdate();
-
-                MonsterMove(walkAfterDoorSpeed);
 
                 if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                 {
@@ -235,6 +234,8 @@ public class MonsterAction : MonoBehaviour
                     currentState = monsterStatesEnm.jump_and_kill;
                     break;
                 }
+
+                MonsterMove(walkAfterDoorSpeed);
 
                 if (actionZoneTriggered)
                 {
@@ -246,15 +247,18 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.action:
                 FlickerLightsInTrainUpdate();
 
+                if (Vector3.Distance(transform.position, Player.position) <= minDistance)
+                {
+                    MakePlayerLookAtMonster();
+                }
+
                 if (finishedAction)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
                     AudioManager.instance.PlayFromGameObject(monsterAttack);
 
-
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
-                        MakePlayerLookAtMonster();
                         AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                         currentState = monsterStatesEnm.jump_and_kill;
                     }
@@ -266,7 +270,12 @@ public class MonsterAction : MonoBehaviour
                 break;
             case monsterStatesEnm.run_to_player:
                 MonsterMove(runSpeed);
-                if(Vector3.Distance(transform.position, Player.position ) <= jumpDistance)
+                if (Vector3.Distance(transform.position, Player.position) <= lookAtDistance)
+                {
+                    MakePlayerLookAtMonster();
+                }
+
+                if (Vector3.Distance(transform.position, Player.position ) <= jumpDistance)
                 {
                     MakePlayerLookAtMonster();
                     currentState = monsterStatesEnm.jump_and_kill;

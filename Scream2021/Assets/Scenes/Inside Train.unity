@@ -7216,18 +7216,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 123216545, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -37.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3665047850812074390, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -51.89
-      objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
       value: MonsterEnv
@@ -7281,37 +7269,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1112664679}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: runSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: jumpSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 2074534958}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: jumpDistance
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: monsterInTheDoor
       value: 
       objectReference: {fileID: 1284140657}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: trains.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: trains.Array.data[0]
       value: 
       objectReference: {fileID: 560836766}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: numberOfTriesToOpenDoor
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
 --- !u!1 &1358194377
@@ -7926,7 +7894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
