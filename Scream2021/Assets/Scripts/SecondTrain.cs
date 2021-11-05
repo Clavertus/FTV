@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SecondTrain : MonoBehaviour
 {
+    [SerializeField] GameObject door1;
+    [SerializeField] GameObject door2;
+
     [SerializeField] Transform pointA = null;
     [SerializeField] Transform pointB = null;
     [SerializeField] Transform pointC = null;
@@ -17,6 +20,9 @@ public class SecondTrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (door1) door1.GetComponent<AutoOpen>().PushDoor();
+        if (door2) door2.GetComponent<AutoOpen>().PushDoor();
+
         if (pointA == null)
         {
             pointA = transform;

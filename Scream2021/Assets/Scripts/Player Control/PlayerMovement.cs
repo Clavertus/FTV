@@ -30,10 +30,14 @@ public class PlayerMovement : MonoBehaviour
         PlayerGravity();
     }
     public void LockPlayer() { movementLock = true; }
-    public void UnlockPlayer() { movementLock = false; } 
+    public void UnlockPlayer() { movementLock = false; }
+
+
+    [SerializeField] float FootstepPlayRate = 2f;
+    float FootstepCntTime = 0f;
     private void Move()
     {
-        if (movementLock) { return; } 
+        if (movementLock) { return; }
         //get the negative or positive x and z player inputs
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -42,7 +46,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         //let character controller do all the work from here ;)
-        controller.Move(move * moveSpeed * Time.deltaTime);  
+        controller.Move(move * moveSpeed * Time.deltaTime);
+
+        if((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
+        {
+            FootstepPlaying();
+        }
     }
 
     private void PlayerGravity()
@@ -59,6 +68,20 @@ public class PlayerMovement : MonoBehaviour
         //increment our velocity variable with the gravity variable then let character controller do the rest ;)
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void FootstepPlaying()
+    {
+        if (FootstepPlayRate <= FootstepCntTime)
+        {
+            FootstepCntTime = 0f;
+            int footstepType = (int) soundsEnum.Footstep1;
+            AudioManager.instance.PlayFromAudioManager((soundsEnum)footstepType);
+        }
+        else
+        {
+            FootstepCntTime += Time.deltaTime;
+        }
     }
 
 }

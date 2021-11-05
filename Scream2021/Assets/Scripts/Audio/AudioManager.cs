@@ -207,8 +207,8 @@ public class AudioManager : MonoBehaviour
         float t = 0;
         float volume = audioSource.volume;
         audioSource.volume = 0;
-        Debug.Log(volume);
-        Debug.Log(audioSource.volume);
+        //Debug.Log(volume);
+        //Debug.Log(audioSource.volume);
         Debug.Log(audioSource.clip);
 
         Debug.Log(audioSource.gameObject.name);

@@ -17,6 +17,9 @@ public class LevelLoader : MonoBehaviour
     public float fadeStep;
     public float fadeTime;
 
+    public float cutStep;
+    public float cutTime;
+
     public Ending ending;
     public bool HasPlayedTheGame;
     void Awake()
@@ -34,6 +37,17 @@ public class LevelLoader : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+
+        if(PlayerPrefs.HasKey("HasPlayedTheGame"))
+        {
+            HasPlayedTheGame = PlayerPrefs.GetInt("HasPlayedTheGame") == 1 ? true : false;
+        }
+    }
+
+    public void SetPlayedTheGame()
+    {
+        HasPlayedTheGame = true;
+        PlayerPrefs.SetInt("HasPlayedTheGame", HasPlayedTheGame ? 1 : 0);
     }
 
     public void LoadScene(int index)
@@ -58,6 +72,13 @@ public class LevelLoader : MonoBehaviour
         LoadNextScene();
         StartCoroutine(FadeOut());
     }
+    public IEnumerator StartLoadingNextSceneWithHardCut()
+    {
+        StopAllCoroutines();
+        yield return StartCoroutine(CutIn());
+        LoadNextScene();
+        StartCoroutine(CutOut());
+    }
 
     public IEnumerator StartLoadingScene(int index)
     {
@@ -78,6 +99,17 @@ public class LevelLoader : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
     }
+    public IEnumerator CutIn()
+    {
+        float t = 0;
+        while (canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha += cutStep;
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, t);
+            t += cutStep * Time.deltaTime;
+            yield return new WaitForSeconds(0);
+        }
+    }
 
     public IEnumerator FadeOut()
     {
@@ -88,6 +120,18 @@ public class LevelLoader : MonoBehaviour
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, t);
             t += fadeStep * Time.deltaTime;
             yield return new WaitForSeconds(fadeTime);
+        }
+    }
+
+    public IEnumerator CutOut()
+    {
+        float t = 0;
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= cutStep;
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, t);
+            t += cutStep * Time.deltaTime;
+            yield return new WaitForSeconds(cutTime);
         }
     }
 }

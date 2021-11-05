@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &123216544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123216545}
+  m_Layer: 0
+  m_Name: MonsterDoorStayPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &123216545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123216544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.02, z: -37.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3665047852208467769}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3665047850812074389
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665047850812074389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -50.43}
+  m_LocalPosition: {x: 0, y: 1.91, z: -51.89}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 3665047852208467769}
@@ -139,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665047851845298610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -27.03}
+  m_LocalPosition: {x: 0, y: 1.91, z: -24.98}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 3665047852208467769}
@@ -234,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665047851991914282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: -37.23}
+  m_LocalPosition: {x: 0, y: 1.91, z: -35.627}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 3665047852208467769}
@@ -332,6 +362,7 @@ Transform:
   - {fileID: 3665047850812074390}
   - {fileID: 3665047851991914283}
   - {fileID: 3665047851845298611}
+  - {fileID: 123216545}
   m_Father: {fileID: 3665047852309307638}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -375,6 +406,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3665047852309307638}
     m_Modifications:
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: gTFO
+      value: 
+      objectReference: {fileID: 11400000, guid: 087c7dc8d38228e4eb81ea44579d38b2, type: 2}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
@@ -388,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 3665047851991914283}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: runSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: jumpSpeed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: ActionZone
@@ -411,16 +446,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3665047850812074390}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: minDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: offsetJumpY
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: jumpDistance
-      value: 30
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: doorStayPoint
+      value: 
+      objectReference: {fileID: 123216545}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: lookAtDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: pauseAfterReveal
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: trains.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4476679576564814087, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: numberOfTriesToOpenDoor
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852359846742281792, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: m_Height
+      value: 4.5327835
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852359846742281792, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: m_Radius
+      value: 1.6150956
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852359846742281792, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: m_Center.y
+      value: 3.541388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852359846742281792, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: m_Center.z
+      value: 1.0344135
       objectReference: {fileID: 0}
     - target: {fileID: 4852359846742281792, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: m_Material
@@ -433,6 +504,10 @@ PrefabInstance:
     - target: {fileID: 6995888257056956458, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: m_Name
       value: TrainMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995888257056956458, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6995888257056956458, guid: 182f4dd6f59aead4dbe59088e03a9abe, type: 3}
       propertyPath: m_IsActive

@@ -7,6 +7,7 @@ public class GodPointMovement : MonoBehaviour
 {
     [SerializeField] Transform pointA = null;
     [SerializeField] Transform pointB = null;
+    [SerializeField] Transform pointC = null;
 
     [SerializeField] float speed = 10f;
     [SerializeField] float speedBoost = 10f;
@@ -26,33 +27,38 @@ public class GodPointMovement : MonoBehaviour
         }
 
 
-        if (pointB != null)
+        if (pointC != null)
         {
-            transform.rotation = pointB.rotation;
+            transform.rotation = pointC.rotation;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((pointB != null) && enableMovement)
+        if((pointC != null) && enableMovement)
         {
-            MoveToPointB();
+            MoveToPointC();
         }
         
     }
 
-    private void MoveToPointB()
+    private void MoveToPointC()
     {
-        transform.position = Vector3.MoveTowards(pointA.position, pointB.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, pointC.position, speed * Time.deltaTime);
     }
 
-    
+    public void SetToPointB()
+    {
+        transform.position = pointB.position;
+    }
+
 
     public void increaseSpeed()
     {
-        speed = speedBoost;
+        speed = speed + speedBoost;
     }
+
     public void OnEnable()
     {
         enableMovement = true;

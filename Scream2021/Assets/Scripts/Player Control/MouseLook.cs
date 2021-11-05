@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] float mouseSensitivity = 100f;
+    [SerializeField] public float mouseSensitivity = 100f;
 
     //these are the upper and lower boundaries of the camera
     [SerializeField] int lowLookClamp = -90;
