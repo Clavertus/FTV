@@ -30,9 +30,6 @@ public class CameraChanger : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
-        AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
-
         Cursor.visible = false;
         //TODO: find another place for this function call
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();

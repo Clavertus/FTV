@@ -28,6 +28,9 @@ public class Begin : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
+
             StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
         }
     }
