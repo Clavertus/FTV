@@ -10,7 +10,21 @@ public class MouseSensivitySlider : MonoBehaviour
 
 	MouseLook mouseLook;
 
-	public void Start()
+    private void Awake()
+	{
+		mouseLook = FindObjectOfType<MouseLook>();
+		if (mouseLook)
+		{
+			Debug.Log("mouse Look found!");
+			if (PlayerPrefs.HasKey("mouse_sensivity")) mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
+		}
+		else
+		{
+			Debug.LogError("Mouse Look component requirent somewhere on scene to apply mouse sensivity");
+		}
+	}
+
+    public void Start()
 	{
 		if(sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
 
@@ -19,8 +33,7 @@ public class MouseSensivitySlider : MonoBehaviour
 		mouseLook = FindObjectOfType<MouseLook>();
 		if(mouseLook)
 		{
-			//Debug.Log("Found!");
-			if (mouseLook) mouseLook.mouseSensitivity = sensivitySlider.value;
+			if (PlayerPrefs.HasKey("mouse_sensivity")) mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
 		}
 		else
 		{

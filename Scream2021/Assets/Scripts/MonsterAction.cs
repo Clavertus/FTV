@@ -284,13 +284,14 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.jump_and_kill:
-
+                /*
                 if (PlayerFound)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                     BadEndGameTrigger();
                     break;
                 }
+                */
 
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
                 {
@@ -304,9 +305,11 @@ public class MonsterAction : MonoBehaviour
                     {
                         AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                         BadEndGameTrigger();
-                        break;
                     }
-                    MonsterJump();
+                    else
+                    {
+                        MonsterJump();
+                    }
                 }
                 else
                 {
