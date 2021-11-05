@@ -43,6 +43,7 @@ public class Credits : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
+                AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
                 StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
             }
         }

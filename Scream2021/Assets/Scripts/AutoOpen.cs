@@ -6,22 +6,21 @@ public class AutoOpen : MonoBehaviour
 { 
     [SerializeField] float pushDistance;
     [SerializeField] bool negative = false;
-// Start is called before the first frame update
-void Start()
-{
+    [SerializeField] bool xAxisPush = false;
 
-}
-
-// Update is called once per frame
-void Update()
-{
-    
-}
- public void PushDoor()
-{
+    public void PushDoor()
+    {
         if (negative) { pushDistance *= -1f; }
-    gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - pushDistance);
-        pushDistance = 0;   
-}
+
+        if(!xAxisPush)
+        {
+            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + pushDistance);
+        }else
+        {
+            gameObject.transform.position = new Vector3(transform.position.x + pushDistance, transform.position.y, transform.position.z);
+        }
+
+        pushDistance = 0;
+    }
 
 }

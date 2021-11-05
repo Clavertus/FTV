@@ -1871,8 +1871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b63a9b5829709e408d761ace13cffc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDistance: 0.4
+  pushDistance: 0.6
   negative: 0
+  xAxisPush: 1
 --- !u!4 &346503362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7572975760519951385, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
@@ -6492,6 +6493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushDistance: 0.6
   negative: 1
+  xAxisPush: 1
 --- !u!1001 &1157228792
 PrefabInstance:
   m_ObjectHideFlags: 0

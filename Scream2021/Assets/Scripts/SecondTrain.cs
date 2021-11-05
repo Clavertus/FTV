@@ -20,8 +20,6 @@ public class SecondTrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (door1) door1.GetComponent<AutoOpen>().PushDoor();
-        if (door2) door2.GetComponent<AutoOpen>().PushDoor();
 
         if (pointA == null)
         {
@@ -80,6 +78,8 @@ public class SecondTrain : MonoBehaviour
     public void OnEnable()
     {
         enableMovement = true;
+        door1.GetComponent<AutoOpen>().PushDoor();
+        door2.GetComponent<AutoOpen>().PushDoor();
     }
 
     private void OnDisable()

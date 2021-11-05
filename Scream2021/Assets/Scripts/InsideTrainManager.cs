@@ -20,4 +20,13 @@ public class InsideTrainManager : MonoBehaviour
         AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone2);
     }
+
+    private void OnDisable()
+    {
+        if(AudioManager.instance)
+        {
+            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone2);
+        }
+    }
 }

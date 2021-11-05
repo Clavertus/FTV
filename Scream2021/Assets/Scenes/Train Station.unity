@@ -783,6 +783,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8752703847577187, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: soundsToStop.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4780058962120171047, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_Pivot.x
       value: 0

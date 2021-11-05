@@ -7,6 +7,8 @@ public class Begin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.PlayFromAudioManager(soundsEnum.TV);
         AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
     }
@@ -16,8 +18,6 @@ public class Begin : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
-            AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
             StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
         }
     }

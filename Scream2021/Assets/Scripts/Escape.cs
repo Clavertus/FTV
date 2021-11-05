@@ -20,12 +20,6 @@ public class Escape : MonoBehaviour
     bool hitPointB = false;
     bool hitPointC = false;
 
-    private void Start()
-    {
-        door1.GetComponent<AutoOpen>().PushDoor();
-        door2.GetComponent<AutoOpen>().PushDoor();
-    }
-
     // Update is called once per frame
     void Update()
     {
