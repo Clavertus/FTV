@@ -293,6 +293,8 @@ public class MonsterAction : MonoBehaviour
                 }
                 */
 
+                CheckDistance();
+
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
                 {
                     InJump = true;
@@ -352,6 +354,19 @@ public class MonsterAction : MonoBehaviour
     }
 
     bool PlayerFound = false;
+
+    private void CheckDistance()
+    {
+        if(!PlayerFound)
+        {
+            if (Vector3.Distance(transform.position, Player.position) <= 3f)
+            {
+                PlayerFound = true;
+            }
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other)
@@ -370,7 +385,7 @@ public class MonsterAction : MonoBehaviour
             }
             if(other.transform == Player)
             {
-                PlayerFound = true;
+                //PlayerFound = true;
             }
         }
     }
