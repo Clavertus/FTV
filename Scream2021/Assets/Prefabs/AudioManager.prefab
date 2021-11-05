@@ -91,6 +91,21 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
+  - name: Drone2
+    clip: {fileID: 8300000, guid: 3afff195f780cda4087ef088a76a2b75, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
   - name: Change4
     clip: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
     audioMixerGroup: {fileID: 0}

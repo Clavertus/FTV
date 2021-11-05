@@ -15,9 +15,9 @@ public class InsideTrainManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TriggerSecondDroneSound()
     {
-        
+        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone2);
     }
 }

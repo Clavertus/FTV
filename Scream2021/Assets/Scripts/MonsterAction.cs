@@ -196,6 +196,8 @@ public class MonsterAction : MonoBehaviour
                     AudioManager.instance.PlayFromGameObject(monsterAgressive2);
                     FindObjectOfType<SecondDoorToCar>().ShakeDoor();
 
+                    FindObjectOfType<InsideTrainManager>().TriggerSecondDroneSound();
+
                     currentState = monsterStatesEnm.in_open;
                 }
                 break;
