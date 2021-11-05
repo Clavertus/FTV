@@ -17,7 +17,7 @@ public class InsideTrainManager : MonoBehaviour
 
     public void TriggerSecondDroneSound()
     {
-        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone2);
     }
 
@@ -25,8 +25,8 @@ public class InsideTrainManager : MonoBehaviour
     {
         if(AudioManager.instance)
         {
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone2);
+            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone2);
         }
     }
 }
