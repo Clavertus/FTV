@@ -214,7 +214,7 @@ public class AudioManager : MonoBehaviour
         Debug.Log(audioSource.gameObject.name);
         while (audioSource != null && audioSource.volume != volume)
         {
-            Debug.Log("Fading in!");
+            //Debug.Log("Fading in!");
             audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
             t += audioFadeSpeed * Time.deltaTime;
             yield return new WaitForSeconds(0);

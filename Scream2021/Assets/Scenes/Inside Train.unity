@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -412,6 +412,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 467545862}
+  maxDistanceFromPlayer: 4
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &31977209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,19 +447,6 @@ MonoBehaviour:
   inspectCanvas: {fileID: 467545862}
   holdSmallObjCanvas: {fileID: 883661303}
   pocketItemName: Zipper
---- !u!65 &31977211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31977205}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.012368203, y: 0.033231612, z: 0.10517227}
-  m_Center: {x: 0.00013679954, y: 0.010771008, z: 0.052586116}
 --- !u!1 &37108412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4501867352707549851, guid: 8a4d9279a00d3ae41a5f5bfa86b523e9, type: 3}
@@ -498,7 +489,7 @@ BoxCollider:
   m_GameObject: {fileID: 50796877}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.6981945, y: 1.1722172, z: 0.7123236}
   m_Center: {x: 1.0690093, y: 0.5861086, z: -0.35616088}
@@ -947,7 +938,6 @@ GameObject:
   m_Component:
   - component: {fileID: 179575107}
   - component: {fileID: 179575103}
-  - component: {fileID: 179575104}
   - component: {fileID: 179575109}
   - component: {fileID: 179575108}
   - component: {fileID: 179575110}
@@ -971,19 +961,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2454826, y: 0.9999999, z: 1.316449}
   m_Center: {x: 0.12274148, y: 0, z: 0.059900787}
---- !u!65 &179575104
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179575102}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.81056905, y: 0.95995975, z: 1.8637992}
-  m_Center: {x: 1.3741932, y: -0.020021694, z: 0.021190874}
 --- !u!4 &179575107
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,6 +992,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 658217881}
+  maxDistanceFromPlayer: 4
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &179575109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,7 +2163,6 @@ GameObject:
   m_Component:
   - component: {fileID: 438894739}
   - component: {fileID: 438894743}
-  - component: {fileID: 438894742}
   - component: {fileID: 438894741}
   - component: {fileID: 438894740}
   m_Layer: 0
@@ -2245,19 +2225,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1830103061}
---- !u!65 &438894742
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438894738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3297405, y: 1.8230872, z: 1.0408399}
-  m_Center: {x: -0.0486431, y: 0.98315763, z: 0.6859873}
+  maxDistanceFromPlayer: 2
+  checkPlayerRotation: 1
+  minYLookRotation: 170
+  maxYLookRotation: 190
 --- !u!65 &438894743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2650,6 +2621,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 467545862}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!23 &525125242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2937,6 +2912,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 27251263}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &567530725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,7 +2999,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581801529}
-  - component: {fileID: 581801533}
   - component: {fileID: 581801532}
   - component: {fileID: 581801531}
   - component: {fileID: 581801530}
@@ -3059,6 +3037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 181464261}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &581801531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,19 +3069,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &581801533
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581801528}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.373023}
 --- !u!1 &586760868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,7 +3171,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613182559}
-  - component: {fileID: 613182563}
   - component: {fileID: 613182562}
   - component: {fileID: 613182561}
   - component: {fileID: 613182560}
@@ -3241,6 +3209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 2143848947}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &613182561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,19 +3241,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13103148, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &613182563
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613182558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302294}
 --- !u!1 &621936137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3689,6 @@ GameObject:
   - component: {fileID: 714782840}
   - component: {fileID: 714782843}
   - component: {fileID: 714782842}
-  - component: {fileID: 714782841}
   - component: {fileID: 714782844}
   m_Layer: 0
   m_Name: Escape
@@ -3753,19 +3711,6 @@ Transform:
   m_Father: {fileID: 346503362}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &714782841
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714782839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.809627, y: 5.3314886, z: 2.6494014}
-  m_Center: {x: 0.113047026, y: 2.1657448, z: -0.58817935}
 --- !u!65 &714782842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3792,6 +3737,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 206922428}
+  maxDistanceFromPlayer: 5
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &714782844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4063,7 +4012,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -181.9, y: 13}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &750501888
 MonoBehaviour:
@@ -4705,7 +4654,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -175.8, y: 8}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &828383678
 MonoBehaviour:
@@ -5144,7 +5093,6 @@ GameObject:
   - component: {fileID: 915997524}
   - component: {fileID: 915997527}
   - component: {fileID: 915997526}
-  - component: {fileID: 915997525}
   m_Layer: 0
   m_Name: SelectableDoor
   m_TagString: Untagged
@@ -5167,19 +5115,6 @@ Transform:
   m_Father: {fileID: 50796878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &915997525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915997523}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.5223494, y: 6.082086, z: 4.023293}
-  m_Center: {x: -0.07944584, y: 2.5410426, z: -0.27314663}
 --- !u!65 &915997526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5206,6 +5141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 856885859}
+  maxDistanceFromPlayer: 4
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!1001 &917111163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5349,7 +5288,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919765106}
-  - component: {fileID: 919765110}
   - component: {fileID: 919765109}
   - component: {fileID: 919765108}
   - component: {fileID: 919765107}
@@ -5388,6 +5326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1186565295}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &919765108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5416,19 +5358,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &919765110
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919765105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302303}
 --- !u!1 &922886820
 GameObject:
   m_ObjectHideFlags: 0
@@ -6238,6 +6167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1977682069}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!4 &1112664679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6045591278918779747, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
@@ -6252,7 +6185,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121062138}
-  - component: {fileID: 1121062142}
   - component: {fileID: 1121062141}
   - component: {fileID: 1121062140}
   - component: {fileID: 1121062139}
@@ -6291,6 +6223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1519079774}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1121062140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6319,19 +6255,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &1121062142
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121062137}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302294}
 --- !u!1 &1138059230
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,7 +7831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
@@ -8255,7 +8178,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542102163}
-  - component: {fileID: 1542102167}
   - component: {fileID: 1542102166}
   - component: {fileID: 1542102165}
   - component: {fileID: 1542102164}
@@ -8294,6 +8216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1167309843}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1542102165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8322,19 +8248,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.99, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &1542102167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542102162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302303}
 --- !u!1 &1560252336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9139414282567094156, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
@@ -8457,7 +8370,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1579118485}
   - component: {fileID: 1579118489}
-  - component: {fileID: 1579118488}
   - component: {fileID: 1579118487}
   - component: {fileID: 1579118486}
   m_Layer: 0
@@ -8532,19 +8444,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 849465699}
---- !u!65 &1579118488
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579118484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3297405, y: 1.8230872, z: 1.6107918}
-  m_Center: {x: -0.0486431, y: 0.98315763, z: 0.97096324}
+  maxDistanceFromPlayer: 3
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!65 &1579118489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8567,7 +8470,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1590872126}
-  - component: {fileID: 1590872130}
   - component: {fileID: 1590872129}
   - component: {fileID: 1590872128}
   - component: {fileID: 1590872127}
@@ -8606,6 +8508,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1182773180}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1590872128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8634,19 +8540,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &1590872130
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590872125}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302294}
 --- !u!1 &1610488705
 GameObject:
   m_ObjectHideFlags: 0
@@ -9726,7 +9619,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775834813}
-  - component: {fileID: 1775834817}
   - component: {fileID: 1775834816}
   - component: {fileID: 1775834815}
   - component: {fileID: 1775834814}
@@ -9765,6 +9657,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1857133600}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1775834815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9793,19 +9689,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &1775834817
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775834812}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.373023}
 --- !u!1001 &1780436944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10572,6 +10455,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 753841665}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!65 &1907715943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10752,7 +10639,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1912142479}
   - component: {fileID: 1912142481}
-  - component: {fileID: 1912142480}
   - component: {fileID: 1912142478}
   - component: {fileID: 1912142482}
   m_Layer: 0
@@ -10775,6 +10661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 4751406597783994821}
+  maxDistanceFromPlayer: 2
+  checkPlayerRotation: 1
+  minYLookRotation: 170
+  maxYLookRotation: 190
 --- !u!4 &1912142479
 Transform:
   m_ObjectHideFlags: 0
@@ -10790,19 +10680,6 @@ Transform:
   m_Father: {fileID: 257535815}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1912142480
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912142477}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3297405, y: 1.8230872, z: 1.0408399}
-  m_Center: {x: -0.0486431, y: 0.98315763, z: 0.6859873}
 --- !u!65 &1912142481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11112,6 +10989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: photoframe
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e74ac0194108284494f6d2e7cde5827, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e74ac0194108284494f6d2e7cde5827, type: 3}
 --- !u!4 &1979532589 stripped
@@ -11168,6 +11049,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 154333318}
+  maxDistanceFromPlayer: 4
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!65 &1979532594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11181,19 +11066,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017274374, y: 0.010609903, z: 0.018910008}
   m_Center: {x: -0.0010617179, y: -0.0033772667, z: 0.0016311402}
---- !u!65 &1979532595
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979532590}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.08824353, y: 0.10485645, z: 0.16523696}
-  m_Center: {x: -0.0059712064, y: -0.0065897712, z: -0.034324303}
 --- !u!1001 &1984704150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11373,7 +11245,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018743717}
-  - component: {fileID: 2018743721}
   - component: {fileID: 2018743720}
   - component: {fileID: 2018743719}
   - component: {fileID: 2018743718}
@@ -11412,6 +11283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 325408731}
+  maxDistanceFromPlayer: 6
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &2018743719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11440,19 +11315,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.094998814, y: 1.9998846, z: 3.572524}
   m_Center: {x: -1.25, y: 0.569973, z: 0.53176486}
---- !u!65 &2018743721
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018743716}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.25, y: 2.3753915, z: 4.138734}
-  m_Center: {x: -1.25, y: 0.68769574, z: 0.37302294}
 --- !u!1001 &2031873182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11670,7 +11532,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -175.20001, y: 10.700012}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2122812047
 MonoBehaviour:

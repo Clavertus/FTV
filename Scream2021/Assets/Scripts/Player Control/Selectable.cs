@@ -9,8 +9,15 @@ public class Selectable : MonoBehaviour
     
     //the canvas that lets the player know the object can be selected
     [SerializeField] Canvas selectableCanvas;
-    AudioSource myAudioSource; 
+    [SerializeField] float maxDistanceFromPlayer = 1;
+    [SerializeField] bool checkPlayerRotation = false;
 
+    [SerializeField] float minYLookRotation;
+    [SerializeField] float maxYLookRotation;
+
+    bool enteredSelectable = false; 
+    AudioSource myAudioSource;
+    GameObject player; 
 
     private void OnEnable()
     {
@@ -18,14 +25,25 @@ public class Selectable : MonoBehaviour
     }
     void Start()
     {
-
+        player = FindObjectOfType<PlayerMovement>().gameObject;
         selectableCanvas.gameObject.SetActive(false);  
 
     }
 
     void Update()
     {
-        
+        Debug.Log(player.transform.eulerAngles.y);
+        float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
+        if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == false) { EnterSelectionZone();  }
+        if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == true) 
+        {
+            
+            if (player.transform.eulerAngles.y >= minYLookRotation && player.transform.eulerAngles.y <= maxYLookRotation) 
+            EnterSelectionZone(); 
+        }
+
+        if (distance >= maxDistanceFromPlayer && enteredSelectable == true) { ExitSelectionZone(); }
+
     }
 
     //enables canvas that lets player know the object can be selected
@@ -51,24 +69,16 @@ public class Selectable : MonoBehaviour
         selectableCanvas.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void EnterSelectionZone() 
     {
-        
-        //if player enters this objects selection zone, change its tag to selectable
-        if (other.CompareTag("Player"))
-        {
-            gameObject.tag = ("Selectable");
-            AudioManager.instance.PlayFromAudioManager(soundsEnum.UI1);  
-        } 
+        enteredSelectable = true; 
+        gameObject.tag = ("Selectable");
+        AudioManager.instance.PlayFromAudioManager(soundsEnum.UI1);  
     }
-    private void OnTriggerExit(Collider other)
+    private void ExitSelectionZone() 
     {
-        //if player exits this objects selection zone, change its tag to untagged
-        if (other.CompareTag("Player"))
-        {
-            gameObject.tag = ("Untagged");  
-            
-        }
+        enteredSelectable = false;  
+        gameObject.tag = ("Untagged");              
     }
 
 
