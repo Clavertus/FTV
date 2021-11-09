@@ -66,7 +66,7 @@ public class Prevoid : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("playerYrot");
             PlayerPrefs.DeleteKey("camXrot");
-            AudioManager.instance.PlayFromAudioManager(soundsEnum.PrevoidTrack);
+            AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.PrevoidTrack);
             accumulatedTime = 0;
             StartCoroutine("Timer");
             tinted = new Color(0.6650944f, 0.9123682f, 1);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Begin : MonoBehaviour
 {
     bool AudioManagerInitialised = false;
-    // Start is called before the first frame update
+
     void MusicPlay()
     {
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
@@ -17,7 +17,6 @@ public class Begin : MonoBehaviour
         AudioManagerInitialised = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if((AudioManager.instance) && (!AudioManagerInitialised))
@@ -28,7 +27,7 @@ public class Begin : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
             AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
 
             StartCoroutine(LevelLoader.instance.StartLoadingNextScene());

@@ -34,8 +34,7 @@ public class CreditsSkip : MonoBehaviour
 
     private void SkipScene()
     {
-        AudioManager.instance.PauseFromAudioManager(soundsEnum.Credits);
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.StopFromAudioManager(soundsEnum.Credits);
         StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
     }
 }

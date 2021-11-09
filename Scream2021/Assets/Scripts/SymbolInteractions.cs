@@ -94,7 +94,7 @@ public class SymbolInteractions : MonoBehaviour
 
     void ApplyDPad()
     {
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.ApplyDPad);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.ApplyDPad);
         FindObjectOfType<DialogueUI>().ShowDialogue(dPadDialogue);
          
         gameObject.tag = ("Untagged");
@@ -107,7 +107,7 @@ public class SymbolInteractions : MonoBehaviour
 
     void ApplyZipper()
     {
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.ApplyZipper);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.ApplyZipper);
 
         gameObject.tag = ("Untagged");
 
@@ -124,7 +124,7 @@ public class SymbolInteractions : MonoBehaviour
 
     IEnumerator ApplyFrameStand() 
     {
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.ApplyFrameStand);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.ApplyFrameStand);
 
         gameObject.tag = ("Untagged");
 

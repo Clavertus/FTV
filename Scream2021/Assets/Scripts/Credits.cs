@@ -30,7 +30,7 @@ public class Credits : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartCredits());
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Credits);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Credits);
     }
 
     void Update()
@@ -43,7 +43,6 @@ public class Credits : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
-                AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
                 StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
             }
         }
