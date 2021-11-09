@@ -1869,6 +1869,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 173624637}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &202976962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,6 +3277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 257761642}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &407711621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3809,7 +3817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
@@ -5294,6 +5302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1034972461}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &729808730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5383,6 +5395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 616318694}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &738935311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7127,6 +7143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 131778548}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1239510242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7895,6 +7915,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 290602187}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1425790727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8134,6 +8158,16 @@ MonoBehaviour:
   cam2: {fileID: 0}
   camXrot: 0
   playerYrot: 0
+  nextSample: 0
+  totalSamples: 0
+  track: {fileID: 0}
+  componentsArr: []
+  blackSamples: 98ab050041270800581c0b005a0c0d0016b90d003ff50e0013251200fb291300c7cb1300bb5e140006ac14005bef1500976816008c781700b2681900208b1a007ade1c001ba61e005d141f00470e2000cb57200046ac20005ccd2000890f2100b451210067dd2100961f2200105e2200a3bd220059d72200cc1523003e5423000aeb23008a342400a0552400c98c2400daad2400b5f324006d2325002e5e25007d7b2500979c250057d7250028282600497526000edc2600c80b2700e94d2700556b27001ab12700edf6270026392800e2522800567b28002bab2800a6de2800bf0a2900413e2900fc57290069802900e1a82900a9d82900b1ee2900ca1a2a00cd302a00df462a00e75c2a00c5a22a0088bc2a0030d62a00eeef2a00
+  whiteSamples: 
+  flickSamples: 
+  blackSampleIndex: 0
+  whiteSampleIndex: 0
+  sampleIndex: 0
 --- !u!4 &1479274184
 Transform:
   m_ObjectHideFlags: 0
@@ -8408,6 +8442,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1575043699}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1551017078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8516,6 +8554,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1765664811}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1564888666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10295,6 +10337,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 194452331}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!4 &1912142479
 Transform:
   m_ObjectHideFlags: 0

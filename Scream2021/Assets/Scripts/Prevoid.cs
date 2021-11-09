@@ -17,7 +17,17 @@ public class Prevoid : MonoBehaviour
     public float playerYrot;
 
 
+    public int nextSample;
+    public int totalSamples;
+    public AudioSource track;
+    public AudioSource[] componentsArr;
 
+    public int[] blackSamples;
+    public int[] whiteSamples;
+    public int[] flickSamples;
+    public int blackSampleIndex;
+    public int whiteSampleIndex;
+    public int sampleIndex;
 
     float accumulatedTime;
 
@@ -28,6 +38,7 @@ public class Prevoid : MonoBehaviour
 
     public void Awake()
     {
+        
         /*
         if (instance == null)
         {
@@ -63,351 +74,50 @@ public class Prevoid : MonoBehaviour
     public void StartSequence()
     {
         //if(LevelLoader.instance.HasPlayedTheGame)
-        {
+        { 
             PlayerPrefs.DeleteKey("playerYrot");
             PlayerPrefs.DeleteKey("camXrot");
             AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.PrevoidTrack);
+            componentsArr = AudioManager.instance.gameObject.GetComponents<AudioSource>();
+            foreach(AudioSource a in componentsArr)
+            {
+                if(a.clip.name == "Pre-voidTrainAmbience_weird_at_0.42_stop_at_1.04")
+                {
+                    track = a;
+                }
+            }
+
             accumulatedTime = 0;
-            StartCoroutine("Timer");
+            Timer();
             tinted = new Color(0.6650944f, 0.9123682f, 1);
         }
     }
 
-    public float FlickTime(int a = 1)
+   
+
+
+  
+
+
+
+    public void Timer()
     {
-        if (a == 0)
+        flickSamples = new int[300];
+        whiteSamples = new int[blackSamples.Length];
+        sampleIndex = 0;
+        blackSampleIndex = 0;
+        whiteSampleIndex = 0;
+
+        for(int i = 0; i < blackSamples.Length; i++)
         {
-            float b = Random.Range(0.05f, 0.15f);
-            accumulatedTime += b;
-
-            return b;                           //long
+            whiteSamples[i] = blackSamples[i] + Random.Range(1470, 4410);  // 0.03 - 0.1 seconds converted into timesamples with frequency = 44100Hz 
         }
-        else
-        {
 
-            float b = Random.Range(0.02f, 0.1f);
-            accumulatedTime += b;
-
-            return b;
-            //short
-        }
 
     }
 
-    public IEnumerator Timer()
+    public void TimerEnd()
     {
-        //DURATION OF THE SOUNDTRACK - 1:07
-
-        #region flickingSequence
-
-        /* This sequence is hard-coded to get a good non-repeatable expierience.
-         * It's done on purpose, lol*/
-
-
-        yield return new WaitForSecondsRealtime(5f);
-
-
-        //single flick 10 seconds in
-        LowFlick(1);
-        yield return new WaitForSecondsRealtime(FlickTime());
-        LowUnFlick();
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-        yield return new WaitForSecondsRealtime(5f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 5; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(2));
-        }
-
-
-
-
-
-        for (int i = 0; i < 5; i++)
-        {
-            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(2);
-                yield return new WaitForSecondsRealtime(FlickTime());
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-
-
-
-
-        for (int i = 0; i < 10; i++)
-        {
-            yield return new WaitForSecondsRealtime(.5f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(4);
-                yield return new WaitForSecondsRealtime(FlickTime());
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-        for (int i = 0; i < 20; i++)
-        {
-            yield return new WaitForSecondsRealtime(.3f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(4);
-                yield return new WaitForSecondsRealtime(FlickTime());
-
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                Flick();
-                yield return new WaitForSecondsRealtime(FlickTime());
-
-                UnFlick();
-                if (j == 1)
-                // mannequinnes stand up
-                {
-                    for (int k = 0; k < figures.Length; k++)
-                    {
-                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
-                        figures[k].transform.position += figures[k].transform.forward;
-                    }
-                }
-
-                if (j == 2)
-                {
-
-                    for (int k = 0; k < figures.Length; k++)
-                    {
-                        figures[k].GetComponent<Transform>().LookAt(player);
-                    }
-
-                }
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-        #endregion
-
         playerYrot = player.rotation.eulerAngles.y;
         camXrot = cam.transform.rotation.eulerAngles.x;
 
@@ -417,47 +127,23 @@ public class Prevoid : MonoBehaviour
     }
 
 
-    public void LowFlick(int flickIntensity = 0)
+    public void Blackout()
     {
         foreach (Light a in lights)
         {
             a.type = LightType.Point;
             a.color = tinted;
-            switch (flickIntensity)
-            {
-
-                case 0:
-                    a.intensity = Random.Range(3f, 4f);
-                    break;
-
-                case 1:
-                    a.intensity = Random.Range(2f, 4f);
-                    break;
-
-                case 2:
-                    a.intensity = Random.Range(1f, 3f);
-                    break;
-
-                case 3:
-                    a.intensity = Random.Range(.5f, 2f);
-                    break;
-
-                case 4:
-                    a.intensity = Random.Range(.1f, 1f);
-                    break;
-
-
-            }
+            a.intensity = Random.Range(.2f, 1.3f);
         }
     }
 
-    public void LowUnFlick()
+    public void Light()
     {
         foreach (Light a in lights)
         {
             a.type = LightType.Point;
             a.color = tinted;
-            a.intensity = 6f;
+            a.intensity = 6;
         }
     }
 
@@ -465,24 +151,35 @@ public class Prevoid : MonoBehaviour
 
 
 
-
-    public void Flick()
+    public void Update()
     {
-        foreach (Light a in lights)
+        
+        /*
+         *  Use this mechanism to set new flicks. Run the Prevoid scene, press "Z" whenever you want the lights
+         *  to flick. Pause just barely the track ends, copy the values from FlickSamples array to
+         *  BlackSamples array and save.
+         *  Max flicks = 300. Can be modified in Timer().
+         *  
+         *  
+        if (Input.GetKeyDown("z"))
         {
-            a.type = LightType.Directional;
-            a.color = Color.red;
+            flickSamples[sampleIndex] = track.timeSamples;
+            sampleIndex++;
         }
-    }
+        */
+       
 
-    public void UnFlick()
-    {
-        foreach (Light a in lights)
+        if(track.timeSamples > blackSamples[blackSampleIndex])
         {
-            a.type = LightType.Point;
-            a.color = Color.black;
+            Blackout();
+            blackSampleIndex++;
         }
-    }
 
+        if(track.timeSamples > whiteSamples[whiteSampleIndex])
+        {
+            Light();
+            whiteSampleIndex++;
+        }  
+    }
 
 }
