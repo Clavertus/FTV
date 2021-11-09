@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InsideTrainManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // called zero
     void Awake()
     {
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone);
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
         {
@@ -15,18 +15,32 @@ public class InsideTrainManager : MonoBehaviour
         }
     }
 
+    // called first
+    void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
+    }
+
     public void TriggerSecondDroneSound()
     {
-        AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
-        AudioManager.instance.PlayFromAudioManager(soundsEnum.Drone2);
+        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
     }
 
     private void OnDisable()
     {
-        if(AudioManager.instance)
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (AudioManager.instance)
         {
-            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone);
-            AudioManager.instance.PauseFromAudioManager(soundsEnum.Drone2);
+            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone2);
         }
     }
 }

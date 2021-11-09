@@ -6,17 +6,23 @@ using UnityEngine.Audio;
 using UnityEditor;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
     public AudioMixerGroup audioMixerGroup;
+
     public float audioFadeSpeed;
 
     public Sound[] sounds;
 
     public static AudioManager instance;
+
+    public Dictionary<int, bool> runningCoroutines; // bool is true if it's fading in and false if it's fading out
     void Awake()
     {
+        runningCoroutines = new Dictionary<int, bool>();
+
         //checking if there is more than one AudioManager in the scene
         if (instance == null)
         {
@@ -83,7 +89,7 @@ public class AudioManager : MonoBehaviour
 
     //starting to play the sound that has the given name (we should give that name with the enum created after saving our changes with the Save button in Inspector)
     //Sounds from AudioManager ----------------------
-    public void PlayFromAudioManager(soundsEnum name)
+    public void PlayOneShotFromAudioManager(soundsEnum name)
     {
         Sound s = FindSound(name);
         s.source.PlayOneShot(s.source.clip);
@@ -187,34 +193,54 @@ public class AudioManager : MonoBehaviour
     }
     private IEnumerator FadeOutSound(AudioSource audioSource)
     {
-       
-        StopCoroutine(instance.FadeInSound(audioSource));
+        int sourceId = audioSource.GetInstanceID();
+        float volume = audioSource.volume;
+        if (!runningCoroutines.ContainsKey(sourceId))
+        {
+            runningCoroutines.Add(sourceId, false);
+        }
+        else
+        {
+            runningCoroutines[sourceId] = false;
+        }
         float t = 0;
         while (audioSource != null && audioSource.volume != 0) 
         {
-            Debug.Log("Fading out!" + audioSource.name);
+            if (runningCoroutines.ContainsKey(sourceId) && runningCoroutines[sourceId])
+            {
+                runningCoroutines.Remove(sourceId);
+                yield break;
+            }
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0, t);
             t += audioFadeSpeed * Time.deltaTime;
+            yield return new WaitForSeconds(0);
         }
+        audioSource.volume = volume;
         audioSource.Stop();
-        yield return new WaitForSeconds(0);
     }
 
     private IEnumerator FadeInSound(AudioSource audioSource)
     {
-        StopCoroutine(instance.FadeOutSound(audioSource));
-        
+        int sourceId = audioSource.GetInstanceID();
+        if (!runningCoroutines.ContainsKey(sourceId))
+        {
+            runningCoroutines.Add(sourceId, true);
+        }
+        else
+        {
+            runningCoroutines[sourceId] = true;
+        }
         float t = 0;
         float volume = audioSource.volume;
         audioSource.volume = 0;
-        //Debug.Log(volume);
-        //Debug.Log(audioSource.volume);
-        Debug.Log(audioSource.clip);
 
-        Debug.Log(audioSource.gameObject.name);
         while (audioSource != null && audioSource.volume != volume)
         {
-            //Debug.Log("Fading in!");
+            if (runningCoroutines.ContainsKey(sourceId) && !runningCoroutines[sourceId])
+            {
+                runningCoroutines.Remove(audioSource.GetInstanceID());
+                yield break;
+            }
             audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
             t += audioFadeSpeed * Time.deltaTime;
             yield return new WaitForSeconds(0);

@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             FootstepCntTime = 0f;
             int footstepType = (int) soundsEnum.Footstep1;
-            AudioManager.instance.PlayFromAudioManager((soundsEnum)footstepType);
+            AudioManager.instance.PlayOneShotFromAudioManager((soundsEnum)footstepType);
         }
         else
         {
