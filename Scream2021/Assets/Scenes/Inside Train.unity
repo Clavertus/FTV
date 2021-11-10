@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11489,7 +11489,17 @@ MonoBehaviour:
   pointB: {fileID: 922886821}
   pointC: {fileID: 1300361735}
   speed: 45
-  speedBoost: 60
+  minSpeedChangeTimer: 0.01
+  maxSpeedChangeTimer: 1
+  currentCatchUpSpeed: 3
+  maxCatchUpSpeed: 15
+  minCatchUpSpeed: 3
+  minRandomSpeedChange: -3
+  maxRandomSpeedChange: 6
+  minSpeedDip: 0.2
+  maxSpeedDip: 4
+  minSpeedSpike: 1
+  maxSpeedSpike: 3
 --- !u!4 &2068541746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6271466731972578329, guid: 98cec7137b122d5499a63048373df9f4, type: 3}

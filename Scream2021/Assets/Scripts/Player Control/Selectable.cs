@@ -32,7 +32,6 @@ public class Selectable : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player.transform.eulerAngles.y);
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
         if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == false) { EnterSelectionZone();  }
         if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == true) 
