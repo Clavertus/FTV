@@ -30,6 +30,10 @@ public class Credits : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartCredits());
+        foreach (var sound in AudioManager.instance.sounds)
+        {
+            sound.source.Stop();
+        }
         AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Credits);
     }
 
