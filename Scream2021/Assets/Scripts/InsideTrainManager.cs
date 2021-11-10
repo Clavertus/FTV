@@ -15,15 +15,7 @@ public class InsideTrainManager : MonoBehaviour
         }
     }
 
-    // called first
-    void OnEnable()
-    {
-        Debug.Log("OnEnable called");
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void Start()
     {
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
     }
@@ -32,15 +24,5 @@ public class InsideTrainManager : MonoBehaviour
     {
         AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (AudioManager.instance)
-        {
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone2);
-        }
     }
 }

@@ -2,28 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Begin : MonoBehaviour
-{
-    bool AudioManagerInitialised = false;
+public class Begin : MonoBehaviour { 
 
-    void MusicPlay()
+    void Start()
     {
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
     }
 
-    private void OnEnable()
-    {
-        AudioManagerInitialised = false;
-    }
-
     void Update()
     {
-        if((AudioManager.instance) && (!AudioManagerInitialised))
-        {
-            MusicPlay(); 
-            AudioManagerInitialised = true;
-        }
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
