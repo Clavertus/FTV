@@ -8,11 +8,11 @@ public class Begin : MonoBehaviour
 
     void MusicPlay()
     {
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.TV);
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Drone);
     }
 
-    private void OnEnable()
+    private void Awake()
     {
         AudioManagerInitialised = false;
     }

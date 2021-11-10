@@ -30,7 +30,7 @@ public class InsideTrainManager : MonoBehaviour
 
     public void TriggerSecondDroneSound()
     {
-        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
     }
 
@@ -39,8 +39,8 @@ public class InsideTrainManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         if (AudioManager.instance)
         {
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
-            AudioManager.instance.StopFromAudioManager(soundsEnum.Drone2);
+            AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Drone);
+            AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Drone2);
         }
     }
 }
