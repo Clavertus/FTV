@@ -12,7 +12,25 @@ public class SecondTrain : MonoBehaviour
     [SerializeField] Transform pointC = null;
 
     [SerializeField] float speed = 10f;
-    [SerializeField] float speedBoost = 10f;
+
+    [Header("Train speed used to emulate look of the train catching up")]
+    [SerializeField] float minSpeedChangeTimer = 1f;
+    [SerializeField] float maxSpeedChangeTimer = 3f;
+    float speedChangeTimer; 
+
+    [SerializeField] float currentCatchUpSpeed = 3f;
+    [SerializeField] float maxCatchUpSpeed = 5f;
+    [SerializeField] float minCatchUpSpeed = 1f;
+
+    [SerializeField] float minRandomSpeedChange = -1f;
+    [SerializeField] float maxRandomSpeedChange = 1f;
+
+    [SerializeField] float minSpeedDip = .2f;
+    [SerializeField] float maxSpeedDip = 1f;
+
+    [SerializeField] float minSpeedSpike = .2f;
+    [SerializeField] float maxSpeedSpike = 1f;
+
     bool hitPointB = false;
     bool triggerTrain = false; 
     bool enableMovement = false;
@@ -55,6 +73,7 @@ public class SecondTrain : MonoBehaviour
         }
         if (hitPointB && triggerTrain) 
         {
+            CatchUpSpeed();
             MoveToPointC();
         }
     }
@@ -67,13 +86,31 @@ public class SecondTrain : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(pointA.position, pointB.position, speed * Time.deltaTime);
     }
+
+    private void CatchUpSpeed()
+    {
+        if (speedChangeTimer <= 0)
+        {
+            currentCatchUpSpeed += Random.Range(minRandomSpeedChange, maxRandomSpeedChange); 
+            speedChangeTimer = Random.Range(minSpeedChangeTimer, maxSpeedChangeTimer); 
+        }
+        speedChangeTimer -= Time.deltaTime;
+
+        
+        if(currentCatchUpSpeed >= maxCatchUpSpeed) 
+        { currentCatchUpSpeed -= Random.Range(minSpeedDip, maxSpeedDip);  }
+
+        else if (currentCatchUpSpeed <= minCatchUpSpeed) 
+        { currentCatchUpSpeed += Random.Range(minSpeedSpike, maxSpeedSpike); }
+        Debug.Log(currentCatchUpSpeed); 
+    }
     private void MoveToPointC()
     {
-        transform.position = Vector3.MoveTowards(transform.position, pointC.transform.position, speedBoost * Time.deltaTime); 
+        transform.position = Vector3.MoveTowards(transform.position, pointC.transform.position, currentCatchUpSpeed * Time.deltaTime); 
     }
     public void increaseSpeed()
     {
-        speed = speedBoost;
+        speed = currentCatchUpSpeed;
     }
     public void OnEnable()
     {
