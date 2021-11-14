@@ -9,6 +9,7 @@ public class MementoObjectInspecting : MonoBehaviour
 
     [SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
+    [SerializeField] GameObject symbol; 
 
     [SerializeField] Canvas inspectCanvas;
     [SerializeField] Canvas holdSmallObjCanvas;
@@ -81,7 +82,7 @@ public class MementoObjectInspecting : MonoBehaviour
         Debug.Log("test");
         holdSmallObjCanvas.enabled = true;
         Destroy(smallObject);
-        GetComponentInParent<SymbolInteractions>().IsPocketed(pocketItemName);
+        symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
         changeTVstatic();
 
         DisableCanvasAndTriggering();

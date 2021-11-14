@@ -14,7 +14,7 @@ public class Examine : MonoBehaviour
     Vector3 originaPosition;
     Vector3 originalRotation;
     [SerializeField] float distanceFromCam;
-
+    Transform originalParent; 
 
     //If True Allow Rotation Of Object
     bool examineMode;
@@ -23,7 +23,7 @@ public class Examine : MonoBehaviour
     {
         mainCam = Camera.main;
         examineMode = false;
-
+         
 
     }
 
@@ -57,13 +57,14 @@ public class Examine : MonoBehaviour
 
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
-
+                
                 if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))    
                 {
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                     FindObjectOfType<PlayerMovement>().LockPlayer();
 
+                    
 
                     examineCanvas.gameObject.SetActive(true);
                     //Save The Original Postion And Rotation
@@ -97,8 +98,8 @@ public class Examine : MonoBehaviour
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            clickedObject.transform.Rotate(Vector3.up, -xAxis,  Space.World);
-            clickedObject.transform.Rotate(Vector3.forward, yAxis, Space.World);
+            clickedObject.transform.Rotate(Vector3.right, -xAxis,  Space.Self); 
+            clickedObject.transform.Rotate(Vector3.forward, yAxis, Space.Self);
         }
     }
 
