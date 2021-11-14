@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prevoid : MonoBehaviour
 {
@@ -25,11 +26,15 @@ public class Prevoid : MonoBehaviour
     public int[] blackSamples;
     public int[] whiteSamples;
     public int[] flickSamples;
+    public int[] shakeSamples;
     public int blackSampleIndex;
     public int whiteSampleIndex;
     public int sampleIndex;
+    public int shakeSampleIndex;
 
     float accumulatedTime;
+
+    public bool flickering;
 
     //public static Prevoid instance;
 
@@ -38,7 +43,7 @@ public class Prevoid : MonoBehaviour
 
     public void Awake()
     {
-        
+        flickering = true;
         /*
         if (instance == null)
         {
@@ -104,14 +109,27 @@ public class Prevoid : MonoBehaviour
     {
         flickSamples = new int[300];
         whiteSamples = new int[blackSamples.Length];
+        shakeSamples = new int[10];
+
         sampleIndex = 0;
         blackSampleIndex = 0;
         whiteSampleIndex = 0;
+        shakeSampleIndex = 0;
 
-        for(int i = 0; i < blackSamples.Length; i++)
+        for (int i = 0; i < blackSamples.Length; i++)
         {
-            whiteSamples[i] = blackSamples[i] + Random.Range(1470, 4410);  // 0.03 - 0.1 seconds converted into timesamples with frequency = 44100Hz 
+            whiteSamples[i] = blackSamples[i] + Random.Range(1470, 4410);  
+            // 0.03 - 0.1 seconds converted into timesamples with frequency = 44100Hz 
         }
+
+
+        for (int i = 0; i < shakeSamples.Length; i++)
+        {
+            shakeSamples[i] = Mathf.RoundToInt(blackSamples[blackSamples.Length - 1] / 9) * i;
+           
+        }
+
+
 
 
     }
@@ -123,27 +141,70 @@ public class Prevoid : MonoBehaviour
 
         PlayerPrefs.SetFloat("playerYrot", playerYrot);
         PlayerPrefs.SetFloat("camXrot", camXrot);
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+ 
+        // StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 
 
-    public void Blackout()
+    public void Blackout(int type)
     {
-        foreach (Light a in lights)
+        //0 - white
+        //1 - red
+
+        if (type == 0)
         {
-            a.type = LightType.Point;
-            a.color = tinted;
-            a.intensity = Random.Range(.2f, 1.3f);
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Point;
+                a.color = tinted;
+                a.intensity = Random.Range(0.2f, 4f);
+            }
+
         }
+        else
+        {
+
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Directional;
+                a.color = Color.black;
+                a.intensity = Random.Range(0.2f, 2f);
+            }
+
+
+        }
+
+
+
+
+
     }
 
-    public void Light()
+    public void Light(int type)
     {
-        foreach (Light a in lights)
+        
+        if (type == 0)
         {
-            a.type = LightType.Point;
-            a.color = tinted;
-            a.intensity = 6;
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Point;
+                a.color = tinted;
+                a.intensity = 6f;
+            }
+
+        }
+        else
+        {
+
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Directional;
+                a.color = Color.red;
+                a.intensity = 6f;
+            }
+
+
         }
     }
 
@@ -153,33 +214,61 @@ public class Prevoid : MonoBehaviour
 
     public void Update()
     {
-        
+
         /*
-         *  Use this mechanism to set new flicks. Run the Prevoid scene, press "Z" whenever you want the lights
-         *  to flick. Pause just barely the track ends, copy the values from FlickSamples array to
-         *  BlackSamples array and save.
-         *  Max flicks = 300. Can be modified in Timer().
-         *  
-         *  
-        if (Input.GetKeyDown("z"))
-        {
-            flickSamples[sampleIndex] = track.timeSamples;
-            sampleIndex++;
-        }
-        */
-       
+       if (Input.GetKeyDown("z"))
+       {
+           flickSamples[sampleIndex] = track.timeSamples;
+           sampleIndex++;
+       }
+       */
 
-        if(track.timeSamples > blackSamples[blackSampleIndex])
+        if (flickering)
         {
-            Blackout();
-            blackSampleIndex++;
-        }
+            if (track.timeSamples > blackSamples[blackSampleIndex])
+            {
+                if(track.timeSamples > blackSamples[blackSamples.Length - 10])
+                {
+                    Blackout(1);
+                } else
+                {
+                    Blackout(0);
+                }
+                    
+                blackSampleIndex++;
+            }
 
-        if(track.timeSamples > whiteSamples[whiteSampleIndex])
-        {
-            Light();
-            whiteSampleIndex++;
-        }  
+            if (track.timeSamples > whiteSamples[whiteSampleIndex])
+            {
+                if (track.timeSamples > whiteSamples[whiteSamples.Length - 5])
+                {
+                    Light(1);
+                }
+                else
+                {
+                    Light(0);
+                }
+                whiteSampleIndex++;
+                if (whiteSampleIndex == whiteSamples.Length - 3)
+                {
+                    Blackout(1);
+                    flickering = false;
+                    TimerEnd();
+
+                };
+            }
+
+
+
+            if (track.timeSamples > shakeSamples[shakeSampleIndex])
+            {            
+                shakeSampleIndex++;
+
+                if(shakeSampleIndex > 5)
+                cam.GetComponent<CameraShaker>().power += 0.015f;
+
+            }
+        }
     }
 
 }
