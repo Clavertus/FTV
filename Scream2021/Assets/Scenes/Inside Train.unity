@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door2FirstLook: {fileID: 11400000, guid: f0d94c8a25692fe45b7647264ccfd70f, type: 2}
-  trainMonster: {fileID: 1290869243}
+  trainMonster: {fileID: 596890836}
   dialogueBox: {fileID: 2074534958}
   physicalDoor: {fileID: 329310910}
   selectableSideDoor: {fileID: 915997523}
@@ -3163,6 +3163,16 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &596890836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6031065499603384890, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+  m_PrefabInstance: {fileID: 1354813703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &596890839 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2262793531943481845, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+  m_PrefabInstance: {fileID: 1354813703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613182558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,7 +3770,7 @@ MonoBehaviour:
   moveSpeedD: 18
   door1: {fileID: 339001466}
   door2: {fileID: 1156593692}
-  monster: {fileID: 1290869243}
+  monster: {fileID: 0}
   pointB: {fileID: 1403201469}
   pointC: {fileID: 1017699707}
   pointD: {fileID: 1847479576}
@@ -6832,6 +6842,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 7054356775864134517, guid: 4b45106756dd4c948a3189a2bfc23392, type: 3}
   m_PrefabInstance: {fileID: 1011503557}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1248828002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 123216545, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+  m_PrefabInstance: {fileID: 1354813703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1267344132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6171336270764583010, guid: 550d291ea56d09646ae533300274d256, type: 3}
@@ -7038,11 +7053,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284140656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1290869243 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-  m_PrefabInstance: {fileID: 1354813703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300361734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,6 +7406,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1112664679}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 596890839}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 2074534958}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: monsterInTheDoor
+      value: 
+      objectReference: {fileID: 1248828002}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: trains.Array.data[0]
+      value: 
+      objectReference: {fileID: 560836766}
     - target: {fileID: 3665047852309307637, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_Name
       value: MonsterEnv
@@ -7442,6 +7472,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665047852309307638, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031065499603384890, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
@@ -8074,7 +8108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
@@ -8669,7 +8703,7 @@ MonoBehaviour:
   chain: {fileID: 537305199}
   chainDPad: {fileID: 1267344132}
   chainZip: {fileID: 736668956}
-  trainMonster: {fileID: 1290869243}
+  trainMonster: {fileID: 596890836}
   doorToCar: {fileID: 1912142477}
   dPadMat: {fileID: -2054705899596196291, guid: 550d291ea56d09646ae533300274d256, type: 3}
   zipperMat: {fileID: -3846018093981099296, guid: 550d291ea56d09646ae533300274d256, type: 3}
