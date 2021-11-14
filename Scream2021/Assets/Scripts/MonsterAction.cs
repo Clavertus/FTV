@@ -21,6 +21,7 @@ public class MonsterAction : MonoBehaviour
     };
 
     [SerializeField] Animator myAnimator = null;
+    [SerializeField] Light myExtraLight = null;
 
     [Header("State machine feedback")]
     [SerializeField] monsterStatesEnm currentState = monsterStatesEnm.idle;
@@ -104,6 +105,8 @@ public class MonsterAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FadeOutLight();
+
         if(lastState != currentState)
         {
             lastState = currentState;
@@ -111,6 +114,17 @@ public class MonsterAction : MonoBehaviour
         }
 
         StartCoroutine(AnimationStateMachine());
+    }
+
+    private void FadeOutLight()
+    {
+        if(myExtraLight)
+        {
+            if(myExtraLight.intensity < 0.35f)
+            {
+                myExtraLight.intensity += 0.5f * Time.deltaTime;
+            }
+        }
     }
 
     private void TriggerAnimationWithId(int currentState)
@@ -121,8 +135,9 @@ public class MonsterAction : MonoBehaviour
 
     private void OnEnable()
     {
-        //TODO: set this variable to true from another script after player has done final things
-        StartSequence = true;
+        if(myExtraLight)  myExtraLight.intensity = 0f;
+           //TODO: set this variable to true from another script after player has done final things
+           StartSequence = true;
 
          monsterBreathe = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
          monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
@@ -169,13 +184,14 @@ public class MonsterAction : MonoBehaviour
                 }
                 break;
             case monsterStatesEnm.reveal:
-                if (timeCounter >= pauseAfterReveal)
+
+                if (finishedAction)
                 {
                     AudioManager.instance.PlayFromGameObject(monsterAgressive);
 
                     currentState = monsterStatesEnm.run;
                 }
-                timeCounter += Time.deltaTime;
+
                 break;
             case monsterStatesEnm.run:
                 MonsterMove(runSpeed);

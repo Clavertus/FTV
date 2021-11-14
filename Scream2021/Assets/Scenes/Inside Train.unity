@@ -7419,6 +7419,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2074534958}
     - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: myExtraLight
+      value: 
+      objectReference: {fileID: 1761835068}
+    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: monsterInTheDoor
       value: 
       objectReference: {fileID: 1248828002}
@@ -9789,6 +9793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4081f30c5bf33849979db691eafd74e, type: 3}
+--- !u!108 &1761835068 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5642275692337034217, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+  m_PrefabInstance: {fileID: 1354813703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768230785
 GameObject:
   m_ObjectHideFlags: 0
