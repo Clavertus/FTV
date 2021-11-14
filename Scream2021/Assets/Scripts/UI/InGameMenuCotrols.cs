@@ -6,8 +6,7 @@ public class InGameMenuCotrols : MonoBehaviour
 {
     bool menuActive = false;
 
-    [SerializeField] GameObject[] childrens = null;
-
+    [SerializeField] GameObject[] children = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +51,7 @@ public class InGameMenuCotrols : MonoBehaviour
 
     private void ChildrenHandle(bool enable)
     {
-        foreach (var children in childrens)
+        foreach (var children in children)
         {
             children.gameObject.SetActive(enable);
         }
