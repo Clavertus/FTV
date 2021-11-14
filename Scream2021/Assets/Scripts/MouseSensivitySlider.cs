@@ -20,7 +20,7 @@ public class MouseSensivitySlider : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Mouse Look component requirent somewhere on scene to apply mouse sensivity");
+			//Debug.LogError("Mouse Look component requirent somewhere on scene to apply mouse sensivity");
 		}
 	}
 
@@ -37,7 +37,7 @@ public class MouseSensivitySlider : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Mouse Look component requirent somewhere on scene to apply mouse sensivity");
+			//Debug.LogError("Mouse Look component requirent somewhere on scene to apply mouse sensivity");
 		}
 	}
 

@@ -22,7 +22,7 @@ public class Begin : MonoBehaviour {
 
         if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
 
-        if (PlayerPrefs.HasKey("mouse_sensivity") && sensivitySlider) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+        if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
     }
 
     void Start()

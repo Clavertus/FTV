@@ -1869,6 +1869,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 173624637}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &202976962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,6 +3277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 257761642}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &407711621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5294,6 +5302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1034972461}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &729808730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5383,6 +5395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 616318694}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &738935311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7127,6 +7143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 131778548}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1239510242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7895,6 +7915,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 290602187}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1425790727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8408,6 +8432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1575043699}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1551017078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8516,6 +8544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 1765664811}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!114 &1564888666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10295,6 +10327,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 194452331}
+  maxDistanceFromPlayer: 1
+  checkPlayerRotation: 0
+  minYLookRotation: 0
+  maxYLookRotation: 0
 --- !u!4 &1912142479
 Transform:
   m_ObjectHideFlags: 0
@@ -11727,7 +11763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752703847577187, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: soundsToStop.Array.data[0]
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4780058962120171047, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_Pivot.x
