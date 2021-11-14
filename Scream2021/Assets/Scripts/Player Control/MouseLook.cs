@@ -19,6 +19,8 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("mouse_sensivity")) mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 
