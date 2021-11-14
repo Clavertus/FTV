@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prevoid : MonoBehaviour
 {
@@ -17,9 +18,23 @@ public class Prevoid : MonoBehaviour
     public float playerYrot;
 
 
+    public int nextSample;
+    public int totalSamples;
+    public AudioSource track;
+    public AudioSource[] componentsArr;
 
+    public int[] blackSamples;
+    public int[] whiteSamples;
+    public int[] flickSamples;
+    public int[] shakeSamples;
+    public int blackSampleIndex;
+    public int whiteSampleIndex;
+    public int sampleIndex;
+    public int shakeSampleIndex;
 
     float accumulatedTime;
+
+    public bool flickering;
 
     //public static Prevoid instance;
 
@@ -28,6 +43,7 @@ public class Prevoid : MonoBehaviour
 
     public void Awake()
     {
+        flickering = true;
         /*
         if (instance == null)
         {
@@ -63,426 +79,196 @@ public class Prevoid : MonoBehaviour
     public void StartSequence()
     {
         //if(LevelLoader.instance.HasPlayedTheGame)
-        {
+        { 
             PlayerPrefs.DeleteKey("playerYrot");
             PlayerPrefs.DeleteKey("camXrot");
             AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.PrevoidTrack);
+            componentsArr = AudioManager.instance.gameObject.GetComponents<AudioSource>();
+            foreach(AudioSource a in componentsArr)
+            {
+                if(a.clip.name == "Pre-voidTrainAmbience_weird_at_0.42_stop_at_1.04")
+                {
+                    track = a;
+                }
+            }
+
             accumulatedTime = 0;
-            StartCoroutine("Timer");
+            Timer();
             tinted = new Color(0.6650944f, 0.9123682f, 1);
         }
     }
 
-    public float FlickTime(int a = 1)
+   
+
+
+  
+
+
+
+    public void Timer()
     {
-        if (a == 0)
+        flickSamples = new int[300];
+        whiteSamples = new int[blackSamples.Length];
+        shakeSamples = new int[10];
+
+        sampleIndex = 0;
+        blackSampleIndex = 0;
+        whiteSampleIndex = 0;
+        shakeSampleIndex = 0;
+
+        for (int i = 0; i < blackSamples.Length; i++)
         {
-            float b = Random.Range(0.05f, 0.15f);
-            accumulatedTime += b;
-
-            return b;                           //long
+            whiteSamples[i] = blackSamples[i] + Random.Range(1470, 4410);  
+            // 0.03 - 0.1 seconds converted into timesamples with frequency = 44100Hz 
         }
-        else
+
+
+        for (int i = 0; i < shakeSamples.Length; i++)
         {
-
-            float b = Random.Range(0.02f, 0.1f);
-            accumulatedTime += b;
-
-            return b;
-            //short
+            shakeSamples[i] = Mathf.RoundToInt(blackSamples[blackSamples.Length - 1] / 9) * i;
+           
         }
+
+
+
 
     }
 
-    public IEnumerator Timer()
+    public void TimerEnd()
     {
-        //DURATION OF THE SOUNDTRACK - 1:07
-
-        #region flickingSequence
-
-        /* This sequence is hard-coded to get a good non-repeatable expierience.
-         * It's done on purpose, lol*/
-
-
-        yield return new WaitForSecondsRealtime(5f);
-
-
-        //single flick 10 seconds in
-        LowFlick(1);
-        yield return new WaitForSecondsRealtime(FlickTime());
-        LowUnFlick();
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(2f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(4f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-
-
-
-        yield return new WaitForSecondsRealtime(3f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(1));
-        }
-
-
-
-
-        yield return new WaitForSecondsRealtime(5f - accumulatedTime);
-        accumulatedTime = 0;
-
-
-        for (int i = 0; i < 5; i++)
-        {
-            LowFlick(2);
-            yield return new WaitForSecondsRealtime(FlickTime());
-            LowUnFlick();
-            yield return new WaitForSecondsRealtime(FlickTime(2));
-        }
-
-
-
-
-
-        for (int i = 0; i < 5; i++)
-        {
-            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(2);
-                yield return new WaitForSecondsRealtime(FlickTime());
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-
-
-
-
-        for (int i = 0; i < 10; i++)
-        {
-            yield return new WaitForSecondsRealtime(.5f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(4);
-                yield return new WaitForSecondsRealtime(FlickTime());
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-        for (int i = 0; i < 20; i++)
-        {
-            yield return new WaitForSecondsRealtime(.3f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                LowFlick(4);
-                yield return new WaitForSecondsRealtime(FlickTime());
-
-                LowUnFlick();
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-        for (int i = 0; i < 2; i++)
-        {
-            yield return new WaitForSecondsRealtime(1f - accumulatedTime);
-            accumulatedTime = 0;
-
-
-            for (int j = 0; j < 3; j++)
-            {
-                Flick();
-                yield return new WaitForSecondsRealtime(FlickTime());
-
-                UnFlick();
-                if (j == 1)
-                // mannequinnes stand up
-                {
-                    for (int k = 0; k < figures.Length; k++)
-                    {
-                        figures[k].GetComponent<PassengerAnimation>().animationId = 4;
-                        figures[k].transform.position += figures[k].transform.forward;
-                    }
-                }
-
-                if (j == 2)
-                {
-
-                    for (int k = 0; k < figures.Length; k++)
-                    {
-                        figures[k].GetComponent<Transform>().LookAt(player);
-                    }
-
-                }
-                yield return new WaitForSecondsRealtime(FlickTime(2));
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-        #endregion
-
         playerYrot = player.rotation.eulerAngles.y;
         camXrot = cam.transform.rotation.eulerAngles.x;
 
         PlayerPrefs.SetFloat("playerYrot", playerYrot);
         PlayerPrefs.SetFloat("camXrot", camXrot);
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+ 
+        // StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 
 
-    public void LowFlick(int flickIntensity = 0)
+    public void Blackout(int type)
     {
-        foreach (Light a in lights)
+        //0 - white
+        //1 - red
+
+        if (type == 0)
         {
-            a.type = LightType.Point;
-            a.color = tinted;
-            switch (flickIntensity)
+            foreach (Light a in lights)
             {
+                a.type = LightType.Point;
+                a.color = tinted;
+                a.intensity = Random.Range(0.2f, 4f);
+            }
 
-                case 0:
-                    a.intensity = Random.Range(3f, 4f);
-                    break;
+        }
+        else
+        {
 
-                case 1:
-                    a.intensity = Random.Range(2f, 4f);
-                    break;
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Directional;
+                a.color = Color.black;
+                a.intensity = Random.Range(0.2f, 2f);
+            }
 
-                case 2:
-                    a.intensity = Random.Range(1f, 3f);
-                    break;
 
-                case 3:
-                    a.intensity = Random.Range(.5f, 2f);
-                    break;
+        }
 
-                case 4:
-                    a.intensity = Random.Range(.1f, 1f);
-                    break;
 
+
+
+
+    }
+
+    public void Light(int type)
+    {
+        
+        if (type == 0)
+        {
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Point;
+                a.color = tinted;
+                a.intensity = 6f;
+            }
+
+        }
+        else
+        {
+
+            foreach (Light a in lights)
+            {
+                a.type = LightType.Directional;
+                a.color = Color.red;
+                a.intensity = 6f;
+            }
+
+
+        }
+    }
+
+
+
+
+
+    public void Update()
+    {
+
+        /*
+       if (Input.GetKeyDown("z"))
+       {
+           flickSamples[sampleIndex] = track.timeSamples;
+           sampleIndex++;
+       }
+       */
+
+        if (flickering)
+        {
+            if (track.timeSamples > blackSamples[blackSampleIndex])
+            {
+                if(track.timeSamples > blackSamples[blackSamples.Length - 10])
+                {
+                    Blackout(1);
+                } else
+                {
+                    Blackout(0);
+                }
+                    
+                blackSampleIndex++;
+            }
+
+            if (track.timeSamples > whiteSamples[whiteSampleIndex])
+            {
+                if (track.timeSamples > whiteSamples[whiteSamples.Length - 5])
+                {
+                    Light(1);
+                }
+                else
+                {
+                    Light(0);
+                }
+                whiteSampleIndex++;
+                if (whiteSampleIndex == whiteSamples.Length - 3)
+                {
+                    Blackout(1);
+                    flickering = false;
+                    TimerEnd();
+
+                };
+            }
+
+
+
+            if (track.timeSamples > shakeSamples[shakeSampleIndex])
+            {            
+                shakeSampleIndex++;
+
+                if(shakeSampleIndex > 5)
+                cam.GetComponent<CameraShaker>().power += 0.015f;
 
             }
         }
     }
-
-    public void LowUnFlick()
-    {
-        foreach (Light a in lights)
-        {
-            a.type = LightType.Point;
-            a.color = tinted;
-            a.intensity = 6f;
-        }
-    }
-
-
-
-
-
-
-    public void Flick()
-    {
-        foreach (Light a in lights)
-        {
-            a.type = LightType.Directional;
-            a.color = Color.red;
-        }
-    }
-
-    public void UnFlick()
-    {
-        foreach (Light a in lights)
-        {
-            a.type = LightType.Point;
-            a.color = Color.black;
-        }
-    }
-
 
 }

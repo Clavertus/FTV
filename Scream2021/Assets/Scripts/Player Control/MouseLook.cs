@@ -13,7 +13,11 @@ public class MouseLook : MonoBehaviour
     [SerializeField] Transform playerBody;
 
     bool lockCamera = false;
-    bool monsterJumping = false; 
+    bool monsterJumping = false;
+
+    bool cameraCorrected = false;
+
+    float camXrot;
 
     float xRotation = 0f; 
 
@@ -22,6 +26,15 @@ public class MouseLook : MonoBehaviour
         if (PlayerPrefs.HasKey("mouse_sensivity")) mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (PlayerPrefs.HasKey("camXrot"))
+        {
+
+            camXrot = PlayerPrefs.GetFloat("camXrot");
+            Camera.main.transform.eulerAngles = new Vector3(camXrot, 0, 0);
+            cameraCorrected = true;
+        }
+
     }
 
     void Update()
@@ -37,6 +50,7 @@ public class MouseLook : MonoBehaviour
         if (lockCamera) { return; }
         LookWithMouse();
     }
+
     private void LookWithMouse()
     {
         //getting that mouse x and y movement
@@ -45,8 +59,10 @@ public class MouseLook : MonoBehaviour
 
         //rotate around the x axis for vertical looking. rotate the camera instead of player.
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, lowLookClamp, highLookClamp); 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        xRotation = Mathf.Clamp(xRotation, lowLookClamp, highLookClamp);
+       
+            transform.localRotation = Quaternion.Euler(xRotation + camXrot, 0f, 0f);
+        
 
         //rotate around y axis for horizontal looking
         playerBody.Rotate(Vector3.up * mouseX);       
