@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraShaker : MonoBehaviour
 {
-    public float power = 0.7f;
+    public float power;
     public Transform camera;
 
     Vector3 startPosition;
