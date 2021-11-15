@@ -27,6 +27,8 @@ public class Begin : MonoBehaviour {
 
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         quitCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
