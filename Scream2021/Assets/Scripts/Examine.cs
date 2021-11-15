@@ -98,8 +98,8 @@ public class Examine : MonoBehaviour
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            clickedObject.transform.Rotate(Vector3.right, -xAxis,  Space.Self); 
-            clickedObject.transform.Rotate(Vector3.forward, yAxis, Space.Self);
+            clickedObject.transform.Rotate(Camera.main.transform.up, -xAxis,  Space.Self); 
+            clickedObject.transform.Rotate(Camera.main.transform.right, yAxis, Space.Self);
         }
     }
 
