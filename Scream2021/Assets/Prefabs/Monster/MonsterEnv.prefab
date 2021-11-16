@@ -416,15 +416,31 @@ PrefabInstance:
     - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: myAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2262793531943481845}
     - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: revealZone
       value: 
       objectReference: {fileID: 3665047850812074390}
     - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+      propertyPath: offsetJumpY
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+      propertyPath: myExtraLight
+      value: 
+      objectReference: {fileID: 5642275692337034217}
+    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: doorStayPoint
       value: 
       objectReference: {fileID: 123216545}
+    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+      propertyPath: monsterInTheDoor
+      value: 
+      objectReference: {fileID: 123216545}
+    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+      propertyPath: playerFoundDistance
+      value: 3.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7321549882161581250, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -439,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321549882161581250, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -60.262653
+      value: -58.89
       objectReference: {fileID: 0}
     - target: {fileID: 7321549882161581250, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -473,10 +489,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainMonster_V0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7985038815460529784, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
 --- !u!4 &6411286054271803520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7321549882161581250, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+  m_PrefabInstance: {fileID: 4423142181942996034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2262793531943481845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2451408295526194615, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
+  m_PrefabInstance: {fileID: 4423142181942996034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &5642275692337034217 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8299935892707205035, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
   m_PrefabInstance: {fileID: 4423142181942996034}
   m_PrefabAsset: {fileID: 0}

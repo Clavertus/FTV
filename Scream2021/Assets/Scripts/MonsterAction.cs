@@ -17,7 +17,8 @@ public class MonsterAction : MonoBehaviour
         walk_after_open,
         action,
         run_to_player,
-        jump_and_kill
+        jump_and_kill,
+        chew
     };
 
     [SerializeField] Animator myAnimator = null;
@@ -39,6 +40,8 @@ public class MonsterAction : MonoBehaviour
     [SerializeField] float jumpDistance = 20f; 
     [SerializeField] float lookAtDistance = 30f;
     [SerializeField] float minDistance = 4f;
+    [SerializeField]
+    float playerFoundDistance = 4f;
     [SerializeField] Transform monsterInTheDoor; 
 
     [Header("References to transforms")]
@@ -322,7 +325,8 @@ public class MonsterAction : MonoBehaviour
                     if(PlayerFound)
                     {
                         AudioManager.instance.PlayFromGameObject(monsterAgressive2);
-                        BadEndGameTrigger();
+                        FindObjectOfType<CameraShaker>().enabled = true;
+                        currentState = monsterStatesEnm.chew;
                     }
                     else
                     {
@@ -334,9 +338,33 @@ public class MonsterAction : MonoBehaviour
                     MonsterMove(runSpeed);
                 }
                 break;
+            case monsterStatesEnm.chew:
+
+                TriggerBloodEffect();
+
+
+                if(finishedChew)
+                {
+                    BadEndGameTrigger();
+                }
+                break;
             default:
                 break;
         }
+    }
+
+    [SerializeField] GameObject BloodEffectCanvas = null;
+    float BloodTimer = 0f;
+    private void TriggerBloodEffect()
+    {
+        if(BloodTimer > 0.25f)
+        {
+            if(BloodEffectCanvas) BloodEffectCanvas.SetActive(!BloodEffectCanvas.activeSelf);
+            BloodTimer = 0f;
+            return;
+        }
+        BloodTimer += Time.deltaTime;
+
     }
 
     private void MakePlayerLookAtMonster()
@@ -366,7 +394,7 @@ public class MonsterAction : MonoBehaviour
         //make something to end the game
         //currently just disables monster
         LevelLoader.instance.ending = Ending.Bad;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut()); 
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene()); 
     }
 
     bool PlayerFound = false;
@@ -375,7 +403,7 @@ public class MonsterAction : MonoBehaviour
     {
         if(!PlayerFound)
         {
-            if (Vector3.Distance(transform.position, Player.position) <= 3f)
+            if (Vector3.Distance(transform.position, Player.position) <= playerFoundDistance)
             {
                 PlayerFound = true;
             }
@@ -435,6 +463,14 @@ public class MonsterAction : MonoBehaviour
     {
         finishedAction = true;
     }
+
+    bool finishedChew = false;
+    // This C# function can be called by an Animation Event
+    public void ChewFinished()
+    {
+        finishedChew = true;
+    }
+
 
     // This C# function can be called by an Animation Event
     public void StartOpenDoor()

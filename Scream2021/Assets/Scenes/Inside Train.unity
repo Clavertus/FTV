@@ -3106,11 +3106,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6031065499603384890, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
   m_PrefabInstance: {fileID: 1354813703}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &596890839 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2262793531943481845, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-  m_PrefabInstance: {fileID: 1354813703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &599903012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bbf48e2e3681f9498c6356e6bbdd52a, type: 3}
@@ -6848,11 +6843,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 7054356775864134517, guid: 4b45106756dd4c948a3189a2bfc23392, type: 3}
   m_PrefabInstance: {fileID: 1011503557}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1248828002 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 123216545, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-  m_PrefabInstance: {fileID: 1354813703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1267344132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6171336270764583010, guid: 550d291ea56d09646ae533300274d256, type: 3}
@@ -7380,6 +7370,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6045591279598149612, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
   m_PrefabInstance: {fileID: 1984704150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1341483292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341483291}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0624e4adcbf63054da54b526a5a4b7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.1
+  camera: {fileID: 1341483295}
+--- !u!4 &1341483295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+  m_PrefabInstance: {fileID: 1984704150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1341483296 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6045591279598149618, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
@@ -7408,30 +7417,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32569770325539243, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1112664679}
     - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: myAnimator
-      value: 
-      objectReference: {fileID: 596890839}
-    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 2074534958}
     - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: myExtraLight
+      propertyPath: BloodEffectCanvas
       value: 
-      objectReference: {fileID: 1761835068}
-    - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: monsterInTheDoor
-      value: 
-      objectReference: {fileID: 1248828002}
+      objectReference: {fileID: 1773941870}
     - target: {fileID: 3431160659640806232, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
       propertyPath: trains.Array.data[0]
       value: 
@@ -7484,26 +7481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6031065499603384890, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6411286054271803520, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -60.72
       objectReference: {fileID: 0}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 1112664679}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 2074534958}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: monsterInTheDoor
-      value: 
-      objectReference: {fileID: 1284140657}
-    - target: {fileID: 6865043971001534598, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-      propertyPath: trains.Array.data[0]
-      value: 
-      objectReference: {fileID: 560836766}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
 --- !u!1 &1358194377
@@ -9804,11 +9785,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4081f30c5bf33849979db691eafd74e, type: 3}
---- !u!108 &1761835068 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 5642275692337034217, guid: 1905555e1e8a9f24cb417c2d8e019a22, type: 3}
-  m_PrefabInstance: {fileID: 1354813703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768230785
 GameObject:
   m_ObjectHideFlags: 0
@@ -9907,6 +9883,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6405289612623217293, guid: c4081f30c5bf33849979db691eafd74e, type: 3}
   m_PrefabInstance: {fileID: 1157228792}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1773941870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773941871}
+  - component: {fileID: 1773941873}
+  - component: {fileID: 1773941872}
+  m_Layer: 5
+  m_Name: BloodEffectPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1773941871
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773941870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1825275506}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1773941872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773941870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5943396, g: 0.047659315, b: 0.047659315, a: 0.54509807}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1773941873
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773941870}
+  m_CullTransparentMesh: 1
 --- !u!1 &1775834812
 GameObject:
   m_ObjectHideFlags: 0
@@ -10298,6 +10349,7 @@ RectTransform:
   - {fileID: 446347188}
   - {fileID: 2074534959}
   - {fileID: 740889004}
+  - {fileID: 1773941871}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
