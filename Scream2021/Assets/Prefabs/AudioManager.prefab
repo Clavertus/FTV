@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixerGroup: {fileID: 24300002, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
-  audioFadeSpeed: 0.1
+  audioFadeSpeed: 0.01
   sounds:
   - name: Commuting
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}

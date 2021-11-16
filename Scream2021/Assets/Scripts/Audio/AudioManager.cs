@@ -121,6 +121,11 @@ public class AudioManager : MonoBehaviour
         Sound s = FindSound(name);
         s.source.PlayOneShot(s.source.clip);
     }
+    public void InstantPlayOneShotFromAudioManager(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        s.source.PlayOneShot(s.source.clip);
+    }
 
     public void InstantStopFromAudioManager(soundsEnum name)
     {
