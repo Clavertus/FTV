@@ -1959,7 +1959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomInPanel: {fileID: 1370577943}
   zoomAmount: 3
-  zoomSpeed: 0.005
+  zoomDuration: 5
+  beginning: 0
   settingsCanvas: {fileID: 56267217}
   quitCanvas: {fileID: 1214280406}
   showFpsToogle: {fileID: 1530107686}

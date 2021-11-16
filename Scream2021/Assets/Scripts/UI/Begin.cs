@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Begin : MonoBehaviour {
     public GameObject zoomInPanel;
     public float zoomAmount;
-    public float zoomSpeed;
+    public float zoomDuration;
+    public bool beginning;
 
     public GameObject settingsCanvas;
     public GameObject quitCanvas;
@@ -18,51 +19,52 @@ public class Begin : MonoBehaviour {
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
-        if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
-        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
+        quitCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
 
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
         {
             bool showFPS = PlayerPrefs.GetInt("Setting_ShowFps") == 1 ? true : false;
             if (showFpsToogle) showFpsToogle.isOn = showFPS;
         }
+
+        if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
+
+        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
+
         if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
-
-
-        quitCanvas.SetActive(false);
-        settingsCanvas.SetActive(false);
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
     }
-
+  
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeSelf && !quitCanvas.activeSelf)
+        if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeSelf && !quitCanvas.activeSelf && !beginning)
         {
+            beginning = true;
             BeginGame();
             PlayButtonSound();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf && !beginning)
         {
             ToggleQuitCanvas();
             PlayButtonSound();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf && !beginning)
         {
             ToggleSettingsCanvas();
             PlayButtonSound();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf && !beginning)
         {
             QuitGame();
             PlayButtonSound();
         }
 
-        else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf && !beginning)
         {
             ToggleQuitCanvas();
             PlayButtonSound();
@@ -125,12 +127,11 @@ public class Begin : MonoBehaviour {
     {
         float t = 0;
         float scale = zoomInPanel.GetComponent<RectTransform>().localScale.x;
-        while (zoomAmount != System.Math.Round(zoomInPanel.GetComponent<RectTransform>().transform.localScale.x))
+        while (t < zoomDuration)
         {
-            scale = Mathf.Lerp(scale, zoomAmount, t);
-            t += zoomSpeed * Time.deltaTime;
+            scale = Mathf.Lerp(scale, zoomAmount, t / zoomDuration);
+            t += Time.deltaTime;
             zoomInPanel.GetComponent<RectTransform>().transform.localScale = new Vector2(scale, scale);
-            Debug.Log(zoomInPanel.GetComponent<RectTransform>().transform.localScale.x);
             yield return new WaitForSecondsRealtime(0);
         }
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());

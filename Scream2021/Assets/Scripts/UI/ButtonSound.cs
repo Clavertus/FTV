@@ -6,11 +6,13 @@ public class ButtonSound : MonoBehaviour
 {
     public void HoverSound()
     {
-        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UI1);
+        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.UI1);
+        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UI1);
     }
 
     public void ClickSound()
     {
-        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UIMetal);
+        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.UIMetal);
+        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIMetal);
     }
 }
