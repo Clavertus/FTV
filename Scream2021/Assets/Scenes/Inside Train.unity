@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8699,6 +8699,10 @@ MonoBehaviour:
   zipperDialogue: {fileID: 11400000, guid: 20fed8a312679a846b9dae7855a814d4, type: 2}
   frameStandDialogue: {fileID: 11400000, guid: b20e9800b1e01d845befb48e427a876a, type: 2}
   doorUnlocked: {fileID: 11400000, guid: 6f934f3137b455d46ba87860f309692b, type: 2}
+  InspectAfter1stInteractionDialogue: {fileID: 11400000, guid: 89cfc48691f9f2a4c96ab9cadbf5193c, type: 2}
+  InspectAfter2stInteractionDialogue: {fileID: 11400000, guid: f000556dd1115e04eb5293589f785fb3, type: 2}
+  InspectAfter3stInteractionDialogue: {fileID: 11400000, guid: ac4752904b81f6e4c8f44c2feeaef102, type: 2}
+  InspectAfter4stInteractionDialogue: {fileID: 11400000, guid: 663ffe24030eb224ca7610f3d12b3e9e, type: 2}
   dialogueBox: {fileID: 2074534958}
   gameBoyMemento: {fileID: 179575102}
   zipperMemento: {fileID: 1661093980}

@@ -12,6 +12,11 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] DialogueObject frameStandDialogue;
     [SerializeField] DialogueObject doorUnlocked;
 
+    [SerializeField] DialogueObject InspectAfter1stInteractionDialogue;
+    [SerializeField] DialogueObject InspectAfter2stInteractionDialogue;
+    [SerializeField] DialogueObject InspectAfter3stInteractionDialogue;
+    [SerializeField] DialogueObject InspectAfter4stInteractionDialogue;
+
     [Header("GameObject references")]
 
     [SerializeField] GameObject dialogueBox;
@@ -61,6 +66,55 @@ public class SymbolInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameObject.tag == ("Selected"))
+        {
+            switch(interactionCounter)
+            {
+                case 0:
+                    FirstInteraction();
+                    break;
+                case 1:
+                    if (pocketed && pocketItem == ("DPad"))
+                    {
+                        ApplyDPad();
+                    }
+                    else
+                    {
+                        FindObjectOfType<DialogueUI>().ShowDialogue(InspectAfter1stInteractionDialogue);
+                        gameObject.tag = ("Untagged");
+                    }
+                        break;
+                case 2:
+                    if (pocketed && pocketItem == ("Zipper"))
+                    {
+                        ApplyZipper();
+                    }
+                    else
+                    {
+                        FindObjectOfType<DialogueUI>().ShowDialogue(InspectAfter2stInteractionDialogue);
+                        gameObject.tag = ("Untagged");
+                    }
+                    break;
+                case 3:
+                    if (pocketed && pocketItem == ("Frame Stand"))
+                    {
+                        StartCoroutine(ApplyFrameStand());
+                    }
+                    else
+                    {
+                        FindObjectOfType<DialogueUI>().ShowDialogue(InspectAfter3stInteractionDialogue);
+                        gameObject.tag = ("Untagged");
+                    }
+                    break;
+                default:
+                    FindObjectOfType<DialogueUI>().ShowDialogue(InspectAfter4stInteractionDialogue);
+                    gameObject.tag = ("Untagged");
+                    break;
+            }
+        }
+
+
+        /* OLD VERSION
         if (gameObject.tag == ("Selected") && interactionCounter == 0)
         {
            FirstInteraction();
@@ -71,17 +125,21 @@ public class SymbolInteractions : MonoBehaviour
         {
             ApplyDPad();
         }
-
-        if (pocketed && interactionCounter == 2 && gameObject.tag == "Selected" && pocketItem == ("Zipper"))
+        else if (pocketed && interactionCounter == 2 && gameObject.tag == "Selected" && pocketItem == ("Zipper"))
         {
             ApplyZipper();
         }
-        if (pocketed && interactionCounter == 3 && gameObject.tag == "Selected" && pocketItem == ("Frame Stand"))
+        else if (pocketed && interactionCounter == 3 && gameObject.tag == "Selected" && pocketItem == ("Frame Stand"))
         {
             StartCoroutine(ApplyFrameStand());
         }
-
+        else if(!pocketed && gameObject.tag == "Selected" && interactionCounter > 0)
+        {
+            InspectAfterFirstInteraction();
+        }
+        */
     }
+
     public void AreWindowsChecked() { checkedWindows = true; }
     public void IsPocketed(string pocketedItem) { pocketed = true; pocketItem = pocketedItem; } 
     void FirstInteraction()
