@@ -36,7 +36,7 @@ public class Begin : MonoBehaviour {
 
         if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
     }
-
+  
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeSelf && !quitCanvas.activeSelf && !beginning)
