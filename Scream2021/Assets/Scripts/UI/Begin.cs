@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Begin : MonoBehaviour {
+    public GameObject zoomInPanel;
+    public float zoomAmount;
+    public float zoomSpeed;
+
     public GameObject settingsCanvas;
     public GameObject quitCanvas;
 
@@ -37,7 +41,7 @@ public class Begin : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeSelf && !quitCanvas.activeSelf)
         {
             BeginGame();
             PlayButtonSound();
@@ -73,7 +77,7 @@ public class Begin : MonoBehaviour {
         AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
         AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
 
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        StartCoroutine(ZoomPanel());
     }
 
     public void ToggleQuitCanvas()
@@ -119,4 +123,19 @@ public class Begin : MonoBehaviour {
         Debug.Log(sensivitySlider.value);
         PlayerPrefs.SetFloat("mouse_sensivity", sensivitySlider.value);
     }
+
+    private IEnumerator ZoomPanel()
+    {
+        float t = 0;
+        float scale = zoomInPanel.GetComponent<RectTransform>().localScale.x;
+        while (zoomAmount != System.Math.Round(zoomInPanel.GetComponent<RectTransform>().transform.localScale.x))
+        {
+            scale = Mathf.Lerp(scale, zoomAmount, t);
+            t += zoomSpeed * Time.deltaTime;
+            zoomInPanel.GetComponent<RectTransform>().transform.localScale = new Vector2(scale, scale);
+            Debug.Log(zoomInPanel.GetComponent<RectTransform>().transform.localScale.x);
+            yield return new WaitForSecondsRealtime(0);
+        }
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+    } 
 }
