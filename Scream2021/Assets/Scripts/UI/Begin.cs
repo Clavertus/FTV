@@ -14,25 +14,22 @@ public class Begin : MonoBehaviour {
     [SerializeField] Toggle showFpsToogle = null;
     public Slider sensivitySlider;
 
-    private void Awake()
+    void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
+        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
+
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
         {
             bool showFPS = PlayerPrefs.GetInt("Setting_ShowFps") == 1 ? true : false;
             if (showFpsToogle) showFpsToogle.isOn = showFPS;
         }
-
-        if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
-
-        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
-
         if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
-    }
 
-    void Start()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+
         quitCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
