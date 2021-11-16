@@ -64,7 +64,7 @@ public class Examine : MonoBehaviour
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                     FindObjectOfType<PlayerMovement>().LockPlayer();
 
-                    
+                    distanceFromCam = clickedObject.GetComponent<MementoObjectInspecting>().ReturnDistanceFromCam();  
 
                     examineCanvas.gameObject.SetActive(true);
                     //Save The Original Postion And Rotation
@@ -98,8 +98,8 @@ public class Examine : MonoBehaviour
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            clickedObject.transform.Rotate(Camera.main.transform.up, -xAxis,  Space.Self); 
-            clickedObject.transform.Rotate(Camera.main.transform.right, yAxis, Space.Self);
+            clickedObject.transform.Rotate(Camera.main.transform.up, -xAxis,  Space.World); 
+            clickedObject.transform.Rotate(Camera.main.transform.right, yAxis, Space.World);
         }
     }
 
