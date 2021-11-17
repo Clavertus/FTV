@@ -16,13 +16,12 @@ public class MementoObjectInspecting : MonoBehaviour
 
     [SerializeField] string pocketItemName;
 
-    [SerializeField] float distanceFromCam = 2; 
-
+    
     GameObject tv;
 
     int interactionCounter = 0;
     bool examineMode = false;
-    bool pocketedDPad = false; 
+    
     
     // Start is called before the first frame update
     void Start()
@@ -36,7 +35,9 @@ public class MementoObjectInspecting : MonoBehaviour
     public void ExitedExamineMode() { examineMode = false; Debug.Log("Exited Examine Mode"); }
     public void EnteredExamineMode() { examineMode = true; Debug.Log("Entered Examine Mode"); }
 
-    public float ReturnDistanceFromCam() { return distanceFromCam; } 
+     
+
+
     // Update is called once per frame
     void Update()
     {
