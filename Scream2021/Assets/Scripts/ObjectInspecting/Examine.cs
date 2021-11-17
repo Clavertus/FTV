@@ -76,8 +76,8 @@ public class Examine : MonoBehaviour
 
                     //Now Move Object In Front Of Camera, offsets if bool is true
                     var relativePosition = mainCam.transform.InverseTransformDirection(transform.position - mainCam.transform.position);
-                    clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam); 
-                    
+                    clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
+                    clickedObject.transform.rotation = Quaternion.Euler(-mainCam.transform.rotation.x, -mainCam.transform.rotation.y, -mainCam.transform.rotation.z);  
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
                     if (clickedObject.GetComponent<ObjectExaminationConfig>() && clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)   
