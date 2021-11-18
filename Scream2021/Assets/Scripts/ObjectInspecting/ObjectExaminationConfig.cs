@@ -9,9 +9,22 @@ public class ObjectExaminationConfig : MonoBehaviour {
     [SerializeField] float offsetY = 1f;
     [SerializeField] float offsetX = 1f;
 
+    [SerializeField] float xRotation = 0;
+    [SerializeField] float yRotation = 0;
+    [SerializeField] float zRotation = 0;
+
+    bool examineMode = false; 
 
     public float ReturnDistanceFromCam() { return distanceFromCam; }
     public bool ReturnIfOffset() { return offsetCamPos; }
     public float ReturnXOffset() { return offsetX; }
-    public float ReturnYOffset() { return offsetY; }
+    public float ReturnYOffset() { return offsetY; } 
+
+    public float ReturnXRotation() { return xRotation; }
+    public float ReturnYRotation() { return yRotation; }
+    public float ReturnZRotation() { return zRotation; }
+
+
+    
+
 }

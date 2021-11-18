@@ -9,7 +9,7 @@ public class MementoObjectInspecting : MonoBehaviour
 
     [SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
-    [SerializeField] GameObject symbol; 
+    [SerializeField] GameObject symbol;
 
     [SerializeField] Canvas inspectCanvas;
     [SerializeField] Canvas holdSmallObjCanvas;
@@ -20,7 +20,7 @@ public class MementoObjectInspecting : MonoBehaviour
     GameObject tv;
 
     int interactionCounter = 0;
-    bool examineMode = false;
+    
     
     
     // Start is called before the first frame update
@@ -32,8 +32,7 @@ public class MementoObjectInspecting : MonoBehaviour
         holdSmallObjCanvas.enabled = false; 
     }
 
-    public void ExitedExamineMode() { examineMode = false; Debug.Log("Exited Examine Mode"); }
-    public void EnteredExamineMode() { examineMode = true; Debug.Log("Entered Examine Mode"); }
+    
 
      
 
@@ -43,8 +42,9 @@ public class MementoObjectInspecting : MonoBehaviour
     {
         if (gameObject.tag == ("Selected") && interactionCounter == 0) { FirstInteraction(); }
 
-        if (interactionCounter == 1 && examineMode == false)
+        if (interactionCounter == 1 && FindObjectOfType<Examine>().examineMode == false )  
         {
+            
             StartCoroutine(DPadFell());
             Debug.Log("dropped");
         }
@@ -53,12 +53,11 @@ public class MementoObjectInspecting : MonoBehaviour
     }
 
     void FirstInteraction()
-    {
-        examineMode = true; 
-        
+    { 
+
+        Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         
-        interactionCounter = 1;
     }
 
     IEnumerator DPadFell()
@@ -81,7 +80,7 @@ public class MementoObjectInspecting : MonoBehaviour
 
     IEnumerator InspectDPad()
     {
-        yield return new WaitUntil(() => examineMode == false);
+        yield return new WaitUntil(() =>  FindObjectOfType<Examine>().examineMode == false); 
 
         FindObjectOfType<MouseLook>().UnlockCamera();
         Debug.Log("test");

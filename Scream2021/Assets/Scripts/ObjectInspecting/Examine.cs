@@ -20,7 +20,7 @@ public class Examine : MonoBehaviour
     Transform originalParent;
 
     //If True Allow Rotation Of Object
-    bool examineMode;
+    public bool examineMode;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class Examine : MonoBehaviour
         ClickObject();//Decide What Object To Examine
 
         TurnObject();//Allows Object To Be Rotated
-
+        Debug.Log("examine mode " + examineMode); 
         if (examineMode && !dialogueBox.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
             ExitExamineMode();
@@ -61,8 +61,12 @@ public class Examine : MonoBehaviour
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
 
-                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))
+                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
                 {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true; 
+                    examineMode = true;
+                    Debug.Log("examineMode"); 
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                     FindObjectOfType<PlayerMovement>().LockPlayer();
@@ -77,24 +81,32 @@ public class Examine : MonoBehaviour
                     //Now Move Object In Front Of Camera, offsets if bool is true
                     var relativePosition = mainCam.transform.InverseTransformDirection(transform.position - mainCam.transform.position);
                     clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
-                    clickedObject.transform.rotation = Quaternion.Euler(mainCam.transform.rotation.x, mainCam.transform.rotation.y, mainCam.transform.rotation.z);  
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
-                    if (clickedObject.GetComponent<ObjectExaminationConfig>() && clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)   
+                    if (clickedObject.GetComponent<ObjectExaminationConfig>())
                     {
-                        var xOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXOffset(); 
-                        var yOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYOffset();
+                        if (clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)
+                        { 
+                            var xOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXOffset();
+                            var yOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYOffset();
 
-                        
-                        clickedObject.transform.position += (transform.right * xOffset);
-                        clickedObject.transform.position += (transform.up * yOffset);  
+
+                            clickedObject.transform.position += (transform.right * xOffset);
+                            clickedObject.transform.position += (transform.up * yOffset);
+                        }
+                        float xRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXRotation();
+                        float yRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYRotation();
+                        float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation(); 
+
+                        clickedObject.transform.rotation = 
+                            Quaternion.Euler(xRotation, yRotation, zRotation); 
 
                     }
                     //Pause The Game
                     /* Time.timeScale = 0; */
 
                     //Turn Examine Mode To True
-                    examineMode = true;
+                    
 
                     player.tag = ("Untagged");
 
@@ -125,6 +137,9 @@ public class Examine : MonoBehaviour
     {
         if (examineMode)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false; 
+
             player.tag = ("Player");
 
             GetComponent<MouseLook>().UnlockCamera();
@@ -141,7 +156,7 @@ public class Examine : MonoBehaviour
 
             //Return To Normal State
             examineMode = false;
-            FindObjectOfType<MementoObjectInspecting>().ExitedExamineMode();
+            
         }
     }
 }

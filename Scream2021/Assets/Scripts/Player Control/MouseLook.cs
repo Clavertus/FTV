@@ -25,7 +25,7 @@ public class MouseLook : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("mouse_sensivity")) mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
 
-        Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.lockState = CursorLockMode.Locked;
 
         if (PlayerPrefs.HasKey("camXrot"))
         {
