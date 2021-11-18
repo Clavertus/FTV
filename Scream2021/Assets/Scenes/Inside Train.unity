@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCam: 2
+  distanceFromCam: 2.5
   offsetCamPos: 0
   offsetY: -0.2
   offsetX: 0
@@ -1215,6 +1215,11 @@ Light:
 Canvas:
   m_CorrespondingSourceObject: {fileID: 2744798833667800986, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
   m_PrefabInstance: {fileID: 1780436944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &222220497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1971035156312521196, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+  m_PrefabInstance: {fileID: 560836765}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &237828998
 GameObject:
@@ -2828,7 +2833,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 586000334661283910, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
   m_PrefabInstance: {fileID: 560836765}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 222220497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82a8ac438d20b5846997139e68d1de62, type: 3}
@@ -3234,7 +3239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCam: 1
+  distanceFromCam: 1.5
   offsetCamPos: 0
   offsetY: 1
   offsetX: 1
@@ -7434,25 +7439,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6045591279598149612, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
   m_PrefabInstance: {fileID: 1984704150}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1341483292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341483291}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0624e4adcbf63054da54b526a5a4b7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 0.1
-  camera: {fileID: 1341483295}
---- !u!4 &1341483295 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
-  m_PrefabInstance: {fileID: 1984704150}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1341483296 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6045591279598149618, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
@@ -8759,6 +8745,7 @@ MonoBehaviour:
   chain: {fileID: 537305199}
   chainDPad: {fileID: 1267344132}
   chainZip: {fileID: 736668956}
+  trainPlayer: {fileID: 222220497}
   trainMonster: {fileID: 596890836}
   doorToCar: {fileID: 1912142477}
   dPadMat: {fileID: -2054705899596196291, guid: 550d291ea56d09646ae533300274d256, type: 3}
@@ -11472,7 +11459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCam: 1
+  distanceFromCam: 1.1
   offsetCamPos: 0
   offsetY: 1
   offsetX: 1
@@ -11483,6 +11470,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4623353552659630919, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: power
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623353552659630919, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6045591278918779741, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_Name
       value: Player

@@ -26,9 +26,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        LockerTimer();
         Move();
         PlayerGravity();
     }
+
     public void LockPlayer() { movementLock = true; }
     public void UnlockPlayer() { movementLock = false; }
 
@@ -51,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         if((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
         {
             FootstepPlaying();
+        }
+        else
+        {
+            AudioManager.instance.InstantStopFromAudioManager(soundsEnum.Footstep1);
         }
     }
 
@@ -75,8 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (FootstepPlayRate <= FootstepCntTime)
         {
             FootstepCntTime = 0f;
-            int footstepType = (int) soundsEnum.Footstep1;
-            AudioManager.instance.PlayOneShotFromAudioManager((soundsEnum)footstepType);
+            AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Footstep1);
         }
         else
         {
@@ -84,4 +89,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    float lockPlayerTime = 0f;
+    float lockPlayerTimer = 0f;
+    bool lockPlayerTimerEnabled = false;
+    public void LockPlayerForTime(float effectTime)
+    {
+        lockPlayerTime = effectTime;
+        lockPlayerTimer = 0f;
+        LockPlayer();
+        FindObjectOfType<MouseLook>().LockCamera();
+    }
+
+    private void LockerTimer()
+    {
+        if((movementLock) && (lockPlayerTimerEnabled))
+        {
+            if (lockPlayerTimer > lockPlayerTime)
+            {
+                UnlockPlayer();
+                GetComponent<MouseLook>().UnlockCamera();
+                lockPlayerTimerEnabled = false;
+            }
+            else
+            {
+                lockPlayerTimer += Time.deltaTime;
+            }
+        }
+    }
 }

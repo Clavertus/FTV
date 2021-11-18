@@ -5,12 +5,14 @@ using UnityEngine;
 public class CameraShaker : MonoBehaviour
 {
     public float power;
+    float originalPower = 0f;
     public Transform camera;
 
     Vector3 startPosition;
 
     void Start()
     {
+        originalPower = power;
         camera = Camera.main.transform;
         startPosition = camera.localPosition;
     }
@@ -18,5 +20,10 @@ public class CameraShaker : MonoBehaviour
     void Update()
     {
         camera.localPosition = startPosition + Random.insideUnitSphere * power;
+    }
+
+    public void ResetPower()
+    {
+        power = originalPower;
     }
 }

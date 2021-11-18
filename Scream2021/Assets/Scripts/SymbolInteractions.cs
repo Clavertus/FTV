@@ -34,6 +34,7 @@ public class SymbolInteractions : MonoBehaviour
     [SerializeField] GameObject chainDPad;
     [SerializeField] GameObject chainZip;
 
+    [SerializeField] GameObject trainPlayer;
     [SerializeField] GameObject trainMonster;
 
     [SerializeField] GameObject doorToCar; 
@@ -141,7 +142,23 @@ public class SymbolInteractions : MonoBehaviour
     }
 
     public void AreWindowsChecked() { checkedWindows = true; }
-    public void IsPocketed(string pocketedItem) { pocketed = true; pocketItem = pocketedItem; } 
+    public void IsPocketed(string pocketedItem) 
+    { 
+        pocketed = true; 
+        pocketItem = pocketedItem; 
+
+        if(pocketItem == "DPad")
+        {
+            //trigger DPad Effect
+            float effectTime = 2f;
+            float shakePower = .1f;
+            //FindObjectOfType<PlayerMovement>().LockPlayerForTime(effectTime);
+            FindObjectOfType<PlayerEffects>().ShakeCameraForTime(effectTime, shakePower);
+            trainPlayer.GetComponent<TrainEffectController>().FlickerLightForTime(effectTime);
+            //play some sound?
+        }
+
+    } 
     void FirstInteraction()
     {
         gameObject.tag = ("Untagged");
