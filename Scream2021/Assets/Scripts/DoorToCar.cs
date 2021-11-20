@@ -49,7 +49,7 @@ public class DoorToCar : MonoBehaviour
         gameObject.SetActive(false); 
     }
     public void UnlockDoorSFX() {
-        AudioManager.instance.PlayFromGameObject(myAudioSource);  
+        AudioManager.instance.InstantPlayFromGameObject(myAudioSource);  
     }
     IEnumerator SecondInteraction()
     {
@@ -58,7 +58,7 @@ public class DoorToCar : MonoBehaviour
         interactionCounter++;
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
         openingDoor = true;
-        AudioManager.instance.PlayFromGameObject(myAudioSource2);  
+        AudioManager.instance.InstantPlayFromGameObject(myAudioSource2);  
     }
     void OpenDoor()
     {
