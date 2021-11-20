@@ -79,7 +79,7 @@ MonoBehaviour:
   - name: UIMetal
     clip: {fileID: 8300000, guid: 36903fd47ecd22549bdb98ae71e736f8, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.15
+    volume: 0.1
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 0
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 0}
     volume: 1
     pitch: 0.1
-    loop: 0
+    loop: 1
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
@@ -172,7 +172,7 @@ MonoBehaviour:
     volume: 1
     pitch: 0.4
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0

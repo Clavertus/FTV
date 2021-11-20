@@ -5,56 +5,56 @@ using UnityEngine;
 public class InGameMenuCotrols : MonoBehaviour
 {
     bool menuActive = false;
+    public GameObject settingsPanel;
 
-    [SerializeField] GameObject[] children = null;
-
-    // Start is called before the first frame update
     void Start()
     {
         menuActive = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        ChildrenHandle(menuActive);
+        settingsPanel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !menuActive)
+        if (Input.GetKeyDown(KeyCode.Escape) && !settingsPanel.activeSelf)
         {
-            menuActive = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            ChildrenHandle(menuActive);
-            Time.timeScale = 0;
-            return;
+            OpenMenu();
         }
 
-        if (menuActive)
+        else if (settingsPanel.activeSelf)
         {
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                menuActive = false;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                ChildrenHandle(menuActive);
-                Time.timeScale = 1;
-                return;
+                CloseMenu();
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
-                Application.Quit();
-                return;
+                QuitToMainMenu();
             }
         }
     }
 
-    private void ChildrenHandle(bool enable)
+    public void CloseMenu()
     {
-        foreach (var children in children)
-        {
-            children.gameObject.SetActive(enable);
-        }
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
+        settingsPanel.SetActive(false);
+    }
+
+    public void OpenMenu()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+        settingsPanel.SetActive(true);
+    }
+
+    public void QuitToMainMenu()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
     }
 }

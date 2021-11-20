@@ -81,13 +81,13 @@ public class SecondDoorToCar : MonoBehaviour
     public void OpenDoor()
     {
         openDoor = true;
-        AudioManager.instance.PlayFromGameObject(myAudioSource);
+        AudioManager.instance.InstantPlayFromGameObject(myAudioSource);
     }
 
     void OpenDoorToGap()
     {
         physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorGapPosition.position, 1000 * Time.deltaTime);
-        AudioManager.instance.PlayFromGameObject(myAudioSource);
+        AudioManager.instance.InstantPlayFromGameObject(myAudioSource);
         savedPosition = physicalDoor.transform.position;
     }
 

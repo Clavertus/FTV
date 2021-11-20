@@ -15,7 +15,6 @@ public class LevelLoader : MonoBehaviour
     public static LevelLoader instance;
     public CanvasGroup canvasGroup;
     public float fadeStep;
-    public float fadeTime;
 
     public float cutStep;
     public float cutTime;
@@ -96,7 +95,7 @@ public class LevelLoader : MonoBehaviour
             canvasGroup.alpha += fadeStep;
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, t);
             t += fadeStep * Time.deltaTime;
-            yield return new WaitForSeconds(0);
+            yield return null;
         }
     }
     public IEnumerator CutIn()
@@ -119,7 +118,7 @@ public class LevelLoader : MonoBehaviour
             canvasGroup.alpha -= fadeStep;
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, t);
             t += fadeStep * Time.deltaTime;
-            yield return new WaitForSeconds(fadeTime);
+            yield return null;
         }
     }
 
