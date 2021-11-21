@@ -11,14 +11,11 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixerGroup audioMixerGroup;
-
     public float audioFadeSpeed;
-
     public Sound[] sounds;
-
     public static AudioManager instance;
-
     public Dictionary<int, bool> runningCoroutines; // bool is true if it's fading in and false if it's fading out
+
     void Awake()
     {
         runningCoroutines = new Dictionary<int, bool>();

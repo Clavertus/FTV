@@ -12,7 +12,7 @@ public class ButtonSound : MonoBehaviour
 
     public void ClickSound()
     {
-        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.UIMetal);
-        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIMetal);
+        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.UIClick);
+        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIClick);
     }
 }
