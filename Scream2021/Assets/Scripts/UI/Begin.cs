@@ -26,8 +26,7 @@ public class Begin : MonoBehaviour {
         quitCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
 
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TV);
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Title);
 
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
         {
@@ -81,8 +80,7 @@ public class Begin : MonoBehaviour {
     {
         beginning = true;
 
-        AudioManager.instance.StopFromAudioManager(soundsEnum.Drone);
-        AudioManager.instance.StopFromAudioManager(soundsEnum.TV);
+        AudioManager.instance.StopFromAudioManager(soundsEnum.Title);
 
         StartCoroutine(ZoomPanel());
         Debug.Log("Beginning");
@@ -119,7 +117,7 @@ public class Begin : MonoBehaviour {
 
     private void PlayButtonSound()
     {
-        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UIMetal);
+        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UIClick);
     }
 
     private void showFpsListener()

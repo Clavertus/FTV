@@ -19,6 +19,7 @@ public class InGameMenuCotrols : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !settingsPanel.activeSelf)
         {
+            PlayButtonSound();
             OpenMenu();
         }
 
@@ -26,11 +27,13 @@ public class InGameMenuCotrols : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Escape))
             {
+                PlayButtonSound();
                 CloseMenu();
             }
 
             else if (Input.GetKeyDown(KeyCode.E))
             {
+                PlayButtonSound();
                 QuitToMainMenu();
             }
         }
@@ -55,6 +58,15 @@ public class InGameMenuCotrols : MonoBehaviour
     public void QuitToMainMenu()
     {
         Time.timeScale = 1;
+        foreach (var sound in AudioManager.instance.sounds)
+        {
+            sound.source.Stop();
+        }
         StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+    }
+
+    private void PlayButtonSound()
+    {
+        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UIClick);
     }
 }
