@@ -175,7 +175,7 @@ public class MonsterAction : MonoBehaviour
                 if (StartSequence)
                 {
                     currentState = monsterStatesEnm.walk;
-                    AudioManager.instance.PlayFromGameObject(monsterBreathe);  
+                    AudioManager.instance.InstantPlayFromGameObject(monsterBreathe);  
                 }
                 break;
             case monsterStatesEnm.walk:
@@ -190,7 +190,7 @@ public class MonsterAction : MonoBehaviour
 
                 if (finishedAction)
                 {
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAgressive);
 
                     currentState = monsterStatesEnm.run;
                 }
@@ -212,7 +212,7 @@ public class MonsterAction : MonoBehaviour
                 if (finishedToOpen)
                 {
                     FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                     FindObjectOfType<SecondDoorToCar>().ShakeDoor();
 
                     FindObjectOfType<InsideTrainManager>().TriggerSecondDroneSound();
@@ -231,12 +231,12 @@ public class MonsterAction : MonoBehaviour
                 FlickerLightsInTrainUpdate();
                 if (finishedFinallyOpen)
                 {
-                    AudioManager.instance.PlayFromGameObject(monsterBreathe);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterBreathe);
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
                         MakePlayerLookAtMonster();
-                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                        AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                         currentState = monsterStatesEnm.jump_and_kill;
                     }
                     else
@@ -251,7 +251,7 @@ public class MonsterAction : MonoBehaviour
                 if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                 {
                     MakePlayerLookAtMonster();
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                     currentState = monsterStatesEnm.jump_and_kill;
                     break;
                 }
@@ -260,7 +260,7 @@ public class MonsterAction : MonoBehaviour
 
                 if (actionZoneTriggered)
                 {
-                    AudioManager.instance.PlayFromGameObject(monsterBreathe);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterBreathe);
                     
                     currentState = monsterStatesEnm.action;
                 }
@@ -275,12 +275,12 @@ public class MonsterAction : MonoBehaviour
 
                 if (finishedAction)
                 {
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive);
-                    AudioManager.instance.PlayFromGameObject(monsterAttack);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAgressive);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAttack);
 
                     if (Vector3.Distance(transform.position, Player.position) <= minDistance)
                     {
-                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                        AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                         currentState = monsterStatesEnm.jump_and_kill;
                     }
                     else
@@ -317,14 +317,14 @@ public class MonsterAction : MonoBehaviour
                 if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("InJump") && !InJump)
                 {
                     InJump = true;
-                    AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                    AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                 }
 
                 if (InJump)
                 {
                     if(PlayerFound)
                     {
-                        AudioManager.instance.PlayFromGameObject(monsterAgressive2);
+                        AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                         FindObjectOfType<CameraShaker>().enabled = true;
                         currentState = monsterStatesEnm.chew;
                     }
@@ -445,7 +445,7 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void FinishedInOpen()
     {
-        AudioManager.instance.PlayFromGameObject(monsterBreathe); 
+        AudioManager.instance.InstantPlayFromGameObject(monsterBreathe); 
 
         finishedInOpen++;
     }
@@ -481,7 +481,7 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void ShakeDoor()
     {
-        AudioManager.instance.PlayFromGameObject(monsterForceDoor2);
+        AudioManager.instance.InstantPlayFromGameObject(monsterForceDoor2);
         FindObjectOfType<SecondDoorToCar>().ShakeDoor();
     }
 
@@ -513,12 +513,12 @@ public class MonsterAction : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void Footstep()
     {
-        AudioManager.instance.PlayFromGameObject(monsterFootstep);
+        AudioManager.instance.InstantPlayFromGameObject(monsterFootstep);
     }
 
     // This C# function can be called by an Animation Event
     public void ForceDoor()
     {
-        AudioManager.instance.PlayFromGameObject(monsterForceDoor1);
+        AudioManager.instance.InstantPlayFromGameObject(monsterForceDoor1);
     }
 }

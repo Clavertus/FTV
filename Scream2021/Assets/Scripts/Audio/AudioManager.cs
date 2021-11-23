@@ -11,14 +11,11 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixerGroup audioMixerGroup;
-
     public float audioFadeSpeed;
-
     public Sound[] sounds;
-
     public static AudioManager instance;
-
     public Dictionary<int, bool> runningCoroutines; // bool is true if it's fading in and false if it's fading out
+
     void Awake()
     {
         runningCoroutines = new Dictionary<int, bool>();
@@ -134,7 +131,8 @@ public class AudioManager : MonoBehaviour
     }
 
     //Sounds from GameObject ------------------------------
-    public void PlayFromGameObject(AudioSource audioSource)
+
+    public void PlayOneShotFromGameObject(AudioSource audioSource)
     {
         Debug.Log(audioSource.gameObject.name);
         audioSource.PlayOneShot(audioSource.clip);
@@ -155,6 +153,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //Instant methods no audio fading 
+
     public void InstantPlayFromGameObject(AudioSource audioSource)
     {
         Debug.Log(audioSource.gameObject.name);
@@ -216,9 +215,9 @@ public class AudioManager : MonoBehaviour
                 runningCoroutines.Remove(sourceId);
                 yield break;
             }
-            audioSource.volume = Mathf.Lerp(audioSource.volume, 0, t);
-            t += audioFadeSpeed * Time.deltaTime;
-            yield return new WaitForSeconds(0);
+            audioSource.volume = Mathf.Clamp(Mathf.Lerp(audioSource.volume, 0, t), 0, 1);
+            t += Time.deltaTime;
+            yield return null;
         }
         audioSource.volume = volume;
         audioSource.Stop();
@@ -246,9 +245,9 @@ public class AudioManager : MonoBehaviour
                 runningCoroutines.Remove(audioSource.GetInstanceID());
                 yield break;
             }
-            audioSource.volume = Mathf.Lerp(audioSource.volume, volume, t);
-            t += audioFadeSpeed * Time.deltaTime;
-            yield return new WaitForSeconds(0);
+            audioSource.volume = Mathf.Clamp(Mathf.Lerp(audioSource.volume, volume, t), 0, 1);
+            t += Time.deltaTime;
+            yield return null;
         }
     }
 

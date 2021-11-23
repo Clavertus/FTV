@@ -46,6 +46,21 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 24300002, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
   audioFadeSpeed: 0.01
   sounds:
+  - name: Title
+    clip: {fileID: 8300000, guid: 5fb0c542aa4ebb840a973dcd393a21f2, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.7
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 3
+    rolloffMode: 1
+    min: 0
+    max: 5
+    source: {fileID: 0}
   - name: Commuting
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}
@@ -76,10 +91,10 @@ MonoBehaviour:
     min: 0
     max: 5
     source: {fileID: 0}
-  - name: UIMetal
-    clip: {fileID: 8300000, guid: 36903fd47ecd22549bdb98ae71e736f8, type: 3}
+  - name: UIClick
+    clip: {fileID: 8300000, guid: 6d41d7eeb929e0647a28580fc61e51e9, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.15
+    volume: 0.5
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -97,7 +112,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 0
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
@@ -111,7 +126,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 0}
     volume: 1
     pitch: 0.1
-    loop: 0
+    loop: 1
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3
@@ -158,21 +173,6 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
-    spatialBlend: 3
-    stereoPan: 0
-    sourceCurveType: 3
-    rolloffMode: 1
-    min: 0
-    max: 5
-    source: {fileID: 0}
-  - name: TV
-    clip: {fileID: 8300000, guid: ebe193286f3b61845aad4fe6899959e6, type: 3}
-    audioMixerGroup: {fileID: 0}
-    volume: 1
-    pitch: 0.4
-    loop: 1
-    playOnAwake: 1
     advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
