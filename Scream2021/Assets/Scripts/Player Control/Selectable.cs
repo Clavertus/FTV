@@ -15,6 +15,7 @@ public class Selectable : MonoBehaviour
     [SerializeField] float minYLookRotation;
     [SerializeField] float maxYLookRotation;
 
+    bool superSecretEnterSelectable = false; 
     bool enteredSelectable = false; 
     AudioSource myAudioSource;
     GameObject player; 
@@ -34,6 +35,7 @@ public class Selectable : MonoBehaviour
     {
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
         if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == false) { EnterSelectionZone();  }
+        if (superSecretEnterSelectable == true && enteredSelectable == false) { EnterSelectionZone(); }
         if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == true) 
         {
             
@@ -41,7 +43,7 @@ public class Selectable : MonoBehaviour
             EnterSelectionZone(); 
         }
 
-        if (distance >= maxDistanceFromPlayer && enteredSelectable == true) { ExitSelectionZone(); }
+        if (distance >= maxDistanceFromPlayer && enteredSelectable == true && superSecretEnterSelectable == false) { ExitSelectionZone(); }
 
     }
 
@@ -52,6 +54,10 @@ public class Selectable : MonoBehaviour
         selectableCanvas.gameObject.SetActive(true);
     }
 
+    public void BypassAndMakeSelectable() 
+    {
+        superSecretEnterSelectable = true; 
+    } 
     
     public void DisableSelectable()
     {
@@ -68,14 +74,15 @@ public class Selectable : MonoBehaviour
         selectableCanvas.gameObject.SetActive(false);
     }
 
-    private void EnterSelectionZone() 
+    public void EnterSelectionZone() 
     {
         enteredSelectable = true; 
-        gameObject.tag = ("Selectable");
+        gameObject.tag = ("Selectable"); 
         AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.UI1);  
     }
-    private void ExitSelectionZone() 
+    public void ExitSelectionZone() 
     {
+        superSecretEnterSelectable = false; 
         enteredSelectable = false;  
         gameObject.tag = ("Untagged");              
     }

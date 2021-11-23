@@ -7,6 +7,7 @@ public class Examine : MonoBehaviour
 {
     [SerializeField] Canvas examineCanvas;
     [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject playerBod;
     [SerializeField] GameObject player;
     Camera mainCam;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
@@ -20,7 +21,7 @@ public class Examine : MonoBehaviour
     Transform originalParent;
 
     //If True Allow Rotation Of Object
-    bool examineMode;
+    public bool examineMode;
 
     void Start()
     {
@@ -37,11 +38,11 @@ public class Examine : MonoBehaviour
 
         TurnObject();//Allows Object To Be Rotated
 
-        if (examineMode && !dialogueBox.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if(examineMode == true) 
         {
-            ExitExamineMode();
-        }
-
+            mainCam.GetComponent<MouseLook>().LockCamera();
+            player.GetComponent<PlayerMovement>().LockPlayer();
+        }  
 
     }
 
@@ -60,13 +61,17 @@ public class Examine : MonoBehaviour
 
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
-
-                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<Memento>() && Input.GetKeyDown(KeyCode.E))
+                 
+                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
                 {
+                    
+                    examineMode = true;
+                    Debug.Log("examineMode"); 
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
+                     
                     FindObjectOfType<PlayerMovement>().LockPlayer();
-
+                    
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
                     examineCanvas.gameObject.SetActive(true);
@@ -77,26 +82,34 @@ public class Examine : MonoBehaviour
                     //Now Move Object In Front Of Camera, offsets if bool is true
                     var relativePosition = mainCam.transform.InverseTransformDirection(transform.position - mainCam.transform.position);
                     clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
-                    clickedObject.transform.rotation = Quaternion.Euler(mainCam.transform.rotation.x, mainCam.transform.rotation.y, mainCam.transform.rotation.z);  
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
-                    if (clickedObject.GetComponent<ObjectExaminationConfig>() && clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)   
+                    if (clickedObject.GetComponent<ObjectExaminationConfig>())
                     {
-                        var xOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXOffset(); 
-                        var yOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYOffset();
+                        if (clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)
+                        { 
+                            var xOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXOffset();
+                            var yOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYOffset();
 
-                        
-                        clickedObject.transform.position += (transform.right * xOffset);
-                        clickedObject.transform.position += (transform.up * yOffset);  
+
+                            clickedObject.transform.position += (transform.right * xOffset);
+                            clickedObject.transform.position += (transform.up * yOffset);
+                        }
+                        float xRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXRotation();
+                        float yRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYRotation();
+                        float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation(); 
+
+                        clickedObject.transform.rotation = 
+                            Quaternion.Euler(xRotation, yRotation, zRotation); 
 
                     }
                     //Pause The Game
                     /* Time.timeScale = 0; */
 
                     //Turn Examine Mode To True
-                    examineMode = true;
+                    
 
-                    player.tag = ("Untagged");
+                    playerBod.tag = ("Untagged");
 
                 }
             }
@@ -108,7 +121,7 @@ public class Examine : MonoBehaviour
         if (Input.GetMouseButton(0) && examineMode)
         {
             clickedObject.tag = ("Untagged");
-            examineCanvas.gameObject.SetActive(false);
+            
             float rotationSpeed = 15;
 
             Vector3 centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
@@ -125,7 +138,9 @@ public class Examine : MonoBehaviour
     {
         if (examineMode)
         {
-            player.tag = ("Player");
+            
+            examineCanvas.gameObject.SetActive(false);
+            playerBod.tag = ("Player");
 
             GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
@@ -141,7 +156,7 @@ public class Examine : MonoBehaviour
 
             //Return To Normal State
             examineMode = false;
-            FindObjectOfType<MementoObjectInspecting>().ExitedExamineMode();
+            
         }
     }
 }
