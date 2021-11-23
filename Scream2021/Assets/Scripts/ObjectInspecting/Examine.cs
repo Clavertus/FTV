@@ -7,6 +7,7 @@ public class Examine : MonoBehaviour
 {
     [SerializeField] Canvas examineCanvas;
     [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject playerBod;
     [SerializeField] GameObject player;
     Camera mainCam;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
@@ -36,12 +37,12 @@ public class Examine : MonoBehaviour
         ClickObject();//Decide What Object To Examine
 
         TurnObject();//Allows Object To Be Rotated
-        Debug.Log("examine mode " + examineMode); 
-        if (examineMode && !dialogueBox.activeSelf && Input.GetKeyDown(KeyCode.E))
-        {
-            ExitExamineMode();
-        }
 
+        if(examineMode == true) 
+        {
+            mainCam.GetComponent<MouseLook>().LockCamera();
+            player.GetComponent<PlayerMovement>().LockPlayer();
+        }  
 
     }
 
@@ -60,17 +61,17 @@ public class Examine : MonoBehaviour
 
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
-
+                 
                 if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
                 {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true; 
+                    
                     examineMode = true;
                     Debug.Log("examineMode"); 
                     GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
+                     
                     FindObjectOfType<PlayerMovement>().LockPlayer();
-
+                    
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
                     examineCanvas.gameObject.SetActive(true);
@@ -108,7 +109,7 @@ public class Examine : MonoBehaviour
                     //Turn Examine Mode To True
                     
 
-                    player.tag = ("Untagged");
+                    playerBod.tag = ("Untagged");
 
                 }
             }
@@ -120,7 +121,7 @@ public class Examine : MonoBehaviour
         if (Input.GetMouseButton(0) && examineMode)
         {
             clickedObject.tag = ("Untagged");
-            examineCanvas.gameObject.SetActive(false);
+            
             float rotationSpeed = 15;
 
             Vector3 centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
@@ -137,10 +138,9 @@ public class Examine : MonoBehaviour
     {
         if (examineMode)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false; 
-
-            player.tag = ("Player");
+            
+            examineCanvas.gameObject.SetActive(false);
+            playerBod.tag = ("Player");
 
             GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
