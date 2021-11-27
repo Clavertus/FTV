@@ -13,13 +13,16 @@ public enum Ending
 public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader instance;
+
     public CanvasGroup canvasGroup;
+
     public float fadeStep;
 
     public float cutStep;
     public float cutTime;
 
     public Ending ending;
+
     public bool HasPlayedTheGame;
 
     void Awake()

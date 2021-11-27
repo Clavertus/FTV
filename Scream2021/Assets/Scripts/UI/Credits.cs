@@ -19,6 +19,7 @@ public class Credits : MonoBehaviour
     {
         finalPanel.alpha = 0;
         credits = new List<TextMeshProUGUI>();
+
         foreach (Transform item in gameObject.transform)
         {
             if (item.gameObject.GetComponent<TextMeshProUGUI>())
@@ -48,6 +49,7 @@ public class Credits : MonoBehaviour
         if (finalPanelLoaded)
         {
             StartCoroutine(DelayKeyPress());
+
             if (!delayKeyPress)
             {
                 if (Input.GetKeyUp(KeyCode.E))

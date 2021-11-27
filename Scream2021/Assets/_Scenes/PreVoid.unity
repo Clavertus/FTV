@@ -11604,7 +11604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752703847577187, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: soundsToStop.Array.data[0]
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4780058962120171047, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_Pivot.x
@@ -11790,6 +11790,14 @@ PrefabInstance:
     - target: {fileID: 2105997022724364446, guid: d109d526978c66145bcc9ad2874e322f, type: 3}
       propertyPath: m_Name
       value: PreVoidRenderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401714231896187473, guid: d109d526978c66145bcc9ad2874e322f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401714231896187473, guid: d109d526978c66145bcc9ad2874e322f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d109d526978c66145bcc9ad2874e322f, type: 3}

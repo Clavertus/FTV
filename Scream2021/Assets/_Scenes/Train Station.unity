@@ -706,7 +706,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8752703847577187, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: soundsToStop.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752703847577187, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: soundsToStop.Array.data[0]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4780058962120171047, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_Pivot.x
@@ -791,6 +795,22 @@ PrefabInstance:
     - target: {fileID: 4780058962120171047, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780058962120171065, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780058962120171065, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780058962120171065, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780058962120171065, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4780058962120171067, guid: f8bbcb5a8dfb18c4199b1cb408530da4, type: 3}
       propertyPath: m_Name
