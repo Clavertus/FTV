@@ -5,36 +5,59 @@ using UnityEngine;
 
 public class CreditsSkip : MonoBehaviour
 {
-    [SerializeField] GameObject Skip;
+    public GameObject skip;
+
+    public float skipTimerCnt = 0f;
+    public float skipTimerAppear = 1.5f;
+
+    public Credits credits;
 
     private void Start()
     {
-        Skip.SetActive(false);
+        skip.SetActive(false);
     }
 
-    float skipTimerCnt = 0f;
-    float skipTimerAppear = 1.5f;
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         skipTimerCnt += Time.deltaTime;
-        if (skipTimerAppear <= skipTimerCnt)
+
+        if (skipTimerAppear <= skipTimerCnt && !credits.finalPanelLoaded)
         {
-            if(LevelLoader.instance.HasPlayedTheGame) Skip.SetActive(true);
+            if (LevelLoader.instance.HasPlayedTheGame) skip.SetActive(true);
         }
 
-        if(Skip.activeSelf)
+        if (credits.finalPanelLoaded)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            skip.SetActive(false);
+        }
+
+        if (skip.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (LevelLoader.instance.HasPlayedTheGame) SkipScene(); 
+                if (LevelLoader.instance.HasPlayedTheGame)
+                {
+                    SkipCredits();
+                }
             }
         }
     }
 
-    private void SkipScene()
+    private void SkipCredits()
     {
+        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIClick);
+
+        credits.StopAllCoroutines();
+
+        foreach (var text in credits.credits)
+        {
+            StartCoroutine(credits.FadeOutText(text));
+        }
+
+        StartCoroutine(credits.FadeInFinalPanel());
+
+        skip.SetActive(false);
+
         AudioManager.instance.StopFromAudioManager(soundsEnum.Credits);
-        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
     }
 }

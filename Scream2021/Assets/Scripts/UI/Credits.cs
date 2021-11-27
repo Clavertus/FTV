@@ -7,10 +7,14 @@ public class Credits : MonoBehaviour
 {
     public float textFadeSpeed;
     public float textDuration;
-    public List<TextMeshProUGUI> credits;
-    public CanvasGroup finalPanel;
 
+    public List<TextMeshProUGUI> credits;
+
+    public CanvasGroup finalPanel;
     public bool finalPanelLoaded;
+
+    public bool delayKeyPress = true;
+
     void Awake()
     {
         finalPanel.alpha = 0;
@@ -30,10 +34,12 @@ public class Credits : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartCredits());
+
         foreach (var sound in AudioManager.instance.sounds)
         {
             sound.source.Stop();
         }
+
         AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Credits);
     }
 
@@ -41,15 +47,36 @@ public class Credits : MonoBehaviour
     {
         if (finalPanelLoaded)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            StartCoroutine(DelayKeyPress());
+            if (!delayKeyPress)
             {
-                Application.Quit();
-            }
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+                if (Input.GetKeyUp(KeyCode.E))
+                {
+                    MainManu();
+                }
+                else if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    QuitGame();
+                }
             }
         }
+    }
+
+    public void MainManu()
+    {
+        PlaySound();
+        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+    }
+
+    public void QuitGame()
+    {
+        PlaySound();
+        Application.Quit();
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIClick);
     }
 
     IEnumerator StartCredits()
@@ -70,52 +97,71 @@ public class Credits : MonoBehaviour
                 {
                     credits[i].text = "GOOD\nENDING"; 
                 }
-                
             }
             StartCoroutine(FadeInText(credits[i]));
+
             yield return new WaitForSecondsRealtime(textDuration);
+
             StartCoroutine(FadeOutText(credits[i]));
         }
-        yield return StartCoroutine(FadeInPanel(finalPanel));
-        finalPanelLoaded = true;
+
+        yield return StartCoroutine(FadeInFinalPanel());
+
         LevelLoader.instance.SetPlayedTheGame();
     }
-    IEnumerator FadeInText(TextMeshProUGUI text)
+
+    public IEnumerator FadeInFinalPanel()
     {
-        StopCoroutine(FadeOutText(text));
-        Color temp = text.color;
         float t = 0;
-        while (text.color.a != 1)
+
+        finalPanelLoaded = true;
+
+        while (finalPanel.alpha != 1)
         {
-            temp.a = Mathf.Lerp(temp.a, 1, t);
+            finalPanel.alpha = Mathf.Lerp(finalPanel.alpha, 1, t);
             t += textFadeSpeed * Time.deltaTime;
-            text.color = temp;
-            yield return new WaitForSeconds(0);
+
+            yield return null;
         }
     }
-
-    IEnumerator FadeOutText(TextMeshProUGUI text)
+    public IEnumerator FadeOutText(TextMeshProUGUI text)
     {
         StopCoroutine(FadeInText(text));
+
         Color temp = text.color;
         float t = 0;
+
         while (text.color.a != 0)
         {
             temp.a = Mathf.Lerp(temp.a, 0, t);
             t += textFadeSpeed * Time.deltaTime;
             text.color = temp;
-            yield return new WaitForSeconds(0);
+
+            yield return null;
         }
     }
 
-    IEnumerator FadeInPanel(CanvasGroup cg)
+    IEnumerator FadeInText(TextMeshProUGUI text)
     {
+        StopCoroutine(FadeOutText(text));
+
+        Color temp = text.color;
         float t = 0;
-        while (cg.alpha != 1)
+
+        while (text.color.a != 1)
         {
-            cg.alpha = Mathf.Lerp(cg.alpha, 1, t);
+            temp.a = Mathf.Lerp(temp.a, 1, t);
             t += textFadeSpeed * Time.deltaTime;
-            yield return new WaitForSeconds(0);
+            text.color = temp;
+
+            yield return null;
         }
+    }
+
+    IEnumerator DelayKeyPress()
+    {
+        yield return new WaitForSecondsRealtime(1);
+
+        delayKeyPress = false;
     }
 }

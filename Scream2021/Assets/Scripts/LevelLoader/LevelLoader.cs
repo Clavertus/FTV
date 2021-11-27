@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public enum Ending
 {
     Unknow,
     Bad,
     Good
 }
+
 public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader instance;
@@ -21,25 +21,28 @@ public class LevelLoader : MonoBehaviour
 
     public Ending ending;
     public bool HasPlayedTheGame;
+
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+
         StartCoroutine(FadeOut());
+
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-
             Destroy(gameObject);
             return;
         }
+
         DontDestroyOnLoad(gameObject);
 
-        if(PlayerPrefs.HasKey("HasPlayedTheGame"))
+        if (PlayerPrefs.HasKey("HasPlayedTheGame"))
         {
-            HasPlayedTheGame = PlayerPrefs.GetInt("HasPlayedTheGame") == 1 ? true : false;
+            HasPlayedTheGame = PlayerPrefs.GetInt("HasPlayedTheGame") == 1;
         }
     }
 
