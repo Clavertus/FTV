@@ -106,6 +106,21 @@ MonoBehaviour:
     min: 0
     max: 50
     source: {fileID: 0}
+  - name: IntroDrone
+    clip: {fileID: 8300000, guid: 141e3747bafa18f46a6337441fd80104, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 50
+    source: {fileID: 0}
   - name: Drone
     clip: {fileID: 8300000, guid: 91bf8eb1622073946bf86b178df6dbc9, type: 3}
     audioMixerGroup: {fileID: 0}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7547,7 +7547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
@@ -11270,6 +11270,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 288722340765105486, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
+      propertyPath: m_text
+      value: The quick brown fox jumps over the lazy dog
+      objectReference: {fileID: 0}
     - target: {fileID: 288722340765105487, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11326,6 +11330,10 @@ PrefabInstance:
     - target: {fileID: 1266005487635347262, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266005487638179573, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 93.74996
       objectReference: {fileID: 0}
     - target: {fileID: 1266005487798606956, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
       propertyPath: m_Name
@@ -11422,6 +11430,42 @@ PrefabInstance:
     - target: {fileID: 1266005487996552001, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266005489040921732, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 118.74999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99999636
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0026966345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 168.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119322482379, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191474119706738950, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -299
       objectReference: {fileID: 0}
     - target: {fileID: 2191474119706738951, guid: e9c2aed9685eb564082f7c22788d0b3d, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

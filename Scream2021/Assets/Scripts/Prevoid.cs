@@ -38,9 +38,6 @@ public class Prevoid : MonoBehaviour
 
     //public static Prevoid instance;
 
-
-
-
     public void Awake()
     {
         flickering = true;
@@ -73,7 +70,8 @@ public class Prevoid : MonoBehaviour
 
     private void Start()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void StartSequence()

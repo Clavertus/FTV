@@ -141,6 +141,6 @@ public class Begin : MonoBehaviour {
             zoomInPanel.GetComponent<RectTransform>().transform.localScale = new Vector2(scale, scale);
             yield return null;
         }
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        LevelLoader.instance.LoadNextScene();
     } 
 }
