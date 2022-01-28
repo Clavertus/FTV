@@ -31,7 +31,6 @@ public class SecondarySelctable : MonoBehaviour
         }
         if (gameObject.CompareTag("Selectable"))
         {
-
             //enable the canvas on the selectable
             GetComponent<Selectable>().DisplaySelectable();
             _selection = gameObject.transform;

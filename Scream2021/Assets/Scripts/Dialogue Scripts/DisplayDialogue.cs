@@ -13,8 +13,6 @@ public class DisplayDialogue : MonoBehaviour
     }
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
-       
-
         float t = 0;
         int charIndex = 0; 
 
