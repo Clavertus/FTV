@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 4636914971301766156}
   - component: {fileID: 5575832621725325272}
   - component: {fileID: 1176592798978893856}
+  - component: {fileID: 887451228847006217}
   m_Layer: 0
   m_Name: TrainCarWithDoors
   m_TagString: Untagged
@@ -157,6 +158,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &887451228847006217
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826967413320681663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4586597963013747432, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &1706381880889522221
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +426,7 @@ GameObject:
   - component: {fileID: 3950796439683459062}
   - component: {fileID: 2309049750083142397}
   - component: {fileID: 5437754105238460516}
+  - component: {fileID: 5037695158839849464}
   m_Layer: 0
   m_Name: Train_Door.002
   m_TagString: Untagged
@@ -481,6 +497,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5037695158839849464
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129604581653609753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6074020601676149115, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &4132766592339722977
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +522,7 @@ GameObject:
   - component: {fileID: 6528462815247053591}
   - component: {fileID: 326668759272159619}
   - component: {fileID: 8896641307724560116}
+  - component: {fileID: 6423381386958595329}
   m_Layer: 0
   m_Name: Train_Door
   m_TagString: Untagged
@@ -562,6 +593,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6423381386958595329
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132766592339722977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6074020601676149115, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &4801674340042348518
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +699,7 @@ GameObject:
   - component: {fileID: 6780764431128923541}
   - component: {fileID: 55888221567154897}
   - component: {fileID: 1901854194297499150}
+  - component: {fileID: 2820645262355690097}
   m_Layer: 0
   m_Name: Train_Door.001
   m_TagString: Untagged
@@ -724,6 +770,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2820645262355690097
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702204520498464538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8059171246869030804, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &6447412040726419921
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +795,7 @@ GameObject:
   - component: {fileID: 3823671746532209660}
   - component: {fileID: 4883706653848627785}
   - component: {fileID: 6202275551440483104}
+  - component: {fileID: 2323416185526358169}
   m_Layer: 0
   m_Name: Train_Door.003
   m_TagString: Untagged
@@ -805,6 +866,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2323416185526358169
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447412040726419921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8059171246869030804, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &7739747648323747131
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +891,7 @@ GameObject:
   - component: {fileID: 4822010558982302470}
   - component: {fileID: 2019091117325227934}
   - component: {fileID: 7926590129544146099}
+  - component: {fileID: 7185937365816062937}
   m_Layer: 0
   m_Name: TrainCarWithDoors.001
   m_TagString: Untagged
@@ -887,6 +963,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7185937365816062937
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739747648323747131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8291546783338376798, guid: 4509bec6af3a5644e99da2e7e0751fd1, type: 3}
 --- !u!1 &7835236879162862659
 GameObject:
   m_ObjectHideFlags: 0
