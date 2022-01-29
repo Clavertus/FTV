@@ -217,6 +217,7 @@ namespace FTV.Dialog.Editor
                 labelStyle.normal.textColor = Color.red;
                 EditorGUILayout.LabelField("Missing dialog style!", labelStyle);
             }
+            node.SetIsPlayerSpeaking( GUILayout.Toggle(node.GetIsPlayerSpeaking(), "Is player speaking: "));
 
             GUILayout.EndArea();
         }

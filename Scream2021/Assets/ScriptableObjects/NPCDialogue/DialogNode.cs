@@ -16,7 +16,7 @@ namespace FTV.Dialog
         [SerializeField] 
         List<string> children = new List<string>();
         [SerializeField] 
-        Rect rect = new Rect(0,0,200,100);
+        Rect rect = new Rect(0,0,200,120);
         [SerializeField]
         DialogStyle style;
 
