@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 12f;
+    [SerializeField] float runRate = 1.5f;
+    [SerializeField] bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
 
     [Header("Ground Check")]
@@ -45,12 +47,20 @@ public class PlayerMovement : MonoBehaviour
         //make vector3 using directions relative to where player is facing, times the player inputs
         Vector3 move = transform.right * x + transform.forward * z;
 
+        float speed = moveSpeed;
+        float stepPlayRate = FootstepPlayRate;
+        if (Input.GetKey(KeyCode.LeftShift) && runEnable)
+        {
+            Debug.Log("Shift!");
+            speed = moveSpeed * runRate;
+            stepPlayRate = FootstepPlayRate / runRate;
+        }
         //let character controller do all the work from here ;)
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
 
         if((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
         {
-            FootstepPlaying();
+            FootstepPlaying(stepPlayRate);
         }
     }
 
@@ -70,9 +80,9 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void FootstepPlaying()
+    private void FootstepPlaying(float playRate)
     {
-        if (FootstepPlayRate <= FootstepCntTime)
+        if (playRate <= FootstepCntTime)
         {
             FootstepCntTime = 0f;
             int footstepType = (int) soundsEnum.Footstep1;

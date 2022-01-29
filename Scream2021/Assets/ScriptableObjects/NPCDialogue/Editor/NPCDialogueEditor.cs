@@ -10,6 +10,7 @@ namespace FTV.Dialog.Editor
     public class NPCDialogueEditor : EditorWindow
     {
         NPCDialogue selectedDialogue = null;
+        DialogStyle selectedDialogueStyle = null;
         [NonSerialized]
         GUIStyle defaultNodeStyle = null;
         [NonSerialized]
@@ -74,12 +75,20 @@ namespace FTV.Dialog.Editor
             NPCDialogue newDialogue = Selection.activeObject as NPCDialogue;
             if(newDialogue != null)
             {
+                selectedDialogueStyle = null;
                 selectedDialogue = newDialogue;
                 Repaint();
             }
             else
             {
                 //Debug.Log("Not a diallogue");
+            }
+
+            DialogStyle newDialogStyle = Selection.activeObject as DialogStyle;
+            if (newDialogStyle != null)
+            {
+                selectedDialogueStyle = newDialogStyle;
+                Repaint();
             }
         }
 
@@ -159,11 +168,22 @@ namespace FTV.Dialog.Editor
             }
             else if((Event.current.type == EventType.MouseUp) && (draggingNode != null))
             {
+                DialogNode nodeAtPoint = GetNodeAtPoint(Event.current.mousePosition + scrollPosition);
+                if(nodeAtPoint != null)
+                {
+                    if(selectedDialogueStyle != null)
+                    {
+                        nodeAtPoint.SetDialogStyle(selectedDialogueStyle);
+                        GUI.changed = true;
+                    }
+                }
+                selectedDialogueStyle = null;
                 draggingNode = null;
                 draggingCanvas = false;
             }
         }
 
+        public GameObject obj = null;
         private void DrawNode(DialogNode node)
         {
             GUIStyle style = defaultNodeStyle;
@@ -186,6 +206,17 @@ namespace FTV.Dialog.Editor
                 creatingNode = node;
             }
             GUILayout.EndHorizontal();
+
+            if(node.GetDialogStyle())
+            {
+                EditorGUILayout.LabelField(node.GetDialogStyle().name);
+            }
+            else
+            {
+                GUIStyle labelStyle = new GUIStyle();
+                labelStyle.normal.textColor = Color.red;
+                EditorGUILayout.LabelField("Missing dialog style!", labelStyle);
+            }
 
             GUILayout.EndArea();
         }

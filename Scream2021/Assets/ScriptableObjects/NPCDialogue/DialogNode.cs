@@ -80,6 +80,15 @@ namespace FTV.Dialog
             isPlayerSpeaking = value;
             EditorUtility.SetDirty(this);
         }
+        public void SetDialogStyle(DialogStyle newStyle)
+        {
+            if((newStyle != style) && (newStyle != null))
+            {
+                Undo.RecordObject(this, "Edit dialogue node");
+                style = newStyle;
+                EditorUtility.SetDirty(this);
+            }
+        }
 #endif
     }
 }

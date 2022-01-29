@@ -10,8 +10,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
 
     [SerializeField] GameObject chooseBox;
-    [SerializeField] TMP_Text chooseBox_TextLabel_0;
-    [SerializeField] TMP_Text chooseBox_TextLabel_1;
+    [SerializeField] TMP_Text[] chooseBox_TextLabels;
 
     [SerializeField] Image dialogueBox_image = null;
     [SerializeField] FTV.Dialog.DialogStyle defaultStyle = null;
@@ -26,6 +25,11 @@ public class DialogueUI : MonoBehaviour
         chooseBox.SetActive(false);
 
         CloseDialogueBox();
+
+        if(dialogueBox == null)
+        {
+            Debug.LogError("dialogBox is not assigned!");
+        }
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
@@ -89,8 +93,19 @@ public class DialogueUI : MonoBehaviour
                 {
                     chooseBox.SetActive(true);
 
-                    chooseBox_TextLabel_0.SetText(dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]).GetText());
-                    chooseBox_TextLabel_1.SetText(dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[1]).GetText());
+                    foreach (TMP_Text textLabel in chooseBox_TextLabels)
+                    {
+                        textLabel.transform.parent.gameObject.SetActive(false);
+                    }
+
+                    int ix = 0;
+                    foreach(FTV.Dialog.DialogNode children in dialogueObject.GetAllChildren(nextDialogue))
+                    {
+                        chooseBox_TextLabels[ix].transform.parent.gameObject.SetActive(true);
+                        Debug.Log(chooseBox_TextLabels[ix].transform.parent.gameObject.name);
+                        chooseBox_TextLabels[ix].SetText(dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[ix]).GetText());
+                        ix++;
+                    }
 
                     // if it is a player -> player chooses the what to say
                     yield return new WaitUntil(() => PlayerChooseDialogue(dialogueObject, nextDialogue));
@@ -119,26 +134,6 @@ public class DialogueUI : MonoBehaviour
             }
 
         }
-
-        /*
-        foreach (FTV.Dialog.DialogNode dialogue in dialogueObject.GetAllNodes())
-        {
-            if(dialogue.GetDialogStyle())
-            {
-                dialogueBox_image.sprite = dialogue.GetDialogStyle().GetImage();
-                dialogueBox_image.color = dialogue.GetDialogStyle().GetColor();
-            }
-            else
-            {
-                dialogueBox_image.sprite = defaultStyle.GetImage();
-                dialogueBox_image.color = defaultStyle.GetColor();
-            }
-
-            //call run method in displayDialogue, passing in each dialogue in the dialogue object
-            yield return displayDialogue.Run(dialogue.GetText(), textLabel);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
-        }
-        */
         CloseDialogueBox();
     }
 
@@ -151,9 +146,14 @@ public class DialogueUI : MonoBehaviour
             selectedDialogueId = 0;
             return true;
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && (parentNode.GetChildren().Count > 1))
         {
             selectedDialogueId = 1;
+            return true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && (parentNode.GetChildren().Count > 2))
+        {
+            selectedDialogueId = 2;
             return true;
         }
         return false;

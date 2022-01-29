@@ -122,6 +122,7 @@ namespace FTV.Dialog
 
         public void OnBeforeSerialize()
         {
+#if UNITY_EDITOR
             if (nodes.Count == 0)
             {
                 DialogNode newChildNode = MakeNode(null);
@@ -138,11 +139,14 @@ namespace FTV.Dialog
                     }
                 }
             }
+#endif
         }
 
         public void OnAfterDeserialize()
         {
+#if UNITY_EDITOR
             //Unused but needed for interface
+#endif
         }
     }
 }
