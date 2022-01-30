@@ -5,29 +5,48 @@ using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
+    [Header("dialog box")]
     [SerializeField] TMP_Text dialogueBoxTextLabel;
     [SerializeField] public GameObject dialogueBox;
 
+    [Header("choose box")]
     [SerializeField] GameObject chooseBox;
     [SerializeField] TMP_Text[] chooseBox_TextLabels;
 
     [SerializeField] Image dialogueBox_image = null;
     [SerializeField] FTV.Dialog.DialogStyle defaultStyle = null;
 
+    [Header("tutorial box")]
+    [SerializeField] GameObject tutorialBox;
+    [SerializeField] GameObject[] tutorialBox_Messages;
+    [SerializeField] float fadeStep = .5f;
+
     DisplayDialogue displayDialogue;
     private int selectedDialogueId;
-
+    private CanvasGroup tutorialGroup = null;
     private void Start()
     {
         displayDialogue = GetComponent<DisplayDialogue>();
 
         chooseBox.SetActive(false);
+        tutorialBox.SetActive(false);
+        foreach(var message in tutorialBox_Messages) message.SetActive(false);
+        tutorialGroup = tutorialBox.GetComponent<CanvasGroup>();
+        tutorialGroup.alpha = 0f;
 
         CloseDialogueBox();
 
         if(dialogueBox == null)
         {
             Debug.LogError("dialogBox is not assigned!");
+        }
+    }
+
+    private void Update()
+    {
+        if(tutorialBox.activeSelf)
+        {
+            ShowSelectedTutorialBox();
         }
     }
 
@@ -166,7 +185,48 @@ public class DialogueUI : MonoBehaviour
         FindObjectOfType<MouseLook>().UnlockCamera();
         FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
         FindObjectOfType<SelectionManager>().UnlockSelection();
-        
-    } 
+    }
+
+    private bool showTutorialBox = true;
+    private int showMessageId = 0;
+    public void ShowTutorialBox(int messageId)
+    {
+        Debug.Log("Show tutorial box");
+        if (messageId >= tutorialBox_Messages.Length) return;
+
+        showTutorialBox = true;
+        showMessageId = messageId;
+
+        tutorialBox.SetActive(true);
+        tutorialBox_Messages[showMessageId].SetActive(true);
+    }
+
+    private void ShowSelectedTutorialBox()
+    {
+        if(showTutorialBox)
+        {
+            if(tutorialGroup.alpha < 1f)
+            {
+                tutorialGroup.alpha += fadeStep * Time.deltaTime;
+            }
+            else
+            {
+                showTutorialBox = false;
+            }
+        }
+        else
+        {
+            if (tutorialGroup.alpha > 0.0f)
+            {
+                tutorialGroup.alpha -= fadeStep * Time.deltaTime;
+            }
+            else
+            {
+                showTutorialBox = false;
+                tutorialBox_Messages[showMessageId].SetActive(false);
+                tutorialBox.SetActive(false);
+            }
+        }
+    }
     
 }

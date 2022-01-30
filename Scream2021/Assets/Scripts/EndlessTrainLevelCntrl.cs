@@ -16,6 +16,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     private DialogueUI dialogUI = null;
     private MouseLook mouseLook = null;
+    private PlayerMovement player = null;
     void Awake()
     {
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
@@ -30,14 +31,13 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TrainAmbientLoop);
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();
-        if (mouseLook) mouseLook.LockCamera();
+        player = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
     {
         if(dialogue0_played == false)
         {
-            if (mouseLook) mouseLook.UnlockCamera();
             if (timeCounter > callDialog0After + fadeOutDelay)
             {
                 dialogue0_played = true;

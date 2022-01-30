@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,14 @@ public class OpeningDoor : MonoBehaviour
     bool openingDoor = false;
     AudioSource openDoorSound;
     int interactionCounter = 0;
+
+    public Action OnDoorOpened { get; set; }
+
+    public void DoorIsOpened()
+    {
+        Debug.Log("DoorIsOpened");
+        OnDoorOpened?.Invoke();
+    }
 
     private void OnEnable()
     {
@@ -38,10 +47,13 @@ public class OpeningDoor : MonoBehaviour
 
     void OpenDoor()
     {
-        //Debug.Log("opening");
         doorItself.transform.position = Vector3.MoveTowards(doorItself.transform.position, doorOpenPosition.position, openSpeed * Time.deltaTime);
 
-        if(doorItself.transform.position == doorOpenPosition.position) { gameObject.SetActive(false); }
+        if(Vector3.Distance(doorItself.transform.position, doorOpenPosition.position) <= 0.05f)
+        {
+            DoorIsOpened();
+            GetComponent<Selectable>().enabled = false;
+            this.enabled = false; }
     }
 
 }

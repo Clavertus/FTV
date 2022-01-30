@@ -76,5 +76,12 @@ public class MouseLook : MonoBehaviour
         transform.LookAt(new Vector3(monsterTransform.x, monsterTransform.y + lookOffset, monsterTransform.z));
     }
 
+    public void LockAndLookAtPoint(Vector3 lookAtPosition)
+    {
+        LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+        transform.LookAt(lookAtPosition);
+    }
+
     
 }
