@@ -17,6 +17,7 @@ public class LevelLoader : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     public float fadeStep;
+    public float fadeOutDelay;
 
     public float cutStep;
     public float cutTime;
@@ -118,6 +119,7 @@ public class LevelLoader : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
+        yield return new WaitForSeconds(fadeOutDelay);
         float t = 0;
         while (canvasGroup.alpha > 0)
         {

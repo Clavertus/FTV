@@ -13,30 +13,34 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
 
+    [SerializeField] float FootstepPlayRate = 2f;
+    float FootstepCntTime = 0f;
+
     [Header("Ground Check")]
     //groundDistance is size of the layerMask. 
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
-    [SerializeField] LayerMask groundMask; 
+    [SerializeField] LayerMask groundMask;
 
     Vector3 velocity;
     bool isGrounded;
-    bool movementLock;
+    bool movementLock = false;
+
     private void Start()
     {
-        movementLock = false; 
+        //movementLock = false; 
     }
+
     void Update()
     {
         Move();
         PlayerGravity();
     }
+
     public void LockPlayer() { movementLock = true; }
     public void UnlockPlayer() { movementLock = false; }
 
 
-    [SerializeField] float FootstepPlayRate = 2f;
-    float FootstepCntTime = 0f;
     private void Move()
     {
         if (movementLock) { return; }
@@ -47,20 +51,26 @@ public class PlayerMovement : MonoBehaviour
         //make vector3 using directions relative to where player is facing, times the player inputs
         Vector3 move = transform.right * x + transform.forward * z;
 
-        float speed = moveSpeed;
-        float stepPlayRate = FootstepPlayRate;
-        if (Input.GetKey(KeyCode.LeftShift) && runEnable)
-        {
-            Debug.Log("Shift!");
-            speed = moveSpeed * runRate;
-            stepPlayRate = FootstepPlayRate / runRate;
-        }
+        float speed, stepPlayRate;
+        DetermineStepOrRunSpeed(out speed, out stepPlayRate);
+
         //let character controller do all the work from here ;)
         controller.Move(move * speed * Time.deltaTime);
 
-        if((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
+        if ((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
         {
             FootstepPlaying(stepPlayRate);
+        }
+    }
+
+    private void DetermineStepOrRunSpeed(out float speed, out float stepPlayRate)
+    {
+        speed = moveSpeed;
+        stepPlayRate = FootstepPlayRate;
+        if (Input.GetKey(KeyCode.LeftShift) && runEnable)
+        {
+            speed = moveSpeed * runRate;
+            stepPlayRate = FootstepPlayRate / runRate;
         }
     }
 
@@ -93,5 +103,4 @@ public class PlayerMovement : MonoBehaviour
             FootstepCntTime += Time.deltaTime;
         }
     }
-
 }

@@ -11,9 +11,11 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     [SerializeField] float callDialog0After = 2f;
     [SerializeField] float callDialog1After = 20f;
+    [SerializeField] float fadeOutDelay = 5f;
     private float timeCounter = 0f;
 
     private DialogueUI dialogUI = null;
+    private MouseLook mouseLook = null;
     void Awake()
     {
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
@@ -25,23 +27,32 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TrainAmbientLoop);
         dialogUI = FindObjectOfType<DialogueUI>();
+        mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook) mouseLook.LockCamera();
     }
 
     private void Update()
     {
-        if(timeCounter > callDialog0After && !dialogue0_played)
+        if(dialogue0_played == false)
         {
-            dialogue0_played = true;
-            //play the first dialog
-            dialogUI.ShowDialogue(dialogue0);
+            if (mouseLook) mouseLook.UnlockCamera();
+            if (timeCounter > callDialog0After + fadeOutDelay)
+            {
+                dialogue0_played = true;
+                //play the first dialog
+                dialogUI.ShowDialogue(dialogue0);
+            }
         }
-
-        if (timeCounter > callDialog1After && !dialogue1_played)
+        else
         {
-            dialogue1_played = true;
-            //play the first dialog
-            dialogUI.ShowDialogue(dialogue1);
+            if ((timeCounter > callDialog1After) && (!dialogue1_played) && !dialogUI.dialogueBox.activeSelf)
+            {
+                dialogue1_played = true;
+                //play the first dialog
+                dialogUI.ShowDialogue(dialogue1);
+            }
         }
 
         timeCounter += Time.deltaTime;
