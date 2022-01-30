@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 12f;
     [SerializeField] float runRate = 1.5f;
-    [SerializeField] bool runEnable = false;
+    [SerializeField] public bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
 
     [SerializeField] float FootstepPlayRate = 2f;

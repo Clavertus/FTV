@@ -10,15 +10,31 @@ public class TriggerMonsterReveal : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<OpeningDoor>().OnDoorOpened += RevealMonster;
+        FindObjectOfType<PlayerMovement>().runEnable = false;
+        GetComponent<OpeningDoor>().OnDoorOpened += RevealMonsterStart;
     }
 
-    public void RevealMonster()
+    public void RevealMonsterStart()
     {
+        StartCoroutine(RevealMonster());
+    }
+
+
+    public IEnumerator RevealMonster()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         Debug.Log("RevealMonster");
+
         monsterToReveal.SetActive(true);
         FindObjectOfType<MouseLook>().LockAndLookAtPoint(monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().GetLookAtPoint());
 
         FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
+        FindObjectOfType<PlayerMovement>().runEnable = true;
+
+        yield return new WaitForSeconds(2.5f);
+
+        FindObjectOfType<MouseLook>().UnlockFromPoint();
+
     }
 }
