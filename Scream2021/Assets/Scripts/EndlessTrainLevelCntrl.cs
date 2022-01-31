@@ -17,6 +17,8 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
     private DialogueUI dialogUI = null;
     private MouseLook mouseLook = null;
     private PlayerMovement player = null;
+
+    private bool triggerPlayerDisableControl = false;
     void Awake()
     {
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
@@ -36,6 +38,13 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     private void Update()
     {
+        if(!triggerPlayerDisableControl)
+        {
+            triggerPlayerDisableControl = true;
+            mouseLook.LockCamera();
+            player.LockPlayer();
+        }
+
         if(dialogue0_played == false)
         {
             if (timeCounter > callDialog0After + fadeOutDelay)

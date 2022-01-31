@@ -82,6 +82,7 @@ public class MouseLook : MonoBehaviour
         FindObjectOfType<PlayerMovement>().LockPlayer();
         transform.LookAt(lookAtPosition);
     }
+
     public void UnlockFromPoint()
     {
         UnlockCamera();
