@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class InGameMenuCotrols : MonoBehaviour
 {
-    bool menuActive = false;
+    bool menuActive = true;
     public GameObject settingsPanel;
 
     void Start()
     {
-        menuActive = false;
+        menuActive = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         settingsPanel.SetActive(false);
     }
 
     void Update()
+    {
+        if (menuActive)
+        {
+            ProcessInputsFromUser();
+        }
+    }
+
+    private void ProcessInputsFromUser()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !settingsPanel.activeSelf)
         {
@@ -25,7 +33,7 @@ public class InGameMenuCotrols : MonoBehaviour
 
         else if (settingsPanel.activeSelf)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PlayButtonSound();
                 CloseMenu();
@@ -68,5 +76,15 @@ public class InGameMenuCotrols : MonoBehaviour
     private void PlayButtonSound()
     {
         AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.UIClick);
+    }
+
+    public void LockMenuControl()
+    {
+        Debug.Log("LockMenuControl");
+        menuActive = false;
+    }
+    public void UnlockMenuControl()
+    {
+        menuActive = true;
     }
 }

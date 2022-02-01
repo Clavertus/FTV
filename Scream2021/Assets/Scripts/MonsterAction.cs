@@ -364,11 +364,12 @@ public class MonsterAction : MonoBehaviour
             return;
         }
         BloodTimer += Time.deltaTime;
-
     }
 
     private void MakePlayerLookAtMonster()
     {
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         transform.LookAt(Player);
         FindObjectOfType<MouseLook>().MonsterIsJumping();
         offsetY = transform.position.y + offsetJumpY;

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -35,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         PlayerGravity();
+        SimulateFall();
     }
 
     public void LockPlayer() { movementLock = true; }
@@ -80,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
 
         //reset velocity so it doesn't infinetely count
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
@@ -88,6 +86,20 @@ public class PlayerMovement : MonoBehaviour
         //increment our velocity variable with the gravity variable then let character controller do the rest ;)
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private bool simulateFallEnabled = false;
+    private void SimulateFall()
+    {
+        if(simulateFallEnabled && (gravity <= Mathf.Epsilon))
+        {
+            controller.Move(new Vector3(0, -9.7f, 0) * Time.deltaTime);
+        }
+    }
+
+    public void MakeSimulateFall()
+    {
+        simulateFallEnabled = true;
     }
 
     private void FootstepPlaying(float playRate)

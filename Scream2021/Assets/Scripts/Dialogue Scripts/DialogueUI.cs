@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using FTV.Dialog;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] TMP_Text[] chooseBox_TextLabels;
 
     [SerializeField] Image dialogueBox_image = null;
-    [SerializeField] FTV.Dialog.DialogStyle defaultStyle = null;
+    [SerializeField] DialogStyle defaultStyle = null;
 
     [Header("tutorial box")]
     [SerializeField] GameObject tutorialBox;
@@ -22,15 +23,21 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] float fadeStep = .5f;
 
     DisplayDialogue displayDialogue;
-    private int selectedDialogueId;
+    private int dialogueObjectueId;
     private CanvasGroup tutorialGroup = null;
     private void Start()
     {
+        inGameMenuCotrols = FindObjectOfType<InGameMenuCotrols>();
+        mouseLook = FindObjectOfType<MouseLook>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        selectionManager = FindObjectOfType<SelectionManager>();
+
         displayDialogue = GetComponent<DisplayDialogue>();
 
         chooseBox.SetActive(false);
         tutorialBox.SetActive(false);
         foreach(var message in tutorialBox_Messages) message.SetActive(false);
+
         tutorialGroup = tutorialBox.GetComponent<CanvasGroup>();
         tutorialGroup.alpha = 0f;
 
@@ -52,21 +59,24 @@ public class DialogueUI : MonoBehaviour
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
+        inGameMenuCotrols.LockMenuControl();
+        mouseLook.LockCamera();
+        playerMovement.LockPlayer();
+        selectionManager.LockSelection();
+
         dialogueBox.SetActive(true);
 
-        FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<PlayerMovement>().LockPlayer(); 
-        FindObjectOfType<SelectionManager>().LockSelection();
         
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
-    public void ShowDialogue(FTV.Dialog.NPCDialogue dialogueObject)
+    public void ShowDialogue(NPCDialogue dialogueObject)
     {
-        dialogueBox.SetActive(true);
+        inGameMenuCotrols.LockMenuControl();
+        mouseLook.LockCamera();
+        playerMovement.LockPlayer();
+        selectionManager.LockSelection();
 
-        FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<PlayerMovement>().LockPlayer();
-        FindObjectOfType<SelectionManager>().LockSelection();
+        dialogueBox.SetActive(true);
 
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
@@ -83,10 +93,12 @@ public class DialogueUI : MonoBehaviour
         }
         CloseDialogueBox();
     }
-    public IEnumerator StepThroughDialogue(FTV.Dialog.NPCDialogue dialogueObject)
+
+    public IEnumerator StepThroughDialogue(NPCDialogue dialogueObject)
     {
         bool exitDialogue = false;
-        FTV.Dialog.DialogNode nextDialogue = dialogueObject.GetRootNode();
+        dialogueObject.EnableAndFixDialog();
+        DialogNode nextDialogue = dialogueObject.GetRootNode();
 
         while (!exitDialogue)
         {
@@ -103,10 +115,11 @@ public class DialogueUI : MonoBehaviour
 
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
-            if(nextDialogue.GetChildren().Count > 1)
+
+            if (nextDialogue.GetChildren().Count > 1)
             {
                 //choose what children to display?
-                FTV.Dialog.DialogNode dialogZero = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
+                DialogNode dialogZero = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
                 if (dialogZero.GetIsPlayerSpeaking())
                 {
                     chooseBox.SetActive(true);
@@ -117,7 +130,7 @@ public class DialogueUI : MonoBehaviour
                     }
 
                     int ix = 0;
-                    foreach(FTV.Dialog.DialogNode children in dialogueObject.GetAllChildren(nextDialogue))
+                    foreach(DialogNode children in dialogueObject.GetAllChildren(nextDialogue))
                     {
                         chooseBox_TextLabels[ix].transform.parent.gameObject.SetActive(true);
                         Debug.Log(chooseBox_TextLabels[ix].transform.parent.gameObject.name);
@@ -129,7 +142,7 @@ public class DialogueUI : MonoBehaviour
                     yield return new WaitUntil(() => PlayerChooseDialogue(dialogueObject, nextDialogue));
 
                     chooseBox.SetActive(false);
-                    nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[selectedDialogueId]);
+                    nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[dialogueObjectueId]);
                     //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
                 else
@@ -155,36 +168,42 @@ public class DialogueUI : MonoBehaviour
         CloseDialogueBox();
     }
 
-    public bool PlayerChooseDialogue(FTV.Dialog.NPCDialogue dialogueObject, FTV.Dialog.DialogNode parentNode)
+    public bool PlayerChooseDialogue(NPCDialogue dialogueObject, DialogNode parentNode)
     {
         //some choose UI (buttons?)
 
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            selectedDialogueId = 0;
+            dialogueObjectueId = 0;
             return true;
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2) && (parentNode.GetChildren().Count > 1))
         {
-            selectedDialogueId = 1;
+            dialogueObjectueId = 1;
             return true;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && (parentNode.GetChildren().Count > 2))
         {
-            selectedDialogueId = 2;
+            dialogueObjectueId = 2;
             return true;
         }
         return false;
     }
+
+    InGameMenuCotrols inGameMenuCotrols = null;
+    MouseLook mouseLook = null;
+    PlayerMovement playerMovement = null;
+    SelectionManager selectionManager = null;
 
     private void CloseDialogueBox()
     {
         dialogueBox.SetActive(false);
         dialogueBoxTextLabel.text = string.Empty;
 
-        FindObjectOfType<MouseLook>().UnlockCamera();
-        FindObjectOfType<PlayerMovement>().UnlockPlayer(); 
-        FindObjectOfType<SelectionManager>().UnlockSelection();
+        inGameMenuCotrols.UnlockMenuControl();
+        mouseLook.UnlockCamera();
+        playerMovement.UnlockPlayer();
+        selectionManager.UnlockSelection();
     }
 
     private bool showTutorialBox = true;

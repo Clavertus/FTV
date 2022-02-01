@@ -47,12 +47,15 @@ public class TriggerMonsterReveal : MonoBehaviour
 
     private void LockPlayerControl(PlayableDirector pd)
     {
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         FindObjectOfType<MouseLook>().LockCamera();
         FindObjectOfType<PlayerMovement>().LockPlayer();
     }
 
     private void UnlockPlayerControl(PlayableDirector pd)
     {
+        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
         FindObjectOfType<MouseLook>().UnlockFromPoint();
     }
 }

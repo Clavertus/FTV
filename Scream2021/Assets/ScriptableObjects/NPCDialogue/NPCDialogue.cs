@@ -14,14 +14,8 @@ namespace FTV.Dialog
 
         Dictionary<string, DialogNode> nodeLookup = new Dictionary<string, DialogNode>();
 
-        private void Awake()
-        {
-
-        }
-
         private void OnValidate()
         {
-
             nodeLookup.Clear();
             foreach(DialogNode node in GetAllNodes())
             {
@@ -29,10 +23,16 @@ namespace FTV.Dialog
             }
         }
 
+        public void EnableAndFixDialog()
+        {
+            OnValidate();
+        }
+
         public IEnumerable<DialogNode> GetAllNodes()
         {
             return nodes;
         }
+
         public DialogNode GetRootNode()
         {
             return nodes[0];
@@ -64,6 +64,7 @@ namespace FTV.Dialog
                 }
             }
 
+            Debug.Log("Returning null as specific Children");
             return null;
         }
 

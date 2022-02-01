@@ -6,6 +6,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 {
     [SerializeField] FTV.Dialog.NPCDialogue dialogue0 = null;
     [SerializeField] FTV.Dialog.NPCDialogue dialogue1 = null;
+    private bool fadeOut_played = false;
     private bool dialogue0_played = false;
     private bool dialogue1_played = false;
 
@@ -13,6 +14,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
     [SerializeField] float callDialog1After = 20f;
     [SerializeField] float fadeOutDelay = 5f;
     private float timeCounter = 0f;
+    private float fadeOutCounter = 0f;
 
     private DialogueUI dialogUI = null;
     private MouseLook mouseLook = null;
@@ -30,6 +32,9 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TrainAmbientLoop);
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();
@@ -41,6 +46,8 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         if(!triggerPlayerDisableControl)
         {
             triggerPlayerDisableControl = true;
+            Debug.Log("LockMenuControl");
+            FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
             mouseLook.LockCamera();
             player.LockPlayer();
         }
@@ -70,5 +77,21 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         {
             timeCounter = 0f;
         }
+
+        if(fadeOutCounter >= fadeOutDelay)
+        {
+            if (fadeOut_played == false)
+            {
+                FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+                mouseLook.UnlockCamera();
+                player.UnlockPlayer();
+                fadeOut_played = true;
+            }
+        }
+        else
+        {
+            fadeOutCounter += Time.deltaTime;
+        }
+            
     }
 }

@@ -50,6 +50,8 @@ public class Escape : MonoBehaviour
         player.GetComponentInChildren<CapsuleCollider>().enabled = false;
         player.GetComponent<CharacterController>().enabled = false;
         FindObjectOfType<PlayerMovement>().LockPlayer();
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         moveToPointB = true;  
     }
     void MoveToPointB()
@@ -79,8 +81,18 @@ public class Escape : MonoBehaviour
         }
 
         AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
+
+        foreach (var sound in AudioManager.instance.sounds)
+        {
+            sound.source.Stop();
+        }
+
+        FindObjectOfType<PlayerMovement>().UnlockPlayer();
+        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+        FindObjectOfType<MouseLook>().UnlockCamera();
+
         LevelLoader.instance.ending = Ending.Good;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut());   
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene(10f));   
         player.transform.position = Vector3.MoveTowards(player.transform.position, pointD.transform.position, moveSpeedD * Time.deltaTime);
     }
     
