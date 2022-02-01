@@ -2246,7 +2246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8604988570157637531
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2330,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 3527857325107400430}
   lookAtPosition: {fileID: 0}
+  playerTransform: {fileID: 0}
+  monsterFootstep: {fileID: 0}
+  walkSpeed: 2
+  runSpeed: 5
 --- !u!1 &9128633864210054195
 GameObject:
   m_ObjectHideFlags: 0

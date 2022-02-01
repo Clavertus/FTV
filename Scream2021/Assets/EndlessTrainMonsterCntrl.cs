@@ -31,6 +31,7 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
 
     [SerializeField] float walkSpeed = 2f;
     [SerializeField] float runSpeed = 5f;
+    [SerializeField] float minimalDistanceToPlayer = 5f;
 
     private void OnEnable()
     {
@@ -52,16 +53,33 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
             myAnimator.SetTrigger(((int)currentState).ToString());
         }
 
-        switch(currentState)
+        lastState = currentState;
+
+        switch (currentState)
         {
             case monsterStatesEnm.idle:
                 break;
             case monsterStatesEnm.run:
                 MonsterMove(runSpeed);
+
+                if (Vector3.Distance(transform.position, playerTransform.position) <= minimalDistanceToPlayer)
+                {
+                    currentState = monsterStatesEnm.chew; 
+                    MakePlayerLookAtMonster();
+                }
+
+                break;
+            case monsterStatesEnm.chew:
+                TriggerBloodEffect();
+
+                if (finishedChew)
+                {
+                    BadEndGameTrigger();
+                }
+                break;
+            default:
                 break;
         }
-
-        lastState = currentState;
     }
 
     private void MonsterMove(float speed)
@@ -83,5 +101,43 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     public void Footstep()
     {
         AudioManager.instance.InstantPlayFromGameObject(monsterFootstep);
+    }
+
+    bool finishedChew = false;
+    // This C# function can be called by an Animation Event
+    public void ChewFinished()
+    {
+        finishedChew = true;
+    }
+
+    [SerializeField] GameObject BloodEffectCanvas = null;
+    float BloodTimer = 0f;
+    private void TriggerBloodEffect()
+    {
+        if (BloodTimer > 0.25f)
+        {
+            if (BloodEffectCanvas) BloodEffectCanvas.SetActive(!BloodEffectCanvas.activeSelf);
+            BloodTimer = 0f;
+            return;
+        }
+        BloodTimer += Time.deltaTime;
+    }
+    private void MakePlayerLookAtMonster()
+    {
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        Vector3 LookAtPlayer = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z); //to use the same ground
+        transform.LookAt(LookAtPlayer);
+        FindObjectOfType<MouseLook>().LockAndLookAtPoint(GetLookAtPoint());
+        transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
+    }
+
+    private void BadEndGameTrigger()
+    {
+        Debug.Log("Game has been ended with BAD END! :-)");
+        //make something to end the game
+        //currently just disables monster
+        LevelLoader.instance.ending = Ending.Bad;
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 }
