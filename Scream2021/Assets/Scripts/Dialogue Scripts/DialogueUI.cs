@@ -102,23 +102,13 @@ public class DialogueUI : MonoBehaviour
 
         while (!exitDialogue)
         {
-            if (nextDialogue.GetDialogStyle())
-            {
-                dialogueBox_image.sprite = nextDialogue.GetDialogStyle().GetImage();
-                dialogueBox_image.color = nextDialogue.GetDialogStyle().GetColor();
-            }
-            else
-            {
-                dialogueBox_image.sprite = defaultStyle.GetImage();
-                dialogueBox_image.color = defaultStyle.GetColor();
-            }
+            ApplyNodeStyle(nextDialogue);
 
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
 
             if (nextDialogue.GetChildren().Count > 1)
             {
-                //choose what children to display?
                 DialogNode dialogZero = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
                 if (dialogZero.GetIsPlayerSpeaking())
                 {
@@ -130,7 +120,7 @@ public class DialogueUI : MonoBehaviour
                     }
 
                     int ix = 0;
-                    foreach(DialogNode children in dialogueObject.GetAllChildren(nextDialogue))
+                    foreach (DialogNode children in dialogueObject.GetAllChildren(nextDialogue))
                     {
                         chooseBox_TextLabels[ix].transform.parent.gameObject.SetActive(true);
                         Debug.Log(chooseBox_TextLabels[ix].transform.parent.gameObject.name);
@@ -143,7 +133,6 @@ public class DialogueUI : MonoBehaviour
 
                     chooseBox.SetActive(false);
                     nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[dialogueObjectueId]);
-                    //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
                 else
                 {
@@ -153,7 +142,7 @@ public class DialogueUI : MonoBehaviour
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
             }
-            else if(nextDialogue.GetChildren().Count == 1)
+            else if (nextDialogue.GetChildren().Count == 1)
             {
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
@@ -165,13 +154,26 @@ public class DialogueUI : MonoBehaviour
             }
 
         }
+
         CloseDialogueBox();
+    }
+
+    private void ApplyNodeStyle(DialogNode nextDialogue)
+    {
+        if (nextDialogue.GetDialogStyle())
+        {
+            dialogueBox_image.sprite = nextDialogue.GetDialogStyle().GetImage();
+            dialogueBox_image.color = nextDialogue.GetDialogStyle().GetColor();
+        }
+        else
+        {
+            dialogueBox_image.sprite = defaultStyle.GetImage();
+            dialogueBox_image.color = defaultStyle.GetColor();
+        }
     }
 
     public bool PlayerChooseDialogue(NPCDialogue dialogueObject, DialogNode parentNode)
     {
-        //some choose UI (buttons?)
-
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             dialogueObjectueId = 0;

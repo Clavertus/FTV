@@ -32,9 +32,6 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TrainAmbientLoop);
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();

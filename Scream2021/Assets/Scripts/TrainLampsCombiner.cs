@@ -6,17 +6,30 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class TrainLampsCombiner : MonoBehaviour
 {
+    /**
+     * Note: this module brings best result if the Object of it is placed on origin of the World (0,0,0)
+     * Perhaps there is a way to fix it ...
+     * IDEA: technically we need to create a new object from RAW
+     * in the for loop each object should be moved to corresponding postion in the origin of the world ...
+     * Then we combined it to the new mesh
+     * After loop whole mesh is moved to previous location of combined objects... (0,0,0) of parent?
+     */
     [SerializeField] Transform ParentWhereToLookForLamps = null;
 
     [SerializeField] MeshFilter LampNewMesh = null;
     [SerializeField] MeshFilter BasesNewMesh = null;
 
-    [SerializeField] bool enableCombine = false;
+    [SerializeField] bool enableLampCombine = false;
+    [SerializeField] bool enableBaseCombine = false;
+
     void Start()
     {
-        if (enableCombine)
+        if (enableLampCombine)
         {
             CombineLamps();
+        }
+        if (enableBaseCombine)
+        {
             CombineBases();
         }
     }
