@@ -39,6 +39,10 @@ public class PlayerFallZoneTrigger : MonoBehaviour
 
     private IEnumerator FallToWakeUp()
     {
+
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        //FindObjectOfType<PlayerMovement>().LockPlayer();
+
         player.MakeSimulateFall();
         cinematicSequence.Play();
 

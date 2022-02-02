@@ -12,7 +12,7 @@ public class TriggerMonsterReveal : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<PlayerMovement>().runEnable = false;
+        FindObjectOfType<PlayerMovement>().SetRunEnable(false);
         GetComponent<OpeningDoor>().OnDoorOpened += RevealMonsterStart;
         cinematicSequence.played += LockPlayerControl;
         cinematicSequence.stopped += UnlockPlayerControl;
@@ -36,7 +36,7 @@ public class TriggerMonsterReveal : MonoBehaviour
 
         FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
 
-        FindObjectOfType<PlayerMovement>().runEnable = true;
+        FindObjectOfType<PlayerMovement>().SetRunEnable(true);
 
         yield return new WaitForSeconds(3f);
 

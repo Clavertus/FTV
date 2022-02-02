@@ -7,8 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 12f;
     [SerializeField] float runRate = 1.5f;
-    [SerializeField] public bool runEnable = false;
+    [SerializeField] private bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
+
+    public void SetRunEnable(bool newValue)
+    {
+        runEnable = newValue;
+    }
 
     [SerializeField] float FootstepPlayRate = 2f;
     float FootstepCntTime = 0f;

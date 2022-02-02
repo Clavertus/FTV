@@ -94,6 +94,15 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(CutOut());
     }
 
+    public IEnumerator StartLoadingSameScene()
+    {
+        StopAllCoroutines();
+        int index = SceneManager.GetActiveScene().buildIndex;
+        yield return StartCoroutine(FadeIn());
+        LoadScene(index);
+        StartCoroutine(FadeOut());
+    }
+
     public IEnumerator StartLoadingScene(int index)
     {
         StopAllCoroutines();

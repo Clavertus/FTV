@@ -12,7 +12,7 @@ public class PlayDialogOnInspection : MonoBehaviour
     int interactionCounter = 0;
 
     private DialogueUI dialogUI = null;
-    private void Start()
+    void Start()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
     }
