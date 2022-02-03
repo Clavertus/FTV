@@ -3,9 +3,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using FTV.Dialog;
+using System;
 
 public class DialogueUI : MonoBehaviour
 {
+
+    public Action<bool> OnDialogShowStart { get; set; }
+    public Action OnDialogShowEnd { get; set; }
+
+
     [Header("dialog box")]
     [SerializeField] TMP_Text dialogueBoxTextLabel;
     [SerializeField] public GameObject dialogueBox;
@@ -104,6 +110,7 @@ public class DialogueUI : MonoBehaviour
         {
             ApplyNodeStyle(nextDialogue);
 
+            OnDialogShowStart?.Invoke(nextDialogue.GetIsPlayerSpeaking());
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
 
@@ -137,7 +144,7 @@ public class DialogueUI : MonoBehaviour
                 else
                 {
                     // if it is an NPC -> random? or always the first one
-                    int randomDialogId = Random.Range((int)0, (int)(nextDialogue.GetChildren().Count));
+                    int randomDialogId = UnityEngine.Random.Range((int)0, (int)(nextDialogue.GetChildren().Count));
                     nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[randomDialogId]);
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
@@ -155,6 +162,7 @@ public class DialogueUI : MonoBehaviour
 
         }
 
+        OnDialogShowEnd?.Invoke();
         CloseDialogueBox();
     }
 

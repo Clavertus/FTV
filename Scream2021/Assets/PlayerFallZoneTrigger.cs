@@ -53,8 +53,9 @@ public class PlayerFallZoneTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(2.75f);
 
+        AudioManager.instance.StopAllSounds();
         //Transition to another scene -> with TARA
-        LevelLoader.instance.ending = Ending.Good;
+        //LevelLoader.instance.ending = Ending.Good;
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 

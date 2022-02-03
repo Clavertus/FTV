@@ -82,10 +82,7 @@ public class Escape : MonoBehaviour
 
         AudioManager.instance.InstantStopFromGameObject(FindObjectOfType<OpenSideDoor>().myAudioSource);
 
-        foreach (var sound in AudioManager.instance.sounds)
-        {
-            sound.source.Stop();
-        }
+        AudioManager.instance.StopAllSounds();
 
         FindObjectOfType<PlayerMovement>().UnlockPlayer();
         FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();

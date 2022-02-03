@@ -16,19 +16,21 @@ public class NPCAnimationController : MonoBehaviour
     };
 
     [SerializeField] Animator animator = null;
-
     private NpcAnimationState currentState = NpcAnimationState.idle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     private NpcAnimationState lastState = NpcAnimationState.idle;
+
     // Update is called once per frame
     void Update()
     {
+        if(lastState != currentState)
+        {
+            animator.SetTrigger(((int)currentState).ToString());
+            lastState = currentState;
+        }
+    }
 
+    public void SetAnimation(NpcAnimationState id)
+    {
+        currentState = id;
     }
 }

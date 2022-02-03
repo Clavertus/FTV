@@ -84,6 +84,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAllSounds()
+    {
+        foreach (var sound in sounds)
+        {
+            sound.source.Stop();
+        }
+    }
+
     //starting to play the sound that has the given name (we should give that name with the enum created after saving our changes with the Save button in Inspector)
     //Sounds from AudioManager ----------------------
     public void PlayOneShotFromAudioManager(soundsEnum name)
