@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayNPCDialog : MonoBehaviour
 {
+    public Action DialogIsFinished { get; set; }
+
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
     [SerializeField] NPCLookAtPlayer npc = null;
     [SerializeField] NPCAnimationController npcAnimator = null;
@@ -12,11 +14,23 @@ public class PlayNPCDialog : MonoBehaviour
     int interactionCounter = 0;
 
     private DialogueUI dialogUI = null;
-    void Start()
+
+    private void Awake()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
         dialogUI.OnDialogShowStart += playTalkAnimation;
         dialogUI.OnDialogShowEnd += playIdleAnimation;
+        dialogUI.OnDialogShowEnd += NPCDialogFinished;
+    }
+
+    private void NPCDialogFinished()
+    {
+        DialogIsFinished?.Invoke();
+    }
+
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -27,9 +41,10 @@ public class PlayNPCDialog : MonoBehaviour
 
     private void Interaction()
     {
+        Debug.Log("interaction");
         gameObject.tag = "Untagged";
-
         interactionCounter++;
+
         if (dialogUI)
         {
             if (dialogObject)
@@ -56,5 +71,18 @@ public class PlayNPCDialog : MonoBehaviour
         {
             npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
         }
+    }
+
+    public void SetNewDialogAvailableNoPlay(FTV.Dialog.NPCDialogue newDialogObject)
+    {
+        dialogObject = newDialogObject;
+
+        gameObject.tag = "Selectable";
+        interactionCounter = 0;
+    }
+    public void SetNewDialogAvailableAndPlay(FTV.Dialog.NPCDialogue newDialogObject)
+    {
+        dialogObject = newDialogObject;
+        Interaction();
     }
 }
