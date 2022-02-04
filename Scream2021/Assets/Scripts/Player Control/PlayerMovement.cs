@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,32 +6,44 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 12f;
+    [SerializeField] float runRate = 1.5f;
+    [SerializeField] private bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
+
+    public void SetRunEnable(bool newValue)
+    {
+        runEnable = newValue;
+    }
+
+    [SerializeField] float FootstepPlayRate = 2f;
+    float FootstepCntTime = 0f;
 
     [Header("Ground Check")]
     //groundDistance is size of the layerMask. 
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
-    [SerializeField] LayerMask groundMask; 
+    [SerializeField] LayerMask groundMask;
 
     Vector3 velocity;
     bool isGrounded;
-    bool movementLock;
+    bool movementLock = false;
+
     private void Start()
     {
-        movementLock = false; 
+        //movementLock = false; 
     }
+
     void Update()
     {
         Move();
         PlayerGravity();
+        SimulateFall();
     }
+
     public void LockPlayer() { movementLock = true; }
     public void UnlockPlayer() { movementLock = false; }
 
 
-    [SerializeField] float FootstepPlayRate = 2f;
-    float FootstepCntTime = 0f;
     private void Move()
     {
         if (movementLock) { return; }
@@ -45,12 +54,26 @@ public class PlayerMovement : MonoBehaviour
         //make vector3 using directions relative to where player is facing, times the player inputs
         Vector3 move = transform.right * x + transform.forward * z;
 
-        //let character controller do all the work from here ;)
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        float speed, stepPlayRate;
+        DetermineStepOrRunSpeed(out speed, out stepPlayRate);
 
-        if((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
+        //let character controller do all the work from here ;)
+        controller.Move(move * speed * Time.deltaTime);
+
+        if ((Mathf.Abs(x) > Mathf.Epsilon) || (Mathf.Abs(z) > Mathf.Epsilon))
         {
-            FootstepPlaying();
+            FootstepPlaying(stepPlayRate);
+        }
+    }
+
+    private void DetermineStepOrRunSpeed(out float speed, out float stepPlayRate)
+    {
+        speed = moveSpeed;
+        stepPlayRate = FootstepPlayRate;
+        if (Input.GetKey(KeyCode.LeftShift) && runEnable)
+        {
+            speed = moveSpeed * runRate;
+            stepPlayRate = FootstepPlayRate / runRate;
         }
     }
 
@@ -60,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
 
         //reset velocity so it doesn't infinetely count
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
@@ -70,9 +93,23 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void FootstepPlaying()
+    private bool simulateFallEnabled = false;
+    private void SimulateFall()
     {
-        if (FootstepPlayRate <= FootstepCntTime)
+        if(simulateFallEnabled && (gravity <= Mathf.Epsilon))
+        {
+            controller.Move(new Vector3(0, -9.7f, 0) * Time.deltaTime);
+        }
+    }
+
+    public void MakeSimulateFall()
+    {
+        simulateFallEnabled = true;
+    }
+
+    private void FootstepPlaying(float playRate)
+    {
+        if (playRate <= FootstepCntTime)
         {
             FootstepCntTime = 0f;
             int footstepType = (int) soundsEnum.Footstep1;
@@ -83,5 +120,4 @@ public class PlayerMovement : MonoBehaviour
             FootstepCntTime += Time.deltaTime;
         }
     }
-
 }

@@ -8,13 +8,10 @@ public class DisplayDialogue : MonoBehaviour
     [SerializeField] float typewriteSpeed = 50f; 
     public Coroutine Run(string textToType, TMP_Text textLabel)
     {
-         
         return StartCoroutine(TypeText(textToType, textLabel));  
     }
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
-       
-
         float t = 0;
         int charIndex = 0; 
 

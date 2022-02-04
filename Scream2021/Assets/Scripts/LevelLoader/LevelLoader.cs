@@ -17,6 +17,7 @@ public class LevelLoader : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     public float fadeStep;
+    public float fadeOutDelay; 
 
     public float cutStep;
     public float cutTime;
@@ -77,12 +78,29 @@ public class LevelLoader : MonoBehaviour
         LoadNextScene();
         StartCoroutine(FadeOut());
     }
+    public IEnumerator StartLoadingNextScene(float delay)
+    {
+        StopAllCoroutines();
+        yield return StartCoroutine(FadeIn());
+        LoadNextScene();
+        StartCoroutine(FadeOut(delay));
+    }
+
     public IEnumerator StartLoadingNextSceneWithHardCut()
     {
         StopAllCoroutines();
         yield return StartCoroutine(CutIn());
         LoadNextScene();
         StartCoroutine(CutOut());
+    }
+
+    public IEnumerator StartLoadingSameScene()
+    {
+        StopAllCoroutines();
+        int index = SceneManager.GetActiveScene().buildIndex;
+        yield return StartCoroutine(FadeIn());
+        LoadScene(index);
+        StartCoroutine(FadeOut());
     }
 
     public IEnumerator StartLoadingScene(int index)
@@ -118,6 +136,20 @@ public class LevelLoader : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
+        float t = 0;
+        yield return new WaitForSeconds(fadeOutDelay);
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= fadeStep;
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, t);
+            t += fadeStep * Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public IEnumerator FadeOut(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         float t = 0;
         while (canvasGroup.alpha > 0)
         {

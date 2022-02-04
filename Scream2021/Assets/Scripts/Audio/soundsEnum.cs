@@ -32,5 +32,6 @@ public enum soundsEnum
 	HeavyFootstep4 = 29,
 	ForceDoor1 = 30,
 	ForceDoor2 = 31,
+	TrainAmbientLoop = 32,
 
 }

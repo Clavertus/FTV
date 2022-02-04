@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6045591278918779747}
   - component: {fileID: 6045591278918779746}
   - component: {fileID: 6045591278918779744}
+  - component: {fileID: 4168483319242818764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -193,12 +194,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6045591278918779746}
   moveSpeed: 12
+  runRate: 1.5
+  runEnable: 0
   gravity: -9.81
+  FootstepPlayRate: 2
   groundCheck: {fileID: 6045591278544223089}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &4168483319242818764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045591278918779741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a01a2d8836c60438d930764843ae1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6045591279598149612
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,4 +347,5 @@ MonoBehaviour:
   mouseSensitivity: 550
   lowLookClamp: -90
   highLookClamp: 90
+  lookOffset: 3
   playerBody: {fileID: 6045591278918779747}

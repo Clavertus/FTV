@@ -19,28 +19,24 @@ public class MouseLook : MonoBehaviour
 
     float camXrot;
 
-    float xRotation = 0f; 
+    float xRotation = 0f;
 
     void Start()
     {
         if (PlayerPrefs.HasKey("mouse_sensivity")) mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
 
-       // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
 
+        /*
         if (PlayerPrefs.HasKey("camXrot"))
         {
-
             camXrot = PlayerPrefs.GetFloat("camXrot");
             Camera.main.transform.eulerAngles = new Vector3(camXrot, 0, 0);
             cameraCorrected = true;
         }
-
+        */
     }
 
-    void Update()
-    {
-        
-    }
     public void LockCamera() { lockCamera = true; }
     public void UnlockCamera() { lockCamera = false; }
 
@@ -76,5 +72,18 @@ public class MouseLook : MonoBehaviour
         transform.LookAt(new Vector3(monsterTransform.x, monsterTransform.y + lookOffset, monsterTransform.z));
     }
 
-    
+    public void LockAndLookAtPoint(Vector3 lookAtPosition)
+    {
+        LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+        transform.LookAt(lookAtPosition);
+    }
+
+    public void UnlockFromPoint()
+    {
+        UnlockCamera();
+        FindObjectOfType<PlayerMovement>().UnlockPlayer();
+    }
+
+
 }

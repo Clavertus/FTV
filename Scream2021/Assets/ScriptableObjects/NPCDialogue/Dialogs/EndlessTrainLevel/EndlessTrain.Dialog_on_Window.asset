@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3663728569531702302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 14b449b5-ba6c-4ae0-9855-1989cd6e1729
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I need to forget about it.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 555
+    y: 109
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-1113818433125807455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: f590fcaa-5a3b-408b-b1bf-f321cf229bf9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: That dream was ...
+  children:
+  - 14b449b5-ba6c-4ae0-9855-1989cd6e1729
+  rect:
+    serializedVersion: 2
+    x: 317
+    y: 102
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: EndlessTrain.Dialog_on_Window
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8393792053483602445}
+  - {fileID: -1113818433125807455}
+  - {fileID: -3663728569531702302}
+--- !u!114 &8393792053483602445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 70a7c419-b605-43e7-8f31-256675652f07
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: ...
+  children:
+  - f590fcaa-5a3b-408b-b1bf-f321cf229bf9
+  rect:
+    serializedVersion: 2
+    x: 83
+    y: 98
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

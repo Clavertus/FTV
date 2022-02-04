@@ -34,23 +34,25 @@ public class Selectable : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
-        if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == false) { EnterSelectionZone();  }
-        if (superSecretEnterSelectable == true && enteredSelectable == false) { EnterSelectionZone(); }
-        if (distance <= maxDistanceFromPlayer && enteredSelectable == false && checkPlayerRotation == true) 
+
+        if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == false)) { EnterSelectionZone();  }
+
+        if (superSecretEnterSelectable == true && (enteredSelectable == false)) { EnterSelectionZone(); }
+
+        if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == true)) 
         {
-            
             if (player.transform.eulerAngles.y >= minYLookRotation && player.transform.eulerAngles.y <= maxYLookRotation) 
             EnterSelectionZone(); 
         }
 
-        if (distance >= maxDistanceFromPlayer && enteredSelectable == true && superSecretEnterSelectable == false) { ExitSelectionZone(); }
+        if ((distance >= maxDistanceFromPlayer) && (enteredSelectable == true) && (superSecretEnterSelectable == false)) { ExitSelectionZone(); }
 
     }
 
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-        Debug.Log(gameObject + " showing selectable");
+        //Debug.Log(gameObject + " showing selectable");
         selectableCanvas.gameObject.SetActive(true);
     }
 

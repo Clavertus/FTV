@@ -1,0 +1,373 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8819195134999373693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 33b09ef9-0b72-45a2-8644-7bf964884101
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Care to watch the show with me?/ Besides, you don't want to miss the show.
+  children:
+  - 04b24cf5-1b40-45ea-8008-8eff8b496204
+  rect:
+    serializedVersion: 2
+    x: 1041
+    y: 208
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-8351432846342075601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 34da5f10-0db1-43f4-bf2d-c54ab5cbf6db
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Friend?
+  children:
+  - 4e23c4b8-7eef-4321-8100-a45afd79f486
+  rect:
+    serializedVersion: 2
+    x: 1894
+    y: 357
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-4702545210202945752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 29c65b1f-d57a-45c3-b237-45d00cc2fec2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: My name? ...This isn't the time for small talk.
+  children:
+  - d86874fc-c045-4875-90f4-19d8b4f61c1f
+  rect:
+    serializedVersion: 2
+    x: 564
+    y: 203
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-3939700552221387977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 04b24cf5-1b40-45ea-8008-8eff8b496204
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Show?
+  children:
+  - 9d539bda-5349-4e0b-8550-c7d3ef66459b
+  rect:
+    serializedVersion: 2
+    x: 1369
+    y: 362
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: Tara Dialog Example 1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2509645030593998100}
+  - {fileID: 1505234948597699366}
+  - {fileID: 7134635465901265436}
+  - {fileID: -4702545210202945752}
+  - {fileID: 6018130888062565765}
+  - {fileID: -8819195134999373693}
+  - {fileID: 3033560715324152045}
+  - {fileID: 4563797287541006314}
+  - {fileID: -3939700552221387977}
+  - {fileID: 4802041093898101690}
+  - {fileID: -8351432846342075601}
+  - {fileID: 2699431343805432970}
+--- !u!114 &1497272407202848405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 6ae216ce-5abe-4e75-af68-504e1d97b28c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Choose me!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 711
+    y: 326
+    width: 200
+    height: 100
+  style: {fileID: 0}
+--- !u!114 &1505234948597699366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: ee3778e8-3ddf-4ce6-86ab-4e7db3b220c7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who are you?
+  children:
+  - 29c65b1f-d57a-45c3-b237-45d00cc2fec2
+  rect:
+    serializedVersion: 2
+    x: 356
+    y: 267
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &2509645030593998100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: cff36047-2299-49a5-8656-5e242f410259
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello. I'm surprised you made it across. Never tried it myself.
+  children:
+  - ee3778e8-3ddf-4ce6-86ab-4e7db3b220c7
+  - 7b5882b8-e568-4e69-81bc-0f7850093754
+  rect:
+    serializedVersion: 2
+    x: 93
+    y: 308
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &2699431343805432970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 4e23c4b8-7eef-4321-8100-a45afd79f486
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Shh! It's starting
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 2169
+    y: 308
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &3033560715324152045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: de8cc05c-32c8-461d-b168-f7066e86cae6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'Your guess is better than mine. There are bigger things happening right
+    now. '
+  children:
+  - 156b2528-c6b0-4814-bdfb-391a7f171944
+  rect:
+    serializedVersion: 2
+    x: 620
+    y: 443
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &4563797287541006314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 156b2528-c6b0-4814-bdfb-391a7f171944
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Care to watch the show with me?
+  children:
+  - 04b24cf5-1b40-45ea-8008-8eff8b496204
+  rect:
+    serializedVersion: 2
+    x: 895
+    y: 445
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &4578528662387697037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 7307dbf5-5ed5-4340-8379-0dac1a2e800a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Cool that it works!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 711
+    y: 158
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &4683618671625598325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 37e95e3b-02d2-437d-82a9-adc6e2ddd824
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Response 2
+  children:
+  - 7307dbf5-5ed5-4340-8379-0dac1a2e800a
+  - 6ae216ce-5abe-4e75-af68-504e1d97b28c
+  rect:
+    serializedVersion: 2
+    x: 415
+    y: 228
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &4802041093898101690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 9d539bda-5349-4e0b-8550-c7d3ef66459b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Something incredible is happening. Your friend who stayed behind will be
+    the first to know.
+  children:
+  - 34da5f10-0db1-43f4-bf2d-c54ab5cbf6db
+  rect:
+    serializedVersion: 2
+    x: 1628
+    y: 356
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &6018130888062565765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: d86874fc-c045-4875-90f4-19d8b4f61c1f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I've never been one for small talk.
+  children:
+  - 33b09ef9-0b72-45a2-8644-7bf964884101
+  rect:
+    serializedVersion: 2
+    x: 812
+    y: 203
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &7134635465901265436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 7b5882b8-e568-4e69-81bc-0f7850093754
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What is this place?
+  children:
+  - de8cc05c-32c8-461d-b168-f7066e86cae6
+  rect:
+    serializedVersion: 2
+    x: 352
+    y: 385
+    width: 200
+    height: 100
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

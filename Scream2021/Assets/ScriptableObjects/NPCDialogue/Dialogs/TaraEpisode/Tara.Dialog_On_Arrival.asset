@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: Tara.Dialog_On_Arrival
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2627540645138203182}
+  - {fileID: 8945958319556573525}
+  - {fileID: 8261781744285390110}
+--- !u!114 &2627540645138203182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 1ba605a8-e29c-469a-a88a-fb0934c0f91c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Aaaaaargghhh...
+  children:
+  - 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
+  rect:
+    serializedVersion: 2
+    x: 151
+    y: 418
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &8261781744285390110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: bcc692d3-1e5a-46ad-81f9-a94b934f62db
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: They are always here...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 626
+    y: 410
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &8945958319556573525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Having nightmares aren\xB4t you?"
+  children:
+  - bcc692d3-1e5a-46ad-81f9-a94b934f62db
+  rect:
+    serializedVersion: 2
+    x: 400
+    y: 415
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}

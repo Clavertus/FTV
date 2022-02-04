@@ -526,3 +526,18 @@ MonoBehaviour:
     min: 0
     max: 50
     source: {fileID: 0}
+  - name: TrainAmbientLoop
+    clip: {fileID: 8300000, guid: 96470f3c0fbdc3c42947069165fb521d, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.25
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 50
+    source: {fileID: 0}

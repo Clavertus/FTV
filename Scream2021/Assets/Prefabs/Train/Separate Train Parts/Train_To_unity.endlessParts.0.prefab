@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2208175608383283345}
   - component: {fileID: 5923755699320752401}
   - component: {fileID: 5607399078043736697}
+  - component: {fileID: 4603295814712788602}
   m_Layer: 0
   m_Name: TrainBaseWithLargeWindow.001
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4603295814712788602
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175247213269909835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8254094127060523930, guid: f07f1a6ff0a06f744b059f6c66fc5008, type: 3}
 --- !u!1 &911884484690277310
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 4153848013145754994}
   - component: {fileID: 5837769981319838769}
   - component: {fileID: 4605594733188352319}
+  - component: {fileID: 2726556082390149091}
   m_Layer: 0
   m_Name: GlasWindow.003
   m_TagString: Untagged
@@ -162,6 +178,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2726556082390149091
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911884484690277310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8378206109411518722, guid: f07f1a6ff0a06f744b059f6c66fc5008, type: 3}
 --- !u!1 &1089480502577149528
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +485,7 @@ GameObject:
   - component: {fileID: 6619061514169355961}
   - component: {fileID: 6601786207443738313}
   - component: {fileID: 4748932193718042322}
+  - component: {fileID: 854239831175955536}
   m_Layer: 0
   m_Name: TrainBaseWithLargeWindow.002
   m_TagString: Untagged
@@ -525,6 +556,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &854239831175955536
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925667232941875625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3800079169136716599, guid: f07f1a6ff0a06f744b059f6c66fc5008, type: 3}
 --- !u!1 &4938240164195458480
 GameObject:
   m_ObjectHideFlags: 0

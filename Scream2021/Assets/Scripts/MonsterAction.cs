@@ -364,11 +364,12 @@ public class MonsterAction : MonoBehaviour
             return;
         }
         BloodTimer += Time.deltaTime;
-
     }
 
     private void MakePlayerLookAtMonster()
     {
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         transform.LookAt(Player);
         FindObjectOfType<MouseLook>().MonsterIsJumping();
         offsetY = transform.position.y + offsetJumpY;
@@ -393,8 +394,10 @@ public class MonsterAction : MonoBehaviour
         Debug.Log("Game has been ended with BAD END! :-)");
         //make something to end the game
         //currently just disables monster
-        LevelLoader.instance.ending = Ending.Bad;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene()); 
+
+        AudioManager.instance.StopAllSounds();
+        //LevelLoader.instance.ending = Ending.Bad;
+        StartCoroutine(LevelLoader.instance.StartLoadingSameScene()); 
     }
 
     bool PlayerFound = false;

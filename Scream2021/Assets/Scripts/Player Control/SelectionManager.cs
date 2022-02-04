@@ -45,7 +45,6 @@ public class SelectionManager : MonoBehaviour
            
             if (selection.CompareTag("Selectable"))
             {
-                
                 //enable the canvas on the selectable
                 selection.GetComponent<Selectable>().DisplaySelectable();
                 _selection = selection;
