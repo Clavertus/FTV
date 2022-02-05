@@ -26,6 +26,7 @@ public class PlayerFallZoneTrigger : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>();
         elderGod.SetActive(false);
+        cinematicSequence.stopped += TransitionToNextScene;
     }
 
     bool triggerBloodEffect = false; 
@@ -39,9 +40,8 @@ public class PlayerFallZoneTrigger : MonoBehaviour
 
     private IEnumerator FallToWakeUp()
     {
-
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        //FindObjectOfType<PlayerMovement>().LockPlayer();
+        FindObjectOfType<EndlessTrainMonsterCntrl>().enabled = false;
 
         player.MakeSimulateFall();
         cinematicSequence.Play();
@@ -52,11 +52,15 @@ public class PlayerFallZoneTrigger : MonoBehaviour
         triggerBloodEffect = true;
 
         yield return new WaitForSeconds(2.75f);
+    }
+
+    private void TransitionToNextScene(PlayableDirector pd)
+    {
 
         AudioManager.instance.StopAllSounds();
         //Transition to another scene -> with TARA
         //LevelLoader.instance.ending = Ending.Good;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut());
     }
 
     [SerializeField] GameObject BloodEffectCanvas = null;
