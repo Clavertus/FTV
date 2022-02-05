@@ -18,6 +18,11 @@ public class Tara_Behaviour : MonoBehaviour
     [Header("References:")]
     [SerializeField] PlayNPCDialog npc_Dialog = null;
 
+    [Header("Location Points:")]
+    [SerializeField] Transform point_0 = null;
+    [SerializeField] Transform point_1 = null;
+    [SerializeField] Transform point_2 = null;
+
     int behaviour_state = 0;
 
     private void Start()
