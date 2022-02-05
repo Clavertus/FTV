@@ -9,10 +9,17 @@ public class TriggerMonsterReveal : MonoBehaviour
 {
     [SerializeField] GameObject monsterToReveal = null;
     [SerializeField] PlayableDirector cinematicSequence = null;
+    InGameMenuCotrols menu;
+    MouseLook mouseLook;
+    PlayerMovement player;
 
     private void Start()
     {
-        FindObjectOfType<PlayerMovement>().SetRunEnable(false);
+        menu = FindObjectOfType<InGameMenuCotrols>();
+        mouseLook = FindObjectOfType<MouseLook>();
+        player = FindObjectOfType<PlayerMovement>();
+
+        player.SetRunEnable(false);
         GetComponent<OpeningDoor>().OnDoorOpened += RevealMonsterStart;
         cinematicSequence.played += LockPlayerControl;
         cinematicSequence.stopped += UnlockPlayerControl;
@@ -36,7 +43,7 @@ public class TriggerMonsterReveal : MonoBehaviour
 
         FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
 
-        FindObjectOfType<PlayerMovement>().SetRunEnable(true);
+        player.SetRunEnable(true);
 
         yield return new WaitForSeconds(3f);
 
@@ -48,14 +55,14 @@ public class TriggerMonsterReveal : MonoBehaviour
     private void LockPlayerControl(PlayableDirector pd)
     {
         Debug.Log("LockMenuControl");
-        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<PlayerMovement>().LockPlayer();
+        menu.LockMenuControl();
+        mouseLook.LockCamera();
+        player.LockPlayer();
     }
 
     private void UnlockPlayerControl(PlayableDirector pd)
     {
-        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
-        FindObjectOfType<MouseLook>().UnlockFromPoint();
+        menu.UnlockMenuControl();
+        mouseLook.UnlockFromPoint();
     }
 }

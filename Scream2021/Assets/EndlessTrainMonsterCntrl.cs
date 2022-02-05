@@ -139,6 +139,6 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
         //currently just disables monster
         AudioManager.instance.StopAllSounds();
         //LevelLoader.instance.ending = Ending.Bad;
-        StartCoroutine(LevelLoader.instance.StartLoadingSameScene());
+        StartCoroutine(LevelLoader.instance.StartLoadingSameScene(10));
     }
 }
