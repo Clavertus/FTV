@@ -24,10 +24,21 @@ public class Tara_Behaviour : MonoBehaviour
     [SerializeField] Transform point_1 = null;
     [SerializeField] Transform point_2 = null;
 
+
+    [SerializeField] Texture open_texture = null;
+    [SerializeField] Texture close_texture = null;
+
     int behaviour_state = 0;
+    SkinnedMeshRenderer[] m_Renderers = null;
+    private bool eyes_open = true;
+    private float openTimer = 0;
+    [SerializeField] float openTime = 2f;
+    private float closeTimer = 0;
+    [SerializeField] float closeTime = 0.25f;
 
     private void Start()
     {
+        m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         npc_Dialog.DialogIsFinished += OnDialogFinished;
         //on start play the first dialog
     }
@@ -50,6 +61,48 @@ public class Tara_Behaviour : MonoBehaviour
         {
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_1);
             dialog_1_played = true;
+        }
+
+        EyeBlink();
+    }
+
+    private void EyeBlink()
+    {
+        if(eyes_open)
+        {
+            if (openTimer > openTime)
+            {
+                openTimer = 0;
+                eyes_open = false;
+
+
+                foreach (SkinnedMeshRenderer render in m_Renderers)
+                {
+                    render.material.mainTexture = close_texture;
+                }
+            }
+            else
+            {
+                openTimer += Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (closeTimer > closeTime)
+            {
+                closeTimer = 0;
+                eyes_open = true;
+
+
+                foreach (SkinnedMeshRenderer render in m_Renderers)
+                {
+                    render.material.mainTexture = open_texture;
+                }
+            }
+            else
+            {
+                closeTimer += Time.deltaTime;
+            }
         }
     }
 }
