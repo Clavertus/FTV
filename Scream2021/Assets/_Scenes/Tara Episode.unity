@@ -4705,7 +4705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985186, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: fadeOutDelay
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_Name
@@ -5496,9 +5496,9 @@ MonoBehaviour:
   dialog_3: {fileID: 0}
   dialog_4: {fileID: 0}
   npc_Dialog: {fileID: 2012582634}
-  point_0: {fileID: 0}
-  point_1: {fileID: 0}
-  point_2: {fileID: 0}
+  point_0: {fileID: 416395647}
+  point_1: {fileID: 2055409655}
+  point_2: {fileID: 1729580955}
 --- !u!1001 &1833470691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6347,7 +6347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44454193
+      value: 0.44462395
       objectReference: {fileID: 0}
     - target: {fileID: 6045591279598149619, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_LocalPosition.y
