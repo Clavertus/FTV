@@ -50,18 +50,17 @@ public class Tara_Behaviour : MonoBehaviour
     }
     private void OnDialogNodeStarted()
     {
-        speaking = true;
+        //speaking = true;
     }
     private void OnDialogNodeFinished()
     {
-        speaking = false;
+        //speaking = false;
     }
 
     private void OnDialogFinished()
     {
-        Debug.Log("unset");
-        speaking = false;
-        //next state?
+        //speaking = false;
+
         behaviour_state++;
     }
 
@@ -69,14 +68,12 @@ public class Tara_Behaviour : MonoBehaviour
     {
         if((behaviour_state == 0) && (dialog_0_played == false))
         {
-            Debug.Log("set true 0");
             npc_Dialog.SetNewDialogAvailableAndPlay(dialog_0);
             dialog_0_played = true;
         }
 
         if ((behaviour_state == 1) && (dialog_1_played == false))
         {
-            Debug.Log("set true 1");
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_1);
             dialog_1_played = true;
         }
@@ -88,12 +85,10 @@ public class Tara_Behaviour : MonoBehaviour
     {
         if(speaking)
         {
-            Debug.Log("SpeakBlink");
             SpeakAnimate();
         }
         else
         {
-            Debug.Log("EyeBlink");
             EyeBlinkAnimate();
         }
     }
