@@ -26,7 +26,7 @@ public class PlayerFallZoneTrigger : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>();
         elderGod.SetActive(false);
-        cinematicSequence.stopped += TransitionToNextScene;
+        //cinematicSequence.stopped += TransitionToNextScene;
     }
 
     bool triggerBloodEffect = false; 
@@ -52,13 +52,19 @@ public class PlayerFallZoneTrigger : MonoBehaviour
         yield return new WaitForSeconds(.5f);
     }
 
+    public void ReceiveSignal()
+    {
+        Debug.Log("ReceiveSignal");
+        TransitionToNextScene(null);
+    }
+
     private void TransitionToNextScene(PlayableDirector pd)
     {
 
         AudioManager.instance.StopAllSounds();
         //Transition to another scene -> with TARA
         //LevelLoader.instance.ending = Ending.Good;
-        StartCoroutine(LevelLoader.instance.StartLoadingNextSceneWithHardCut());
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene(1.5f));
     }
 
     [SerializeField] GameObject BloodEffectCanvas = null;
