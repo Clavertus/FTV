@@ -43,15 +43,13 @@ public class PlayerFallZoneTrigger : MonoBehaviour
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         FindObjectOfType<EndlessTrainMonsterCntrl>().enabled = false;
 
-        player.MakeSimulateFall();
+        //player.MakeSimulateFall();
         cinematicSequence.Play();
 
         elderGod.SetActive(true);
-
-        yield return new WaitForSeconds(.5f);
         triggerBloodEffect = true;
 
-        yield return new WaitForSeconds(2.75f);
+        yield return new WaitForSeconds(.5f);
     }
 
     private void TransitionToNextScene(PlayableDirector pd)
