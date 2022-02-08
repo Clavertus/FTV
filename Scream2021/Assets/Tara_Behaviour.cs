@@ -27,6 +27,7 @@ public class Tara_Behaviour : MonoBehaviour
 
     [SerializeField] Texture open_texture = null;
     [SerializeField] Texture close_texture = null;
+    [SerializeField] Texture speak_texture = null;
 
     int behaviour_state = 0;
     SkinnedMeshRenderer[] m_Renderers = null;
@@ -35,17 +36,31 @@ public class Tara_Behaviour : MonoBehaviour
     [SerializeField] float openTime = 2f;
     private float closeTimer = 0;
     [SerializeField] float closeTime = 0.25f;
+    private float speakTimer = 0;
+    [SerializeField] float speakTime = 0.25f;
+    private bool speaking = false;
 
     private void Start()
     {
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         npc_Dialog.DialogIsFinished += OnDialogFinished;
+        npc_Dialog.DialogNodeIsStarted += OnDialogNodeStarted;
+        npc_Dialog.DialogNodeIsEnded += OnDialogNodeFinished;
         //on start play the first dialog
+    }
+    private void OnDialogNodeStarted()
+    {
+        //speaking = true;
+    }
+    private void OnDialogNodeFinished()
+    {
+        //speaking = false;
     }
 
     private void OnDialogFinished()
     {
-        //next state?
+        //speaking = false;
+
         behaviour_state++;
     }
 
@@ -63,12 +78,64 @@ public class Tara_Behaviour : MonoBehaviour
             dialog_1_played = true;
         }
 
-        EyeBlink();
+        TextureSwap();
     }
 
-    private void EyeBlink()
+    private void TextureSwap()
     {
-        if(eyes_open)
+        if(speaking)
+        {
+            SpeakAnimate();
+        }
+        else
+        {
+            EyeBlinkAnimate();
+        }
+    }
+
+    private void SpeakAnimate()
+    {
+        if (eyes_open)
+        {
+            if (speakTimer > speakTime)
+            {
+                speakTimer = 0;
+                eyes_open = false;
+
+
+                foreach (SkinnedMeshRenderer render in m_Renderers)
+                {
+                    render.material.mainTexture = speak_texture;
+                }
+            }
+            else
+            {
+                speakTimer += Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (speakTimer > speakTime)
+            {
+                speakTimer = 0;
+                eyes_open = true;
+
+
+                foreach (SkinnedMeshRenderer render in m_Renderers)
+                {
+                    render.material.mainTexture = open_texture;
+                }
+            }
+            else
+            {
+                speakTimer += Time.deltaTime;
+            }
+        }
+    }
+
+    private void EyeBlinkAnimate()
+    {
+        if (eyes_open)
         {
             if (openTimer > openTime)
             {

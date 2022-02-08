@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayNPCDialog : MonoBehaviour
 {
+    public Action DialogNodeIsStarted { get; set; }
+    public Action DialogNodeIsEnded { get; set; }
     public Action DialogIsFinished { get; set; }
 
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
@@ -18,11 +20,24 @@ public class PlayNPCDialog : MonoBehaviour
     private void Awake()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
-        dialogUI.OnDialogShowStart += playTalkAnimation;
+        dialogUI.OnDialogNodeStart += playTalkAnimation;
+        dialogUI.OnDialogNodeStart += NPCDialogNodeStarted;
+        dialogUI.OnDialogNodeEnd += NPCDialogNodeEnd;
         dialogUI.OnDialogShowEnd += playIdleAnimation;
         dialogUI.OnDialogShowEnd += NPCDialogFinished;
     }
 
+    private void NPCDialogNodeStarted(bool isPlayerSpeaking)
+    {
+        if(!isPlayerSpeaking)
+        {
+            DialogNodeIsStarted?.Invoke();
+        }
+    }
+    private void NPCDialogNodeEnd()
+    {
+        DialogNodeIsEnded?.Invoke();
+    }
     private void NPCDialogFinished()
     {
         DialogIsFinished?.Invoke();
