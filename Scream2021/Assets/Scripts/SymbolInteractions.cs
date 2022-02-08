@@ -76,6 +76,8 @@ public class SymbolInteractions : MonoBehaviour
                 case 1:
                     if (pocketed && pocketItem == ("DPad"))
                     {
+                        //save system
+                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         ApplyDPad();
                     }
                     else
@@ -87,6 +89,8 @@ public class SymbolInteractions : MonoBehaviour
                 case 2:
                     if (pocketed && pocketItem == ("Zipper"))
                     {
+                        //save system
+                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         ApplyZipper();
                     }
                     else
@@ -98,6 +102,8 @@ public class SymbolInteractions : MonoBehaviour
                 case 3:
                     if (pocketed && pocketItem == ("Frame Stand"))
                     {
+                        //save system
+                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         StartCoroutine(ApplyFrameStand());
                     }
                     else
@@ -196,7 +202,6 @@ public class SymbolInteractions : MonoBehaviour
 
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
         UnlockDoor();
-
     }
 
     void UnlockDoor()

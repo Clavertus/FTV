@@ -100,6 +100,8 @@ public class LevelLoader : MonoBehaviour
         int index = SceneManager.GetActiveScene().buildIndex;
         yield return StartCoroutine(FadeIn());
         LoadScene(index);
+        //load system
+        FindObjectOfType<SavingWrapper>().CheckpointLoad();
         StartCoroutine(FadeOut());
     }
 
@@ -109,6 +111,8 @@ public class LevelLoader : MonoBehaviour
         int index = SceneManager.GetActiveScene().buildIndex;
         yield return StartCoroutine(FadeIn());
         LoadScene(index);
+        //load system
+        FindObjectOfType<SavingWrapper>().CheckpointLoad();
         StartCoroutine(FadeOut(delay));
     }
 
@@ -118,6 +122,16 @@ public class LevelLoader : MonoBehaviour
         yield return StartCoroutine(FadeIn());
         LoadScene(index);
         StartCoroutine(FadeOut());
+    }
+    public IEnumerator CheckpointFadingIn()
+    {
+        canvasGroup.alpha = 1f;
+        yield return StartCoroutine(FadeOut());
+    }
+    public IEnumerator CheckpointFadingIn(float delay)
+    {
+        canvasGroup.alpha = 1f;
+        yield return StartCoroutine(FadeOut(delay));
     }
 
     public IEnumerator FadeIn()

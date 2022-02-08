@@ -397,6 +397,7 @@ public class MonsterAction : MonoBehaviour
 
         AudioManager.instance.StopAllSounds();
         //LevelLoader.instance.ending = Ending.Bad;
+
         StartCoroutine(LevelLoader.instance.StartLoadingSameScene()); 
     }
 
