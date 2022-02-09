@@ -1,17 +1,20 @@
+using FTV.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayDialogOnInspection : MonoBehaviour
+public class PlayDialogOnInspection : MonoBehaviour, ISaveable
 {
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
     [SerializeField] bool disableSameDialogues = true;
 
     PlayDialogOnInspection[] listOfObjects = null;
-    int interactionCounter = 0;
+
+    public int interactionCounter = 0;
 
     private DialogueUI dialogUI = null;
+
     void Start()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
@@ -20,9 +23,11 @@ public class PlayDialogOnInspection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.LogWarning(interactionCounter);
+
         if (gameObject.tag == "Selected" && interactionCounter == 0) { Interaction(); return; }
 
-        if(interactionCounter > 0)
+        if(interactionCounter == 1)
         {
             if (!dialogUI.dialogueBox.activeSelf) 
             {
@@ -30,7 +35,7 @@ public class PlayDialogOnInspection : MonoBehaviour
                 DisableAllSameObjects();
                 gameObject.tag = ("Untagged");
                 this.GetComponent<Selectable>().enabled = false;
-                this.enabled = false;
+                interactionCounter++;
             }
         }
     }
@@ -51,16 +56,45 @@ public class PlayDialogOnInspection : MonoBehaviour
 
     public void DisableAllSameObjects()
     {
-        foreach(PlayDialogOnInspection obj in listOfObjects)
+        foreach(PlayDialogOnInspection inspectableObj in listOfObjects)
         {
-            if (obj == this) continue;
+            if (inspectableObj == this) continue;
 
-            if(obj.dialogObject == this.dialogObject)
+            if(inspectableObj.dialogObject == this.dialogObject)
             {
-                obj.gameObject.tag = ("Untagged");
-                obj.GetComponent<Selectable>().enabled = false;
-                obj.enabled = false;
+                inspectableObj.SetAsUsed();
             }
+        }
+    }
+
+    public void SetAsUsed()
+    {
+        gameObject.tag = ("Untagged");
+        this.GetComponent<Selectable>().enabled = false;
+        interactionCounter = 2;
+    }
+
+    [System.Serializable]
+    struct SaveData
+    {
+        public int interactionCounter;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.interactionCounter = interactionCounter;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        interactionCounter = data.interactionCounter;
+
+        if(interactionCounter >= 1)
+        {
+            SetAsUsed();
         }
     }
 }

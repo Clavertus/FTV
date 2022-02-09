@@ -16,6 +16,8 @@ public class SavingWrapper : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,9 +25,12 @@ public class SavingWrapper : MonoBehaviour
             yield return null;
         }
 
-        DontDestroyOnLoad(gameObject);
-
         //FindObjectOfType<LevelLoader>().CheckpointFadingIn();
+        yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+    }
+
+    public IEnumerator LoadLastScene() 
+    {
         yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
     }
 
@@ -50,7 +55,7 @@ public class SavingWrapper : MonoBehaviour
 
     public void CheckpointLoad()
     {
-        Load();
+        GetComponent<SavingSystem>().Load(defaultSaveFile);
     }
 
     private void Save()

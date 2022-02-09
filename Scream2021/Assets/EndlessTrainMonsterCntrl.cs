@@ -18,7 +18,8 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
         action,
         run_to_player,
         jump_and_kill,
-        chew
+        chew,
+        end_of_state
     };
 
     [SerializeField] Animator myAnimator = null;
@@ -139,6 +140,9 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
         //currently just disables monster
         AudioManager.instance.StopAllSounds();
         //LevelLoader.instance.ending = Ending.Bad;
-        StartCoroutine(LevelLoader.instance.StartLoadingSameScene(10));
+
+        StartCoroutine(LevelLoader.instance.StartLoadingSameScene(2f));
+        currentState = monsterStatesEnm.end_of_state;
+        //StartCoroutine(LevelLoader.instance.StartLoadingSameScene(2f));
     }
 }

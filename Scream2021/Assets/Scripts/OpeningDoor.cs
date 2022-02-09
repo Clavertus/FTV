@@ -1,14 +1,17 @@
+using FTV.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpeningDoor : MonoBehaviour
+public class OpeningDoor : MonoBehaviour, ISaveable
 {
     [SerializeField] GameObject doorItself;
     [SerializeField] Transform doorOpenPosition;
     private Vector3 doorClosedPosition;
     [SerializeField] float openSpeed = 5f;
+    [SerializeField] bool saveDoorState = false;
+    [SerializeField] bool checkpointSave = false;
 
     bool openingDoor = false;
     AudioSource openDoorSound;
@@ -18,6 +21,7 @@ public class OpeningDoor : MonoBehaviour
 
     public void DoorIsOpened()
     {
+        if(saveDoorState) door_was_unlocked = true;
         Debug.Log("DoorIsOpened");
         OnDoorOpened?.Invoke();
     }
@@ -33,7 +37,13 @@ public class OpeningDoor : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.tag == "Selected" && interactionCounter == 0) { FirstInteraction(); }
+        if (gameObject.tag == "Selected" && interactionCounter == 0) {
+            if(checkpointSave)
+            {
+                FindObjectOfType<SavingWrapper>().CheckpointSave();
+            }
+            FirstInteraction(); 
+        }
         if (openingDoor) { OpenDoor(); }
     }
 
@@ -56,4 +66,29 @@ public class OpeningDoor : MonoBehaviour
             this.enabled = false; }
     }
 
+    bool door_was_unlocked = false;
+    [System.Serializable]
+    struct SaveData
+    {
+        public bool door_was_unlocked;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.door_was_unlocked = door_was_unlocked;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        door_was_unlocked = data.door_was_unlocked;
+        if(door_was_unlocked)
+        {
+            gameObject.tag = ("Untagged");
+            doorItself.transform.position = doorOpenPosition.position;
+            GetComponent<Selectable>().enabled = false;
+        }
+    }
 }

@@ -1,8 +1,9 @@
+using FTV.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndlessTrainLevelCntrl : MonoBehaviour
+public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 {
     [SerializeField] FTV.Dialog.NPCDialogue dialogue0 = null;
     [SerializeField] FTV.Dialog.NPCDialogue dialogue1 = null;
@@ -21,6 +22,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
     private PlayerMovement player = null;
 
     private bool triggerPlayerDisableControl = false;
+
     void Awake()
     {
         TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
@@ -38,9 +40,18 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
     }
 
+    bool dialog_enabled = true;
     private void Update()
     {
-        if(!triggerPlayerDisableControl)
+        if (dialog_enabled)
+        {
+            TriggerDialogs();
+        }
+    }
+
+    private void TriggerDialogs()
+    {
+        if (!triggerPlayerDisableControl)
         {
             triggerPlayerDisableControl = true;
             Debug.Log("LockMenuControl");
@@ -49,7 +60,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
             player.LockPlayer();
         }
 
-        if(dialogue0_played == false)
+        if (dialogue0_played == false)
         {
             if (timeCounter > callDialog0After + fadeOutDelay)
             {
@@ -65,6 +76,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
                 dialogue1_played = true;
                 //play the first dialog
                 dialogUI.ShowDialogue(dialogue1);
+                dialog_enabled = false;
             }
         }
 
@@ -75,7 +87,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
             timeCounter = 0f;
         }
 
-        if(fadeOutCounter >= fadeOutDelay)
+        if (fadeOutCounter >= fadeOutDelay)
         {
             if (fadeOut_played == false)
             {
@@ -89,6 +101,25 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         {
             fadeOutCounter += Time.deltaTime;
         }
-            
+    }
+
+
+    [System.Serializable]
+    struct SaveData
+    {
+        public bool dialog_enabled;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.dialog_enabled = dialog_enabled;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        dialog_enabled = data.dialog_enabled;
     }
 }

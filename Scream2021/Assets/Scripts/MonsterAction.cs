@@ -18,7 +18,8 @@ public class MonsterAction : MonoBehaviour
         action,
         run_to_player,
         jump_and_kill,
-        chew
+        chew,
+        end_of_state
     };
 
     [SerializeField] Animator myAnimator = null;
@@ -398,7 +399,10 @@ public class MonsterAction : MonoBehaviour
         AudioManager.instance.StopAllSounds();
         //LevelLoader.instance.ending = Ending.Bad;
 
-        StartCoroutine(LevelLoader.instance.StartLoadingSameScene()); 
+        //StartCoroutine(FindObjectOfType<SavingWrapper>().CheckpointLoad());
+        StartCoroutine(LevelLoader.instance.StartLoadingSameScene(2f));
+
+        currentState = monsterStatesEnm.end_of_state;
     }
 
     bool PlayerFound = false;

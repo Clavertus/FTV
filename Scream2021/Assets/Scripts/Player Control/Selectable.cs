@@ -28,7 +28,11 @@ public class Selectable : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
         selectableCanvas.gameObject.SetActive(false);  
+    }
 
+    private void OnDisable()
+    {
+        selectableCanvas.gameObject.SetActive(false);
     }
 
     void Update()

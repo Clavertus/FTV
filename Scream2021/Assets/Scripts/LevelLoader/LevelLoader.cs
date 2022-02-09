@@ -101,7 +101,7 @@ public class LevelLoader : MonoBehaviour
         yield return StartCoroutine(FadeIn());
         LoadScene(index);
         //load system
-        FindObjectOfType<SavingWrapper>().CheckpointLoad();
+        yield return SavingWrapper.instance.LoadLastScene();
         StartCoroutine(FadeOut());
     }
 
@@ -110,9 +110,9 @@ public class LevelLoader : MonoBehaviour
         StopAllCoroutines();
         int index = SceneManager.GetActiveScene().buildIndex;
         yield return StartCoroutine(FadeIn());
-        LoadScene(index);
+        //LoadScene(index);
         //load system
-        FindObjectOfType<SavingWrapper>().CheckpointLoad();
+        StartCoroutine(SavingWrapper.instance.LoadLastScene());
         StartCoroutine(FadeOut(delay));
     }
 
