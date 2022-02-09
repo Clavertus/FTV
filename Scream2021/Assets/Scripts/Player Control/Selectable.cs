@@ -45,6 +45,7 @@ public class Selectable : MonoBehaviour
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == true)) 
         {
+            Debug.Log(player.transform.eulerAngles.y);
             if (player.transform.eulerAngles.y >= minYLookRotation && player.transform.eulerAngles.y <= maxYLookRotation) 
             EnterSelectionZone(); 
         }
@@ -56,7 +57,7 @@ public class Selectable : MonoBehaviour
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-        //Debug.Log(gameObject + " showing selectable");
+        Debug.Log(gameObject + " showing selectable");
         selectableCanvas.gameObject.SetActive(true);
     }
 
@@ -90,7 +91,8 @@ public class Selectable : MonoBehaviour
     {
         superSecretEnterSelectable = false; 
         enteredSelectable = false;  
-        gameObject.tag = ("Untagged");              
+        gameObject.tag = ("Untagged");
+        selectableCanvas.gameObject.SetActive(false);
     }
 
 

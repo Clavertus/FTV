@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCam: 1
+  distanceFromCam: 1.25
   offsetCamPos: 0
   offsetY: 1
   offsetX: 1
@@ -5768,9 +5768,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectableCanvas: {fileID: 27251263}
   maxDistanceFromPlayer: 1
-  checkPlayerRotation: 0
-  minYLookRotation: 0
-  maxYLookRotation: 0
+  checkPlayerRotation: 1
+  minYLookRotation: 25
+  maxYLookRotation: 50
 --- !u!114 &1108065604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5797,8 +5797,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0018008342, y: 0.005547913, z: 0.0062561715}
-  m_Center: {x: 0.001318802, y: -0.0033853722, z: 0.0043402268}
+  m_Size: {x: 0.0015001459, y: 0.0020972136, z: 0.0034819858}
+  m_Center: {x: -0.00020292302, y: -0.0011975814, z: 0.0027258776}
 --- !u!1 &1112248253
 GameObject:
   m_ObjectHideFlags: 0
@@ -10937,7 +10937,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1bbf48e2e3681f9498c6356e6bbdd52a, type: 3}
       propertyPath: m_Name
-      value: gameboy 1
+      value: gameboy model
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752674652627695258, guid: 1bbf48e2e3681f9498c6356e6bbdd52a, type: 3}
+      propertyPath: m_Name
+      value: dpad model
       objectReference: {fileID: 0}
     - target: {fileID: 6221652906562603896, guid: 1bbf48e2e3681f9498c6356e6bbdd52a, type: 3}
       propertyPath: m_Enabled

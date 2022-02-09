@@ -1,3 +1,4 @@
+using FTV.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,8 +46,6 @@ public class Begin : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !beginning)
         {
-
-
             PlayButtonSound();
             BeginGame();
         }
@@ -79,6 +78,9 @@ public class Begin : MonoBehaviour {
     public void BeginGame()
     {
         beginning = true;
+        Cursor.visible = false;
+
+        FindObjectOfType<TitleSavingWrapper>().DeleteSaveFile();
 
         AudioManager.instance.StopFromAudioManager(soundsEnum.Title);
 
