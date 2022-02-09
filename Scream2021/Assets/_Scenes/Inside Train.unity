@@ -253,7 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
-      value: Inspect Door
+      value: Inspect Small Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Pivot.x
@@ -1706,7 +1710,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
-      value: Inspect Door
+      value: Inspect Gameboy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Pivot.x
@@ -6607,7 +6615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 550d291ea56d09646ae533300274d256, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7339356831882890532, guid: 550d291ea56d09646ae533300274d256, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7996,13 +8004,14 @@ GameObject:
   - component: {fileID: 1579118489}
   - component: {fileID: 1579118487}
   - component: {fileID: 1579118486}
+  - component: {fileID: 1579118488}
   m_Layer: 0
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1579118485
 Transform:
   m_ObjectHideFlags: 0
@@ -8063,7 +8072,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579118484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 425d85a69ad08c743a1d599b906dffd3, type: 3}
   m_Name: 
@@ -8073,6 +8082,19 @@ MonoBehaviour:
   checkPlayerRotation: 0
   minYLookRotation: 0
   maxYLookRotation: 0
+--- !u!114 &1579118488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579118484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 7351dd26-1378-4ce7-8a88-362255c521cc
 --- !u!65 &1579118489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9458,7 +9480,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
-      value: Inspect Door
+      value: Inspect Symbol
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Pivot.x
@@ -10060,6 +10086,7 @@ GameObject:
   - component: {fileID: 1912142481}
   - component: {fileID: 1912142478}
   - component: {fileID: 1912142482}
+  - component: {fileID: 1912142480}
   m_Layer: 0
   m_Name: DoorToCar
   m_TagString: Untagged
@@ -10099,6 +10126,19 @@ Transform:
   m_Father: {fileID: 257535815}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912142480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912142477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 8ca2c651-32c1-42e9-85e2-eaa27f30cde9
 --- !u!65 &1912142481
 BoxCollider:
   m_ObjectHideFlags: 0

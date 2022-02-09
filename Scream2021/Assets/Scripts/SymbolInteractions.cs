@@ -1,8 +1,11 @@
+using FTV.Saving;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SymbolInteractions : MonoBehaviour
+[RequireComponent(typeof(SaveableEntity))]
+public class SymbolInteractions : MonoBehaviour, ISaveable
 {
     [Header("Dialogue Data")]
     [SerializeField] DialogueObject firstDialogue;
@@ -32,6 +35,13 @@ public class SymbolInteractions : MonoBehaviour
 
     [SerializeField] GameObject chain;
     [SerializeField] GameObject chainDPad;
+
+    internal void ShowChain()
+    {
+        GetComponent<Selectable>().enabled = true;
+        chain.SetActive(true);
+    }
+
     [SerializeField] GameObject chainZip;
 
     [SerializeField] GameObject trainMonster;
@@ -58,9 +68,10 @@ public class SymbolInteractions : MonoBehaviour
     void Start()
     {
         GetComponent<Selectable>().DisableSelectable();
-
-         
-        
+        if(checkpointArrived)
+        {
+            AfterSave();
+        }
     }
 
     // Update is called once per frame
@@ -76,8 +87,6 @@ public class SymbolInteractions : MonoBehaviour
                 case 1:
                     if (pocketed && pocketItem == ("DPad"))
                     {
-                        //save system
-                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         ApplyDPad();
                     }
                     else
@@ -89,8 +98,6 @@ public class SymbolInteractions : MonoBehaviour
                 case 2:
                     if (pocketed && pocketItem == ("Zipper"))
                     {
-                        //save system
-                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         ApplyZipper();
                     }
                     else
@@ -102,8 +109,6 @@ public class SymbolInteractions : MonoBehaviour
                 case 3:
                     if (pocketed && pocketItem == ("Frame Stand"))
                     {
-                        //save system
-                        FindObjectOfType<SavingWrapper>().CheckpointSave();
                         StartCoroutine(ApplyFrameStand());
                     }
                     else
@@ -118,32 +123,6 @@ public class SymbolInteractions : MonoBehaviour
                     break;
             }
         }
-
-
-        /* OLD VERSION
-        if (gameObject.tag == ("Selected") && interactionCounter == 0)
-        {
-           FirstInteraction();
-        }
-        
-
-        if (pocketed && interactionCounter == 1 && gameObject.tag == "Selected" && pocketItem == ("DPad")) 
-        {
-            ApplyDPad();
-        }
-        else if (pocketed && interactionCounter == 2 && gameObject.tag == "Selected" && pocketItem == ("Zipper"))
-        {
-            ApplyZipper();
-        }
-        else if (pocketed && interactionCounter == 3 && gameObject.tag == "Selected" && pocketItem == ("Frame Stand"))
-        {
-            StartCoroutine(ApplyFrameStand());
-        }
-        else if(!pocketed && gameObject.tag == "Selected" && interactionCounter > 0)
-        {
-            InspectAfterFirstInteraction();
-        }
-        */
     }
 
     public void AreWindowsChecked() { checkedWindows = true; }
@@ -201,6 +180,9 @@ public class SymbolInteractions : MonoBehaviour
 
 
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
+        //save system
+        checkpointArrived = true;
+        FindObjectOfType<SavingWrapper>().CheckpointSave();
         UnlockDoor();
     }
 
@@ -208,10 +190,56 @@ public class SymbolInteractions : MonoBehaviour
     {
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
 
-        doorToCar.SetActive(true);
+        doorToCar.GetComponent<Selectable>().enabled = true;
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX(); 
         FindObjectOfType<SecondTrain>().TriggerTrain();
-        FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked); 
+        FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked);
     }
 
+    void AfterSave()
+    {
+        GetComponent<Selectable>().enabled = true;
+        chain.SetActive(true);
+        chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
+        chainZip.GetComponent<MeshRenderer>().material = zipperMat;
+        chain.GetComponent<MeshRenderer>().material = frameMat;
+
+        elderGodMove.SetActive(true);
+        elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
+        elderGodMove.GetComponent<GodPointMovement>().SetToPointB();
+        elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
+
+        secondTrainMove.SetActive(true);
+        doorToCar.GetComponent<Selectable>().enabled = true;
+        doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX();
+        FindObjectOfType<SecondTrain>().TriggerTrain();
+
+        //FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked);
+    }
+
+    bool checkpointArrived = false;
+    [System.Serializable]
+    struct SaveData
+    {
+        public int interactionCounter;
+        public bool checkpointArrived;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.interactionCounter = interactionCounter;
+        data.checkpointArrived = checkpointArrived;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        interactionCounter = data.interactionCounter;
+        checkpointArrived = data.checkpointArrived;
+        if(checkpointArrived)
+        {
+        }
+    }
 }

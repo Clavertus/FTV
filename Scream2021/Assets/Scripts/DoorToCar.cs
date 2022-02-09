@@ -1,8 +1,10 @@
+using FTV.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorToCar : MonoBehaviour
+[RequireComponent(typeof(SaveableEntity))]
+public class DoorToCar : MonoBehaviour, ISaveable
 {
     [SerializeField] DialogueObject firstDialogue;
     [SerializeField] DialogueObject openDoorDialogue;
@@ -42,11 +44,12 @@ public class DoorToCar : MonoBehaviour
     IEnumerator FirstInteraction()
     {
         gameObject.tag = ("Untagged");
+        GetComponent<Selectable>().enabled = false;
         FindObjectOfType<DialogueUI>().ShowDialogue(firstDialogue);
         windows.SetActive(true);
         interactionCounter++;
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
-        gameObject.SetActive(false); 
+        //gameObject.SetActive(false); 
     }
     public void UnlockDoorSFX() {
         AudioManager.instance.InstantPlayFromGameObject(myAudioSource);  
@@ -54,6 +57,7 @@ public class DoorToCar : MonoBehaviour
     IEnumerator SecondInteraction()
     {
         gameObject.tag = ("Untagged");
+        GetComponent<Selectable>().enabled = false;
         FindObjectOfType<DialogueUI>().ShowDialogue(openDoorDialogue);
         interactionCounter++;
         yield return new WaitUntil(() => !dialogueBox.activeSelf);
@@ -68,4 +72,22 @@ public class DoorToCar : MonoBehaviour
         if(physicalDoor.transform.position == doorOpenPosition.position) { gameObject.SetActive(false); }
     }
 
+    [System.Serializable]
+    struct SaveData
+    {
+        public int interactionCounter;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.interactionCounter = interactionCounter;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        interactionCounter = data.interactionCounter;
+    }
 }
