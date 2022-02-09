@@ -36,21 +36,23 @@ public class TriggerMonsterReveal : MonoBehaviour
     {
         Debug.Log("RevealMonster");
 
-        monsterToReveal.SetActive(true);
-
         cinematicSequence.Play();
 
         yield return new WaitForSeconds(5.5f);
+
+        monsterToReveal.SetActive(true);
+
+        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.reveal);
 
         FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
 
         player.SetRunEnable(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
 
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
 
-        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.run);
+        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.walk);
     }
 
     private void LockPlayerControl(PlayableDirector pd)

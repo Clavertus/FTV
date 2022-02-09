@@ -7,18 +7,10 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
 {
     public enum monsterStatesEnm
     {
-        idle,
-        walk,
+        t_pose,
         reveal,
-        run,
-        to_open,
-        in_open,
-        final_open,
-        walk_after_open,
-        action,
-        run_to_player,
-        jump_and_kill,
-        chew,
+        walk,
+        attack,
         end_of_state
     };
 
@@ -26,8 +18,8 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     [SerializeField] Transform lookAtPosition = null;
     [SerializeField] Transform playerTransform = null;
 
-    private monsterStatesEnm currentState = monsterStatesEnm.idle;
-    private monsterStatesEnm lastState = monsterStatesEnm.idle;
+    private monsterStatesEnm currentState = monsterStatesEnm.t_pose;
+    private monsterStatesEnm lastState = monsterStatesEnm.t_pose;
     public AudioSource monsterFootstep;
 
     [SerializeField] float walkSpeed = 2f;
@@ -42,7 +34,7 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int idle = (int) monsterStatesEnm.idle;
+        int idle = (int) monsterStatesEnm.t_pose;
         myAnimator.SetTrigger(((int)idle).ToString());
     }
 
@@ -58,19 +50,19 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
 
         switch (currentState)
         {
-            case monsterStatesEnm.idle:
+            case monsterStatesEnm.t_pose:
                 break;
-            case monsterStatesEnm.run:
+            case monsterStatesEnm.walk:
                 MonsterMove(runSpeed);
 
                 if (Vector3.Distance(transform.position, playerTransform.position) <= minimalDistanceToPlayer)
                 {
-                    currentState = monsterStatesEnm.chew; 
+                    currentState = monsterStatesEnm.attack; 
                     MakePlayerLookAtMonster();
                 }
 
                 break;
-            case monsterStatesEnm.chew:
+            case monsterStatesEnm.attack:
                 TriggerBloodEffect();
 
                 if (finishedChew)
@@ -101,13 +93,15 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     // This C# function can be called by an Animation Event
     public void Footstep()
     {
+        Debug.Log("FOOTSTEP");
         AudioManager.instance.InstantPlayFromGameObject(monsterFootstep);
     }
 
     bool finishedChew = false;
     // This C# function can be called by an Animation Event
-    public void ChewFinished()
+    public void FinishAttack()
     {
+        Debug.Log("FINISH ATTACK");
         finishedChew = true;
     }
 
