@@ -33,5 +33,7 @@ public enum soundsEnum
 	ForceDoor1 = 30,
 	ForceDoor2 = 31,
 	TrainAmbientLoop = 32,
+	LampsSuddenlyOff = 33,
+	LampsGetOn = 34,
 
 }

@@ -24,6 +24,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
 
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject gameBoyMemento;
+    [SerializeField] GameObject zipperTrigger;
     [SerializeField] GameObject zipperMemento;
     [SerializeField] GameObject photoMemento;
 
@@ -144,7 +145,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
 
         chainDPad.GetComponent<MeshRenderer>().material = dPadMat;
         interactionCounter++;
-        zipperMemento.SetActive(true);
+        zipperTrigger.SetActive(true);
         gameBoyMemento.SetActive(false);
     }
 

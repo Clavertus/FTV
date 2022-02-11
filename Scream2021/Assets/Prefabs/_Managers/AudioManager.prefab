@@ -541,3 +541,33 @@ MonoBehaviour:
     min: 0
     max: 50
     source: {fileID: 0}
+  - name: LampsSuddenlyOff
+    clip: {fileID: 8300000, guid: 30a4f910341c48b418da24821226e2ae, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.35
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 50
+    source: {fileID: 0}
+  - name: LampsGetOn
+    clip: {fileID: 8300000, guid: 9a0130820d04d1047bcf2ca6ca99773c, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.35
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 50
+    source: {fileID: 0}
