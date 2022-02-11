@@ -9,7 +9,9 @@ using UnityEngine.Playables;
 public class TriggerMonsterReveal : MonoBehaviour
 {
     [SerializeField] GameObject monsterToReveal = null;
+    [SerializeField] EndlessTrainLevelCntrl levelCntrl = null;
     [SerializeField] PlayableDirector cinematicSequence = null;
+    [SerializeField] GameObject DoorToDestroy = null;
     InGameMenuCotrols menu;
     MouseLook mouseLook;
     PlayerMovement player;
@@ -36,9 +38,17 @@ public class TriggerMonsterReveal : MonoBehaviour
     {
         Debug.Log("RevealMonster");
 
+        levelCntrl.TriggerFlick(0.1f);
+
+        yield return new WaitForSeconds(0.1f);
+
         cinematicSequence.Play();
 
+        DoorToDestroy.SetActive(false);
+
         yield return new WaitForSeconds(5.5f);
+
+        levelCntrl.FlickOff();
 
         monsterToReveal.SetActive(true);
 

@@ -17,23 +17,63 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     [SerializeField] Animator myAnimator = null;
     [SerializeField] Transform lookAtPosition = null;
     [SerializeField] Transform playerTransform = null;
+    [SerializeField] GameObject myCamera = null;
 
     private monsterStatesEnm currentState = monsterStatesEnm.t_pose;
     private monsterStatesEnm lastState = monsterStatesEnm.t_pose;
     public AudioSource monsterFootstep;
-
+    private AudioSource monsterSound0;
+    private AudioSource monsterSound1;
+    private AudioSource monsterScream;
+    private AudioSource monsterImpact;
     [SerializeField] float walkSpeed = 2f;
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float minimalDistanceToPlayer = 5f;
 
+    internal void MonsterSound0()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterSound0);
+    }
+
+    internal void MonsterSound1()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterSound1);
+    }
+
+    internal void Impact()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterImpact);
+    }
+
+    internal void Scream()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterScream);
+    }
+
+    public void Footstep()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterFootstep);
+    }
+
+    bool finishedChew = false;
+    public void FinishAttack()
+    {
+        finishedChew = true;
+    }
+
     private void OnEnable()
     {
         monsterFootstep = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.HeavyFootstep1);
+        monsterSound0 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
+        monsterSound1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
+        monsterScream = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
+        monsterImpact = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.OpenDoor);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        myCamera.SetActive(false);
         int idle = (int) monsterStatesEnm.t_pose;
         myAnimator.SetTrigger(((int)idle).ToString());
     }
@@ -90,26 +130,11 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
         currentState = state;
     }
 
-    // This C# function can be called by an Animation Event
-    public void Footstep()
-    {
-        Debug.Log("FOOTSTEP");
-        AudioManager.instance.InstantPlayFromGameObject(monsterFootstep);
-    }
-
-    bool finishedChew = false;
-    // This C# function can be called by an Animation Event
-    public void FinishAttack()
-    {
-        Debug.Log("FINISH ATTACK");
-        finishedChew = true;
-    }
-
     [SerializeField] GameObject BloodEffectCanvas = null;
     float BloodTimer = 0f;
     private void TriggerBloodEffect()
     {
-        if (BloodTimer > 0.25f)
+        if (BloodTimer > .25f)
         {
             if (BloodEffectCanvas) BloodEffectCanvas.SetActive(!BloodEffectCanvas.activeSelf);
             BloodTimer = 0f;
@@ -120,6 +145,7 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
     private void MakePlayerLookAtMonster()
     {
         Debug.Log("LockMenuControl");
+        myCamera.SetActive(true);
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         Vector3 LookAtPlayer = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z); //to use the same ground
         transform.LookAt(LookAtPlayer);

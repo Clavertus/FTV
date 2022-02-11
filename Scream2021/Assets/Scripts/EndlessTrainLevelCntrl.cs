@@ -1,4 +1,5 @@
 using FTV.Saving;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,10 +23,11 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     private PlayerMovement player = null;
 
     private bool triggerPlayerDisableControl = false;
+    TrainEffectController[] trains = null;
 
     void Awake()
     {
-        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
         {
             train.SetPosterMatId(1);
@@ -41,11 +43,64 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     }
 
     bool dialog_enabled = true;
+
+    internal void FlickOff()
+    {
+        flickOn = false;
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.StopLightFlick());
+        }
+    }
+
     private void Update()
     {
         if (dialog_enabled)
         {
             TriggerDialogs();
+        }
+
+        if(flickOn)
+        {
+            if(flickTime < flickCounter)
+            {
+                flickCounter = 0.0f;
+                foreach (TrainEffectController train in trains)
+                {
+                    float time = UnityEngine.Random.Range(0.01f, flickTimeMax);
+                    train.FlickerLightForTime(time);
+                    flickTime = time;
+                }
+            }
+            flickCounter += Time.deltaTime;
+        }
+    }
+
+    float flickCounter = 0.0f;
+    float flickTime = 0.0f;
+    float flickTimeMax = 0.0f;
+    bool flickOn = false;
+    public void TriggerFlick(float duration)
+    {
+        flickOn = true;
+        flickTimeMax = duration;
+        foreach (TrainEffectController train in trains)
+        {
+            train.FlickerLightForTime(flickTimeMax);
+        }
+    }
+
+    public IEnumerator TriggerLight(float after, float duration)
+    {
+        yield return new WaitForSeconds(after);
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.SetLightOff());
+        }
+        yield return new WaitForSeconds(duration);
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.SetLightOn());
         }
     }
 

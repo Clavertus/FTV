@@ -49,12 +49,18 @@ public class TrainEffectController : MonoBehaviour
             if(lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = minLightIntensityByFlick;
         }
 
-        if (Lamps.Length > 0)
-        {
-            Lamps[0].sharedMaterials[1].SetColor("_EmissionColor", Color.black);
-        }
-
         flickerLight = true;
+    }
+    public IEnumerator StopLightFlick()
+    {
+        flickerTimeCnt = 0f;
+        flickerLight = false;
+
+        for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
+        {
+            if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = lightsIntensities[ix];
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.15f));
+        }
     }
 
     bool light_is_on = true;
