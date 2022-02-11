@@ -24,7 +24,7 @@ public class JacketTriggerZone : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         yield return StartCoroutine(train.SetLightOff());
         yield return new WaitForSeconds(3f);
-        yield return StartCoroutine(train.SetLightOn());
         jacketMemento.SetActive(true);
+        yield return StartCoroutine(train.SetLightOn());
     }
 }
