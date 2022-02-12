@@ -25,6 +25,8 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     private bool triggerPlayerDisableControl = false;
     TrainEffectController[] trains = null;
 
+    private float fadeOutInternalDelay = 1f;
+
     void Awake()
     {
         trains = FindObjectsOfType<TrainEffectController>();
@@ -40,9 +42,23 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();
         player = FindObjectOfType<PlayerMovement>();
+
+        if(dialog_enabled)
+        {
+            if(saveCalledFromHere)
+            {
+                //dialog are not played yet (when saved, reduce delay)
+                fadeOutInternalDelay = 2.5f;
+            }
+            else
+            {
+                fadeOutInternalDelay = fadeOutDelay;
+            }
+        }
     }
 
     bool dialog_enabled = true;
+    bool saveCalledFromHere = false;
 
     internal void FlickOff()
     {
@@ -106,8 +122,9 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 
     private void TriggerDialogs()
     {
-        if (!triggerPlayerDisableControl)
+        if (!triggerPlayerDisableControl && !saveCalledFromHere)
         {
+            FindObjectOfType<SavingWrapper>().CheckpointSave();
             triggerPlayerDisableControl = true;
             Debug.Log("LockMenuControl");
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
@@ -117,7 +134,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 
         if (dialogue0_played == false)
         {
-            if (timeCounter > callDialog0After + fadeOutDelay)
+            if (timeCounter > callDialog0After + fadeOutInternalDelay)
             {
                 dialogue0_played = true;
                 //play the first dialog
@@ -142,7 +159,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
             timeCounter = 0f;
         }
 
-        if (fadeOutCounter >= fadeOutDelay)
+        if (fadeOutCounter >= fadeOutInternalDelay)
         {
             if (fadeOut_played == false)
             {
@@ -163,12 +180,14 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     struct SaveData
     {
         public bool dialog_enabled;
+        public bool saveCalledFromHere;
     }
 
     public object CaptureState()
     {
         SaveData data = new SaveData();
         data.dialog_enabled = dialog_enabled;
+        data.saveCalledFromHere = true;
         return data;
     }
 
@@ -176,5 +195,6 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     {
         SaveData data = (SaveData)state;
         dialog_enabled = data.dialog_enabled;
+        saveCalledFromHere = data.saveCalledFromHere;
     }
 }
