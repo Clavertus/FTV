@@ -160,9 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17b3639992a12e41b10937c0da33515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLookAt: {fileID: 9003603560043588501}
+  playerLookAt: {fileID: 0}
   headBone: {fileID: 7359847607746906967}
   distanceToLookAt: 8
+  rotationSpeed: 120
 --- !u!114 &1998302139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +200,10 @@ MonoBehaviour:
   point_2: {fileID: 0}
   open_texture: {fileID: 2800000, guid: 1dda17baabe13f44281b7252610f89dd, type: 3}
   close_texture: {fileID: 2800000, guid: 2bf6a58f52daf2145af38fc496f6f4c0, type: 3}
+  speak_texture: {fileID: 2800000, guid: b11daab2c72717a4989ffde9675de2a7, type: 3}
   openTime: 2
   closeTime: 0.25
+  speakTime: 0.25
 --- !u!1001 &18328598822371981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -543,11 +546,6 @@ GameObject:
 --- !u!4 &405663473920452983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6263c43d0cc9b874b91903dbcd5b0d22, type: 3}
-  m_PrefabInstance: {fileID: 156374445363842716}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9003603560043588501 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9140253385185518857, guid: 6263c43d0cc9b874b91903dbcd5b0d22, type: 3}
   m_PrefabInstance: {fileID: 156374445363842716}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7359847607746906967 stripped

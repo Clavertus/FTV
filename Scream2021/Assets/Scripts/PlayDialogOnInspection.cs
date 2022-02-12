@@ -23,8 +23,6 @@ public class PlayDialogOnInspection : MonoBehaviour, ISaveable
     // Update is called once per frame
     void Update()
     {
-        Debug.LogWarning(interactionCounter);
-
         if (gameObject.tag == "Selected" && interactionCounter == 0) { Interaction(); return; }
 
         if(interactionCounter == 1)
