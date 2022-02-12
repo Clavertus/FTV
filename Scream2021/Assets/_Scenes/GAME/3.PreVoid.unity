@@ -9543,12 +9543,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBoxTextLabel: {fileID: 0}
-  testDialogue: {fileID: 11400000, guid: debab3366719fef4baa096f8f2c6bc4f, type: 2}
   dialogueBox: {fileID: 2074534958}
   chooseBox: {fileID: 0}
   chooseBox_TextLabels: []
   dialogueBox_image: {fileID: 0}
   defaultStyle: {fileID: 0}
+  tutorialBox: {fileID: 0}
+  tutorialBox_Messages: []
+  fadeStep: 0.5
 --- !u!114 &1825275508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10391,6 +10393,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2846696559320310921, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: uniqueIdentifier
+      value: 718ce7e4-eec6-46f7-a3ce-394a6f5d83fb
+      objectReference: {fileID: 0}
     - target: {fileID: 6045591278918779741, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_Name
       value: Player
