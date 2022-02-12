@@ -97,22 +97,35 @@ public class LevelLoader : MonoBehaviour
     public IEnumerator StartLoadingSameScene()
     {
         StopAllCoroutines();
-        int index = SceneManager.GetActiveScene().buildIndex;
+
         yield return StartCoroutine(FadeIn());
-        LoadScene(index);
-        //load system
+
         yield return SavingWrapper.instance.LoadLastScene();
+
         StartCoroutine(FadeOut());
     }
 
     public IEnumerator StartLoadingSameScene(float delay)
     {
         StopAllCoroutines();
-        int index = SceneManager.GetActiveScene().buildIndex;
+
         yield return StartCoroutine(FadeIn());
-        //LoadScene(index);
-        //load system
+
         StartCoroutine(SavingWrapper.instance.LoadLastScene());
+
+        StartCoroutine(FadeOut(delay));
+    }
+    public IEnumerator StartLoadingSceneFromTitleScreen(float delay)
+    {
+        StopAllCoroutines();
+
+        yield return StartCoroutine(FadeIn());
+        TitleSavingWrapper titleSave = FindObjectOfType<TitleSavingWrapper>();
+        if(titleSave)
+        {
+            titleSave.LoadLastGame();
+        }
+
         StartCoroutine(FadeOut(delay));
     }
 

@@ -40,6 +40,12 @@ namespace FTV.Saving
             File.Delete(GetPathFromSaveFile(saveFile));
         }
 
+        public bool checkSave(string saveFile)
+        {
+            string path = GetPathFromSaveFile(saveFile);
+            return File.Exists(path);
+        }
+
         private Dictionary<string, object> LoadFile(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);

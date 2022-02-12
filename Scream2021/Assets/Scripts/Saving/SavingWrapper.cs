@@ -27,6 +27,7 @@ public class SavingWrapper : MonoBehaviour
 
         //FindObjectOfType<LevelLoader>().CheckpointFadingIn();
         yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+        //consider to leave this here to easier test levels in Editor
     }
 
     public IEnumerator LoadLastScene() 
@@ -37,6 +38,7 @@ public class SavingWrapper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKey(KeyCode.L))
         {
             Load();
@@ -46,6 +48,7 @@ public class SavingWrapper : MonoBehaviour
         {
             Save();
         }
+        */
     }
 
     public void CheckpointSave()

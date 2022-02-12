@@ -13,15 +13,15 @@ public class TitleSavingWrapper : MonoBehaviour
         GetComponent<SavingSystem>().Delete(defaultSaveFile);
     }
 
-    private void Save()
+    public bool CheckSaveGame()
     {
-        //call to saving system save
-        GetComponent<SavingSystem>().Save(defaultSaveFile);
+        //call to saving system to check save file
+        return GetComponent<SavingSystem>().checkSave(defaultSaveFile);
     }
 
-    private void Load()
+    public void LoadLastGame()
     {
         //call to saving system load
-        GetComponent<SavingSystem>().Load(defaultSaveFile);
+        StartCoroutine( GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile) );
     }
 }
