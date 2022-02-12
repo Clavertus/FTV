@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour, ISaveable
     bool isGrounded;
     bool movementLock = false;
 
+    MouseLook mouseLook = null;
+
     private void Start()
     {
         //movementLock = false; 

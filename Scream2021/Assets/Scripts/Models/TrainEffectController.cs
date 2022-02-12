@@ -59,7 +59,7 @@ public class TrainEffectController : MonoBehaviour
         for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
         {
             if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = lightsIntensities[ix];
-            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.15f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.05f));
         }
     }
 
