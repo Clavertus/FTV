@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1578765785064903491}
   - component: {fileID: 1998302139}
   - component: {fileID: 1787795100}
+  - component: {fileID: 4680006666525053139}
   m_Layer: 0
   m_Name: Tara
   m_TagString: Untagged
@@ -140,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 9166551685653716618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.23, y: 0, z: -1.92}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 7703063433098142495}
   - {fileID: 405663473920452983}
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
-  dialog_1: {fileID: 11400000, guid: 488ff628c2d4ab34a8648bf9a71d0243, type: 2}
+  dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
   dialog_2: {fileID: 0}
   dialog_3: {fileID: 0}
   dialog_4: {fileID: 0}
@@ -204,6 +205,19 @@ MonoBehaviour:
   openTime: 2
   closeTime: 0.25
   speakTime: 0.25
+--- !u!114 &4680006666525053139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166551685653716618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 90cfa3df-503a-4b9a-9279-a88676f72952
 --- !u!1001 &18328598822371981
 PrefabInstance:
   m_ObjectHideFlags: 0
