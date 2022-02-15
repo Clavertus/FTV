@@ -59,6 +59,6 @@ public class NPCMoving : MonoBehaviour
 
     public bool IsMoving()
     {
-        return agent.velocity.magnitude >= 0.1f;
+        return agent.velocity.magnitude >= 0.05f;
     }
 }
