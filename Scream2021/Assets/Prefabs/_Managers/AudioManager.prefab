@@ -578,7 +578,7 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -593,7 +593,7 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -608,13 +608,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 50
+    max: 5
     source: {fileID: 0}
   - name: TaraSpeech4
     clip: {fileID: 8300000, guid: c8b026a807811ad4f8d8844d04c94136, type: 3}
@@ -623,7 +623,7 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -638,7 +638,7 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
