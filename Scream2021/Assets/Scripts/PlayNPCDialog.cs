@@ -21,12 +21,6 @@ public class PlayNPCDialog : MonoBehaviour
     private void Awake()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
-        dialogUI.OnDialogShowStart += NPCDialogIsStarted;
-        dialogUI.OnDialogNodeStart += playTalkAnimation;
-        dialogUI.OnDialogNodeStart += NPCDialogNodeStarted;
-        dialogUI.OnDialogNodeEnd += NPCDialogNodeEnd;
-        dialogUI.OnDialogShowEnd += playIdleAnimation;
-        dialogUI.OnDialogShowEnd += NPCDialogFinished;
     }
 
     private void NPCDialogIsStarted()
@@ -48,6 +42,8 @@ public class PlayNPCDialog : MonoBehaviour
     private void NPCDialogFinished()
     {
         DialogIsFinished?.Invoke();
+
+        UnsubscribeOnDialogEvents();
     }
 
     // Update is called once per frame
@@ -62,11 +58,33 @@ public class PlayNPCDialog : MonoBehaviour
         {
             if (dialogObject)
             {
+                //subscribe on dialogUI
+                SubscribeOnDialogEvents();
+
                 FindObjectOfType<MouseLook>().LockAndLookAtPoint(npc.GetLookAtPoint().position);
                 dialogUI.ShowDialogue(dialogObject);
                 DisableInteraction();
             }
         }
+    }
+
+    private void SubscribeOnDialogEvents()
+    {
+        dialogUI.OnDialogShowStart += NPCDialogIsStarted;
+        dialogUI.OnDialogNodeStart += playTalkAnimation;
+        dialogUI.OnDialogNodeStart += NPCDialogNodeStarted;
+        dialogUI.OnDialogNodeEnd += NPCDialogNodeEnd;
+        dialogUI.OnDialogShowEnd += playIdleAnimation;
+        dialogUI.OnDialogShowEnd += NPCDialogFinished;
+    }
+    private void UnsubscribeOnDialogEvents()
+    {
+        dialogUI.OnDialogShowStart -= NPCDialogIsStarted;
+        dialogUI.OnDialogNodeStart -= playTalkAnimation;
+        dialogUI.OnDialogNodeStart -= NPCDialogNodeStarted;
+        dialogUI.OnDialogNodeEnd -= NPCDialogNodeEnd;
+        dialogUI.OnDialogShowEnd -= playIdleAnimation;
+        dialogUI.OnDialogShowEnd -= NPCDialogFinished;
     }
 
     private void playIdleAnimation()
