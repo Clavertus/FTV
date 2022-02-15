@@ -56,7 +56,7 @@ public class PlayNPCDialog : MonoBehaviour
 
     private void Interaction()
     {
-        Debug.Log("interaction");
+        Debug.Log("Play NPC Dialogue");
         gameObject.tag = "Untagged";
         interactionCounter++;
 

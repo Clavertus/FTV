@@ -44,6 +44,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] float speakTime = 0.25f;
     private bool speaking = false;
 
+
+    public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -52,11 +54,21 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         npc_Dialog.DialogNodeIsStarted += OnDialogNodeStarted;
         npc_Dialog.DialogNodeIsEnded += OnDialogNodeFinished;
         //on start play the first dialog
+
+        taraSpeech[0] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech1);
+        taraSpeech[1] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech2);
+        taraSpeech[2] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech3);
+        taraSpeech[3] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech4);
+        taraSpeech[4] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech5);
     }
 
+    int dialogId = 0;
     private void OnDialogNodeStarted()
     {
         //speaking = true;
+        AudioManager.instance.InstantPlayFromGameObject(taraSpeech[dialogId]);
+        dialogId += 1;
+        if (dialogId >= taraSpeech.Length) dialogId = 0;
     }
     private void OnDialogNodeFinished()
     {
