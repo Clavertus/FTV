@@ -8,6 +8,7 @@ using System;
 public class DialogueUI : MonoBehaviour
 {
 
+    public Action OnDialogShowStart { get; set; }
     public Action<bool> OnDialogNodeStart { get; set; }
     public Action OnDialogNodeEnd { get; set; }
     public Action OnDialogShowEnd { get; set; }
@@ -105,6 +106,9 @@ public class DialogueUI : MonoBehaviour
     {
         bool exitDialogue = false;
         dialogueObject.EnableAndFixDialog();
+
+        OnDialogShowStart?.Invoke();
+
         DialogNode nextDialogue = dialogueObject.GetRootNode();
 
         while (!exitDialogue)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayNPCDialog : MonoBehaviour
 {
+    public Action DialogIsStarted { get; set; }
     public Action DialogNodeIsStarted { get; set; }
     public Action DialogNodeIsEnded { get; set; }
     public Action DialogIsFinished { get; set; }
@@ -20,11 +21,17 @@ public class PlayNPCDialog : MonoBehaviour
     private void Awake()
     {
         dialogUI = FindObjectOfType<DialogueUI>();
+        dialogUI.OnDialogShowStart += NPCDialogIsStarted;
         dialogUI.OnDialogNodeStart += playTalkAnimation;
         dialogUI.OnDialogNodeStart += NPCDialogNodeStarted;
         dialogUI.OnDialogNodeEnd += NPCDialogNodeEnd;
         dialogUI.OnDialogShowEnd += playIdleAnimation;
         dialogUI.OnDialogShowEnd += NPCDialogFinished;
+    }
+
+    private void NPCDialogIsStarted()
+    {
+        DialogIsStarted?.Invoke();
     }
 
     private void NPCDialogNodeStarted(bool isPlayerSpeaking)
@@ -43,11 +50,6 @@ public class PlayNPCDialog : MonoBehaviour
         DialogIsFinished?.Invoke();
     }
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -56,17 +58,13 @@ public class PlayNPCDialog : MonoBehaviour
 
     private void Interaction()
     {
-        Debug.Log("Play NPC Dialogue");
-        gameObject.tag = "Untagged";
-        interactionCounter++;
-
         if (dialogUI)
         {
             if (dialogObject)
             {
                 FindObjectOfType<MouseLook>().LockAndLookAtPoint(npc.GetLookAtPoint().position);
                 dialogUI.ShowDialogue(dialogObject);
-                GetComponent<Selectable>().enabled = false;
+                DisableInteraction();
             }
         }
     }
@@ -88,16 +86,26 @@ public class PlayNPCDialog : MonoBehaviour
         }
     }
 
+    public void DisableInteraction()
+    {
+        gameObject.tag = "Untagged";
+        interactionCounter++;
+        GetComponent<Selectable>().enabled = false;
+    }
+
     public void SetNewDialogAvailableNoPlay(FTV.Dialog.NPCDialogue newDialogObject)
     {
         dialogObject = newDialogObject;
-
         gameObject.tag = "Selectable";
         interactionCounter = 0;
     }
+
     public void SetNewDialogAvailableAndPlay(FTV.Dialog.NPCDialogue newDialogObject)
     {
         dialogObject = newDialogObject;
+        gameObject.tag = "Selectable";
+        interactionCounter = 0;
+        // play now
         Interaction();
     }
 }

@@ -50,10 +50,11 @@ public class NPCMoving : MonoBehaviour
         }
     }
 
-    private IEnumerator restoreNavMeshAgent()
+    public IEnumerator restoreNavMeshAgent()
     {
         yield return new WaitForSeconds(.1f);
         agent.updateRotation = true;
+        agent.updatePosition = true;
     }
 
     public bool IsMoving()

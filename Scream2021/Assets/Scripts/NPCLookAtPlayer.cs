@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPCLookAtPlayer : MonoBehaviour
 {
+    [SerializeField] PlayNPCDialog playNPCDialogInst = null;
     [SerializeField] Transform playerLookAt = null;
     [SerializeField] Transform headBone = null;
     [SerializeField] float distanceToLookAt = 5f;
