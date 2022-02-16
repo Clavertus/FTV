@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour, ISaveable
         noise_camera = Cinema.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
         if(noise_camera)
         {
+            noise_camera.m_AmplitudeGain = 0f;
+            noise_camera.m_FrequencyGain = 0f;
             amplitude = noise_camera.m_AmplitudeGain;
             frequency = noise_camera.m_FrequencyGain;
         }
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour, ISaveable
         Vector3 move = transform.right * x + transform.forward * z;
 
         float speed, stepPlayRate;
-        DetermineStepOrRunSpeed(out speed, out stepPlayRate);
+        DetermineStepOrRunSpeed(x, z, out speed, out stepPlayRate);
 
         //let character controller do all the work from here ;)
         controller.Move(move * speed * Time.deltaTime);
@@ -82,20 +84,36 @@ public class PlayerMovement : MonoBehaviour, ISaveable
         }
     }
 
-    private void DetermineStepOrRunSpeed(out float speed, out float stepPlayRate)
+    private void DetermineStepOrRunSpeed(float x_value, float z_value, out float speed, out float stepPlayRate)
     {
-        speed = moveSpeed;
-        stepPlayRate = FootstepPlayRate;
-        noise_camera.m_AmplitudeGain = amplitude;
-        noise_camera.m_FrequencyGain = frequency;
 
-        if (Input.GetKey(KeyCode.LeftShift) && runEnable)
+        if (Input.GetKey(KeyCode.LeftShift) && runEnable && ((Mathf.Abs(x_value) > Mathf.Epsilon) || (Mathf.Abs(z_value) > Mathf.Epsilon)))
         {
             speed = moveSpeed * runRate;
             stepPlayRate = FootstepPlayRate / runRate;
 
-            noise_camera.m_AmplitudeGain = cameraRunAmplitudeRate;
-            noise_camera.m_FrequencyGain = cameraRunFrequencyRate;
+            if(noise_camera.m_AmplitudeGain < cameraRunAmplitudeRate)
+            {
+                noise_camera.m_AmplitudeGain += .01f;
+            }
+            if (noise_camera.m_FrequencyGain < cameraRunFrequencyRate)
+            {
+                noise_camera.m_FrequencyGain += .01f;
+            }
+        }
+        else
+        {
+            speed = moveSpeed;
+            stepPlayRate = FootstepPlayRate;
+
+            if (noise_camera.m_AmplitudeGain > amplitude)
+            {
+                noise_camera.m_AmplitudeGain -= .01f;
+            }
+            if (noise_camera.m_FrequencyGain > frequency)
+            {
+                noise_camera.m_FrequencyGain -= .01f;
+            }
         }
     }
 

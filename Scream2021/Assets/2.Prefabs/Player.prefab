@@ -405,8 +405,8 @@ MonoBehaviour:
   runRate: 1.75
   runEnable: 0
   gravity: 0
-  cameraRunAmplitudeRate: 2.5
-  cameraRunFrequencyRate: 5
+  cameraRunAmplitudeRate: 1.5
+  cameraRunFrequencyRate: 3
   Cinema: {fileID: 4369008377874735063}
   FootstepPlayRate: 0.5
   groundCheck: {fileID: 6045591278544223089}
