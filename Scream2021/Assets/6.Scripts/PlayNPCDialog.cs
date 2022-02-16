@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayNPCDialog : MonoBehaviour
 {
+    public Action PreTriggerEventCall { get; set; }
     public Action DialogIsStarted { get; set; }
     public Action DialogNodeIsStarted { get; set; }
     public Action DialogNodeIsEnded { get; set; }
@@ -15,7 +16,7 @@ public class PlayNPCDialog : MonoBehaviour
     [SerializeField] NPCAnimationController npcAnimator = null;
 
     int interactionCounter = 0;
-
+    bool preTriggerEvent = false;
     private DialogueUI dialogUI = null;
 
     private void Awake()
@@ -58,14 +59,31 @@ public class PlayNPCDialog : MonoBehaviour
         {
             if (dialogObject)
             {
-                //subscribe on dialogUI
-                SubscribeOnDialogEvents();
+                if(preTriggerEvent)
+                {
+                    PreTriggerEventCall?.Invoke();
+                    DisableInteraction();
+                }
+                else
+                {
+                    //subscribe on dialogUI
+                    SubscribeOnDialogEvents();
 
-                FindObjectOfType<MouseLook>().LockAndLookAtPoint(npc.GetLookAtPoint().position);
-                dialogUI.ShowDialogue(dialogObject);
-                DisableInteraction();
+                    FindObjectOfType<MouseLook>().LockAndLookAtPoint(npc.GetLookAtPoint().position);
+                    dialogUI.ShowDialogue(dialogObject);
+                    DisableInteraction();
+                }
             }
         }
+    }
+
+    public void PreTriggerEventFinished()
+    {
+        SubscribeOnDialogEvents();
+
+        FindObjectOfType<MouseLook>().LockAndLookAtPoint(npc.GetLookAtPoint().position);
+        dialogUI.ShowDialogue(dialogObject);
+        preTriggerEvent = false;
     }
 
     private void SubscribeOnDialogEvents()
@@ -110,12 +128,20 @@ public class PlayNPCDialog : MonoBehaviour
         interactionCounter++;
         GetComponent<Selectable>().enabled = false;
     }
+    public void SetNewDialogAvailableNoPlayAddPreTrigger(FTV.Dialog.NPCDialogue newDialogObject)
+    {
+        dialogObject = newDialogObject;
+        gameObject.tag = "Selectable";
+        interactionCounter = 0;
+        preTriggerEvent = true;
+    }
 
     public void SetNewDialogAvailableNoPlay(FTV.Dialog.NPCDialogue newDialogObject)
     {
         dialogObject = newDialogObject;
         gameObject.tag = "Selectable";
         interactionCounter = 0;
+        preTriggerEvent = false;
     }
 
     public void SetNewDialogAvailableAndPlay(FTV.Dialog.NPCDialogue newDialogObject)
@@ -123,6 +149,7 @@ public class PlayNPCDialog : MonoBehaviour
         dialogObject = newDialogObject;
         gameObject.tag = "Selectable";
         interactionCounter = 0;
+        preTriggerEvent = false;
         // play now
         Interaction();
     }

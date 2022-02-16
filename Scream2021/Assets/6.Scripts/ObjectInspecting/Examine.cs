@@ -9,7 +9,7 @@ public class Examine : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject playerBod;
     [SerializeField] GameObject player;
-    Camera mainCam;//Camera Object Will Be Placed In Front Of
+    [SerializeField] Transform cameraFrontObject;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
 
     //Holds Original Postion And Rotation So The Object Can Be Replaced Correctly
@@ -25,10 +25,7 @@ public class Examine : MonoBehaviour
 
     void Start()
     {
-        mainCam = Camera.main;
         examineMode = false;
-
-
     }
 
     private void Update()
@@ -40,7 +37,7 @@ public class Examine : MonoBehaviour
 
         if(examineMode == true) 
         {
-            mainCam.GetComponent<MouseLook>().LockCamera();
+            cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
         }  
 
@@ -66,8 +63,8 @@ public class Examine : MonoBehaviour
                 {
                     
                     examineMode = true;
-                    Debug.Log("examineMode"); 
-                    GetComponent<MouseLook>().LockCamera();
+                    Debug.Log("examineMode");
+                    cameraFrontObject.GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                      
                     FindObjectOfType<PlayerMovement>().LockPlayer();
@@ -80,7 +77,7 @@ public class Examine : MonoBehaviour
                     originalRotation = clickedObject.transform.rotation.eulerAngles;
 
                     //Now Move Object In Front Of Camera, offsets if bool is true
-                    var relativePosition = mainCam.transform.InverseTransformDirection(transform.position - mainCam.transform.position);
+                    var relativePosition = cameraFrontObject.transform.InverseTransformDirection(transform.position - cameraFrontObject.transform.position);
                     clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
@@ -142,7 +139,7 @@ public class Examine : MonoBehaviour
             examineCanvas.gameObject.SetActive(false);
             playerBod.tag = ("Player");
 
-            GetComponent<MouseLook>().UnlockCamera();
+            cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
 
             examineCanvas.gameObject.SetActive(false);

@@ -120,11 +120,8 @@ public class LevelLoader : MonoBehaviour
         StopAllCoroutines();
 
         yield return StartCoroutine(FadeIn());
-        TitleSavingWrapper titleSave = FindObjectOfType<TitleSavingWrapper>();
-        if(titleSave)
-        {
-            titleSave.LoadLastGame();
-        }
+
+        StartCoroutine(SavingWrapper.instance.LoadLastScene());
 
         StartCoroutine(FadeOut(delay));
     }

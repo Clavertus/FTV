@@ -4,9 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class Tara_Behaviour : MonoBehaviour, ISaveable
 {
+    [SerializeField] PlayableDirector lookAtElderGodCinematicSequence = null;
     enum tara_states
     {
         tara_scene_begin,
@@ -58,17 +60,33 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         npc_Dialog.DisableInteraction();
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
+        npc_Dialog.PreTriggerEventCall += OnPreTriggerEventCall;
         npc_Dialog.DialogIsStarted += OnDialogStarted;
         npc_Dialog.DialogIsFinished += OnDialogFinished;
         npc_Dialog.DialogNodeIsStarted += OnDialogNodeStarted;
         npc_Dialog.DialogNodeIsEnded += OnDialogNodeFinished;
-        //on start play the first dialog
+
+        lookAtElderGodCinematicSequence.played += LockPlayerControl;
+        lookAtElderGodCinematicSequence.stopped += UnlockPlayerControl;
 
         taraSpeech[0] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech1);
         taraSpeech[1] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech2);
         taraSpeech[2] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech3);
         taraSpeech[3] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech4);
         taraSpeech[4] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech5);
+    }
+    private void OnPreTriggerEventCall()
+    {
+        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
+        if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
+        {
+            lookAtElderGodCinematicSequence.Play();
+        }
+    }
+
+    private void EndPreTriggerEvent()
+    {
+        npc_Dialog.PreTriggerEventFinished();
     }
 
     private void OnDialogStarted()
@@ -117,7 +135,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         else if ((behaviour_state == tara_states.tara_scene_lookAtElderGod) && (dialog_1_played == false))
         {
-            npc_Dialog.SetNewDialogAvailableNoPlay(dialog_1);
+            npc_Dialog.SetNewDialogAvailableNoPlayAddPreTrigger(dialog_1);
             dialog_1_played = true;
             GetComponent<NPCMoving>().SetDestination(point_1);
         }
@@ -272,6 +290,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     public void RestoreState(object state)
     {
+        Debug.LogWarning("Restoring tara state");
+
         SaveData data = (SaveData)state;
         dialog_0_played = data.dialog_0_played;
         dialog_1_played = data.dialog_1_played;
@@ -288,4 +308,23 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
     #endregion
+
+    private void LockPlayerControl(PlayableDirector pd)
+    {
+        Debug.Log("LockMenuControl");
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        FindObjectOfType<MouseLook>().LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+    }
+
+    private void UnlockPlayerControl(PlayableDirector pd)
+    {
+        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+        FindObjectOfType<MouseLook>().UnlockFromPoint();
+
+        if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
+        {
+            EndPreTriggerEvent();
+        }
+    }
 }

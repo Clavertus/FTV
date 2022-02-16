@@ -77,7 +77,7 @@ public class MementoObjectInspecting : MonoBehaviour
         Debug.Log("test");
         
         
-        symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
+        if(symbol) symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
         changeTVstatic();
 
         DisableCanvasAndTriggering();

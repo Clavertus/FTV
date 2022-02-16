@@ -1,6 +1,7 @@
 using FTV.Saving;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayerMovement : MonoBehaviour, ISaveable
 {
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour, ISaveable
     [SerializeField] float runRate = 1.5f;
     [SerializeField] private bool runEnable = false;
     [SerializeField] float gravity = -9.81f;
+    [SerializeField] float cameraRunAmplitudeRate = 2.5f;
+    [SerializeField] float cameraRunFrequencyRate = 5f;
+    [SerializeField] Cinemachine.CinemachineVirtualCamera Cinema = null;
 
     public void SetRunEnable(bool newValue)
     {
@@ -32,9 +36,17 @@ public class PlayerMovement : MonoBehaviour, ISaveable
 
     MouseLook mouseLook = null;
 
+    float amplitude = 0f;
+    float frequency = 0f;
+    Cinemachine.CinemachineBasicMultiChannelPerlin noise_camera = null;
     private void Start()
     {
-        //movementLock = false; 
+        noise_camera = Cinema.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+        if(noise_camera)
+        {
+            amplitude = noise_camera.m_AmplitudeGain;
+            frequency = noise_camera.m_FrequencyGain;
+        }
     }
 
     void Update()
@@ -74,10 +86,16 @@ public class PlayerMovement : MonoBehaviour, ISaveable
     {
         speed = moveSpeed;
         stepPlayRate = FootstepPlayRate;
+        noise_camera.m_AmplitudeGain = amplitude;
+        noise_camera.m_FrequencyGain = frequency;
+
         if (Input.GetKey(KeyCode.LeftShift) && runEnable)
         {
             speed = moveSpeed * runRate;
             stepPlayRate = FootstepPlayRate / runRate;
+
+            noise_camera.m_AmplitudeGain = cameraRunAmplitudeRate;
+            noise_camera.m_FrequencyGain = cameraRunFrequencyRate;
         }
     }
 
