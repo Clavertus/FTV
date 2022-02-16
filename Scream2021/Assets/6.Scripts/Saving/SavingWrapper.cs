@@ -59,7 +59,7 @@ public class SavingWrapper : MonoBehaviour
         if(QuicksaveCanvas.instance)
         {
             QuicksaveCanvas.instance.gameObject.SetActive(true);
-            QuicksaveCanvas.instance.FadeOut();
+            StartCoroutine(QuicksaveCanvas.instance.FadeOut(5f));
         }
         Save();
     }

@@ -35,10 +35,18 @@ public class QuicksaveCanvas : MonoBehaviour
 
     void Update()
     {
-        if (!LeanTween.isTweening(gameObject) && fadingOut)
+        if (LeanTween.isTweening(gameObject) && fadingOut)
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator FadeOut(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
+        fadingOut = true;
     }
 
     public void FadeOut()
