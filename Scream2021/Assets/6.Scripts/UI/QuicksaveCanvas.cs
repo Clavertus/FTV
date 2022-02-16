@@ -28,30 +28,28 @@ public class QuicksaveCanvas : MonoBehaviour
     void OnEnable()
     {
         cg.alpha = 0;
-
         LeanTween.alphaCanvas(cg, 1f, 1f).setEaseInCirc();
         LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong().setDelay(2f);
+        fadingOut = false;
+        cgAlphaToogleCounter = 0;
     }
 
+    int cgAlphaToogleCounter = 0;
     void Update()
     {
-        if (LeanTween.isTweening(gameObject) && fadingOut)
+        if ((cg.alpha == 0) && fadingOut)
         {
-            gameObject.SetActive(false);
+            if(cgAlphaToogleCounter == 3)
+            {
+                gameObject.SetActive(false);
+            }
+            cgAlphaToogleCounter++;
         }
-    }
-
-    public IEnumerator FadeOut(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
-        fadingOut = true;
     }
 
     public void FadeOut()
     {
-        LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
+        //LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
         fadingOut = true;
     }
 }
