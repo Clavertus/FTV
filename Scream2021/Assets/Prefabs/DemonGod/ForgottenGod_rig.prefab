@@ -42,7 +42,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9716981, g: 0.91211283, b: 0.91211283, a: 1}
+  m_Color: {r: 1, g: 0.7311321, b: 0.7311321, a: 1}
   m_Intensity: 10000
   m_Range: 500
   m_SpotAngle: 115.774445
@@ -80,7 +80,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2271494871661158769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2249150207606357185}
   - component: {fileID: 8573247521993621547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3742612394707770585}
   - component: {fileID: 983637005475176891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7033184047694947203}
   - component: {fileID: 7256108615509374677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8857935191838520975}
   - component: {fileID: 6535468496979037030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5748626833265514190}
   - component: {fileID: 5141126012236361471}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5965486504710899983}
   - component: {fileID: 2280554112768330215}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2729117963017057834}
   - component: {fileID: 1431524997778769173}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313953375846977437}
   - component: {fileID: 2326316006606070611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090255292302225572}
   - component: {fileID: 6296775460495674648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4094255455471230430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432213231139584470}
   - component: {fileID: 4419694826843724051}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1135,7 +1135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343946472052214896}
   - component: {fileID: 8440114943186624096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1232,7 +1232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368679791265747524}
   - component: {fileID: 3497464155024325681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,7 +1329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3099379707887996130}
   - component: {fileID: 7964812845842935654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655762411130095225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.010_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 120213722301881787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508885212095024283}
   - component: {fileID: 312733666461555507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4717308590835307136}
   - component: {fileID: 4565035369265280997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,7 +1715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1286921455405819650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256921634365337937}
   - component: {fileID: 5965452269002619348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1844,7 +1844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099936767045123441}
   - component: {fileID: 5617774363682488020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1940,7 +1940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1589150233974448744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1972,7 +1972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3428894954390679011}
   - component: {fileID: 4845283139115106183}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2069,7 +2069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2519296421639751091}
   - component: {fileID: 8037052066213390771}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2166,7 +2166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12068727713323184}
   - component: {fileID: 6755556711163484259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2263,7 +2263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7675179247808433785}
   - component: {fileID: 3004697761506808864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2359,7 +2359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515220877315893458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2390,7 +2390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2699108945410871087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ForgottenGod_Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2422,7 +2422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334520898707547992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2454,7 +2454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5688546424766890427}
   - component: {fileID: 2435002617279475115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2550,7 +2550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216013511648004655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2581,7 +2581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7436356917323515996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2612,7 +2612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6848084836740595353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.006_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2643,7 +2643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121075659541384424}
   - component: {fileID: 1297724705829078712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2740,7 +2740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6695434536453904525}
   - component: {fileID: 7354220942320915367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2836,7 +2836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 580814128578621291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.013_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,7 +2866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6690960593970017002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2898,7 +2898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020486230951525439}
   - component: {fileID: 4157563806128483398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2995,7 +2995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7119782771050326103}
   - component: {fileID: 1426463229299612744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3092,7 +3092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7857568487622494891}
   - component: {fileID: 3428593790840380761}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3189,7 +3189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8785027950042018428}
   - component: {fileID: 8464815546856744928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3286,7 +3286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8687958851910812994}
   - component: {fileID: 7653845771834171181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3383,7 +3383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749526194329867339}
   - component: {fileID: 7973809925623162117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3480,7 +3480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5606698354630627815}
   - component: {fileID: 4853673230439754327}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3576,7 +3576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1293523460617684997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.012_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3606,7 +3606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562570721044773744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.007_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3637,7 +3637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3448469439730446041}
   - component: {fileID: 3487657658244637255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3734,7 +3734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8370805970291316666}
   - component: {fileID: 3161928946631336702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3830,7 +3830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 241888114040749548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.011_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3860,7 +3860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7615430959863855489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.009_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3891,7 +3891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495762647211108144}
   - component: {fileID: 4361097335024657463}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ForgottenGod_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3985,7 +3985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2562533435265138512}
   - component: {fileID: 729223032322711713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4082,7 +4082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1161044019267971108}
   - component: {fileID: 2417090128243904224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4178,7 +4178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7169917048224349720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4213,7 +4213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531469521717537613}
   - component: {fileID: 6168806412202004112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4309,7 +4309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7237260448973700355}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.008_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4340,7 +4340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8423979698218585361}
   - component: {fileID: 2639858066804480339}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4437,7 +4437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6252106496210051644}
   - component: {fileID: 3476960612847190050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4534,7 +4534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6527751177704638190}
   - component: {fileID: 3062306607695442718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4631,7 +4631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290399634135409272}
   - component: {fileID: 8107379574541397160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4728,7 +4728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8913556603786649739}
   - component: {fileID: 3860628056144223274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +4825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8879928339842700135}
   - component: {fileID: 7616208127318088238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Retopo Tooth.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,7 +4921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8274129458243015459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4953,7 +4953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3612111239718954305}
   - component: {fileID: 8011944353577339244}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RetopoHorn.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5049,7 +5049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5446963208872862389}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5080,7 +5080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8091719791725977522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

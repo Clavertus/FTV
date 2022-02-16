@@ -11,6 +11,7 @@ public class GodPointMovement : MonoBehaviour
 
     [SerializeField] float speed = 10f;
     [SerializeField] float speedBoost = 10f;
+    [SerializeField] bool changeRotationToPoints = false;
     bool enableMovement = false;
 
     // Start is called before the first frame update
@@ -22,14 +23,20 @@ public class GodPointMovement : MonoBehaviour
         }
         else
         {
-            transform.rotation = pointA.rotation;
+            if(changeRotationToPoints)
+            {
+                transform.rotation = pointA.rotation;
+            }
             transform.position = pointA.position;
         }
 
 
         if (pointC != null)
         {
-            transform.rotation = pointC.rotation;
+            if (changeRotationToPoints)
+            {
+                transform.rotation = pointC.rotation;
+            }
         }
     }
 
@@ -40,7 +47,6 @@ public class GodPointMovement : MonoBehaviour
         {
             MoveToPointC();
         }
-        
     }
 
     private void MoveToPointC()
