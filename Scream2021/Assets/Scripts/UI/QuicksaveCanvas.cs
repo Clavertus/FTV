@@ -1,36 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class QuicksaveCanvas : MonoBehaviour
 {
-    private bool fadingOut;
+    public static QuicksaveCanvas instance;
     private CanvasGroup cg;
 
     void Awake()
     {
-        cg = gameObject.GetComponent<CanvasGroup>();
-    }
-
-    void OnEnable()
-    {
-        cg.alpha = 0;
-
-        LeanTween.alphaCanvas(cg, 1f, 1f).setEaseInCirc();
-        LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong().setDelay(2f);
-    }
-
-    void Update()
-    {
-        if (!LeanTween.isTweening(gameObject) && fadingOut)
+        if (instance == null)
         {
-            gameObject.SetActive(false);
+            instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        cg = gameObject.GetComponent<CanvasGroup>();
+        cg.alpha = 0;
     }
 
-    public void FadeOut()
+    public void StartAnimation() // QuicksaveCanvas.instance.StartAnimation()
+    {
+        Action action = new Action(FadeOut);
+
+        LeanTween.alphaCanvas(cg, 1f, 0.5f).setEaseInCirc();
+        LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong(2).setDelay(2f).setOnComplete(action);
+    }
+
+    void FadeOut()
     {
         LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
-        fadingOut = true;
     }
 }
