@@ -142,20 +142,17 @@ public class AudioManager : MonoBehaviour
 
     public void PlayOneShotFromGameObject(AudioSource audioSource)
     {
-        Debug.Log(audioSource.gameObject.name);
         audioSource.PlayOneShot(audioSource.clip);
         StartCoroutine(FadeInSound(audioSource));
     }
 
     public void StopFromGameObject(AudioSource audioSource)
     {
-        Debug.Log(audioSource.gameObject.name);
         StartCoroutine(FadeOutSound(audioSource));
     }
 
     public void StartPlayingFromGameObject(AudioSource audioSource)
     {
-        Debug.Log(audioSource.gameObject.name);
         audioSource.Play();
         StartCoroutine(FadeInSound(audioSource));
     }
@@ -164,14 +161,12 @@ public class AudioManager : MonoBehaviour
 
     public void InstantPlayFromGameObject(AudioSource audioSource)
     {
-        Debug.Log(audioSource.gameObject.name);
         audioSource.PlayOneShot(audioSource.clip);
     }
 
     public void InstantStopFromGameObject(AudioSource audioSource)
     {
         audioSource.Stop(); 
-        Debug.Log(audioSource.gameObject.name);
     }
 
     public AudioSource AddAudioSourceWithSound(GameObject otherGameObject, soundsEnum soundName)//Should always be called in the Awake method of the otherGameObject
