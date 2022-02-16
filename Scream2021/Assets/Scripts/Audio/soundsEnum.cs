@@ -33,5 +33,13 @@ public enum soundsEnum
 	ForceDoor1 = 30,
 	ForceDoor2 = 31,
 	TrainAmbientLoop = 32,
+	LampsSuddenlyOff = 33,
+	LampsGetOn = 34,
+	TaraSpeech1 = 35,
+	TaraSpeech2 = 36,
+	TaraSpeech3 = 37,
+	TaraSpeech4 = 38,
+	TaraSpeech5 = 39,
+	TaraTalkingBackground = 40,
 
 }

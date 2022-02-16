@@ -7,12 +7,18 @@ using UnityEngine.UI;
 public class ShowFpsSetting : MonoBehaviour
 {
     [SerializeField] Toggle showFpsToogle = null;
+    [SerializeField] GameObject showFpsGameObj = null;
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
         {
             bool showFPS = PlayerPrefs.GetInt("Setting_ShowFps") == 1 ? true : false;
             if(showFpsToogle) showFpsToogle.isOn = showFPS;
+        }
+
+        if (showFpsToogle)
+        {
+            if (showFpsGameObj) showFpsGameObj.SetActive(showFpsToogle.isOn);
         }
 
         if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { ValueChangeCheck(); });

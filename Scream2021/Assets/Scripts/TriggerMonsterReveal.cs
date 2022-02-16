@@ -1,3 +1,4 @@
+using FTV.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,13 @@ using UnityEngine.Playables;
 public class TriggerMonsterReveal : MonoBehaviour
 {
     [SerializeField] GameObject monsterToReveal = null;
+    [SerializeField] EndlessTrainLevelCntrl levelCntrl = null;
     [SerializeField] PlayableDirector cinematicSequence = null;
+    [SerializeField] GameObject DoorToDestroy = null;
+
+
+    [SerializeField] Transform playerLookCamera = null;
+    [SerializeField] Transform playerCinematicCamera = null;
     InGameMenuCotrols menu;
     MouseLook mouseLook;
     PlayerMovement player;
@@ -27,33 +34,56 @@ public class TriggerMonsterReveal : MonoBehaviour
 
     public void RevealMonsterStart()
     {
-        StartCoroutine(RevealMonster());
+        StartCinematicRevealMonster();
     }
 
-
-    public IEnumerator RevealMonster()
+    public void CinematicSlowMotionActivation()
     {
-        Debug.Log("RevealMonster");
+        Time.timeScale = 0.45f;
+    }
+    public void CinematicShowTutorial()
+    {
+        FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
+    }
 
+    public void CinematicFlickOff()
+    {
+        levelCntrl.FlickOff();
+    }
+
+    public void CinematicMonsterRevealActivation()
+    {
         monsterToReveal.SetActive(true);
+        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.reveal);
+        player.SetRunEnable(true);
+    }
+    public void CinematicMonsterRunActivation()
+    {
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
+        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.walk);
+    }
+
+    public void CinematicNormalMotionActivation()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void StartCinematicRevealMonster()
+    {
+        Debug.Log("StartCinematicRevealMonster");
+
+        levelCntrl.TriggerFlick(0.10f);
+
+        DoorToDestroy.SetActive(false);
 
         cinematicSequence.Play();
-
-        yield return new WaitForSeconds(5.5f);
-
-        FindObjectOfType<DialogueUI>().ShowTutorialBox(0);
-
-        player.SetRunEnable(true);
-
-        yield return new WaitForSeconds(3f);
-
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
-
-        monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.run);
     }
 
     private void LockPlayerControl(PlayableDirector pd)
     {
+        playerCinematicCamera.rotation = playerLookCamera.rotation;
+        playerCinematicCamera.position = playerLookCamera.position;
+
         Debug.Log("LockMenuControl");
         menu.LockMenuControl();
         mouseLook.LockCamera();

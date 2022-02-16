@@ -1,8 +1,10 @@
+using FTV.Saving;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndlessTrainLevelCntrl : MonoBehaviour
+public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 {
     [SerializeField] FTV.Dialog.NPCDialogue dialogue0 = null;
     [SerializeField] FTV.Dialog.NPCDialogue dialogue1 = null;
@@ -21,9 +23,13 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
     private PlayerMovement player = null;
 
     private bool triggerPlayerDisableControl = false;
+    TrainEffectController[] trains = null;
+
+    private float fadeOutInternalDelay = 1f;
+
     void Awake()
     {
-        TrainEffectController[] trains = FindObjectsOfType<TrainEffectController>();
+        trains = FindObjectsOfType<TrainEffectController>();
         foreach (TrainEffectController train in trains)
         {
             train.SetPosterMatId(1);
@@ -36,12 +42,89 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();
         player = FindObjectOfType<PlayerMovement>();
+
+        if(dialog_enabled)
+        {
+            if(saveCalledFromHere)
+            {
+                //dialog are not played yet (when saved, reduce delay)
+                fadeOutInternalDelay = 2.5f;
+            }
+            else
+            {
+                fadeOutInternalDelay = fadeOutDelay;
+            }
+        }
+    }
+
+    bool dialog_enabled = true;
+    bool saveCalledFromHere = false;
+
+    internal void FlickOff()
+    {
+        flickOn = false;
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.StopLightFlick());
+        }
     }
 
     private void Update()
     {
-        if(!triggerPlayerDisableControl)
+        if (dialog_enabled)
         {
+            TriggerDialogs();
+        }
+
+        if(flickOn)
+        {
+            if(flickTime < flickCounter)
+            {
+                flickCounter = 0.0f;
+                foreach (TrainEffectController train in trains)
+                {
+                    float time = UnityEngine.Random.Range(0.01f, flickTimeMax);
+                    train.FlickerLightForTime(time);
+                    flickTime = time;
+                }
+            }
+            flickCounter += Time.deltaTime;
+        }
+    }
+
+    float flickCounter = 0.0f;
+    float flickTime = 0.0f;
+    float flickTimeMax = 0.0f;
+    bool flickOn = false;
+    public void TriggerFlick(float duration)
+    {
+        flickOn = true;
+        flickTimeMax = duration;
+        foreach (TrainEffectController train in trains)
+        {
+            train.FlickerLightForTime(flickTimeMax);
+        }
+    }
+
+    public IEnumerator TriggerLight(float after, float duration)
+    {
+        yield return new WaitForSeconds(after);
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.SetLightOff());
+        }
+        yield return new WaitForSeconds(duration);
+        foreach (TrainEffectController train in trains)
+        {
+            StartCoroutine(train.SetLightOn());
+        }
+    }
+
+    private void TriggerDialogs()
+    {
+        if (!triggerPlayerDisableControl && !saveCalledFromHere)
+        {
+            FindObjectOfType<SavingWrapper>().CheckpointSave();
             triggerPlayerDisableControl = true;
             Debug.Log("LockMenuControl");
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
@@ -49,9 +132,9 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
             player.LockPlayer();
         }
 
-        if(dialogue0_played == false)
+        if (dialogue0_played == false)
         {
-            if (timeCounter > callDialog0After + fadeOutDelay)
+            if (timeCounter > callDialog0After + fadeOutInternalDelay)
             {
                 dialogue0_played = true;
                 //play the first dialog
@@ -65,6 +148,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
                 dialogue1_played = true;
                 //play the first dialog
                 dialogUI.ShowDialogue(dialogue1);
+                dialog_enabled = false;
             }
         }
 
@@ -75,7 +159,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
             timeCounter = 0f;
         }
 
-        if(fadeOutCounter >= fadeOutDelay)
+        if (fadeOutCounter >= fadeOutInternalDelay)
         {
             if (fadeOut_played == false)
             {
@@ -89,6 +173,28 @@ public class EndlessTrainLevelCntrl : MonoBehaviour
         {
             fadeOutCounter += Time.deltaTime;
         }
-            
+    }
+
+
+    [System.Serializable]
+    struct SaveData
+    {
+        public bool dialog_enabled;
+        public bool saveCalledFromHere;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.dialog_enabled = dialog_enabled;
+        data.saveCalledFromHere = true;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        dialog_enabled = data.dialog_enabled;
+        saveCalledFromHere = data.saveCalledFromHere;
     }
 }

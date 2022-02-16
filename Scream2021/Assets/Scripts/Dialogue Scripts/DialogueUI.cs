@@ -8,7 +8,9 @@ using System;
 public class DialogueUI : MonoBehaviour
 {
 
-    public Action<bool> OnDialogShowStart { get; set; }
+    public Action OnDialogShowStart { get; set; }
+    public Action<bool> OnDialogNodeStart { get; set; }
+    public Action OnDialogNodeEnd { get; set; }
     public Action OnDialogShowEnd { get; set; }
 
 
@@ -104,13 +106,16 @@ public class DialogueUI : MonoBehaviour
     {
         bool exitDialogue = false;
         dialogueObject.EnableAndFixDialog();
+
+        OnDialogShowStart?.Invoke();
+
         DialogNode nextDialogue = dialogueObject.GetRootNode();
 
         while (!exitDialogue)
         {
             ApplyNodeStyle(nextDialogue);
 
-            OnDialogShowStart?.Invoke(nextDialogue.GetIsPlayerSpeaking());
+            OnDialogNodeStart?.Invoke(nextDialogue.GetIsPlayerSpeaking());
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
 
@@ -146,16 +151,21 @@ public class DialogueUI : MonoBehaviour
                     // if it is an NPC -> random? or always the first one
                     int randomDialogId = UnityEngine.Random.Range((int)0, (int)(nextDialogue.GetChildren().Count));
                     nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[randomDialogId]);
+                    OnDialogNodeEnd?.Invoke();
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
             }
             else if (nextDialogue.GetChildren().Count == 1)
             {
+
+                OnDialogNodeEnd?.Invoke();
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
             }
             else
             {
+
+                OnDialogNodeEnd?.Invoke();
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 exitDialogue = true;
             }

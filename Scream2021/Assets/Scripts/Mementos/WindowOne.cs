@@ -40,6 +40,6 @@ public class WindowOne : MonoBehaviour
         gameObject.tag = ("Untagged");
         FindObjectOfType<DialogueUI>().ShowDialogue(windowTwoInspection);
         FindObjectOfType<WindowOne>().InspectedTwice();
-        symbol.gameObject.SetActive(true);   
+        symbol.GetComponent<SymbolInteractions>().ShowChain();   
     }
 }

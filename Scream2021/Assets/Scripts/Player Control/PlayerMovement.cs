@@ -1,6 +1,8 @@
+using FTV.Saving;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, ISaveable
 {
     [SerializeField] CharacterController controller;
 
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool movementLock = false;
+
+    MouseLook mouseLook = null;
 
     private void Start()
     {
@@ -120,4 +124,38 @@ public class PlayerMovement : MonoBehaviour
             FootstepCntTime += Time.deltaTime;
         }
     }
+
+    [System.Serializable]
+    struct MovementSaveData
+    {
+        public SerializableVector3 position;
+        public SerializableVector3 rotation;
+    }
+
+    public object CaptureState()
+    {
+        //example with dictionaries
+        //Dictionary<string, object> data = new Dictionary<string, object>();
+        //data["position"] = new SerializableVector3(transform.position);
+        //data["rotation"] = new SerializableVector3(transform.rotation.eulerAngles);
+
+        MovementSaveData data = new MovementSaveData();
+        data.position = new SerializableVector3(transform.position);
+        data.rotation = new SerializableVector3(transform.rotation.eulerAngles);
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        //example with dictionaries
+        //Dictionary<string, object> data = state as Dictionary<string, object>;
+        //transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
+        //transform.position = ((SerializableVector3)data["position"]).ToVector();
+
+        MovementSaveData data = (MovementSaveData) state;
+        controller.enabled = false;
+        transform.eulerAngles = data.rotation.ToVector();
+        transform.position = data.position.ToVector();
+        controller.enabled = true;
+    } 
 }

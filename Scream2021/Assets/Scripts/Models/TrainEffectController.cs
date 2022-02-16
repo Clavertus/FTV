@@ -9,12 +9,25 @@ public class TrainEffectController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] public int posterMaterialId = 1;
     int currPosterMaterialId = 0;
-
     Light[] lightsInTheTrain = null;
     float[] lightsIntensities = null;
+    [SerializeField] MeshRenderer[] Lamps = null;
+
+    private soundsEnum lampsOff;
+    private soundsEnum lampsOn;
+
+    private Color LampsBasicColor = Color.white;
 
     private void Start()
     {
+        lampsOff = soundsEnum.LampsSuddenlyOff;
+        lampsOn = soundsEnum.LampsGetOn;
+
+        if (Lamps.Length > 0)
+        {
+            Lamps[0].sharedMaterials[1].SetColor("_EmissionColor", LampsBasicColor);
+        }
+
         lightsInTheTrain = GetComponentsInChildren<Light>();
         lightsIntensities = new float[lightsInTheTrain.Length];
         for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
@@ -35,28 +48,90 @@ public class TrainEffectController : MonoBehaviour
         {
             if(lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = minLightIntensityByFlick;
         }
+
         flickerLight = true;
+    }
+    public IEnumerator StopLightFlick()
+    {
+        flickerTimeCnt = 0f;
+        flickerLight = false;
+
+        for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
+        {
+            if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = lightsIntensities[ix];
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.05f));
+        }
+    }
+
+    bool light_is_on = true;
+    public IEnumerator SetLightOff()
+    {
+        AudioManager.instance.PlayOneShotFromAudioManager(lampsOff);
+        yield return new WaitForSeconds(0.3f);
+        light_is_on = false;
+        flickerTimeCnt = 0f;
+        for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
+        {
+            if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = 0.0f;
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.05f));
+        }
+
+        if (Lamps.Length > 0)
+        {
+            Lamps[0].sharedMaterials[1].SetColor("_EmissionColor", Color.black);
+        }
+    }
+    public IEnumerator SetLightOn()
+    {
+        AudioManager.instance.PlayOneShotFromAudioManager(lampsOn);
+        yield return new WaitForSeconds(0.45f);
+        light_is_on = true;
+        flickerTimeCnt = 0f;
+
+        if (Lamps.Length > 0)
+        {
+            Lamps[0].sharedMaterials[1].SetColor("_EmissionColor", LampsBasicColor);
+        }
+
+        for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
+        {
+            if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = lightsIntensities[ix];
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.15f));
+        }
     }
 
     private void Update()
     {
         HandlePosters();
 
-        if(flickerLight)
+        if (light_is_on)
+        {
+            HandleFlickLight();
+        }
+    }
+
+    void HandleFlickLight()
+    {
+        if (flickerLight)
         {
             flickerTimeCnt += Time.deltaTime;
-            if(flickerTime <= flickerTimeCnt)
+            if (flickerTime <= flickerTimeCnt)
             {
                 flickerLight = false;
                 for (int ix = 0; ix < lightsInTheTrain.Length; ix++)
                 {
                     if (lightsInTheTrain[ix]) lightsInTheTrain[ix].intensity = lightsIntensities[ix];
                 }
+
+                if (Lamps.Length > 0)
+                {
+                    Lamps[0].sharedMaterials[1].SetColor("_EmissionColor", LampsBasicColor);
+                }
             }
         }
     }
 
-    private void HandlePosters()
+    void HandlePosters()
     {
         if (currPosterMaterialId != posterMaterialId)
         {
