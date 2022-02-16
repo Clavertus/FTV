@@ -31,8 +31,11 @@ public class SavingWrapper : MonoBehaviour
         }
 
         //FindObjectOfType<LevelLoader>().CheckpointFadingIn();
-        yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
-        //consider to leave this here to easier test levels in Editor
+        if(FindObjectOfType<TitleSavingWrapper>() == null)
+        {
+            //consider to leave this here to easier test levels in Editor
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+        }
     }
 
     public IEnumerator LoadLastScene() 

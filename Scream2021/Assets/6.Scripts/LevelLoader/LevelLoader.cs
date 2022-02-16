@@ -121,7 +121,7 @@ public class LevelLoader : MonoBehaviour
 
         yield return StartCoroutine(FadeIn());
 
-        FindObjectOfType<TitleSavingWrapper>().LoadLastGame();
+        StartCoroutine(SavingWrapper.instance.LoadLastScene());
 
         StartCoroutine(FadeOut(delay));
     }

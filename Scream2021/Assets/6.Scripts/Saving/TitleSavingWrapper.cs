@@ -10,13 +10,13 @@ public class TitleSavingWrapper : MonoBehaviour
 
     public void DeleteSaveFile()
     {
-        GetComponent<SavingSystem>().Delete(defaultSaveFile);
+        FindObjectOfType<SavingSystem>().Delete(defaultSaveFile);
     }
 
     public bool CheckSaveGame()
     {
         //call to saving system to check save file
-        return GetComponent<SavingSystem>().checkSave(defaultSaveFile);
+        return FindObjectOfType<SavingSystem>().checkSave(defaultSaveFile);
     }
 
     public void LoadLastGame()
