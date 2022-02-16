@@ -39,7 +39,7 @@ public class QuicksaveCanvas : MonoBehaviour
     {
         if ((cg.alpha == 0) && fadingOut)
         {
-            if(cgAlphaToogleCounter == 1)
+            if(cgAlphaToogleCounter == 2)
             {
                 gameObject.SetActive(false);
             }

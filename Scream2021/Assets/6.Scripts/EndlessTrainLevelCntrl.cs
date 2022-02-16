@@ -38,6 +38,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 
     private void Start()
     {
+        AudioManager.instance.StopAllSounds();
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TrainAmbientLoop);
         dialogUI = FindObjectOfType<DialogueUI>();
         mouseLook = FindObjectOfType<MouseLook>();
@@ -122,14 +123,22 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
 
     private void TriggerDialogs()
     {
-        if (!triggerPlayerDisableControl && !saveCalledFromHere)
+        if (!triggerPlayerDisableControl)
         {
-            FindObjectOfType<SavingWrapper>().CheckpointSave();
             triggerPlayerDisableControl = true;
             Debug.Log("LockMenuControl");
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
             mouseLook.LockCamera();
             player.LockPlayer();
+        }
+
+        if (timeCounter > callDialog0After)
+        {
+            if ((dialogue0_played == true) && (saveCalledFromHere == false))
+            {
+                saveCalledFromHere = true;
+                FindObjectOfType<SavingWrapper>().CheckpointSave();
+            }
         }
 
         if (dialogue0_played == false)
@@ -180,6 +189,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     struct SaveData
     {
         public bool dialog_enabled;
+        public bool dialogue0_played;
         public bool saveCalledFromHere;
     }
 
@@ -187,6 +197,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     {
         SaveData data = new SaveData();
         data.dialog_enabled = dialog_enabled;
+        data.dialogue0_played = dialogue0_played;
         data.saveCalledFromHere = true;
         return data;
     }
@@ -195,6 +206,7 @@ public class EndlessTrainLevelCntrl : MonoBehaviour, ISaveable
     {
         SaveData data = (SaveData)state;
         dialog_enabled = data.dialog_enabled;
+        dialogue0_played = data.dialogue0_played;
         saveCalledFromHere = data.saveCalledFromHere;
     }
 }

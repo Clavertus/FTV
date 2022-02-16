@@ -6748,6 +6748,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 736595717}
     m_Modifications:
     - target: {fileID: 937063874, guid: f2021570a2b460f46af7965f1d244baf, type: 3}
+      propertyPath: runSpeed
+      value: 12.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 937063874, guid: f2021570a2b460f46af7965f1d244baf, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1719084852}
@@ -9128,6 +9132,14 @@ PrefabInstance:
     - target: {fileID: 2846696559320310921, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: uniqueIdentifier
       value: a0b741ff-ae04-402e-8086-e3669dea63f2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865563337150019446, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_AmplitudeGain
+      value: 0.2700001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865563337150019446, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
+      propertyPath: m_FrequencyGain
+      value: 1.769999
       objectReference: {fileID: 0}
     - target: {fileID: 6045591277892984539, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_RootOrder
