@@ -8,7 +8,7 @@ public class SavingWrapper : MonoBehaviour
 {
     public static SavingWrapper instance;
 
-    const string defaultSaveFile = "save"; 
+    const string defaultSaveFile = "save";
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -23,6 +23,11 @@ public class SavingWrapper : MonoBehaviour
         {
             Destroy(gameObject);
             yield return null;
+        }
+
+        if (QuicksaveCanvas.instance)
+        {
+            QuicksaveCanvas.instance.gameObject.SetActive(false);
         }
 
         //FindObjectOfType<LevelLoader>().CheckpointFadingIn();
@@ -51,6 +56,11 @@ public class SavingWrapper : MonoBehaviour
 
     public void CheckpointSave()
     {
+        if(QuicksaveCanvas.instance)
+        {
+            QuicksaveCanvas.instance.gameObject.SetActive(true);
+            QuicksaveCanvas.instance.FadeOut();
+        }
         Save();
     }
 

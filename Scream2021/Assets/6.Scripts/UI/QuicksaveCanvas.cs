@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class QuicksaveCanvas : MonoBehaviour
 {
+    public static QuicksaveCanvas instance;
     private bool fadingOut;
     private CanvasGroup cg;
 
     void Awake()
     {
         cg = gameObject.GetComponent<CanvasGroup>();
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void OnEnable()

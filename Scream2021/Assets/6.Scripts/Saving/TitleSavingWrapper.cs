@@ -22,6 +22,6 @@ public class TitleSavingWrapper : MonoBehaviour
     public void LoadLastGame()
     {
         //call to saving system load
-        StartCoroutine( GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile) );
+        StartCoroutine(SavingWrapper.instance.LoadLastScene());
     }
 }
