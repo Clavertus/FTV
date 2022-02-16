@@ -73,7 +73,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     private void OnDialogStarted()
     {
-        AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
+        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
 
     int dialogId = 0;
@@ -101,8 +101,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             dialog_2_played = false;
         }
 
-        AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
+        //AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
         //find place to save game progress
+        Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
         FindObjectOfType<SavingWrapper>().CheckpointSave();
     }
 

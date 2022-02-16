@@ -574,7 +574,7 @@ MonoBehaviour:
   - name: TaraSpeech1
     clip: {fileID: 8300000, guid: aa11d0deb3be35147adeb6a146cb29a7, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.05
+    volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   - name: TaraSpeech2
     clip: {fileID: 8300000, guid: 304c8a853b6b75d449f13300a13a7ccd, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.05
+    volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   - name: TaraSpeech3
     clip: {fileID: 8300000, guid: 78a355b821517ff4d895921b1f0042c4, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.05
+    volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   - name: TaraSpeech4
     clip: {fileID: 8300000, guid: c8b026a807811ad4f8d8844d04c94136, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.05
+    volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   - name: TaraSpeech5
     clip: {fileID: 8300000, guid: a85f91befbcae5843b5e7e85afdbcdc5, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.05
+    volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   - name: TaraTalkingBackground
     clip: {fileID: 8300000, guid: d0bccbb4ea6e41e40892db069cb01da4, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.1
+    volume: 0.2
     pitch: 0.1
     loop: 1
     playOnAwake: 0
