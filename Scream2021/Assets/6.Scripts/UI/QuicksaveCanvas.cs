@@ -4,6 +4,7 @@ using UnityEngine;
 public class QuicksaveCanvas : MonoBehaviour
 {
     public static QuicksaveCanvas instance;
+    public Animator animator;
     private CanvasGroup cg;
 
     void Awake()
@@ -28,6 +29,8 @@ public class QuicksaveCanvas : MonoBehaviour
     public void StartAnimation() // QuicksaveCanvas.instance.StartAnimation()
     {
         Action action = new Action(FadeOut);
+
+        animator.SetTrigger("start");
 
         LeanTween.alphaCanvas(cg, 1f, 0.5f).setEaseInCirc();
         LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong(2).setDelay(2f).setOnComplete(action);
