@@ -27,7 +27,7 @@ public class SavingWrapper : MonoBehaviour
 
         if (QuicksaveCanvas.instance)
         {
-            QuicksaveCanvas.instance.gameObject.SetActive(false);
+            //QuicksaveCanvas.instance.gameObject.SetActive(false);
         }
 
         //FindObjectOfType<LevelLoader>().CheckpointFadingIn();
@@ -59,17 +59,13 @@ public class SavingWrapper : MonoBehaviour
 
     public void CheckpointSave()
     {
-        if(QuicksaveCanvas.instance)
+        if (QuicksaveCanvas.instance)
         {
-            QuicksaveCanvas.instance.gameObject.SetActive(true);
+            //QuicksaveCanvas.instance.gameObject.SetActive(true);
+            QuicksaveCanvas.instance.StartAnimation();
         }
 
         Save();
-
-        if (QuicksaveCanvas.instance)
-        {
-            QuicksaveCanvas.instance.FadeOut();
-        }
     }
 
     public void CheckpointLoad()

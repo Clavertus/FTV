@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class QuicksaveCanvas : MonoBehaviour
 {
     public static QuicksaveCanvas instance;
-    private bool fadingOut;
     private CanvasGroup cg;
 
     void Awake()
     {
-        cg = gameObject.GetComponent<CanvasGroup>();
-
         if (instance == null)
         {
             instance = this;
@@ -19,37 +15,26 @@ public class QuicksaveCanvas : MonoBehaviour
         else
         {
             Destroy(gameObject);
+
             return;
         }
 
         DontDestroyOnLoad(gameObject);
-    }
 
-    void OnEnable()
-    {
+        cg = gameObject.GetComponent<CanvasGroup>();
         cg.alpha = 0;
-        LeanTween.alphaCanvas(cg, 1f, 1f).setEaseInCirc();
-        LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong().setDelay(2f);
-        fadingOut = false;
-        cgAlphaToogleCounter = 0;
     }
 
-    int cgAlphaToogleCounter = 0;
-    void Update()
+    public void StartAnimation() // QuicksaveCanvas.instance.StartAnimation()
     {
-        if ((cg.alpha == 0) && fadingOut)
-        {
-            if(cgAlphaToogleCounter == 2)
-            {
-                gameObject.SetActive(false);
-            }
-            cgAlphaToogleCounter++;
-        }
+        Action action = new Action(FadeOut);
+
+        LeanTween.alphaCanvas(cg, 1f, 0.5f).setEaseInCirc();
+        LeanTween.alphaCanvas(cg, 0f, 1f).setLoopPingPong(2).setDelay(2f).setOnComplete(action);
     }
 
-    public void FadeOut()
+    void FadeOut()
     {
-        //LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
-        fadingOut = true;
+        LeanTween.alphaCanvas(cg, 0f, 1f).setEaseInCirc();
     }
 }
