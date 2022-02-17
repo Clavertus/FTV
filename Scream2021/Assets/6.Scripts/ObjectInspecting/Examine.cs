@@ -43,6 +43,7 @@ public class Examine : MonoBehaviour
         {
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
+            FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         }  
 
     }
@@ -77,6 +78,7 @@ public class Examine : MonoBehaviour
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
                     examineCanvas.enabled = true;
+                    FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
                     //Save The Original Postion And Rotation
                     originaPosition = clickedObject.transform.position;
                     originalRotation = clickedObject.transform.rotation.eulerAngles;
@@ -112,7 +114,6 @@ public class Examine : MonoBehaviour
                     
 
                     playerBod.tag = ("Untagged");
-
                 }
             }
         }
@@ -157,14 +158,16 @@ public class Examine : MonoBehaviour
     {
         if (examineMode)
         {
-            
             examineCanvas.enabled = false;
+            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
             playerBod.tag = ("Player");
 
             cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
+            FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
 
             examineCanvas.enabled = false;
+            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
             //Reset Object To Original Position
             clickedObject.transform.position = originaPosition;
             clickedObject.transform.eulerAngles = originalRotation;
@@ -175,7 +178,6 @@ public class Examine : MonoBehaviour
 
             //Return To Normal State
             examineMode = false;
-            
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondarySelctable : MonoBehaviour
+public class SecondarySelectableAndTakeable : MonoBehaviour
 {
     Transform _selection;
     //[SerializeField] GameObject dialogueBox;

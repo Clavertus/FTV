@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MementoObjectInspecting : MonoBehaviour
+public class MementoObjectInspectingLookAtPart : MonoBehaviour
 {
     [SerializeField] DialogueObject baseObjInspectDialogue;
-    [SerializeField] DialogueObject smallObjFellDialogue;
+    [SerializeField] DialogueObject smallObjInspectDialogue;
 
     //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
-    [SerializeField] GameObject symbol;
 
     [SerializeField] Canvas inspectCanvas;
-    [SerializeField] Canvas holdSmallObjCanvas;
-
-    [SerializeField] string pocketItemName;
 
     GameObject DialogueBox;
-    GameObject tv;
 
     int interactionCounter = 0;
     int smallObjInteractionCounter = 0; 
@@ -27,29 +22,27 @@ public class MementoObjectInspecting : MonoBehaviour
     void Start()
     {
         DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
-        tv = GameObject.Find("TV front");
-        
-        holdSmallObjCanvas.enabled = false; 
     }
-
-    
-
-     
-
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.tag == ("Selected") && interactionCounter == 0) { StartCoroutine(FirstInteraction()); }
-        if (smallObject.CompareTag("Selected") && smallObjInteractionCounter == 0) { StartCoroutine(InspectSmallObject()); }
-        
-        
-        
+        if (gameObject.tag == ("Selected") && interactionCounter == 0) 
+        { 
+            StartCoroutine(FirstInteraction());
+        }
+        if (smallObject.CompareTag("Selected") && smallObjInteractionCounter == 0) 
+        { 
+            StartCoroutine(InspectSmallObject());
+        }
+        if (gameObject.tag == ("Selected") && (interactionCounter > 0) && (smallObjInteractionCounter > 0))
+        {
+            StartCoroutine(SecondInteraction());
+        }
     }
 
     IEnumerator FirstInteraction()
     {
-        
         Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
@@ -60,6 +53,8 @@ public class MementoObjectInspecting : MonoBehaviour
     public IEnumerator InspectSmallObject() 
     {
         smallObjInteractionCounter++;
+
+        /*
         if(smallObject.GetComponent<MeshRenderer>())
         {
             smallObject.GetComponent<MeshRenderer>().enabled = false;
@@ -72,27 +67,30 @@ public class MementoObjectInspecting : MonoBehaviour
         {
             Debug.LogError("No render find on small object!");
         }
-        holdSmallObjCanvas.enabled = true;
-        FindObjectOfType<DialogueUI>().ShowDialogue(smallObjFellDialogue);
+        */
+
+        FindObjectOfType<DialogueUI>().ShowDialogue(smallObjInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
-        
+
+        //disable small object collider
+        smallObject.GetComponent<BoxCollider>().enabled = false;
+
+        FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+
         FindObjectOfType<Examine>().ExitExamineMode(); 
-        StartCoroutine(PickedUpObject()); 
+        StartCoroutine(ExitInspectionOfThisObject()); 
     }
 
-    IEnumerator PickedUpObject()
+    IEnumerator ExitInspectionOfThisObject()
     {
-
-        yield return new WaitUntil(() =>  FindObjectOfType<Examine>().examineMode == false); 
+        yield return new WaitUntil(() => FindObjectOfType<Examine>().examineMode == false);
 
         FindObjectOfType<MouseLook>().UnlockCamera();
-        Debug.Log("test");
-        
-        
-        if(symbol) symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
-        changeTVstatic();
 
-        DisableCanvasAndTriggering();
+        gameObject.tag = ("Selectable");
+        //DisableCanvasAndTriggering();
     }
 
     private void DisableCanvasAndTriggering()
@@ -104,14 +102,15 @@ public class MementoObjectInspecting : MonoBehaviour
             collider.enabled = false;
         }
     }
-
-    void changeTVstatic()
+    IEnumerator SecondInteraction()
     {
-        //This should be perhaps moved to another script
-        if(tv)
-        {
-            tv.GetComponent<VoidTV>().materialState++;
-        }
+        Debug.Log("second interaction");
+        FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+
+        FindObjectOfType<Examine>().ExitExamineMode();
+        StartCoroutine(ExitInspectionOfThisObject());
     }
 
 }
