@@ -6,12 +6,16 @@ using UnityEngine;
 public class SecondarySelctable : MonoBehaviour
 {
     Transform _selection;
-    [SerializeField] GameObject dialogueBox;
+    //[SerializeField] GameObject dialogueBox;
     [SerializeField] Material originalMat;
-    [SerializeField] Material highlightMat; 
+    [SerializeField] Material highlightMat;
+
+    GameObject dialogueBox;
+
     // Start is called before the first frame update
     void Start()
     {
+        dialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
         GetComponent<BoxCollider>().enabled = false;
     }
 
@@ -49,7 +53,18 @@ public class SecondarySelctable : MonoBehaviour
         if (other.CompareTag("Player") && FindObjectOfType<Examine>().examineMode == true && !dialogueBox.activeSelf)   
         {
             Debug.Log("dpad select");
-            gameObject.GetComponent<Renderer>().material = highlightMat;
+            if (gameObject.GetComponent<Renderer>())
+            { 
+                gameObject.GetComponent<Renderer>().material = highlightMat;
+            } 
+            else if(gameObject.GetComponent<ExamineObjectReferences>())
+            {
+                gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = highlightMat;
+            }
+            else
+            {
+                Debug.LogError("No render find on small object!");
+            }
             gameObject.GetComponent<Selectable>().BypassAndMakeSelectable(); 
         }
     }
@@ -59,7 +74,18 @@ public class SecondarySelctable : MonoBehaviour
         if (other.CompareTag(("Player")))
         { 
             Debug.Log("dpad unselect");
-            gameObject.GetComponent<Renderer>().material = originalMat; 
+            if (gameObject.GetComponent<Renderer>())
+            {
+                gameObject.GetComponent<Renderer>().material = originalMat;
+            }
+            else if (gameObject.GetComponent<ExamineObjectReferences>())
+            {
+                gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = originalMat;
+            }
+            else
+            {
+                Debug.LogError("No render find on small object!");
+            }
             gameObject.GetComponent<Selectable>().ExitSelectionZone(); 
         }
     }

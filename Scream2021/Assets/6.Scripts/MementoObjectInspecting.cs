@@ -7,7 +7,7 @@ public class MementoObjectInspecting : MonoBehaviour
     [SerializeField] DialogueObject baseObjInspectDialogue;
     [SerializeField] DialogueObject smallObjFellDialogue;
 
-    [SerializeField] GameObject DialogueBox;
+    //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
     [SerializeField] GameObject symbol;
 
@@ -16,7 +16,7 @@ public class MementoObjectInspecting : MonoBehaviour
 
     [SerializeField] string pocketItemName;
 
-    
+    GameObject DialogueBox;
     GameObject tv;
 
     int interactionCounter = 0;
@@ -26,6 +26,7 @@ public class MementoObjectInspecting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
         tv = GameObject.Find("TV front");
         
         holdSmallObjCanvas.enabled = false; 
@@ -59,7 +60,18 @@ public class MementoObjectInspecting : MonoBehaviour
     public IEnumerator InspectSmallObject() 
     {
         smallObjInteractionCounter++;
-        smallObject.GetComponent<MeshRenderer>().enabled = false;
+        if(smallObject.GetComponent<MeshRenderer>())
+        {
+            smallObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+        else if(smallObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer())
+        {
+            smallObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().enabled = false;
+        }
+        else
+        {
+            Debug.LogError("No render find on small object!");
+        }
         holdSmallObjCanvas.enabled = true;
         FindObjectOfType<DialogueUI>().ShowDialogue(smallObjFellDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
@@ -95,7 +107,11 @@ public class MementoObjectInspecting : MonoBehaviour
 
     void changeTVstatic()
     {
-        tv.GetComponent<VoidTV>().materialState++;
+        //This should be perhaps moved to another script
+        if(tv)
+        {
+            tv.GetComponent<VoidTV>().materialState++;
+        }
     }
 
 }

@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Examine : MonoBehaviour
 {
-    [SerializeField] Canvas examineCanvas;
-    [SerializeField] GameObject dialogueBox;
+    //[SerializeField]
+    Canvas examineCanvas;
+    //[SerializeField]
+    GameObject dialogueBox;
     [SerializeField] GameObject playerBod;
     [SerializeField] GameObject player;
     [SerializeField] Transform cameraFrontObject;//Camera Object Will Be Placed In Front Of
@@ -25,6 +27,8 @@ public class Examine : MonoBehaviour
 
     void Start()
     {
+        examineCanvas = FindObjectOfType<ExamineCanvas>().GetComponent<Canvas>();
+        dialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
         examineMode = false;
     }
 
@@ -58,6 +62,7 @@ public class Examine : MonoBehaviour
 
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
+                //Debug.LogError(clickedObject.name);
                  
                 if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
                 {
@@ -71,7 +76,7 @@ public class Examine : MonoBehaviour
                     
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
-                    examineCanvas.gameObject.SetActive(true);
+                    examineCanvas.enabled = true;
                     //Save The Original Postion And Rotation
                     originaPosition = clickedObject.transform.position;
                     originalRotation = clickedObject.transform.rotation.eulerAngles;
@@ -121,7 +126,24 @@ public class Examine : MonoBehaviour
             
             float rotationSpeed = 15;
 
-            Vector3 centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
+            Vector3 centerPosition = Vector3.zero;
+            if (clickedObject.GetComponent<Renderer>())
+            {
+                centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
+            }
+            else if(clickedObject.GetComponent<MeshRenderer>())
+            {
+                centerPosition = clickedObject.GetComponent<MeshRenderer>().bounds.center;
+            }
+            else if (clickedObject.GetComponent<ExamineObjectReferences>())
+            {
+                centerPosition = clickedObject.GetComponent<ExamineObjectReferences>().GetMainObjRenderer().bounds.center;
+            }
+            else
+            {
+                Debug.LogError("Object should have any render applied!");
+                return;
+            }
 
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
@@ -136,13 +158,13 @@ public class Examine : MonoBehaviour
         if (examineMode)
         {
             
-            examineCanvas.gameObject.SetActive(false);
+            examineCanvas.enabled = false;
             playerBod.tag = ("Player");
 
             cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();
 
-            examineCanvas.gameObject.SetActive(false);
+            examineCanvas.enabled = false;
             //Reset Object To Original Position
             clickedObject.transform.position = originaPosition;
             clickedObject.transform.eulerAngles = originalRotation;
