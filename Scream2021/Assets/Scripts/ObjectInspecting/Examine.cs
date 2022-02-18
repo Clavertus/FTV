@@ -39,8 +39,9 @@ public class Examine : MonoBehaviour
 
         TurnObject();//Allows Object To Be Rotated
 
-        if(examineMode == true) 
+        if(examineMode == true)
         {
+            Debug.Log("examineMode = true");
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();

@@ -7,6 +7,8 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
 {
     Transform _selection;
     //[SerializeField] GameObject dialogueBox;
+    [SerializeField] bool changeMaterialOnSelection = true;
+    [SerializeField] bool allowMoreThanOneInspection = false;
     [SerializeField] Material originalMat;
     [SerializeField] Material highlightMat;
 
@@ -22,7 +24,7 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
     private void Update()
     {
         SecondarySelectionManager();
-        if (gameObject.CompareTag("Selectable")) {  }
+        if (gameObject.CompareTag("Selectable")) { /* place for some function here */  }
         
     }
 
@@ -43,7 +45,10 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
             {
                 gameObject.gameObject.tag = ("Selected");
 
-                gameObject.GetComponent<Selectable>().DelayedDisableSelectable();
+                if(allowMoreThanOneInspection == false)
+                {
+                    gameObject.GetComponent<Selectable>().DelayedDisableSelectable();
+                }
             }
         }
     }
@@ -52,18 +57,21 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
     {
         if (other.CompareTag("Player") && FindObjectOfType<Examine>().examineMode == true && !dialogueBox.activeSelf)   
         {
-            Debug.Log("dpad select");
-            if (gameObject.GetComponent<Renderer>())
-            { 
-                gameObject.GetComponent<Renderer>().material = highlightMat;
-            } 
-            else if(gameObject.GetComponent<ExamineObjectReferences>())
+            //Debug.Log("dpad select");
+            if(changeMaterialOnSelection)
             {
-                gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = highlightMat;
-            }
-            else
-            {
-                Debug.LogError("No render find on small object!");
+                if (gameObject.GetComponent<Renderer>())
+                {
+                    gameObject.GetComponent<Renderer>().material = highlightMat;
+                }
+                else if (gameObject.GetComponent<ExamineObjectReferences>())
+                {
+                    gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = highlightMat;
+                }
+                else
+                {
+                    Debug.LogError("No render find on small object!");
+                }
             }
             gameObject.GetComponent<Selectable>().BypassAndMakeSelectable(); 
         }
@@ -73,18 +81,21 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
     {
         if (other.CompareTag(("Player")))
         { 
-            Debug.Log("dpad unselect");
-            if (gameObject.GetComponent<Renderer>())
+            //Debug.Log("dpad unselect");
+            if (changeMaterialOnSelection)
             {
-                gameObject.GetComponent<Renderer>().material = originalMat;
-            }
-            else if (gameObject.GetComponent<ExamineObjectReferences>())
-            {
-                gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = originalMat;
-            }
-            else
-            {
-                Debug.LogError("No render find on small object!");
+                if (gameObject.GetComponent<Renderer>())
+                {
+                    gameObject.GetComponent<Renderer>().material = originalMat;
+                }
+                else if (gameObject.GetComponent<ExamineObjectReferences>())
+                {
+                    gameObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().material = originalMat;
+                }
+                else
+                {
+                    Debug.LogError("No render find on small object!");
+                }
             }
             gameObject.GetComponent<Selectable>().ExitSelectionZone(); 
         }

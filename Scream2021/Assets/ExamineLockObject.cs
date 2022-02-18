@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class ExamineLockObject : MonoBehaviour
 {
+    [SerializeField] Canvas LockHintUiCanvas = null;
+    [SerializeField] Canvas LockInterfaceUiCanvas = null;
     [SerializeField] GameObject[] SlotBackgrounds = null;
     [SerializeField] GameObject[] SlotImages = null;
     [SerializeField] Sprite[] imageList = null;
@@ -44,28 +47,57 @@ public class ExamineLockObject : MonoBehaviour
 
         currentSlotId = 0;
         SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+
+        LockInterfaceUiCanvas.gameObject.SetActive(false);
+        LockHintUiCanvas.gameObject.SetActive(false);
     }
 
+    bool inspectedOnce = false;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (inspectedOnce == false)
         {
-            SelectNextSlotInPositiveDirection(false);
+            return;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+
+        if (gameObject.CompareTag("Selectable"))
         {
-            SelectNextSlotInPositiveDirection(true);
+            LockInterfaceUiCanvas.gameObject.SetActive(true);
+            LockHintUiCanvas.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                SelectNextSlotInPositiveDirection(false);
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                SelectNextSlotInPositiveDirection(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                SelectNextImageInPositiveDirection(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                SelectNextImageInPositiveDirection(false);
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (gameObject.CompareTag("Untagged"))
         {
-            SelectNextImageInPositiveDirection(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            SelectNextImageInPositiveDirection(false);
+            LockInterfaceUiCanvas.gameObject.SetActive(false);
+            LockHintUiCanvas.gameObject.SetActive(false);
         }
     }
+
+    public void InspectedOnce()
+    {
+        inspectedOnce = true;
+        LockInterfaceUiCanvas.gameObject.SetActive(true);
+        LockHintUiCanvas.gameObject.SetActive(true);
+        GetComponent<Selectable>().ChangeUi(LockHintUiCanvas);
+    }
+
     public void SelectNextSlotInPositiveDirection(bool positiveDirection)
     {
         if(SlotBackgrounds.Length == 0)

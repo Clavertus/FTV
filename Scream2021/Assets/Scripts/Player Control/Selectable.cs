@@ -37,6 +37,7 @@ public class Selectable : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(this.gameObject.name + this.tag);
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == false)) { EnterSelectionZone();  }
@@ -95,5 +96,9 @@ public class Selectable : MonoBehaviour
         selectableCanvas.gameObject.SetActive(false);
     }
 
-
+    public void ChangeUi(Canvas newCanvas)
+    {
+        selectableCanvas.gameObject.SetActive(false);
+        selectableCanvas = newCanvas;
+    }
 }

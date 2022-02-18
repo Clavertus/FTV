@@ -572,13 +572,13 @@ MonoBehaviour:
     max: 50
     source: {fileID: 0}
   - name: TaraSpeech1
-    clip: {fileID: 8300000, guid: aa11d0deb3be35147adeb6a146cb29a7, type: 3}
+    clip: {fileID: 8300000, guid: abfd5818339a3b44db1fb45a26cc9030, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 1
+    advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -587,13 +587,13 @@ MonoBehaviour:
     max: 50
     source: {fileID: 0}
   - name: TaraSpeech2
-    clip: {fileID: 8300000, guid: 304c8a853b6b75d449f13300a13a7ccd, type: 3}
+    clip: {fileID: 8300000, guid: f062a6f6262ca1244af7e31c5e4f9d5e, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 1
+    advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -602,13 +602,13 @@ MonoBehaviour:
     max: 50
     source: {fileID: 0}
   - name: TaraSpeech3
-    clip: {fileID: 8300000, guid: 78a355b821517ff4d895921b1f0042c4, type: 3}
+    clip: {fileID: 8300000, guid: 8f859e685ca1a664596f3611e41bff9c, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 1
+    advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -617,13 +617,13 @@ MonoBehaviour:
     max: 5
     source: {fileID: 0}
   - name: TaraSpeech4
-    clip: {fileID: 8300000, guid: c8b026a807811ad4f8d8844d04c94136, type: 3}
+    clip: {fileID: 8300000, guid: 37396eed9f9c89d46858c799426055d1, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 1
+    advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -632,13 +632,13 @@ MonoBehaviour:
     max: 50
     source: {fileID: 0}
   - name: TaraSpeech5
-    clip: {fileID: 8300000, guid: a85f91befbcae5843b5e7e85afdbcdc5, type: 3}
+    clip: {fileID: 8300000, guid: 98f122c6e95e1e0429f5d770f364e6bd, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.01
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 1
+    advancedMode: 0
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
     max: 50
     source: {fileID: 0}
   - name: TaraTalkingBackground
-    clip: {fileID: 8300000, guid: d0bccbb4ea6e41e40892db069cb01da4, type: 3}
+    clip: {fileID: 8300000, guid: 8684fbe6212706a4dbe9f12741fa84c1, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.2
     pitch: 0.1
