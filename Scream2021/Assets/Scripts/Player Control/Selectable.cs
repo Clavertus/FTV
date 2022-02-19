@@ -22,7 +22,7 @@ public class Selectable : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log(gameObject.name);  
+        //Debug.Log(gameObject.name);  
     }
     void Start()
     {
@@ -37,7 +37,7 @@ public class Selectable : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(this.gameObject.name + this.tag);
+        //Debug.Log(this.gameObject.name + this.tag);
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == false)) { EnterSelectionZone();  }
@@ -58,7 +58,7 @@ public class Selectable : MonoBehaviour
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-        Debug.Log(gameObject + " showing selectable");
+        //Debug.Log(gameObject + " showing selectable");
         selectableCanvas.gameObject.SetActive(true);
     }
 

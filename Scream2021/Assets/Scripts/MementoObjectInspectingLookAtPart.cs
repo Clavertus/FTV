@@ -35,8 +35,9 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour
         { 
             StartCoroutine(InspectSmallObject());
         }
-        if (gameObject.tag == ("Selected") && (interactionCounter > 0) && (smallObjInteractionCounter > 0))
+        if (gameObject.tag == ("Selected") && (interactionCounter == 1) && (smallObjInteractionCounter > 0))
         {
+            interactionCounter++;
             StartCoroutine(SecondInteraction());
         }
     }
@@ -54,24 +55,10 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour
     {
         smallObjInteractionCounter++;
 
-        /*
-        if(smallObject.GetComponent<MeshRenderer>())
-        {
-            smallObject.GetComponent<MeshRenderer>().enabled = false;
-        }
-        else if(smallObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer())
-        {
-            smallObject.GetComponent<ExamineObjectReferences>().GetSmallObjRenderer().enabled = false;
-        }
-        else
-        {
-            Debug.LogError("No render find on small object!");
-        }
-        */
-
         FindObjectOfType<DialogueUI>().ShowDialogue(smallObjInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
 
+        GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         //disable small object collider
         smallObject.GetComponent<BoxCollider>().enabled = false;
 
@@ -85,23 +72,13 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour
 
     IEnumerator ExitInspectionOfThisObject()
     {
-        yield return new WaitUntil(() => FindObjectOfType<Examine>().examineMode == false);
+        yield return new WaitUntil(() => FindObjectOfType<Examine>().GetExamineMode() == false);
 
         FindObjectOfType<MouseLook>().UnlockCamera();
 
         gameObject.tag = ("Selectable");
-        //DisableCanvasAndTriggering();
     }
 
-    private void DisableCanvasAndTriggering()
-    {
-        inspectCanvas.enabled = false;
-        BoxCollider[] colliders = GetComponents<BoxCollider>();
-        foreach (BoxCollider collider in colliders)
-        {
-            collider.enabled = false;
-        }
-    }
     IEnumerator SecondInteraction()
     {
         Debug.Log("second interaction");
@@ -111,6 +88,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour
 
         FindObjectOfType<Examine>().ExitExamineMode();
         StartCoroutine(ExitInspectionOfThisObject());
+        interactionCounter--;
     }
 
 }

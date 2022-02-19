@@ -9,7 +9,7 @@ public class Examine : MonoBehaviour
     Canvas examineCanvas;
     //[SerializeField]
     GameObject dialogueBox;
-    [SerializeField] GameObject playerBod;
+    [SerializeField] GameObject playerBody;
     [SerializeField] GameObject player;
     [SerializeField] Transform cameraFrontObject;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
@@ -23,7 +23,7 @@ public class Examine : MonoBehaviour
     Transform originalParent;
 
     //If True Allow Rotation Of Object
-    public bool examineMode;
+    private bool examineMode;
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class Examine : MonoBehaviour
         examineMode = false;
     }
 
+    private bool examineModeToogle = false;
     private void Update()
     {
 
@@ -41,12 +42,10 @@ public class Examine : MonoBehaviour
 
         if(examineMode == true)
         {
-            Debug.Log("examineMode = true");
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        }  
-
+        }
     }
 
 
@@ -54,21 +53,22 @@ public class Examine : MonoBehaviour
     {
         if (examineMode == false)
         {
-
             RaycastHit hit;
             var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
 
             if (Physics.Raycast(ray, out hit))
             {
-
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
                 //Debug.LogError(clickedObject.name);
-                 
-                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
+
+                ObjectExaminationConfig examineConfig = clickedObject.GetComponent<ObjectExaminationConfig>();
+                if (
+                    (clickedObject.tag == ("Selected")) && examineConfig &&
+                    (((examineConfig.extraPressToShow == true) && Input.GetKeyDown(KeyCode.E)) || (examineConfig.extraPressToShow == false))
+                    ) 
                 {
-                    
                     examineMode = true;
                     Debug.Log("examineMode");
                     cameraFrontObject.GetComponent<MouseLook>().LockCamera();
@@ -114,10 +114,15 @@ public class Examine : MonoBehaviour
                     //Turn Examine Mode To True
                     
 
-                    playerBod.tag = ("Untagged");
+                    playerBody.tag = ("Untagged");
                 }
             }
         }
+    }
+
+    public bool GetExamineMode()
+    {
+        return examineMode;
     }
 
     void TurnObject()
@@ -161,7 +166,7 @@ public class Examine : MonoBehaviour
         {
             examineCanvas.enabled = false;
             FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
-            playerBod.tag = ("Player");
+            playerBody.tag = ("Player");
 
             cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
             FindObjectOfType<PlayerMovement>().UnlockPlayer();

@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MementoObjectInspectingLockedPart : MonoBehaviour
 {
+    [Header("Animation")]
+    [SerializeField] Animator mainObjectAnimator = null;
+    [SerializeField] string preOpenAnimationTriggerName = "Pre-Open";
+    [SerializeField] string openAnimationTriggerName = "Open";
+    [SerializeField] string CloseAnimationTriggerName = "Close";
+
+    [Header("Dialogs")]
     [SerializeField] DialogueObject baseObjInspectDialogue;
     [SerializeField] DialogueObject LockInspectDialogue;
+    [SerializeField] DialogueObject UnlockedDialogue;
 
-    //[SerializeField] GameObject DialogueBox;
+    [Header("References")]
     [SerializeField] GameObject lockObject;
-
+    ExamineLockObject examineLockObject = null;
     [SerializeField] Canvas inspectCanvas;
 
     GameObject DialogueBox;
+    ExamineCanvas examineCanvas = null;
 
     int interactionCounter = 0;
     int smallObjInteractionCounter = 0; 
@@ -21,7 +31,38 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        examineCanvas = FindObjectOfType<ExamineCanvas>();
         DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
+        examineLockObject = lockObject.GetComponent<ExamineLockObject>();
+        examineLockObject.Unlocked += OnUnlock;
+    }
+
+    private void OnUnlock()
+    {
+        lockObject.GetComponent<BoxCollider>().enabled = false;
+        StartCoroutine(StartOpenInteraction());
+    }
+
+    private IEnumerator StartOpenInteraction()
+    {
+        StartCoroutine(StartOpenAnimation());
+        StopCoroutine(SecondInteraction());
+        interactionCounter--;
+
+        FindObjectOfType<DialogueUI>().ShowDialogue(UnlockedDialogue);
+        yield return new WaitUntil(() => !DialogueBox.activeSelf);
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+
+        FindObjectOfType<Examine>().ExitExamineMode();
+        StartCoroutine(ExitInspectionOfThisObject());
+    }
+
+    private IEnumerator StartOpenAnimation()
+    {
+        mainObjectAnimator.SetTrigger(preOpenAnimationTriggerName);
+        yield return new WaitForSeconds(0.2f);
+        mainObjectAnimator.SetTrigger(openAnimationTriggerName);
     }
 
     // Update is called once per frame
@@ -35,8 +76,9 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
         { 
             StartCoroutine(InspectLock());
         }
-        if (gameObject.tag == ("Selected") && (interactionCounter > 0) && (smallObjInteractionCounter > 0))
+        if (gameObject.tag == ("Selected") && (interactionCounter == 1) && (smallObjInteractionCounter > 0))
         {
+            interactionCounter++;
             StartCoroutine(SecondInteraction());
         }
     }
@@ -59,9 +101,10 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
 
         //disable small object collider
-        lockObject.GetComponent<ExamineLockObject>().InspectedOnce();
+        GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
+        examineLockObject.InspectedOnce();
 
-        FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
+        examineCanvas.SetExtraFieldToState(true);
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
 
@@ -71,33 +114,39 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
 
     IEnumerator ExitInspectionOfThisObject()
     {
-        yield return new WaitUntil(() => FindObjectOfType<Examine>().examineMode == false);
+        yield return new WaitUntil(() => FindObjectOfType<Examine>().GetExamineMode() == false);
+
+        if (examineLockObject.IsUnlocked() == true)
+        {
+            mainObjectAnimator.SetTrigger(CloseAnimationTriggerName);
+        }
 
         FindObjectOfType<MouseLook>().UnlockCamera();
 
         lockObject.GetComponent<BoxCollider>().enabled = false;
         gameObject.tag = ("Selectable");
-        //DisableCanvasAndTriggering();
     }
 
-    private void DisableCanvasAndTriggering()
-    {
-        inspectCanvas.enabled = false;
-        BoxCollider[] colliders = GetComponents<BoxCollider>();
-        foreach (BoxCollider collider in colliders)
-        {
-            collider.enabled = false;
-        }
-    }
     IEnumerator SecondInteraction()
     {
         Debug.Log("second interaction");
-        FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
 
-        lockObject.GetComponent<BoxCollider>().enabled = true;
+        if(examineLockObject.IsUnlocked() == true)
+        {
+            StartCoroutine(StartOpenAnimation());
+        }
+        else
+        {
+            lockObject.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        examineCanvas.SetExtraFieldToState(true);
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
 
+        interactionCounter--;
         FindObjectOfType<Examine>().ExitExamineMode();
         StartCoroutine(ExitInspectionOfThisObject());
     }

@@ -74,7 +74,7 @@ public class MementoObjectInspectingTakePart : MonoBehaviour
     IEnumerator PickedUpObject()
     {
 
-        yield return new WaitUntil(() =>  FindObjectOfType<Examine>().examineMode == false); 
+        yield return new WaitUntil(() =>  FindObjectOfType<Examine>().GetExamineMode() == false); 
 
         FindObjectOfType<MouseLook>().UnlockCamera();
         Debug.Log("test");

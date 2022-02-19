@@ -12,8 +12,7 @@ public class ObjectExaminationConfig : MonoBehaviour {
     [SerializeField] float xRotation = 0;
     [SerializeField] float yRotation = 0;
     [SerializeField] float zRotation = 0;
-
-    bool examineMode = false; 
+    [SerializeField] public bool extraPressToShow = true;
 
     public float ReturnDistanceFromCam() { return distanceFromCam; }
     public bool ReturnIfOffset() { return offsetCamPos; }

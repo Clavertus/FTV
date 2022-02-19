@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class ExamineLockObject : MonoBehaviour
 {
+    public Action Unlocked { get; set; }
+
     [SerializeField] Canvas LockHintUiCanvas = null;
     [SerializeField] Canvas LockInterfaceUiCanvas = null;
     [SerializeField] GameObject[] SlotBackgrounds = null;
     [SerializeField] GameObject[] SlotImages = null;
     [SerializeField] Sprite[] imageList = null;
-    int[] slotValuesArray = null;
 
     [SerializeField] Color slotUnselected = Color.white;
     [SerializeField] Color slotSelected = Color.white;
 
-
+    [SerializeField] int[] slotValuesArray = null;
+    [SerializeField] int[] unlockSequence = null;
+    private bool unlocked = false;
 
     int currentSlotId = 0;
     // Start is called before the first frame update
@@ -37,19 +40,39 @@ public class ExamineLockObject : MonoBehaviour
             Debug.LogError("Slots and images of them should have the same length");
             return;
         }
-
-        slotValuesArray = new int[SlotImages.Length];
-        for(int ix = 0; ix < slotValuesArray.Length; ix++)
+        if (unlockSequence.Length != SlotImages.Length)
         {
-            slotValuesArray[ix] = UnityEngine.Random.Range(0, imageList.Length-1);
-            SlotImages[ix].GetComponent<Image>().sprite = imageList[slotValuesArray[ix]];
+            Debug.LogError("Unlock Sequence Length and Slots Number of them should have the same number");
+            return;
+        }
+        if (slotValuesArray.Length != SlotImages.Length)
+        {
+            Debug.LogError("slotValuesArray Length and Slots Number of them should have the same number");
+            return;
         }
 
-        currentSlotId = 0;
-        SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+        foreach (int value in slotValuesArray)
+        {
+            if (value < 0 && value >= imageList.Length)
+            {
+                Debug.LogError("Invalid value assigned as unlockSequence!");
+            }
+        }
+        foreach ( int value in unlockSequence)
+        {
+            if(value < 0 && value >= imageList.Length)
+            {
+                Debug.LogError("Invalid value assigned as unlockSequence!");
+            }
+        }
 
-        LockInterfaceUiCanvas.gameObject.SetActive(false);
         LockHintUiCanvas.gameObject.SetActive(false);
+        currentSlotId = 0;
+        //initialise images
+        for (int ix = 0; ix < SlotImages.Length; ix++)
+        {
+            SlotImages[ix].GetComponent<Image>().sprite = imageList[slotValuesArray[ix]];
+        }
     }
 
     bool inspectedOnce = false;
@@ -61,9 +84,22 @@ public class ExamineLockObject : MonoBehaviour
             return;
         }
 
+        if (false == unlocked)
+        {
+            ProcessSelectionAndUnlocking();
+        }
+        else
+        {
+            //?
+        }
+    }
+
+    private void ProcessSelectionAndUnlocking()
+    {
         if (gameObject.CompareTag("Selectable"))
         {
-            LockInterfaceUiCanvas.gameObject.SetActive(true);
+            SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+            //LockInterfaceUiCanvas.gameObject.SetActive(true);
             LockHintUiCanvas.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -82,20 +118,44 @@ public class ExamineLockObject : MonoBehaviour
             {
                 SelectNextImageInPositiveDirection(false);
             }
+
+            int unlockedValue = 0;
+            for(int ix = 0; ix < slotValuesArray.Length; ix++)
+            {
+                if(slotValuesArray[ix] == unlockSequence[ix])
+                {
+                    unlockedValue++;
+                }
+            }
+
+            if(unlockedValue == unlockSequence.Length)
+            {
+                unlocked = true;
+                SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+                Unlocked?.Invoke();
+            }
         }
         else if (gameObject.CompareTag("Untagged"))
         {
-            LockInterfaceUiCanvas.gameObject.SetActive(false);
+            SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+            //LockInterfaceUiCanvas.gameObject.SetActive(false);
             LockHintUiCanvas.gameObject.SetActive(false);
         }
+    }
+
+    public bool IsUnlocked()
+    {
+        return unlocked;
     }
 
     public void InspectedOnce()
     {
         inspectedOnce = true;
+        SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+        GetComponent<Selectable>().ChangeUi(LockHintUiCanvas);
         LockInterfaceUiCanvas.gameObject.SetActive(true);
         LockHintUiCanvas.gameObject.SetActive(true);
-        GetComponent<Selectable>().ChangeUi(LockHintUiCanvas);
+        gameObject.tag = "Selectable";
     }
 
     public void SelectNextSlotInPositiveDirection(bool positiveDirection)

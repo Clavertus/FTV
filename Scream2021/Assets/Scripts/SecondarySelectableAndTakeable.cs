@@ -55,7 +55,7 @@ public class SecondarySelectableAndTakeable : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && FindObjectOfType<Examine>().examineMode == true && !dialogueBox.activeSelf)   
+        if (other.CompareTag("Player") && FindObjectOfType<Examine>().GetExamineMode() == true && !dialogueBox.activeSelf)   
         {
             //Debug.Log("dpad select");
             if(changeMaterialOnSelection)

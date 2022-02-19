@@ -14,7 +14,7 @@ public class ExamineCanvas : MonoBehaviour
 
     public void SetExtraFieldToState(bool state)
     {
-        Debug.LogWarning("Enable extra field");
+        Debug.LogWarning("Setting extra field to " + state);
         extraField.SetActive(state);
     }
 
