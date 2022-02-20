@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7196493803857514309
+--- !u!114 &-8690479221048347593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,44 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: f741b62e-b5f0-4dc7-8487-1939e151a405
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: I've never been one for small talk.
-  children:
-  - 56efc48a-1fa1-4851-9bea-f17285f1aac1
-  - a2dd3bfd-89c1-446f-8b84-73bd59d0b38d
-  rect:
-    serializedVersion: 2
-    x: 2082
-    y: 529
-    width: 200
-    height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &-5851950461920319889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: f3b93dbf-9727-456d-a8a4-c05b157144b6
+  m_Name: 47faf6a1-6c46-4b00-8d53-ce847a08c734
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: What happend?
+  text: At least away from that creature!
   children:
-  - 1a84fc38-407e-48b9-abd4-2f0d0c395bfb
+  - c503e459-6abc-4473-bfa2-10f20bc4576e
   rect:
     serializedVersion: 2
-    x: 848
-    y: 482
+    x: 1062
+    y: 596
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
---- !u!114 &-3037490056097085188
+--- !u!114 &-7846752257979948288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,19 +33,155 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: b64f0ff9-e5ad-4e01-99dc-ba04efb6c1fa
+  m_Name: 05fe693e-ecee-491f-ab7b-72b63cf16d5f
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: My name? ...This isn't the time for small talk.
+  isPlayerSpeaking: 1
+  text: Back to reality?
   children:
-  - f741b62e-b5f0-4dc7-8487-1939e151a405
+  - fb8bf5e6-7645-4229-9ed1-27bcfa841ffe
   rect:
     serializedVersion: 2
-    x: 1840
-    y: 522
+    x: 1063
+    y: 451
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-7242055762911380996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: d916fa43-7c7c-4657-bea2-ba455a5e30e0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hmm...
+  children:
+  - 85244d8c-6f53-4306-aa5a-d988ffb56ed8
+  rect:
+    serializedVersion: 2
+    x: 802
+    y: 113
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-6281411054583947376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: c503e459-6abc-4473-bfa2-10f20bc4576e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I have not seen it for a while and now you want me to run away from it?
+  children:
+  - 9d2b7941-1cb8-4d65-bbc7-f8f3c26337a3
+  rect:
+    serializedVersion: 2
+    x: 1364
+    y: 646
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-5693059629039737183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 849a72ca-b160-4efb-8370-376570536803
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Why you... are not trying to leave this place?
+  children:
+  - bc07c7ce-c88f-469b-9713-43854e20b50f
+  rect:
+    serializedVersion: 2
+    x: 527
+    y: 301
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-4850215648366243111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 33293314-1878-4a97-b2c3-6886ca2773fc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Long...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1327
+    y: 116
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-2203326967217046182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 9d2b7941-1cb8-4d65-bbc7-f8f3c26337a3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: No... I want to look at it.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1616
+    y: 633
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-648054756937770953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 80b4c434-0f5d-4bfc-8f0f-4b1a3595ae7e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Besides I am not getting hungry, ill or tired.
+  children:
+  - 889a1211-635f-465c-8a1c-f5fba001f1f7
+  rect:
+    serializedVersion: 2
+    x: 1862
+    y: 366
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,24 +192,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
-  m_Name: Tara.Dialog_On_Arrival
+  m_Name: Tara.Dialog_AskAboutHer
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 2627540645138203182}
-  - {fileID: 8945958319556573525}
-  - {fileID: 8261781744285390110}
-  - {fileID: -5851950461920319889}
-  - {fileID: 333407685645499215}
-  - {fileID: 6584221438487225325}
-  - {fileID: 1628246005541123743}
-  - {fileID: -3037490056097085188}
-  - {fileID: -7196493803857514309}
-  - {fileID: 7767296116089399660}
-  - {fileID: 5888206936772219495}
-  - {fileID: 2706001079145615124}
-  - {fileID: 3502912643067615229}
-  - {fileID: 5713875669847421382}
---- !u!114 &333407685645499215
+  - {fileID: 1311773748636630710}
+  - {fileID: -5693059629039737183}
+  - {fileID: 2471960680015539385}
+  - {fileID: -7242055762911380996}
+  - {fileID: 411467293847361548}
+  - {fileID: -4850215648366243111}
+  - {fileID: 4252956852395785699}
+  - {fileID: -7846752257979948288}
+  - {fileID: -8690479221048347593}
+  - {fileID: 2538092970268714284}
+  - {fileID: 8599873278453609138}
+  - {fileID: -648054756937770953}
+  - {fileID: 1696542343687599587}
+  - {fileID: -6281411054583947376}
+  - {fileID: -2203326967217046182}
+--- !u!114 &411467293847361548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,43 +220,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 1a84fc38-407e-48b9-abd4-2f0d0c395bfb
+  m_Name: 85244d8c-6f53-4306-aa5a-d988ffb56ed8
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: You jumped and get unconcious.
+  text: Sorry, I have almost forgotten that I was not here forever.
   children:
-  - 0fef9f11-94fd-4c36-9cd5-22f5300cc9e7
+  - 33293314-1878-4a97-b2c3-6886ca2773fc
   rect:
     serializedVersion: 2
-    x: 1090
-    y: 347
-    width: 200
-    height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &1628246005541123743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: eeeb4304-c7cd-4032-8198-1d68bede9057
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Who are you?
-  children:
-  - b64f0ff9-e5ad-4e01-99dc-ba04efb6c1fa
-  rect:
-    serializedVersion: 2
-    x: 1581
-    y: 500
+    x: 1059
+    y: 119
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
---- !u!114 &2627540645138203182
+--- !u!114 &1311773748636630710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,43 +243,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 1ba605a8-e29c-469a-a88a-fb0934c0f91c
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Aaaaaargghhh...
-  children:
-  - 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
-  rect:
-    serializedVersion: 2
-    x: 151
-    y: 418
-    width: 200
-    height: 120
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
---- !u!114 &2706001079145615124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 64a6f283-4a0e-46ae-9dfb-9f8a6a868be7
+  m_Name: a225181b-a4f9-4407-9836-e48eb64791ef
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Rude. I am Tara.
+  text: ...
   children:
-  - 682717b2-e311-4540-bc04-433606478325
+  - 849a72ca-b160-4efb-8370-376570536803
+  - 264e51fc-25b0-4697-b5cd-699c72eeea27
   rect:
     serializedVersion: 2
-    x: 2608
-    y: 416
+    x: 190
+    y: 204
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &3502912643067615229
+--- !u!114 &1696542343687599587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,65 +267,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 682717b2-e311-4540-bc04-433606478325
+  m_Name: 889a1211-635f-465c-8a1c-f5fba001f1f7
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Care to watch show with me?
+  text: I still sleep sometimes. But nightmares are often ...
   children: []
   rect:
     serializedVersion: 2
-    x: 2947
-    y: 516
-    width: 200
-    height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &5713875669847421382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: e93b0a4a-9617-4746-a0d1-ecccf305a7c5
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Do not make such face. Tara is my name.
-  children:
-  - 682717b2-e311-4540-bc04-433606478325
-  rect:
-    serializedVersion: 2
-    x: 2657
-    y: 591
-    width: 200
-    height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &5888206936772219495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: a2dd3bfd-89c1-446f-8b84-73bd59d0b38d
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: You can still try now and tell me your name.
-  children:
-  - 64a6f283-4a0e-46ae-9dfb-9f8a6a868be7
-  rect:
-    serializedVersion: 2
-    x: 2378
-    y: 438
+    x: 2174
+    y: 417
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
---- !u!114 &6584221438487225325
+--- !u!114 &2471960680015539385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,20 +289,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 0fef9f11-94fd-4c36-9cd5-22f5300cc9e7
+  m_Name: 264e51fc-25b0-4697-b5cd-699c72eeea27
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: I am surprised you made it across.
+  isPlayerSpeaking: 1
+  text: How long are you here?
   children:
-  - eeeb4304-c7cd-4032-8198-1d68bede9057
+  - d916fa43-7c7c-4657-bea2-ba455a5e30e0
   rect:
     serializedVersion: 2
-    x: 1317
-    y: 346
+    x: 527
+    y: 114
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &7767296116089399660
+--- !u!114 &2538092970268714284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,20 +312,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 56efc48a-1fa1-4851-9bea-f17285f1aac1
+  m_Name: fb8bf5e6-7645-4229-9ed1-27bcfa841ffe
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: ...
+  isPlayerSpeaking: 0
+  text: Hah... I can remember that I have got those ideas long time ago.
   children:
-  - e93b0a4a-9617-4746-a0d1-ecccf305a7c5
+  - 9f6b9028-62f4-4773-8a59-74fc13b49a0c
   rect:
     serializedVersion: 2
-    x: 2385
-    y: 578
+    x: 1331
+    y: 373
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
---- !u!114 &8261781744285390110
+--- !u!114 &4252956852395785699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -313,20 +335,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: bcc692d3-1e5a-46ad-81f9-a94b934f62db
+  m_Name: bc07c7ce-c88f-469b-9713-43854e20b50f
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: They are always here while sleeping...
+  text: Where to go?
   children:
-  - f3b93dbf-9727-456d-a8a4-c05b157144b6
+  - 05fe693e-ecee-491f-ab7b-72b63cf16d5f
+  - 47faf6a1-6c46-4b00-8d53-ce847a08c734
   rect:
     serializedVersion: 2
-    x: 610
-    y: 388
+    x: 797
+    y: 401
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
---- !u!114 &8945958319556573525
+--- !u!114 &8599873278453609138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,16 +359,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
-  m_Name: 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
+  m_Name: 9f6b9028-62f4-4773-8a59-74fc13b49a0c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "Having nightmares aren\xB4t you?"
+  text: Why should I try? There is no exit from here - believe me.
   children:
-  - bcc692d3-1e5a-46ad-81f9-a94b934f62db
+  - 80b4c434-0f5d-4bfc-8f0f-4b1a3595ae7e
   rect:
     serializedVersion: 2
-    x: 381
-    y: 501
+    x: 1584
+    y: 375
     width: 200
     height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

@@ -79,7 +79,7 @@ public class Examine : MonoBehaviour
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
                     examineCanvas.enabled = true;
-                    FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
+                    //FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
                     //Save The Original Postion And Rotation
                     originaPosition = clickedObject.transform.position;
                     originalRotation = clickedObject.transform.rotation.eulerAngles;

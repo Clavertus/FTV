@@ -356,17 +356,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         if (behaviour_state != tara_states.tara_scene_idle)
         {
             behaviour_state++;
+            Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
+            FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
         else
         {
             //reset "Nothing to ask" dialog
             idle_dialog_played = false;
         }
-
-        //AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
-        //find place to save game progress
-        Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
-        FindObjectOfType<SavingWrapper>().CheckpointSave();
     }
     #endregion
 }

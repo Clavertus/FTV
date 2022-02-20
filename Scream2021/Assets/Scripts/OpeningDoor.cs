@@ -63,7 +63,8 @@ public class OpeningDoor : MonoBehaviour, ISaveable
         {
             DoorIsOpened();
             GetComponent<Selectable>().enabled = false;
-            this.enabled = false; }
+            this.enabled = false; 
+        }
     }
 
     bool door_was_unlocked = false;

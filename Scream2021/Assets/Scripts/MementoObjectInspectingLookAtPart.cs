@@ -14,8 +14,8 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour
 
     GameObject DialogueBox;
 
-    int interactionCounter = 0;
-    int smallObjInteractionCounter = 0; 
+    public int interactionCounter = 0;
+    public int smallObjInteractionCounter = 0; 
     
     
     // Start is called before the first frame update
