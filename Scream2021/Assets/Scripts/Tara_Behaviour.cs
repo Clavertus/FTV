@@ -13,6 +13,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     {
         tara_scene_begin,
         tara_scene_lookAtElderGod,
+        tara_scene_sit,
         tara_scene_idle
     }
 
@@ -27,6 +28,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     bool dialog_3_played = false;
     [SerializeField] FTV.Dialog.NPCDialogue dialog_4 = null;
     bool dialog_4_played = false;
+    [SerializeField] FTV.Dialog.NPCDialogue idle_dialog = null;
+    bool idle_dialog_played = false;
 
 
     [Header("References:")]
@@ -75,55 +78,6 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         taraSpeech[3] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech4);
         taraSpeech[4] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech5);
     }
-    private void OnPreTriggerEventCall()
-    {
-        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
-        if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
-        {
-            lookAtElderGodCinematicSequence.Play();
-        }
-    }
-
-    private void EndPreTriggerEvent()
-    {
-        npc_Dialog.PreTriggerEventFinished();
-    }
-
-    private void OnDialogStarted()
-    {
-        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
-    }
-
-    int dialogId = 0;
-    private void OnDialogNodeStarted()
-    {
-        //speaking = true;
-        AudioManager.instance.InstantPlayFromGameObject(taraSpeech[dialogId]);
-        dialogId += 1;
-        if (dialogId >= taraSpeech.Length) dialogId = 0;
-    }
-    private void OnDialogNodeFinished()
-    {
-        //speaking = false;
-    }
-
-    private void OnDialogFinished()
-    {
-        if(behaviour_state != tara_states.tara_scene_idle)
-        {
-            behaviour_state++;
-        }
-        else
-        {
-            //reset "Nothing to ask" dialog
-            dialog_2_played = false;
-        }
-
-        //AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
-        //find place to save game progress
-        Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
-        FindObjectOfType<SavingWrapper>().CheckpointSave();
-    }
 
     private void Update()
     {
@@ -137,13 +91,20 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         {
             npc_Dialog.SetNewDialogAvailableNoPlayAddPreTrigger(dialog_1);
             dialog_1_played = true;
-            GetComponent<NPCMoving>().SetDestination(point_1);
+            GetComponent<NPCMoving>().SetDestination(point_1, false);
         }
 
-        else if ((behaviour_state == tara_states.tara_scene_idle) && (dialog_2_played == false))
+        else if ((behaviour_state == tara_states.tara_scene_sit) && (dialog_2_played == false))
         {
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_2);
             dialog_2_played = true;
+            GetComponent<NPCMoving>().SetDestination(point_2, true);
+        }
+
+        else if ((behaviour_state == tara_states.tara_scene_idle) && (idle_dialog_played == false))
+        {
+            npc_Dialog.SetNewDialogAvailableNoPlay(idle_dialog);
+            idle_dialog_played = true;
         }
 
         if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
@@ -154,7 +115,26 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             }
             else
             {
-                GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                if (GetComponent<NPCMoving>().IsSitTarget())
+                {
+                    Debug.Log("here");
+                    if(GetComponent<NPCAnimationController>().GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
+                    {
+                        Debug.Log("here");
+                        GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.sit_down);
+                    }
+                }
+                else
+                {
+                    if (GetComponent<NPCAnimationController>().GetCurrentState() == NPCAnimationController.NpcAnimationState.sit)
+                    {
+                        GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.stand_up);
+                    }
+                    else
+                    {
+                        GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                    }
+                }
             }
         }
 
@@ -309,6 +289,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     }
     #endregion
 
+    #region EVENTS
     private void LockPlayerControl(PlayableDirector pd)
     {
         Debug.Log("LockMenuControl");
@@ -327,4 +308,54 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             EndPreTriggerEvent();
         }
     }
+    private void OnPreTriggerEventCall()
+    {
+        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
+        if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
+        {
+            lookAtElderGodCinematicSequence.Play();
+        }
+    }
+
+    private void EndPreTriggerEvent()
+    {
+        npc_Dialog.PreTriggerEventFinished();
+    }
+
+    private void OnDialogStarted()
+    {
+        //AudioManager.instance.InstantPlayFromAudioManager(soundsEnum.TaraTalkingBackground);
+    }
+
+    int dialogId = 0;
+    private void OnDialogNodeStarted()
+    {
+        //speaking = true;
+        AudioManager.instance.InstantPlayFromGameObject(taraSpeech[dialogId]);
+        dialogId += 1;
+        if (dialogId >= taraSpeech.Length) dialogId = 0;
+    }
+    private void OnDialogNodeFinished()
+    {
+        //speaking = false;
+    }
+
+    private void OnDialogFinished()
+    {
+        if (behaviour_state != tara_states.tara_scene_idle)
+        {
+            behaviour_state++;
+        }
+        else
+        {
+            //reset "Nothing to ask" dialog
+            idle_dialog_played = false;
+        }
+
+        //AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
+        //find place to save game progress
+        Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
+        FindObjectOfType<SavingWrapper>().CheckpointSave();
+    }
+    #endregion
 }

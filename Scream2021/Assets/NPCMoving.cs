@@ -1,20 +1,25 @@
+using FTV.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NPCMoving : MonoBehaviour
+public class NPCMoving : MonoBehaviour, ISaveable
 {
     NavMeshAgent agent = null;
     Transform target = null;
+    bool sitTarget = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void SetDestination(Transform newTarget)
+    public void SetDestination(Transform newTarget, bool sitOnEnd)
     {
+        agent.updateRotation = true;
+        agent.updatePosition = true;
+        sitTarget = sitOnEnd;
         target = newTarget;
         NavMeshPath path = new NavMeshPath();
         if (agent.CalculatePath(target.position, path))
@@ -44,7 +49,14 @@ public class NPCMoving : MonoBehaviour
                     //rotate to same angle as target
                     transform.rotation = target.rotation;
                     target = null;
-                    StartCoroutine(restoreNavMeshAgent());
+                    if(sitTarget)
+                    {
+                        agent.updatePosition = false;
+                    }
+                    else
+                    {
+                        StartCoroutine(restoreNavMeshAgent());
+                    }
                 }
             }
         }
@@ -61,4 +73,31 @@ public class NPCMoving : MonoBehaviour
     {
         return agent.velocity.magnitude >= 0.05f;
     }
+
+    public bool IsSitTarget()
+    {
+        return sitTarget;
+    }
+
+    #region REGION_SAVING
+
+    [System.Serializable]
+    struct SaveData
+    {
+        public bool sitTarget;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.sitTarget = sitTarget;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        sitTarget = data.sitTarget;
+    }
+    #endregion
 }

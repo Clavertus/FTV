@@ -107,18 +107,24 @@ public class PlayNPCDialog : MonoBehaviour
 
     private void playIdleAnimation()
     {
-        npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+        if(npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
+        {
+            npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+        }
     }
 
     private void playTalkAnimation(bool isPlayerSpeaking)
     {
-        if (!isPlayerSpeaking)
+        if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
-            npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
-        }
-        else
-        {
-            npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+            if (!isPlayerSpeaking)
+            {
+                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
+            }
+            else
+            {
+                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+            }
         }
     }
 
