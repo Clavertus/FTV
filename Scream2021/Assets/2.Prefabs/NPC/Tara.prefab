@@ -19,6 +19,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1449905081869849654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074922609961956301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4338b0a2a823e408aeb5c11592ba84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9011476356461075190
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1ff3f1b48f3e0409b98d14deec7e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventReceiver: {fileID: 1449905081869849654}
   animator: {fileID: 2726992538842670850}
 --- !u!114 &1787795100
 MonoBehaviour:
@@ -193,11 +206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecae1805ddc592144804c0765e7bb202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtElderGodCinematicSequence: {fileID: 0}
+  stopZone: {fileID: 0}
+  taraMemento: {fileID: 0}
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
   dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
   dialog_2: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
   dialog_3: {fileID: 0}
   dialog_4: {fileID: 0}
+  idle_dialog: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
   npc_Dialog: {fileID: 1954732293560671682}
   point_0: {fileID: 0}
   point_1: {fileID: 0}

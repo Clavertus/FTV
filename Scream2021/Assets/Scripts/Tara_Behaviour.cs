@@ -16,6 +16,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         tara_scene_sit,
         tara_scene_idle
     }
+    [Header("GameObjects:")]
+    [SerializeField] GameObject stopZone = null;
+    [SerializeField] GameObject taraMemento = null;
 
     [Header("Dialogs:")]
     [SerializeField] FTV.Dialog.NPCDialogue dialog_0 = null;
@@ -60,6 +63,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
+        stopZone.SetActive(true);
+        taraMemento.SetActive(false);
         npc_Dialog.DisableInteraction();
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
@@ -99,12 +104,18 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_2);
             dialog_2_played = true;
             GetComponent<NPCMoving>().SetDestination(point_2, true);
+
+            stopZone.SetActive(false);
+            taraMemento.SetActive(true);
         }
 
         else if ((behaviour_state == tara_states.tara_scene_idle) && (idle_dialog_played == false))
         {
             npc_Dialog.SetNewDialogAvailableNoPlay(idle_dialog);
             idle_dialog_played = true;
+
+            stopZone.SetActive(false);
+            taraMemento.SetActive(true);
         }
 
         if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
