@@ -11,7 +11,7 @@ public class DialogueUI : MonoBehaviour
     public Action OnDialogShowStart { get; set; }
     public Action<bool> OnDialogNodeStart { get; set; }
     public Action OnDialogNodeEnd { get; set; }
-    public Action OnDialogShowEnd { get; set; }
+    public Action<NPCDialogue> OnDialogShowEnd { get; set; }
 
 
     [Header("dialog box")]
@@ -172,7 +172,7 @@ public class DialogueUI : MonoBehaviour
 
         }
 
-        OnDialogShowEnd?.Invoke();
+        OnDialogShowEnd?.Invoke(dialogueObject);
         CloseDialogueBox();
     }
 

@@ -26,6 +26,8 @@ public class LevelLoader : MonoBehaviour
 
     public bool HasPlayedTheGame;
 
+    Transform savedTransform = null;
+
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -92,6 +94,20 @@ public class LevelLoader : MonoBehaviour
         yield return StartCoroutine(CutIn());
         LoadNextScene();
         StartCoroutine(CutOut());
+    }
+    
+    public IEnumerator StartLoadingNextSceneWithSavingTransform(Transform transformToSave)
+    {
+        savedTransform = transformToSave;
+        StopAllCoroutines();
+        yield return StartCoroutine(FadeIn());
+        LoadNextScene();
+        StartCoroutine(FadeOut());
+    }
+
+    public Transform GetSavedTransform()
+    {
+        return savedTransform;
     }
 
     public IEnumerator StartLoadingSameScene()

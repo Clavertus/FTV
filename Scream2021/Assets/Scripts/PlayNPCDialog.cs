@@ -40,7 +40,7 @@ public class PlayNPCDialog : MonoBehaviour
     {
         DialogNodeIsEnded?.Invoke();
     }
-    private void NPCDialogFinished()
+    private void NPCDialogFinished(FTV.Dialog.NPCDialogue dialog)
     {
         DialogIsFinished?.Invoke();
 
@@ -105,7 +105,7 @@ public class PlayNPCDialog : MonoBehaviour
         dialogUI.OnDialogShowEnd -= NPCDialogFinished;
     }
 
-    private void playIdleAnimation()
+    private void playIdleAnimation(FTV.Dialog.NPCDialogue dialog)
     {
         if(npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {

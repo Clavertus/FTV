@@ -55,6 +55,7 @@ public class TaraEpisodeManager : MonoBehaviour, ISaveable
         FindObjectOfType<PlayerMovement>().LockPlayer();
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
 
+        AudioManager.instance.StopAllSounds();
         StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
     }
 
