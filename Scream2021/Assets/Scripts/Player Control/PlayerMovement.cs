@@ -193,5 +193,15 @@ public class PlayerMovement : MonoBehaviour, ISaveable
         transform.eulerAngles = data.rotation.ToVector();
         transform.position = data.position.ToVector();
         controller.enabled = true;
-    } 
+    }
+
+    private void OnEnable()
+    {
+        controller.enabled = true;
+    }
+
+    private void OnDisable()
+    {
+        controller.enabled = false;
+    }
 }

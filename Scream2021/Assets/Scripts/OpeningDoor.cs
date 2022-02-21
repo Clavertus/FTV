@@ -92,4 +92,13 @@ public class OpeningDoor : MonoBehaviour, ISaveable
             GetComponent<Selectable>().enabled = false;
         }
     }
+
+    public void ResetToDefaultState()
+    {
+        interactionCounter = 0;
+        door_was_unlocked = false;
+        openingDoor = false;
+        GetComponent<Selectable>().enabled = true;
+        this.enabled = true;
+    }
 }

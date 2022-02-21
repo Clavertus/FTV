@@ -34,7 +34,6 @@ public class StopAndRotatePlayerWIthDialog : MonoBehaviour
         {
             dialogUI.ShowDialogue(dialogToPlay);
         }
-
         yield return null;
     }
 }
