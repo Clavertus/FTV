@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FTV.Dialog;
 
 public class MementoObjectInspectingLockedPart : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
     [SerializeField] string CloseAnimationTriggerName = "Close";
 
     [Header("Dialogs")]
-    [SerializeField] DialogueObject baseObjInspectDialogue;
-    [SerializeField] DialogueObject LockInspectDialogue;
-    [SerializeField] DialogueObject UnlockedDialogue;
+    [SerializeField] NPCDialogue baseObjInspectDialogue;
+    [SerializeField] NPCDialogue LockInspectDialogue;
+    [SerializeField] NPCDialogue UnlockedDialogue;
 
     [Header("References")]
     [SerializeField] GameObject lockObject;

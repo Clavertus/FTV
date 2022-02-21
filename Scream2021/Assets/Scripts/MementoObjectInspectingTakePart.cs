@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FTV.Dialog;
 
 public class MementoObjectInspectingTakePart : MonoBehaviour
 {
-    [SerializeField] DialogueObject baseObjInspectDialogue;
-    [SerializeField] DialogueObject smallObjFellDialogue;
+    [SerializeField] NPCDialogue baseObjInspectDialogue;
+    [SerializeField] NPCDialogue smallObjFellDialogue;
 
     //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;

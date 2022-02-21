@@ -42,7 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b41827392050418485d1f4e9388fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
+  changeMaterialOnSelection: 1
+  allowMoreThanOneInspection: 0
   originalMat: {fileID: -2054705899596196291, guid: 1bbf48e2e3681f9498c6356e6bbdd52a, type: 3}
   highlightMat: {fileID: 2100000, guid: 72fb1f0b29df1b5408ef800c2b9a132f, type: 2}
 --- !u!65 &8938807975233628090
@@ -99,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc521b63ef3b41440a4c634de112ce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObjInspectDialogue: {fileID: 11400000, guid: d2c8b4972b574144fad8e4b8f1d78898, type: 2}
-  smallObjFellDialogue: {fileID: 11400000, guid: 9f4e83452e159ec40af144be638b1979, type: 2}
-  DialogueBox: {fileID: 0}
+  baseObjInspectDialogue: {fileID: 11400000, guid: 97f5168eb27763f42af626a9976f98c2, type: 2}
+  smallObjFellDialogue: {fileID: 11400000, guid: 9d7a7b90c0da8de458154422b49f9124, type: 2}
   smallObject: {fileID: 7232717442371614356}
   symbol: {fileID: 0}
   inspectCanvas: {fileID: 6492639807082480451}
@@ -126,6 +126,7 @@ MonoBehaviour:
   xRotation: 50
   yRotation: -90
   zRotation: 0
+  extraPressToShow: 1
 --- !u!1 &8938807973677688349
 GameObject:
   m_ObjectHideFlags: 0
