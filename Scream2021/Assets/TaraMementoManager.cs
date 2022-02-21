@@ -7,12 +7,29 @@ using System;
 
 public class TaraMementoManager : MonoBehaviour, ISaveable
 {
+    public enum currentMementoEnum
+    {
+        memento_book,
+        memento_jar,
+        memento_box
+    }
+    currentMementoEnum memento_state = currentMementoEnum.memento_book;
+
+    [Header("Mementos")]
+    [SerializeField] GameObject memento_book = null;
+    [SerializeField] GameObject memento_jar = null;
+    [SerializeField] GameObject memento_box = null;
+
+    [Header("Dialogs")]
+    [SerializeField] NPCDialogue dialogToPlayOnStart = null;
+    [SerializeField] NPCDialogue dialogToPlayOnTrigger = null;
+    [SerializeField] NPCDialogue dialogToPlayOnJarMemento = null;
+
+    [Header("Other")]
     [SerializeField] Transform startPosition = null;
     [SerializeField] PlayerMovement player = null;
     [SerializeField] GameObject triggerZone = null;
-    [SerializeField] NPCDialogue dialogToPlayOnStart = null;
-    [SerializeField] NPCDialogue dialogToPlayOnTrigger = null;
-    [SerializeField] GameObject DoorToClose = null;
+     [SerializeField] GameObject DoorToClose = null;
     [SerializeField] Transform DoorClosePosition = null;
     private bool dialogOnStart = true;
     private bool triggerZoneTriggered = false;
@@ -54,6 +71,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         {
             if(triggerZoneTriggered)
             {
+                memento_state = currentMementoEnum.memento_jar;
                 triggerZone.SetActive(false);
             }
         }
@@ -77,6 +95,16 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
 
         SetPlayerToSavedTransform();
 
+        if(memento_state >= currentMementoEnum.memento_jar)
+        {
+            memento_jar.SetActive(true);
+        }
+
+        if (memento_state >= currentMementoEnum.memento_box)
+        {
+            memento_box.SetActive(true);
+        }
+
         yield return LevelLoader.instance.FadeOut();
 
         player.UnlockPlayer();
@@ -95,6 +123,16 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         {
             triggerZoneTriggered = true;
         }
+
+        else if (dialog == dialogToPlayOnJarMemento)
+        {
+            memento_state = currentMementoEnum.memento_box;
+        }
+    }
+
+    public void SetMementoState(currentMementoEnum new_state)
+    {
+        memento_state = new_state;
     }
 
     private void SetPlayerToSavedTransform()
@@ -108,11 +146,13 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         player.enabled = true;
         Debug.Log("SetPlayerToSavedTransform");
     }
+
     #region REGION_SAVING
 
     [System.Serializable]
     struct SaveData
     {
+        public int memento_state;
         public bool dialogOnStart;
         public bool triggerZoneTriggered;
     }
@@ -122,6 +162,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         SaveData data = new SaveData();
         data.dialogOnStart = dialogOnStart;
         data.triggerZoneTriggered = triggerZoneTriggered;
+        data.memento_state = (int)memento_state;
         return data;
     }
 
@@ -130,6 +171,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         SaveData data = (SaveData)state;
         dialogOnStart = data.dialogOnStart;
         triggerZoneTriggered = data.triggerZoneTriggered;
+        memento_state = (currentMementoEnum)data.memento_state;
     }
     #endregion
 }

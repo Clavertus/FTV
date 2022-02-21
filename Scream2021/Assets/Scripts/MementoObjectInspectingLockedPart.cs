@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FTV.Dialog;
+using FTV.Saving;
 
-public class MementoObjectInspectingLockedPart : MonoBehaviour
+public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 {
     [Header("Animation")]
     [SerializeField] Animator mainObjectAnimator = null;
@@ -151,5 +152,31 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour
         FindObjectOfType<Examine>().ExitExamineMode();
         StartCoroutine(ExitInspectionOfThisObject());
     }
+
+
+    #region REGION_SAVING
+
+    [System.Serializable]
+    struct SaveData
+    {
+        public int interactionCounter;
+        public int smallObjInteractionCounter;
+    }
+
+    public object CaptureState()
+    {
+        SaveData data = new SaveData();
+        data.interactionCounter = interactionCounter;
+        data.smallObjInteractionCounter = smallObjInteractionCounter;
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data = (SaveData)state;
+        interactionCounter = data.interactionCounter;
+        smallObjInteractionCounter = data.smallObjInteractionCounter;
+    }
+    #endregion
 
 }
