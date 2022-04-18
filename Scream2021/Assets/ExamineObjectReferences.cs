@@ -6,6 +6,7 @@ public class ExamineObjectReferences : MonoBehaviour
 {
     [SerializeField] Renderer mainObjRenderer = null;
     [SerializeField] Renderer smallObjRenderer = null;
+
     // Start is called before the first frame update
     void Start()
     {

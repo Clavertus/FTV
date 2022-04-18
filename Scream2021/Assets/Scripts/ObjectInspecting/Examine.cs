@@ -17,7 +17,8 @@ public class Examine : MonoBehaviour
     //Holds Original Postion And Rotation So The Object Can Be Replaced Correctly
     Vector3 originaPosition;
     Vector3 originalRotation;
-    [SerializeField] float distanceFromCam;
+    [SerializeField] float distanceFromCam; 
+    //[SerializeField] bool useCalculatedCenterPosition;
 
 
     Transform originalParent;
@@ -38,14 +39,17 @@ public class Examine : MonoBehaviour
 
         ClickObject();//Decide What Object To Examine
 
-        TurnObject();//Allows Object To Be Rotated
-
         if(examineMode == true)
         {
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
             FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         }
+    }
+
+    private void LateUpdate()
+    {
+        TurnObject();//Allows Object To Be Rotated
     }
 
 
@@ -87,6 +91,7 @@ public class Examine : MonoBehaviour
                     //Now Move Object In Front Of Camera, offsets if bool is true
                     var relativePosition = cameraFrontObject.transform.InverseTransformDirection(transform.position - cameraFrontObject.transform.position);
                     clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
+                    savedCenterPosition = clickedObject.transform.position;
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
                     if (clickedObject.GetComponent<ObjectExaminationConfig>())
@@ -105,7 +110,9 @@ public class Examine : MonoBehaviour
                         float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation(); 
 
                         clickedObject.transform.rotation = 
-                            Quaternion.Euler(xRotation, yRotation, zRotation); 
+                            Quaternion.Euler(xRotation, yRotation, zRotation);
+
+                        savedObjectPivotPosition = clickedObject.transform.position;
 
                     }
                     //Pause The Game
@@ -125,6 +132,8 @@ public class Examine : MonoBehaviour
         return examineMode;
     }
 
+    Vector3 savedCenterPosition;
+    Vector3 savedObjectPivotPosition;
     void TurnObject()
     {
         if (Input.GetMouseButton(0) && examineMode)
@@ -133,30 +142,16 @@ public class Examine : MonoBehaviour
             
             float rotationSpeed = 15;
 
-            Vector3 centerPosition = Vector3.zero;
-            if (clickedObject.GetComponent<Renderer>())
-            {
-                centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
-            }
-            else if(clickedObject.GetComponent<MeshRenderer>())
-            {
-                centerPosition = clickedObject.GetComponent<MeshRenderer>().bounds.center;
-            }
-            else if (clickedObject.GetComponent<ExamineObjectReferences>())
-            {
-                centerPosition = clickedObject.GetComponent<ExamineObjectReferences>().GetMainObjRenderer().bounds.center;
-            }
-            else
-            {
-                Debug.LogError("Object should have any render applied!");
-                return;
-            }
+            Vector3 rotatePosition = savedObjectPivotPosition;
 
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            clickedObject.transform.RotateAround(centerPosition, Camera.main.transform.up, -xAxis);
-            clickedObject.transform.RotateAround(centerPosition, Camera.main.transform.right, yAxis);
+            
+
+            clickedObject.transform.RotateAround(rotatePosition, Camera.main.transform.up, -xAxis);
+            clickedObject.transform.RotateAround(rotatePosition, Camera.main.transform.right, yAxis);
+            clickedObject.transform.position = savedObjectPivotPosition;
         }
     }
 
