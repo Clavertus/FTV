@@ -53,13 +53,12 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         }
 
         SetPlayerToSavedTransform();
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
 
     // Update is called once per frame
     void Update()
     {
-        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTalkingBackground);
-        dialogUI = FindObjectOfType<DialogueUI>();
 
         if (dialogOnStart == true)
         {
