@@ -14,8 +14,8 @@ public class ExamineLockObject : MonoBehaviour
     [SerializeField] GameObject[] SlotImages = null;
     [SerializeField] Sprite[] imageList = null;
 
-    [SerializeField] Color slotUnselected = Color.white;
-    [SerializeField] Color slotSelected = Color.white;
+    [SerializeField] Material slotUnselected = null;
+    [SerializeField] Material slotSelected = null;
 
     [SerializeField] Transform[] lockSegments = null;
 
@@ -116,7 +116,8 @@ public class ExamineLockObject : MonoBehaviour
     {
         if (gameObject.CompareTag("Selectable"))
         {
-            SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+            //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+            lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotSelected;
             //LockInterfaceUiCanvas.gameObject.SetActive(true);
             LockHintUiCanvas.gameObject.SetActive(true);
 
@@ -149,13 +150,15 @@ public class ExamineLockObject : MonoBehaviour
             if(unlockedValue == unlockSequence.Length)
             {
                 unlocked = true;
-                SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+                //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+                lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotUnselected;
                 Unlocked?.Invoke();
             }
         }
         else if (gameObject.CompareTag("Untagged"))
         {
-            SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+            //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+            lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotUnselected;
             //LockInterfaceUiCanvas.gameObject.SetActive(false);
             LockHintUiCanvas.gameObject.SetActive(false);
         }
@@ -169,7 +172,8 @@ public class ExamineLockObject : MonoBehaviour
     public void InspectedOnce()
     {
         inspectedOnce = true;
-        SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+        //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
+        lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotSelected;
         GetComponent<Selectable>().ChangeUi(LockHintUiCanvas);
         if(useImagesInsteadOfMesh) LockInterfaceUiCanvas.gameObject.SetActive(true);
         LockHintUiCanvas.gameObject.SetActive(true);
@@ -202,8 +206,10 @@ public class ExamineLockObject : MonoBehaviour
             }
         }
 
-        SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
-        SlotBackgrounds[nextSlotId].GetComponent<Image>().color = slotSelected;
+        lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotUnselected;
+        //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotUnselected;
+        lockSegments[nextSlotId].GetComponent<MeshRenderer>().material = slotSelected;
+        //SlotBackgrounds[nextSlotId].GetComponent<Image>().color = slotSelected;
 
         currentSlotId = nextSlotId;
     }

@@ -29,8 +29,11 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
     [SerializeField] Transform startPosition = null;
     [SerializeField] PlayerMovement player = null;
     [SerializeField] GameObject triggerZone = null;
-     [SerializeField] GameObject DoorToClose = null;
+    [SerializeField] GameObject DoorToClose = null;
     [SerializeField] Transform DoorClosePosition = null;
+    [SerializeField] TrainEffectController trainToChange = null;
+    [SerializeField] Transform doorToDisable = null;
+    [SerializeField] Transform trainToRevealAndHide = null;
     private bool dialogOnStart = true;
     private bool triggerZoneTriggered = false;
     private DialogueUI dialogUI = null;
@@ -94,14 +97,16 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
 
         SetPlayerToSavedTransform();
 
-        if(memento_state >= currentMementoEnum.memento_jar)
+        if (memento_state >= currentMementoEnum.memento_jar)
         {
             memento_jar.SetActive(true);
+            trainToChange.setTrainMaterial(TrainEffectController.trainMaterialType.rusty00);
         }
 
         if (memento_state >= currentMementoEnum.memento_box)
         {
             memento_box.SetActive(true);
+            trainToChange.setTrainMaterial(TrainEffectController.trainMaterialType.rusty01);
         }
 
         yield return LevelLoader.instance.FadeOut();
@@ -109,6 +114,13 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         player.UnlockPlayer();
         FindObjectOfType<MouseLook>().UnlockCamera();
         FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+
+        if (memento_state >= currentMementoEnum.memento_box)
+        {
+            trainToRevealAndHide.gameObject.SetActive(false);
+            doorToDisable.GetComponent<Selectable>().enabled = false;
+            doorToDisable.GetComponent<OpeningDoor>().enabled = false;
+        }
     }
 
     private void OnDialogFinished(FTV.Dialog.NPCDialogue dialog)

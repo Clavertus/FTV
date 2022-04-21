@@ -12,6 +12,8 @@ public class TrainEffectController : MonoBehaviour
     Light[] lightsInTheTrain = null;
     float[] lightsIntensities = null;
     [SerializeField] MeshRenderer[] Lamps = null;
+    [SerializeField] Material[] trainMaterials = null;
+    [SerializeField] MeshRenderer[] trainBaseToChange = null;
 
     private soundsEnum lampsOff;
     private soundsEnum lampsOn;
@@ -151,5 +153,25 @@ public class TrainEffectController : MonoBehaviour
         {
             matSwitch.changeMaterial(materialId);
         }
+    }
+
+    public enum trainMaterialType{ normal, rusty00, rusty01 };
+    public void setTrainMaterial(trainMaterialType trainMaterial)
+    {
+        int materialId = (int)trainMaterial;
+        Debug.Log("DEBUG: " + materialId);
+
+        if (materialId > trainMaterials.Length)
+        {
+            return;
+        }
+
+        foreach(MeshRenderer renderer in trainBaseToChange)
+        {
+            renderer.sharedMaterial = trainMaterials[materialId];
+            Debug.Log(renderer + "set material to " + trainMaterials[materialId]);
+        }
+
+        Debug.Log("DEBUG: " + trainMaterials[materialId]);
     }
 }

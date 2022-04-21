@@ -102,7 +102,6 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
         FindObjectOfType<DialogueUI>().ShowDialogue(LockInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
 
-        //disable small object collider
         GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         examineLockObject.InspectedOnce();
 
@@ -110,8 +109,18 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
 
-        FindObjectOfType<Examine>().ExitExamineMode(); 
-        StartCoroutine(ExitInspectionOfThisObject()); 
+        if(examineLockObject.IsUnlocked() == false)
+        {
+            FindObjectOfType<Examine>().ExitExamineMode();
+            StartCoroutine(ExitInspectionOfThisObject());
+        }
+        else if((examineLockObject.IsUnlocked() == true))
+        {
+            yield return new WaitUntil(() => !DialogueBox.activeSelf);
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+            FindObjectOfType<Examine>().ExitExamineMode();
+            StartCoroutine(ExitInspectionOfThisObject());
+        }
     }
 
     IEnumerator ExitInspectionOfThisObject()

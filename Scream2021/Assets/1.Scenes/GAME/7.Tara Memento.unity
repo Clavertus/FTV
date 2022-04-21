@@ -2192,6 +2192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62ef154a5b79964db21cfd6755d5a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &393460840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 586000334661283910, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+  m_PrefabInstance: {fileID: 407870316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a8ac438d20b5846997139e68d1de62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &407870316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2651,6 +2662,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3560756826817025214, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e15309e478d8842b7848435bfd6b2d, type: 2}
     - target: {fileID: 3624666879870286393, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -2715,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421613564224434197, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e15309e478d8842b7848435bfd6b2d, type: 2}
     - target: {fileID: 4430897815434862777, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -2955,6 +2974,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6309598790485368330, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e15309e478d8842b7848435bfd6b2d, type: 2}
     - target: {fileID: 6462233863347987262, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -2971,6 +2994,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6604196527529392801, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e15309e478d8842b7848435bfd6b2d, type: 2}
     - target: {fileID: 6677889107125211994, guid: 98cec7137b122d5499a63048373df9f4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4510,7 +4537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867502, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867539, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_RootOrder
@@ -6820,6 +6847,9 @@ MonoBehaviour:
   triggerZone: {fileID: 6110754}
   DoorToClose: {fileID: 407870326}
   DoorClosePosition: {fileID: 837886046}
+  trainToChange: {fileID: 393460840}
+  doorToDisable: {fileID: 407870325}
+  trainToRevealAndHide: {fileID: 1894184346}
 --- !u!114 &1602462321
 MonoBehaviour:
   m_ObjectHideFlags: 0
