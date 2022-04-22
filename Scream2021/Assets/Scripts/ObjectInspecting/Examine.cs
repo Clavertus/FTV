@@ -132,12 +132,25 @@ public class Examine : MonoBehaviour
         return examineMode;
     }
 
+    public bool turningObjectEnabled = true; 
     Vector3 savedCenterPosition;
     Vector3 savedObjectPivotPosition;
     void TurnObject()
     {
         if (Input.GetMouseButton(0) && examineMode)
         {
+            if (turningObjectEnabled == false)
+            {
+                //do not allow to rotate while dialog
+                return;
+            }
+
+            /*if (dialogueBox.activeSelf)
+            {
+                //do not allow to rotate while dialog
+                return;
+            }*/
+
             clickedObject.tag = ("Untagged");
             
             float rotationSpeed = 15;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 916289061491485878}
   - component: {fileID: 3910187463045047879}
   - component: {fileID: 2977788067664092047}
+  - component: {fileID: 4217301137468493416}
   m_Layer: 0
   m_Name: ExamineObject
   m_TagString: Untagged
@@ -128,10 +129,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseObjInspectDialogue: {fileID: 11400000, guid: ba825e5f2ede1d642a911e5ccb3eee77, type: 2}
   smallObjInspectDialogue: {fileID: 11400000, guid: aba617a66aea330469d30903acfdb877, type: 2}
+  addExtraTriggerDialog: 1
+  smallObjTriggerDialogue: {fileID: 11400000, guid: 7f1607de8d181a34c9b4134a387b2e56, type: 2}
   smallObject: {fileID: 8829856311225453192}
   inspectCanvas: {fileID: 4630297937211854186}
   interactionCounter: 0
   smallObjInteractionCounter: 0
+  smallObjectTrigger: 0
+  smallObjectTriggerDone: 0
+--- !u!114 &4217301137468493416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882134640943984235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b216a4ff28e0a0f4d90ec36d3dac56bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inspectScriptRef: {fileID: 2977788067664092047}
+  rotateScriptRef: {fileID: 8481210000162043627}
 --- !u!1 &1170276819151245048
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +390,7 @@ GameObject:
   - component: {fileID: 9073111925716025330}
   - component: {fileID: 4548978394670448085}
   - component: {fileID: 2004126850567285539}
+  - component: {fileID: 8481210000162043627}
   m_Layer: 0
   m_Name: SmallItemExamineObject
   m_TagString: Untagged
@@ -453,6 +473,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObjRenderer: {fileID: 4325787043188030579}
   smallObjRenderer: {fileID: 4703141237052441303}
+--- !u!114 &8481210000162043627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829856311225453192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7085c2e1633da44d9104d39b8658684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transfromToRotate: {fileID: 4625142515065382420}
+  rotateToY: 90
+  rotateSpeedInSec: -30
+  spookPlayer: 1
+  spookRotateMultiplier: 20
+  rotationDone: 0
 --- !u!1001 &3163129703549596209
 PrefabInstance:
   m_ObjectHideFlags: 0

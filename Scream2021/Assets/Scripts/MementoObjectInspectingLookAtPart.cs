@@ -8,6 +8,8 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 {
     [SerializeField] NPCDialogue baseObjInspectDialogue;
     [SerializeField] NPCDialogue smallObjInspectDialogue;
+    [SerializeField] bool addExtraTriggerDialog = false;
+    [SerializeField] NPCDialogue smallObjTriggerDialogue;
 
     //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
@@ -17,9 +19,11 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
     GameObject DialogueBox;
 
     public int interactionCounter = 0;
-    public int smallObjInteractionCounter = 0; 
-    
-    
+    public int smallObjInteractionCounter = 0;
+    public bool smallObjectTrigger = false;
+    public bool smallObjectTriggerDone = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,15 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 
         FindObjectOfType<DialogueUI>().ShowDialogue(smallObjInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
+
+        smallObjectTrigger = true;
+        if (addExtraTriggerDialog)
+        {
+            yield return new WaitUntil(() => smallObjectTriggerDone);
+
+            FindObjectOfType<DialogueUI>().ShowDialogue(smallObjTriggerDialogue);
+            yield return new WaitUntil(() => !DialogueBox.activeSelf);
+        }
 
         GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         //disable small object collider

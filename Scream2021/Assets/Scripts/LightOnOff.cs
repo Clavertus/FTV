@@ -41,4 +41,12 @@ public class LightOnOff : MonoBehaviour
 
         TimeCount += Time.deltaTime;
     }
+
+    private void OnDisable()
+    {
+        myLight.enabled = true;
+        TimeCount = 0f;
+        LightOffTime = 0.1f;
+        LightOnTime = 0.1f;
+    }
 }

@@ -11,7 +11,8 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
     {
         memento_book,
         memento_jar,
-        memento_box
+        memento_box,
+        memento_move_to_next_scene
     }
     currentMementoEnum memento_state = currentMementoEnum.memento_book;
 
@@ -24,6 +25,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
     [SerializeField] NPCDialogue dialogToPlayOnStart = null;
     [SerializeField] NPCDialogue dialogToPlayOnTrigger = null;
     [SerializeField] NPCDialogue dialogToPlayOnJarMemento = null;
+    [SerializeField] NPCDialogue dialogToPlayOnBoxMemento = null;
 
     [Header("Other")]
     [SerializeField] Transform startPosition = null;
@@ -138,6 +140,12 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         else if (dialog == dialogToPlayOnJarMemento)
         {
             memento_state = currentMementoEnum.memento_box;
+        }
+
+        else if (dialog == dialogToPlayOnBoxMemento)
+        {
+            memento_state = currentMementoEnum.memento_move_to_next_scene;
+            StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
         }
     }
 
