@@ -23,11 +23,13 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
     public bool smallObjectTrigger = false;
     public bool smallObjectTriggerDone = false;
 
+    PlaySoundOnMementoExamine soundOnMemento = null;
 
     // Start is called before the first frame update
     void Start()
     {
         DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
+        soundOnMemento = GetComponentInChildren<PlaySoundOnMementoExamine>();
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
+        if (soundOnMemento) soundOnMemento.SetFullSound();
         yield return new WaitUntil(() => !DialogueBox.activeSelf);  
         smallObject.GetComponent<BoxCollider>().enabled = true; 
     }
@@ -69,10 +72,12 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         {
             yield return new WaitUntil(() => smallObjectTriggerDone);
 
+            if (soundOnMemento) soundOnMemento.SetSilent();
             FindObjectOfType<DialogueUI>().ShowDialogue(smallObjTriggerDialogue);
             yield return new WaitUntil(() => !DialogueBox.activeSelf);
         }
 
+        if(soundOnMemento) soundOnMemento.SetSilent();
         GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         //disable small object collider
         smallObject.GetComponent<BoxCollider>().enabled = false;

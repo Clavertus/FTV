@@ -41,5 +41,6 @@ public enum soundsEnum
 	TaraSpeech4 = 38,
 	TaraSpeech5 = 39,
 	TaraTalkingBackground = 40,
+	HeartBit = 41,
 
 }

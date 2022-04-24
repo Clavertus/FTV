@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 4548978394670448085}
   - component: {fileID: 2004126850567285539}
   - component: {fileID: 8481210000162043627}
+  - component: {fileID: 7897459568208425776}
   m_Layer: 0
   m_Name: SmallItemExamineObject
   m_TagString: Untagged
@@ -491,6 +492,19 @@ MonoBehaviour:
   spookPlayer: 1
   spookRotateMultiplier: 20
   rotationDone: 0
+--- !u!114 &7897459568208425776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829856311225453192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bc6d3aa758e3941b563113c1008b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSound: 41
 --- !u!1001 &3163129703549596209
 PrefabInstance:
   m_ObjectHideFlags: 0

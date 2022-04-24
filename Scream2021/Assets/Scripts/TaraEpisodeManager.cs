@@ -6,12 +6,10 @@ using UnityEngine;
 
 public class TaraEpisodeManager : MonoBehaviour, ISaveable
 {
-
     [SerializeField] GameObject closeDoorInspect = null;
     [SerializeField] Transform doorToClose = null;
     [SerializeField] Transform doorClosePosition = null;
     [SerializeField] PlayDialogOnInspection doorDialog = null;
-
 
     [SerializeField] MementoObjectInspectingLookAtPart mementoInspecting = null;
 

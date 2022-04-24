@@ -649,7 +649,7 @@ MonoBehaviour:
   - name: TaraTalkingBackground
     clip: {fileID: 8300000, guid: 8684fbe6212706a4dbe9f12741fa84c1, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.2
+    volume: 0.05
     pitch: 0.1
     loop: 1
     playOnAwake: 0
@@ -660,4 +660,19 @@ MonoBehaviour:
     rolloffMode: 1
     min: 0
     max: 50
+    source: {fileID: 0}
+  - name: HeartBit
+    clip: {fileID: 8300000, guid: 47a95c66c06a67a4f9dc7c21f522e387, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
     source: {fileID: 0}
