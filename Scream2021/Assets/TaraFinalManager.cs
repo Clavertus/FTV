@@ -19,6 +19,7 @@ public class TaraFinalManager : MonoBehaviour, ISaveable
         dialogUI = FindObjectOfType<DialogueUI>();
 
         StartCoroutine(PlayDialogOnStart());
+        //SetupScene();
     }
 
     private void SetupScene()
@@ -36,7 +37,6 @@ public class TaraFinalManager : MonoBehaviour, ISaveable
             dialog_played = true;
             FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
-
     }
 
     bool dialog_played = false;
