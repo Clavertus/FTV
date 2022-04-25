@@ -413,13 +413,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 3
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: Footstep4
     clip: {fileID: 8300000, guid: 506faa39c23d4224f8846b35151b8a97, type: 3}

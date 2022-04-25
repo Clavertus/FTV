@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c06fbb25a861ffd4d8f5477295e1ec06
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -806446659293606002
@@ -14,7 +14,7 @@ ModelImporter:
     second: ForgottenGod_Rig|Open
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -44,8 +44,8 @@ ModelImporter:
       name: ForgottenGod_Rig|Close
       takeName: ForgottenGod_Rig|Close
       internalID: 0
-      firstFrame: 0
-      lastFrame: 40
+      firstFrame: 1
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -74,7 +74,7 @@ ModelImporter:
       takeName: ForgottenGod_Rig|Idle
       internalID: 0
       firstFrame: 1
-      lastFrame: 39
+      lastFrame: 38
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -102,8 +102,8 @@ ModelImporter:
       name: ForgottenGod_Rig|Open
       takeName: ForgottenGod_Rig|Open
       internalID: 0
-      firstFrame: 0
-      lastFrame: 40
+      firstFrame: 1
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -145,6 +145,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -154,6 +155,9 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -187,6 +191,7 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

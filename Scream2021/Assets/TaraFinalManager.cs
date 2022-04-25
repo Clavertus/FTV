@@ -21,6 +21,10 @@ public class TaraFinalManager : MonoBehaviour, ISaveable
         StartCoroutine(PlayDialogOnStart());
     }
 
+    private void SetupScene()
+    {
+        FindObjectOfType<Tara_Behaviour>().SetNPCState(Tara_Behaviour.tara_states.tara_scene_sit);
+    }
 
     private IEnumerator PlayDialogOnStart()
     {

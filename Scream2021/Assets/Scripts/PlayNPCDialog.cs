@@ -24,24 +24,28 @@ public class PlayNPCDialog : MonoBehaviour
         dialogUI = FindObjectOfType<DialogueUI>();
     }
 
-    private void NPCDialogIsStarted()
+    private void NPCDialogIsStarted(FTV.Dialog.NPCDialogue f_dialogObject)
     {
+        if (f_dialogObject != dialogObject) return;
         DialogIsStarted?.Invoke();
     }
 
-    private void NPCDialogNodeStarted(bool isPlayerSpeaking)
+    private void NPCDialogNodeStarted(FTV.Dialog.NPCDialogue f_dialogObject, bool isPlayerSpeaking)
     {
-        if(!isPlayerSpeaking)
+        if (f_dialogObject != dialogObject) return;
+        if (!isPlayerSpeaking)
         {
             DialogNodeIsStarted?.Invoke();
         }
     }
-    private void NPCDialogNodeEnd()
+    private void NPCDialogNodeEnd(FTV.Dialog.NPCDialogue f_dialogObject)
     {
+        if (f_dialogObject != dialogObject) return;
         DialogNodeIsEnded?.Invoke();
     }
-    private void NPCDialogFinished(FTV.Dialog.NPCDialogue dialog)
+    private void NPCDialogFinished(FTV.Dialog.NPCDialogue f_dialogObject)
     {
+        if (f_dialogObject != dialogObject) return;
         DialogIsFinished?.Invoke();
 
         UnsubscribeOnDialogEvents();
@@ -105,16 +109,18 @@ public class PlayNPCDialog : MonoBehaviour
         dialogUI.OnDialogShowEnd -= NPCDialogFinished;
     }
 
-    private void playIdleAnimation(FTV.Dialog.NPCDialogue dialog)
+    private void playIdleAnimation(FTV.Dialog.NPCDialogue f_DialogObject)
     {
-        if(npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
+        if (f_DialogObject != dialogObject) return;
+        if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
             npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
         }
     }
 
-    private void playTalkAnimation(bool isPlayerSpeaking)
+    private void playTalkAnimation(FTV.Dialog.NPCDialogue f_DialogObject, bool isPlayerSpeaking)
     {
+        if (f_DialogObject != dialogObject) return;
         if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
             if (!isPlayerSpeaking)

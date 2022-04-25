@@ -9,7 +9,7 @@ using UnityEngine.Playables;
 public class Tara_Behaviour : MonoBehaviour, ISaveable
 {
     [SerializeField] PlayableDirector lookAtElderGodCinematicSequence = null;
-    enum tara_states
+    public enum tara_states
     {
         tara_scene_begin,
         tara_scene_lookAtElderGod,
@@ -48,7 +48,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] Texture close_texture = null;
     [SerializeField] Texture speak_texture = null;
 
-    tara_states behaviour_state = tara_states.tara_scene_begin;
+    public tara_states behaviour_state = tara_states.tara_scene_begin;
     SkinnedMeshRenderer[] m_Renderers = null;
     private bool eyes_open = true;
     private float openTimer = 0;
@@ -63,8 +63,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
-        stopZone.SetActive(true);
-        taraMemento.SetActive(false);
+        if(stopZone) stopZone.SetActive(true);
+        if (taraMemento) taraMemento.SetActive(false);
         npc_Dialog.DisableInteraction();
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
@@ -105,8 +105,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             dialog_2_played = true;
             GetComponent<NPCMoving>().SetDestination(point_2, true);
 
-            stopZone.SetActive(false);
-            taraMemento.SetActive(true);
+            if(stopZone) stopZone.SetActive(false);
+            if(taraMemento) taraMemento.SetActive(true);
         }
 
         else if ((behaviour_state == tara_states.tara_scene_idle) && (idle_dialog_played == false))
@@ -114,8 +114,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             npc_Dialog.SetNewDialogAvailableNoPlay(idle_dialog);
             idle_dialog_played = true;
 
-            stopZone.SetActive(false);
-            taraMemento.SetActive(true);
+            if(stopZone) stopZone.SetActive(false);
+            if(taraMemento) taraMemento.SetActive(true);
         }
 
         if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
@@ -150,6 +150,11 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
 
         TextureSwap();
+    }
+
+    public void SetNPCState(tara_states newState)
+    {
+        behaviour_state = newState;
     }
 
     #region REGION_TEXTURING

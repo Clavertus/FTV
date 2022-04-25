@@ -7,6 +7,7 @@ using UnityEngine;
 public class NPCAnimationController : MonoBehaviour, ISaveable
 {
     [SerializeField] NPCAnimatorEventsReceiver eventReceiver = null;
+    [SerializeField] soundsEnum footstepSound = soundsEnum.Footstep3;
     public enum NpcAnimationState
     {
         idle,
@@ -22,11 +23,18 @@ public class NPCAnimationController : MonoBehaviour, ISaveable
     private NpcAnimationState currentState = NpcAnimationState.idle;
     private NpcAnimationState lastState = NpcAnimationState.idle;
 
+    AudioSource footStepSource = null;
     private void Start()
     {
+        footStepSource = AudioManager.instance.AddAudioSourceWithSound(this.gameObject, footstepSound);
         eventReceiver.EventNPCFootStep += OnFootstepEvent;
         eventReceiver.EventNPCSitDownFinished += OnSitDownEvent;
         eventReceiver.EventNPCStandUpFinished += OnStandUpEvent;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(footStepSource);
     }
 
     private void OnStandUpEvent()
@@ -41,7 +49,7 @@ public class NPCAnimationController : MonoBehaviour, ISaveable
 
     private void OnFootstepEvent()
     {
-        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Footstep3);
+        AudioManager.instance.PlayOneShotFromGameObject(footStepSource);
     }
 
     // Update is called once per frame

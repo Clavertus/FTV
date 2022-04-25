@@ -8,9 +8,9 @@ using System;
 public class DialogueUI : MonoBehaviour
 {
 
-    public Action OnDialogShowStart { get; set; }
-    public Action<bool> OnDialogNodeStart { get; set; }
-    public Action OnDialogNodeEnd { get; set; }
+    public Action<NPCDialogue> OnDialogShowStart { get; set; }
+    public Action<NPCDialogue, bool> OnDialogNodeStart { get; set; }
+    public Action<NPCDialogue> OnDialogNodeEnd { get; set; }
     public Action<NPCDialogue> OnDialogShowEnd { get; set; }
 
 
@@ -107,7 +107,7 @@ public class DialogueUI : MonoBehaviour
         bool exitDialogue = false;
         dialogueObject.EnableAndFixDialog();
 
-        OnDialogShowStart?.Invoke();
+        OnDialogShowStart?.Invoke(dialogueObject);
 
         DialogNode nextDialogue = dialogueObject.GetRootNode();
 
@@ -115,7 +115,7 @@ public class DialogueUI : MonoBehaviour
         {
             ApplyNodeStyle(nextDialogue);
 
-            OnDialogNodeStart?.Invoke(nextDialogue.GetIsPlayerSpeaking());
+            OnDialogNodeStart?.Invoke(dialogueObject, nextDialogue.GetIsPlayerSpeaking());
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
 
@@ -151,21 +151,21 @@ public class DialogueUI : MonoBehaviour
                     // if it is an NPC -> random? or always the first one
                     int randomDialogId = UnityEngine.Random.Range((int)0, (int)(nextDialogue.GetChildren().Count));
                     nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[randomDialogId]);
-                    OnDialogNodeEnd?.Invoke();
+                    OnDialogNodeEnd?.Invoke(dialogueObject);
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
             }
             else if (nextDialogue.GetChildren().Count == 1)
             {
 
-                OnDialogNodeEnd?.Invoke();
+                OnDialogNodeEnd?.Invoke(dialogueObject);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
             }
             else
             {
 
-                OnDialogNodeEnd?.Invoke();
+                OnDialogNodeEnd?.Invoke(dialogueObject);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 exitDialogue = true;
             }
