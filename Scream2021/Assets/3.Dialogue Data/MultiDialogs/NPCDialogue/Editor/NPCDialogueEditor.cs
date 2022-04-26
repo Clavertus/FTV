@@ -32,7 +32,7 @@ namespace FTV.Dialog.Editor
         Vector2 draggingCanvasOffset;
 
 
-        const float canvasSize = 4000;
+        const float canvasSize = 10000;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()

@@ -1,0 +1,860 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9001756483412339457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 43c3c063-1fba-4017-a0d7-297f54e6839d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: And the pistol, that you are trying to hide...
+  children:
+  - a5152c99-b90a-4ea2-9d16-e50683daca6c
+  rect:
+    serializedVersion: 2
+    x: 2009
+    y: 600
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-8963556718547109220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 02d2b46f-0685-4ff4-b687-37e0d0b04636
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Argh! Stop...
+  children:
+  - 43c3c063-1fba-4017-a0d7-297f54e6839d
+  rect:
+    serializedVersion: 2
+    x: 1788
+    y: 571
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-8836667519250063338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 47b151b3-9099-4af6-8561-e6ea025db1b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Why are you asking all this???
+  children:
+  - 62d9d3e7-b67c-4714-8808-6b97adc806ed
+  rect:
+    serializedVersion: 2
+    x: 1902
+    y: 28
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-8812584636549442657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 6db88747-3e38-4c8c-b12e-d9fc817fa4fa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Tell me the truth. What you are hiding?
+  children:
+  - 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
+  rect:
+    serializedVersion: 2
+    x: 1358
+    y: 279
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-6990759183761776485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 72f39304-158f-4201-bf6d-11785f23648e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: ... that egyptian book ...
+  children:
+  - 6adc2df9-4742-4fcc-9549-ae5c20efa0f5
+  rect:
+    serializedVersion: 2
+    x: 1161
+    y: 456
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-5382443930475611627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: a127f6c0-e085-4b10-9339-a72c33da85f4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ... that last time, when I... when we were there...
+  children:
+  - 8398bb41-2118-4a11-939b-862457603f3b
+  rect:
+    serializedVersion: 2
+    x: 2245
+    y: 339
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-5354839916827819057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 9b5591cb-d704-4b39-87cc-957eba51acb1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I was.. I need revenge... I need to kill him...
+  children:
+  - 4a90dcb5-91fc-4ede-821d-8cc7d219e415
+  - 614770c1-cf80-4981-84fc-c84bd4fb2729
+  rect:
+    serializedVersion: 2
+    x: 3579
+    y: 277
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-5156310671020911790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 46481a58-6c6d-4d7b-bff1-7b494611d59a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Wait, I... Something... Argh, it hurts to remember...
+  children:
+  - 47b151b3-9099-4af6-8561-e6ea025db1b3
+  rect:
+    serializedVersion: 2
+    x: 1576
+    y: 24
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-4884604333277277069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 73449551-0f1a-443b-80ea-6fe471237485
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What? I... I can not remember.
+  children:
+  - fa0c85d4-3830-4d05-9217-00119d99cf47
+  - 914c20e7-8640-42fc-9c57-3a59c3520599
+  - 6db88747-3e38-4c8c-b12e-d9fc817fa4fa
+  rect:
+    serializedVersion: 2
+    x: 1037
+    y: 96
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-4352497504851113515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What?...
+  children:
+  - 72f39304-158f-4201-bf6d-11785f23648e
+  rect:
+    serializedVersion: 2
+    x: 958
+    y: 403
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-3642605502565297823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 1cdb910d-b96a-4cc3-be86-c284490e2152
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Just tell me what happend!
+  children:
+  - 442dc9fe-220d-4e80-9080-8e44832605b6
+  rect:
+    serializedVersion: 2
+    x: 3491
+    y: 741
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-3505922431475038874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: eb2a5fca-7056-4c7c-8bf4-e9368a0339b4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I want to ask you one thing...
+  children:
+  - 8d16702a-ec6e-43ec-b6e7-e53ffac4f9ff
+  rect:
+    serializedVersion: 2
+    x: 222
+    y: 234
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-3280966639050482447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: f02dae9a-b5f4-42b9-85d1-a039bf4e08e2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes... I can remeber that... But I do not want to remeber...
+  children:
+  - a127f6c0-e085-4b10-9339-a72c33da85f4
+  rect:
+    serializedVersion: 2
+    x: 1919
+    y: 291
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-2130586087391220089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 62d9d3e7-b67c-4714-8808-6b97adc806ed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I need to know the truth, so I can help both of us.
+  children:
+  - 171a1187-5e47-4b0b-af05-1d42ec827877
+  rect:
+    serializedVersion: 2
+    x: 2381
+    y: 178
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-1670958409027462073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 6adc2df9-4742-4fcc-9549-ae5c20efa0f5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ...
+  children:
+  - 72918fee-c214-4087-a578-308e0f8b45d8
+  rect:
+    serializedVersion: 2
+    x: 1373
+    y: 506
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-1569638888397360412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: d119468d-0384-47bc-90d4-216e145cee6c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ... argh! He sold...  artifacts... money...
+  children:
+  - 226ee6d9-940a-4f92-8f05-0c9b32444549
+  rect:
+    serializedVersion: 2
+    x: 3214
+    y: 73
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-690501871194542646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 4a90dcb5-91fc-4ede-821d-8cc7d219e415
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Revenge will not bring your loved one back...
+  children:
+  - c8407020-bf08-4912-94f5-0c2e706db275
+  rect:
+    serializedVersion: 2
+    x: 3927
+    y: 455
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-591085300546803217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 442dc9fe-220d-4e80-9080-8e44832605b6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ARRRRGHHH! I WILL KILL YOU!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 4830
+    y: 673
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: TaraFinal.Tara.SpeakAboutHer
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -3505922431475038874}
+  - {fileID: 2477504271898365292}
+  - {fileID: 3055373578106391765}
+  - {fileID: 1022527654814498998}
+  - {fileID: -4352497504851113515}
+  - {fileID: -6990759183761776485}
+  - {fileID: -1670958409027462073}
+  - {fileID: 2892749390315742551}
+  - {fileID: -8963556718547109220}
+  - {fileID: -9001756483412339457}
+  - {fileID: 178488378167435310}
+  - {fileID: 6108364205073970937}
+  - {fileID: -3642605502565297823}
+  - {fileID: 783412315254636405}
+  - {fileID: -591085300546803217}
+  - {fileID: -4884604333277277069}
+  - {fileID: 8014797308321470106}
+  - {fileID: 8055426670274838479}
+  - {fileID: -8812584636549442657}
+  - {fileID: 850597410501818704}
+  - {fileID: -3280966639050482447}
+  - {fileID: -5156310671020911790}
+  - {fileID: -8836667519250063338}
+  - {fileID: -5382443930475611627}
+  - {fileID: -2130586087391220089}
+  - {fileID: 364843016341823226}
+  - {fileID: 5752633974711367861}
+  - {fileID: 5803077538480930402}
+  - {fileID: -1569638888397360412}
+  - {fileID: 4360155457523709909}
+  - {fileID: -690501871194542646}
+  - {fileID: 3628299784405484258}
+  - {fileID: -5354839916827819057}
+  - {fileID: 7646310382825078563}
+  - {fileID: 8976044939880910612}
+--- !u!114 &178488378167435310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: a5152c99-b90a-4ea2-9d16-e50683daca6c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Arrgghh! I do not know what you are DOING, but it HURTS!
+  children:
+  - f840a621-d400-4370-af3c-922acf7c9978
+  rect:
+    serializedVersion: 2
+    x: 2237
+    y: 633
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &364843016341823226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 8398bb41-2118-4a11-939b-862457603f3b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Please, tell me what happend?
+  children:
+  - 4e6185f2-79e8-467b-b0ed-f0e3fc76c6b8
+  rect:
+    serializedVersion: 2
+    x: 2571
+    y: 28
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &783412315254636405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 2800d31a-8715-458f-b57d-52dd5dee4647
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No... I am not... relax...
+  children:
+  - 442dc9fe-220d-4e80-9080-8e44832605b6
+  rect:
+    serializedVersion: 2
+    x: 3515
+    y: 547
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &850597410501818704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: e8541a2d-88b3-4c88-be06-70fcc5e1d3fd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I... Yes... Argh...
+  children:
+  - f02dae9a-b5f4-42b9-85d1-a039bf4e08e2
+  rect:
+    serializedVersion: 2
+    x: 1678
+    y: 226
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &1022527654814498998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: ecca2f11-d8cd-462e-8d9a-bdfdb72efc42
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I was in somekind of a dream... And seen strange thing, I think it is related
+    to you.
+  children:
+  - 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
+  rect:
+    serializedVersion: 2
+    x: 736
+    y: 339
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &2477504271898365292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 8d16702a-ec6e-43ec-b6e7-e53ffac4f9ff
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I think I have said, that I want to sit in quiet, but okay.
+  children:
+  - b50822fe-b5dc-4893-aa3f-f5617e972bbe
+  - ecca2f11-d8cd-462e-8d9a-bdfdb72efc42
+  rect:
+    serializedVersion: 2
+    x: 500
+    y: 244
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &2892749390315742551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 72918fee-c214-4087-a578-308e0f8b45d8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Broken ancient jars, looking to be really old...
+  children:
+  - 02d2b46f-0685-4ff4-b687-37e0d0b04636
+  rect:
+    serializedVersion: 2
+    x: 1583
+    y: 526
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &3055373578106391765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: b50822fe-b5dc-4893-aa3f-f5617e972bbe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Tell me, what have you done in before you get here?
+  children:
+  - 73449551-0f1a-443b-80ea-6fe471237485
+  rect:
+    serializedVersion: 2
+    x: 750
+    y: 146
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &3628299784405484258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: c8407020-bf08-4912-94f5-0c2e706db275
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You are blaming me???
+  children:
+  - 442dc9fe-220d-4e80-9080-8e44832605b6
+  rect:
+    serializedVersion: 2
+    x: 4315
+    y: 490
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &4360155457523709909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 226ee6d9-940a-4f92-8f05-0c9b32444549
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: But that guy... that FUCKING GUY! He killed him!
+  children:
+  - 9b5591cb-d704-4b39-87cc-957eba51acb1
+  rect:
+    serializedVersion: 2
+    x: 3304
+    y: 201
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &5752633974711367861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 4e6185f2-79e8-467b-b0ed-f0e3fc76c6b8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ... he... we have not much money...
+  children:
+  - d119468d-0384-47bc-90d4-216e145cee6c
+  rect:
+    serializedVersion: 2
+    x: 2904
+    y: 27
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &5803077538480930402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 171a1187-5e47-4b0b-af05-1d42ec827877
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: All your questions! You are forcing me to remeber! It PAINS!
+  children:
+  - 2800d31a-8715-458f-b57d-52dd5dee4647
+  - 1cdb910d-b96a-4cc3-be86-c284490e2152
+  rect:
+    serializedVersion: 2
+    x: 2783
+    y: 390
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &6108364205073970937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: f840a621-d400-4370-af3c-922acf7c9978
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You... You are BLAMING me???
+  children:
+  - 1cdb910d-b96a-4cc3-be86-c284490e2152
+  - 2800d31a-8715-458f-b57d-52dd5dee4647
+  rect:
+    serializedVersion: 2
+    x: 2873
+    y: 659
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &7646310382825078563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 614770c1-cf80-4981-84fc-c84bd4fb2729
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: If you feel such emotions... then that guy deserves your revenge.
+  children:
+  - c91b9979-7b00-464c-84ed-1ae2b65ce2eb
+  rect:
+    serializedVersion: 2
+    x: 3941
+    y: 278
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &8014797308321470106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: fa0c85d4-3830-4d05-9217-00119d99cf47
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I have seen that book. Perhaps you worked on history or archialogy...
+  children:
+  - 46481a58-6c6d-4d7b-bff1-7b494611d59a
+  rect:
+    serializedVersion: 2
+    x: 1354
+    y: 28
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &8055426670274838479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 914c20e7-8640-42fc-9c57-3a59c3520599
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Have you worked in Egypt?
+  children:
+  - e8541a2d-88b3-4c88-be06-70fcc5e1d3fd
+  rect:
+    serializedVersion: 2
+    x: 1355
+    y: 155
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &8976044939880910612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: c91b9979-7b00-464c-84ed-1ae2b65ce2eb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes... thanks...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 4777
+    y: 161
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}

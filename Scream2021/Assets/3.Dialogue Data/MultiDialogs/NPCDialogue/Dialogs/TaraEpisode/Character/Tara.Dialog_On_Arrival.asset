@@ -315,14 +315,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: bcc692d3-1e5a-46ad-81f9-a94b934f62db
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
   text: They are always here while sleeping...
   children:
   - f3b93dbf-9727-456d-a8a4-c05b157144b6
   rect:
     serializedVersion: 2
-    x: 610
-    y: 388
+    x: 608
+    y: 391
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}

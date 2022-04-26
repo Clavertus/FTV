@@ -14,11 +14,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         tara_scene_begin,
         tara_scene_lookAtElderGod,
         tara_scene_sit,
-        tara_scene_idle
+        tara_scene_idle,
+        tara_scene_waitForPlayer
     }
     [Header("GameObjects:")]
     [SerializeField] GameObject stopZone = null;
     [SerializeField] GameObject taraMemento = null;
+    [SerializeField] bool reactOnShelf = true;
+    [SerializeField] GameObject taraShelf = null;
 
     [Header("Dialogs:")]
     [SerializeField] FTV.Dialog.NPCDialogue dialog_0 = null;
@@ -33,6 +36,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     bool dialog_4_played = false;
     [SerializeField] FTV.Dialog.NPCDialogue idle_dialog = null;
     bool idle_dialog_played = false;
+    [SerializeField] FTV.Dialog.NPCDialogue shelf_dialog = null;
+    bool shelf_dialog_played = false;
 
 
     [Header("References:")]
@@ -42,6 +47,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] Transform point_0 = null;
     [SerializeField] Transform point_1 = null;
     [SerializeField] Transform point_2 = null;
+    [SerializeField] Transform point_3 = null;
 
 
     [SerializeField] Texture open_texture = null;
@@ -60,6 +66,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     private bool speaking = false;
 
 
+    [Header("Sounds:")]
+    [SerializeField] float volume = 0.25f;
+    [SerializeField] float pitch = 2f;
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
@@ -82,6 +91,11 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         taraSpeech[2] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech3);
         taraSpeech[3] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech4);
         taraSpeech[4] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech5);
+        for(int ix = 0; ix < taraSpeech.Length; ix++)
+        {
+            taraSpeech[ix].volume = volume;
+            taraSpeech[ix].pitch = pitch;
+        }
     }
 
     private void Update()
@@ -116,6 +130,29 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
             if(stopZone) stopZone.SetActive(false);
             if(taraMemento) taraMemento.SetActive(true);
+        }
+
+        else if ((behaviour_state == tara_states.tara_scene_waitForPlayer) && (dialog_3_played == false))
+        {
+            npc_Dialog.SetNewDialogAvailableNoPlay(dialog_3);
+            dialog_3_played = true;
+            GetComponent<NPCMoving>().SetDestination(point_3, false);
+
+            if (stopZone) stopZone.SetActive(false);
+            if (taraMemento) taraMemento.SetActive(true);
+        }
+
+        if (reactOnShelf)
+        {
+            if ((taraShelf.GetComponentInChildren<PlayDialogOnInspection>().interactionCounter > 0) && (shelf_dialog_played == false))
+            {
+                if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
+                {
+                    shelf_dialog_played = true;
+                    reactOnShelf = false;
+                    npc_Dialog.SetNewDialogAvailableAndPlay(shelf_dialog);
+                }
+            }
         }
 
         if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
@@ -261,6 +298,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         public bool dialog_2_played;
         public bool dialog_3_played;
         public bool dialog_4_played;
+        public bool shelf_dialog_played;
+        public bool reactOnShelf;
         public int behaviour_state;
         public SerializableVector3 position;
         public SerializableVector3 rotation;
@@ -274,6 +313,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         data.dialog_2_played = dialog_2_played;
         data.dialog_3_played = dialog_3_played;
         data.dialog_4_played = dialog_4_played;
+        data.shelf_dialog_played = shelf_dialog_played;
+        data.reactOnShelf = reactOnShelf;
         data.behaviour_state = (int) behaviour_state;
 
         GetComponent<NavMeshAgent>().enabled = false;
@@ -294,6 +335,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         dialog_2_played = data.dialog_2_played;
         dialog_3_played = data.dialog_3_played;
         dialog_4_played = data.dialog_4_played;
+        shelf_dialog_played = data.shelf_dialog_played;
+        reactOnShelf = data.reactOnShelf;
         behaviour_state = (tara_states) data.behaviour_state;
 
         GetComponent<NavMeshAgent>().enabled = false;
@@ -358,16 +401,26 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     private void OnDialogFinished()
     {
-        if (behaviour_state != tara_states.tara_scene_idle)
+        if ((behaviour_state != tara_states.tara_scene_idle) && (behaviour_state != tara_states.tara_scene_sit))
         {
             behaviour_state++;
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
-        else
+        else if (behaviour_state == tara_states.tara_scene_sit)
+        {
+            behaviour_state = tara_states.tara_scene_idle;
+            Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
+            FindObjectOfType<SavingWrapper>().CheckpointSave();
+        }
+        else if (behaviour_state == tara_states.tara_scene_idle)
         {
             //reset "Nothing to ask" dialog
             idle_dialog_played = false;
+        }
+        else
+        {
+            //error?
         }
     }
     #endregion

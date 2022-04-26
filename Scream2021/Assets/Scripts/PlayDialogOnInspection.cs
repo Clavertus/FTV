@@ -29,8 +29,11 @@ public class PlayDialogOnInspection : MonoBehaviour, ISaveable
         {
             if (!dialogUI.dialogueBox.activeSelf) 
             {
-                Debug.Log("DisableAllSameObjects of: " + name);
-                DisableAllSameObjects();
+                if(disableSameDialogues)
+                {
+                    Debug.Log("DisableAllSameObjects of: " + name);
+                    DisableAllSameObjects();
+                }
                 gameObject.tag = ("Untagged");
                 this.GetComponent<Selectable>().enabled = false;
                 interactionCounter++;
