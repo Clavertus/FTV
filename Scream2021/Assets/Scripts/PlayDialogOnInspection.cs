@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayDialogOnInspection : MonoBehaviour, ISaveable
 {
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
+    [SerializeField] bool playDialog = true;
     [SerializeField] bool disableSameDialogues = true;
 
     PlayDialogOnInspection[] listOfObjects = null;
@@ -48,7 +49,7 @@ public class PlayDialogOnInspection : MonoBehaviour, ISaveable
         interactionCounter++;
         if (dialogUI)
         {
-            if(dialogObject)
+            if(dialogObject == true && playDialog == true)
             {
                 dialogUI.ShowDialogue(dialogObject);
             }

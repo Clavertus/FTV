@@ -22,6 +22,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] GameObject taraMemento = null;
     [SerializeField] bool reactOnShelf = true;
     [SerializeField] GameObject taraShelf = null;
+    [SerializeField] GameObject[] taraShelfDisableObjects = null;
+    [SerializeField] GameObject[] taraShelfEnableObjects = null;
 
     [Header("Dialogs:")]
     [SerializeField] FTV.Dialog.NPCDialogue dialog_0 = null;
@@ -151,6 +153,18 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             dialog_3_played = true;
             GetComponent<NPCMoving>().SetDestination(point_3, false);
 
+            if (taraShelf)
+            {
+                taraShelf.SetActive(true);
+                foreach(GameObject obj in taraShelfDisableObjects)
+                {
+                    obj.SetActive(false);
+                }
+                foreach (GameObject obj in taraShelfEnableObjects)
+                {
+                    obj.SetActive(true);
+                }
+            }
             if (stopZone) stopZone.SetActive(false);
             if (taraMemento) taraMemento.SetActive(true);
         }
@@ -352,6 +366,20 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         reactOnShelf = data.reactOnShelf;
         behaviour_state = (tara_states) data.behaviour_state;
 
+        Debug.LogWarning(data.behaviour_state);
+        if (data.behaviour_state == (int) tara_states.tara_scene_waitForPlayer)
+        {
+            foreach (GameObject obj in taraShelfDisableObjects)
+            {
+                Debug.LogWarning(obj + " SetDisabled");
+                obj.SetActive(false);
+            }
+            foreach (GameObject obj in taraShelfEnableObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
+
         GetComponent<NavMeshAgent>().enabled = false;
         transform.eulerAngles = data.rotation.ToVector();
         transform.position = data.position.ToVector();
@@ -414,15 +442,15 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     private void OnDialogFinished()
     {
-        if ((behaviour_state != tara_states.tara_scene_idle) && (behaviour_state != tara_states.tara_scene_sit))
+        if (behaviour_state == tara_states.tara_scene_sit)
         {
-            behaviour_state++;
+            behaviour_state = tara_states.tara_scene_idle;
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
-        else if (behaviour_state == tara_states.tara_scene_sit)
+        else if (behaviour_state == tara_states.tara_scene_waitForPlayer)
         {
-            behaviour_state = tara_states.tara_scene_idle;
+            behaviour_state = tara_states.tara_scene_waitForPlayer;
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
@@ -433,7 +461,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
         else
         {
-            //error?
+            behaviour_state++;
+            Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
+            FindObjectOfType<SavingWrapper>().CheckpointSave();
         }
     }
     #endregion
