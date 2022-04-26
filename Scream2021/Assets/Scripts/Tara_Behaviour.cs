@@ -86,6 +86,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         lookAtElderGodCinematicSequence.played += LockPlayerControl;
         lookAtElderGodCinematicSequence.stopped += UnlockPlayerControl;
 
+        dialog_0_played = false;
+        dialog_1_played = false;
+        dialog_2_played = false;
+        dialog_3_played = false;
+        dialog_4_played = false;
+        idle_dialog_played = false;
+        shelf_dialog_played = false;
+
         taraSpeech[0] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech1);
         taraSpeech[1] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech2);
         taraSpeech[2] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeech3);
@@ -102,12 +110,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     {
         if((behaviour_state == tara_states.tara_scene_begin) && (dialog_0_played == false))
         {
+            Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableAndPlay(dialog_0);
             dialog_0_played = true;
         }
 
         else if ((behaviour_state == tara_states.tara_scene_lookAtElderGod) && (dialog_1_played == false))
         {
+            Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableNoPlayAddPreTrigger(dialog_1);
             dialog_1_played = true;
             GetComponent<NPCMoving>().SetDestination(point_1, false);
@@ -115,6 +125,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         else if ((behaviour_state == tara_states.tara_scene_sit) && (dialog_2_played == false))
         {
+            Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_2);
             dialog_2_played = true;
             GetComponent<NPCMoving>().SetDestination(point_2, true);
@@ -125,6 +136,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         else if ((behaviour_state == tara_states.tara_scene_idle) && (idle_dialog_played == false))
         {
+            Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableNoPlay(idle_dialog);
             idle_dialog_played = true;
 
@@ -134,6 +146,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         else if ((behaviour_state == tara_states.tara_scene_waitForPlayer) && (dialog_3_played == false))
         {
+            Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_3);
             dialog_3_played = true;
             GetComponent<NPCMoving>().SetDestination(point_3, false);
