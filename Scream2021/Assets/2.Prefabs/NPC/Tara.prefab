@@ -215,6 +215,9 @@ MonoBehaviour:
   taraShelf: {fileID: 0}
   taraShelfDisableObjects: []
   taraShelfEnableObjects: []
+  elderGodDissapeared: 0
+  trainToDissapear: {fileID: 0}
+  elderGodToDissapear: {fileID: 0}
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
   dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
   dialog_2: {fileID: 11400000, guid: f6102488492a64346ad82cfa72bbcead, type: 2}
@@ -229,6 +232,8 @@ MonoBehaviour:
   point_3: {fileID: 0}
   open_texture: {fileID: 2800000, guid: 1dda17baabe13f44281b7252610f89dd, type: 3}
   close_texture: {fileID: 2800000, guid: 2bf6a58f52daf2145af38fc496f6f4c0, type: 3}
+  open_Awry_texture: {fileID: 2800000, guid: 3cc63b82bc130fb468870947a6ca3218, type: 3}
+  close_Awry_texture: {fileID: 2800000, guid: a571191670303cf4a9dd1cf838391d0c, type: 3}
   speak_texture: {fileID: 2800000, guid: b11daab2c72717a4989ffde9675de2a7, type: 3}
   behaviour_state: 0
   openTime: 4

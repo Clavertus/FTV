@@ -10,6 +10,7 @@ public class OpenShelf : MonoBehaviour, ISaveable
     [SerializeField] Transform shelfDoor = null;
     [SerializeField] float rotateToAngle = -90;
     [SerializeField] float rotateSpeedInSec = -90;
+    [SerializeField] GameObject[] objectsToEnable = null;
     int interactionCounter = 0;
 
     private void Start()
@@ -35,6 +36,10 @@ public class OpenShelf : MonoBehaviour, ISaveable
         if(Locked == false)
         {
             rotateToOpen = true;
+            foreach(GameObject obj in objectsToEnable)
+            {
+                obj.SetActive(true);
+            }
         }
     }
 

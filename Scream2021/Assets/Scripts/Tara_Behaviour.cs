@@ -60,6 +60,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     [SerializeField] Texture open_texture = null;
     [SerializeField] Texture close_texture = null;
+    [SerializeField] Texture open_Awry_texture = null;
+    [SerializeField] Texture close_Awry_texture = null;
     [SerializeField] Texture speak_texture = null;
 
     public tara_states behaviour_state = tara_states.tara_scene_begin;
@@ -302,6 +304,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
     }
 
+    bool awryState = false;
     private void EyeBlinkAnimate()
     {
         if (eyes_open)
@@ -314,7 +317,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
                 foreach (SkinnedMeshRenderer render in m_Renderers)
                 {
-                    render.material.mainTexture = close_texture;
+                    if(awryState == false)
+                    {
+                        render.material.mainTexture = close_texture;
+                    }
+                    else
+                    {
+                        render.material.mainTexture = close_Awry_texture;
+                    }
                 }
             }
             else
@@ -332,7 +342,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
                 foreach (SkinnedMeshRenderer render in m_Renderers)
                 {
-                    render.material.mainTexture = open_texture;
+                    if (awryState == false)
+                    {
+                        render.material.mainTexture = open_texture;
+                    }
+                    else
+                    {
+                        render.material.mainTexture = open_Awry_texture;
+                    }
                 }
             }
             else
@@ -476,6 +493,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         if (triggerId == (int)1)
         {
             GetComponentInChildren<PlayNPCDialog>().awryState = true;
+            awryState = true;
             AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
             if(!AudioManager.instance.IsPlaying(soundsEnum.AwryBackground)) AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.AwryBackground);
         }
