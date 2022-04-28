@@ -195,6 +195,8 @@ namespace FTV.Dialog.Editor
 
             node.SetText(EditorGUILayout.TextField(node.GetText()));
 
+            node.SetTriggerId(EditorGUILayout.IntField(node.GetTriggerId()));
+
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("x"))
             {

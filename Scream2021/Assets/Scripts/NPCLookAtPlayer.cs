@@ -7,8 +7,9 @@ public class NPCLookAtPlayer : MonoBehaviour
     [SerializeField] PlayNPCDialog playNPCDialogInst = null;
     [SerializeField] Transform playerLookAt = null;
     [SerializeField] Transform headBone = null;
-    [SerializeField] float distanceToLookAt = 5f;
+    [SerializeField] float distanceToLookAt = 5f; 
     [SerializeField] float rotationSpeed = 10f;
+    [SerializeField] [Range(0,180)] float angleCheck = 90f;
     bool lookAt = false;
 
     void Start()
@@ -24,7 +25,8 @@ public class NPCLookAtPlayer : MonoBehaviour
 
         lookAt = false;
         //Debug.Log(angle);
-        if (Mathf.Abs(angle) > 100)
+        //Debug.Log(lookAt);
+        if (Mathf.Abs(angle) > 180 - angleCheck)
         {
             if (Vector3.Distance(transform.position, playerLookAt.position) <= distanceToLookAt)
             {
@@ -36,7 +38,10 @@ public class NPCLookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (lookAt) headBone.LookAt(playerLookAt);
+        if (lookAt)
+        {
+            headBone.LookAt(playerLookAt);
+        }
     }
 
     public Transform GetLookAtPoint()

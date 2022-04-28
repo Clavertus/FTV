@@ -16,7 +16,11 @@ public class NPCAnimationController : MonoBehaviour, ISaveable
         sit_down,
         sit,
         sit_and_talk,
-        stand_up
+        stand_up,
+        awry0,
+        awry1,
+        awry2,
+        awryIdle
     };
 
     [SerializeField] Animator animator = null;
@@ -57,7 +61,26 @@ public class NPCAnimationController : MonoBehaviour, ISaveable
     {
         if(lastState != currentState)
         {
-            animator.SetTrigger(((int)currentState).ToString());
+            if (currentState == NpcAnimationState.awry0)
+            {
+                animator.SetTrigger("Awry0");
+            }
+            else if (currentState == NpcAnimationState.awry1)
+            {
+                animator.SetTrigger("Awry1");
+            }
+            else if (currentState == NpcAnimationState.awry2)
+            {
+                animator.SetTrigger("Awry2");
+            }
+            else if (currentState == NpcAnimationState.awryIdle)
+            {
+                animator.SetTrigger("AwryIdle");
+            }
+            else
+            {
+                animator.SetTrigger(((int)currentState).ToString());
+            }
             lastState = currentState;
         }
     }

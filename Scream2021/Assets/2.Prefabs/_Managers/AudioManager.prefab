@@ -574,7 +574,7 @@ MonoBehaviour:
   - name: TaraSpeech1
     clip: {fileID: 8300000, guid: abfd5818339a3b44db1fb45a26cc9030, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.15
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   - name: TaraSpeech2
     clip: {fileID: 8300000, guid: f062a6f6262ca1244af7e31c5e4f9d5e, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.15
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   - name: TaraSpeech3
     clip: {fileID: 8300000, guid: 8f859e685ca1a664596f3611e41bff9c, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.15
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   - name: TaraSpeech4
     clip: {fileID: 8300000, guid: 37396eed9f9c89d46858c799426055d1, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.15
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   - name: TaraSpeech5
     clip: {fileID: 8300000, guid: 98f122c6e95e1e0429f5d770f364e6bd, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.15
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -697,6 +697,21 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.1
     loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: AwryBackground
+    clip: {fileID: 8300000, guid: f31c4d2e3c97fb84ba82bb00ff480227, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3

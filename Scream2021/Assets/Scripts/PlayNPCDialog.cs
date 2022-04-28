@@ -7,8 +7,8 @@ public class PlayNPCDialog : MonoBehaviour
 {
     public Action PreTriggerEventCall { get; set; }
     public Action DialogIsStarted { get; set; }
-    public Action DialogNodeIsStarted { get; set; }
-    public Action DialogNodeIsEnded { get; set; }
+    public Action<int> DialogNodeIsStarted { get; set; }
+    public Action<int> DialogNodeIsEnded { get; set; }
     public Action DialogIsFinished { get; set; }
 
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
@@ -30,18 +30,20 @@ public class PlayNPCDialog : MonoBehaviour
         DialogIsStarted?.Invoke();
     }
 
-    private void NPCDialogNodeStarted(FTV.Dialog.NPCDialogue f_dialogObject, bool isPlayerSpeaking)
+    private void NPCDialogNodeStarted(FTV.Dialog.NPCDialogue f_dialogObject, bool isPlayerSpeaking, int TriggerId)
     {
         if (f_dialogObject != dialogObject) return;
         if (!isPlayerSpeaking)
         {
-            DialogNodeIsStarted?.Invoke();
+            Debug.Log("Dialog with id: " + TriggerId);
+            DialogNodeIsStarted?.Invoke(TriggerId);
         }
     }
-    private void NPCDialogNodeEnd(FTV.Dialog.NPCDialogue f_dialogObject)
+    private void NPCDialogNodeEnd(FTV.Dialog.NPCDialogue f_dialogObject, int TriggerId)
     {
+        Debug.Log("Dialog with id: " + TriggerId);
         if (f_dialogObject != dialogObject) return;
-        DialogNodeIsEnded?.Invoke();
+        DialogNodeIsEnded?.Invoke(TriggerId);
     }
     private void NPCDialogFinished(FTV.Dialog.NPCDialogue f_dialogObject)
     {
@@ -118,18 +120,34 @@ public class PlayNPCDialog : MonoBehaviour
         }
     }
 
-    private void playTalkAnimation(FTV.Dialog.NPCDialogue f_DialogObject, bool isPlayerSpeaking)
+    public bool awryState = false;
+    private void playTalkAnimation(FTV.Dialog.NPCDialogue f_DialogObject, bool isPlayerSpeaking, int TriggerId)
     {
         if (f_DialogObject != dialogObject) return;
         if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
             if (!isPlayerSpeaking)
             {
-                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
+                if(awryState == true)
+                {
+                    int randomTalkId = UnityEngine.Random.Range((int)0, (int)3);
+                    npcAnimator.SetAnimation((NPCAnimationController.NpcAnimationState) ((int)NPCAnimationController.NpcAnimationState.awry0 + randomTalkId));
+                }
+                else
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
+                }
             }
             else
             {
-                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                if (awryState == true)
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.awryIdle);
+                }
+                else
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                }
             }
         }
     }

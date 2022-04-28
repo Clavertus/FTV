@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 66c91406-1e0e-4957-a8d6-1f81e4287617
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: The box.
-  children: []
+  text: The box?
+  children:
+  - 26c88bcb-7652-4492-84f5-99f49dbcadbc
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -36,3 +38,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -6133469441610607972}
+  - {fileID: 71116724096766480}
+--- !u!114 &71116724096766480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 26c88bcb-7652-4492-84f5-99f49dbcadbc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Heavy. And looks ancient too.
+  children: []
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 405
+    y: 178
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

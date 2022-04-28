@@ -264,4 +264,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool IsPlaying(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        return s.source.isPlaying;
+    }
 }

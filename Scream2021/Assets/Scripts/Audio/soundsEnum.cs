@@ -44,5 +44,6 @@ public enum soundsEnum
 	HeartBit = 41,
 	UI2 = 42,
 	UI3 = 43,
+	AwryBackground = 44,
 
 }

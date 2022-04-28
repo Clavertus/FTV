@@ -15,7 +15,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         tara_scene_lookAtElderGod,
         tara_scene_sit,
         tara_scene_idle,
-        tara_scene_waitForPlayer
+        tara_scene_waitForPlayer,
+        tara_scene_transforming,
+        tara_scene_waitForDeath
     }
     [Header("GameObjects:")]
     [SerializeField] GameObject stopZone = null;
@@ -24,6 +26,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] GameObject taraShelf = null;
     [SerializeField] GameObject[] taraShelfDisableObjects = null;
     [SerializeField] GameObject[] taraShelfEnableObjects = null;
+    [Header("ElderGodReferenceGameObjects:")]
+    public bool elderGodDissapeared = false;
+    [SerializeField] GameObject trainToDissapear = null;
+    [SerializeField] GameObject elderGodToDissapear = null;
 
     [Header("Dialogs:")]
     [SerializeField] FTV.Dialog.NPCDialogue dialog_0 = null;
@@ -106,6 +112,15 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             taraSpeech[ix].volume = volume;
             taraSpeech[ix].pitch = pitch;
         }
+
+        foreach (GameObject obj in taraShelfDisableObjects)
+        {
+            obj.SetActive(true);
+        }
+        foreach (GameObject obj in taraShelfEnableObjects)
+        {
+            obj.SetActive(false);
+        }
     }
 
     private void Update()
@@ -153,10 +168,21 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             dialog_3_played = true;
             GetComponent<NPCMoving>().SetDestination(point_3, false);
 
+            if (stopZone) stopZone.SetActive(false);
+            if (taraMemento) taraMemento.SetActive(true);
+        }
+
+        else if ((behaviour_state > tara_states.tara_scene_waitForPlayer) && (dialog_4_played == false))
+        {
+            Debug.LogWarning(behaviour_state);
+            //npc_Dialog.SetNewDialogAvailableNoPlay(dialog_3);
+            dialog_4_played = true;
+            //GetComponent<NPCMoving>().SetDestination(point_3, false);
+
             if (taraShelf)
             {
                 taraShelf.SetActive(true);
-                foreach(GameObject obj in taraShelfDisableObjects)
+                foreach (GameObject obj in taraShelfDisableObjects)
                 {
                     obj.SetActive(false);
                 }
@@ -165,9 +191,11 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
                     obj.SetActive(true);
                 }
             }
+
             if (stopZone) stopZone.SetActive(false);
             if (taraMemento) taraMemento.SetActive(true);
         }
+
 
         if (reactOnShelf)
         {
@@ -192,10 +220,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             {
                 if (GetComponent<NPCMoving>().IsSitTarget())
                 {
-                    Debug.Log("here");
+                    Debug.Log("On sit target");
                     if(GetComponent<NPCAnimationController>().GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
                     {
-                        Debug.Log("here");
+                        Debug.Log("sit down");
                         GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.sit_down);
                     }
                 }
@@ -320,6 +348,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [System.Serializable]
     struct SaveData
     {
+        public bool elderGodDissapeared;
         public bool dialog_0_played;
         public bool dialog_1_played;
         public bool dialog_2_played;
@@ -335,6 +364,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public object CaptureState()
     {
         SaveData data = new SaveData();
+        data.elderGodDissapeared = elderGodDissapeared;
         data.dialog_0_played = dialog_0_played;
         data.dialog_1_played = dialog_1_played;
         data.dialog_2_played = dialog_2_played;
@@ -357,6 +387,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         Debug.LogWarning("Restoring tara state");
 
         SaveData data = (SaveData)state;
+        elderGodDissapeared = data.elderGodDissapeared;
         dialog_0_played = data.dialog_0_played;
         dialog_1_played = data.dialog_1_played;
         dialog_2_played = data.dialog_2_played;
@@ -367,7 +398,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         behaviour_state = (tara_states) data.behaviour_state;
 
         Debug.LogWarning(data.behaviour_state);
-        if (data.behaviour_state == (int) tara_states.tara_scene_waitForPlayer)
+        if (data.behaviour_state > (int) tara_states.tara_scene_waitForPlayer)
         {
             foreach (GameObject obj in taraShelfDisableObjects)
             {
@@ -384,6 +415,12 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         transform.eulerAngles = data.rotation.ToVector();
         transform.position = data.position.ToVector();
         GetComponent<NavMeshAgent>().enabled = true;
+
+        if(elderGodDissapeared)
+        {
+            elderGodToDissapear.SetActive(false);
+            trainToDissapear.SetActive(false);
+        }
 
         AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
@@ -428,16 +465,32 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     }
 
     int dialogId = 0;
-    private void OnDialogNodeStarted()
+    bool tara_is_transforming = false;
+    private void OnDialogNodeStarted(int triggerId)
     {
+        Debug.Log("Dialog with id: " + triggerId);
         //speaking = true;
         AudioManager.instance.InstantPlayFromGameObject(taraSpeech[dialogId]);
         dialogId += 1;
         if (dialogId >= taraSpeech.Length) dialogId = 0;
+        if (triggerId == (int)1)
+        {
+            GetComponentInChildren<PlayNPCDialog>().awryState = true;
+            AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
+            if(!AudioManager.instance.IsPlaying(soundsEnum.AwryBackground)) AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.AwryBackground);
+        }
+        else if (triggerId == (int)2)
+        {
+            tara_is_transforming = true;
+        }
+        else if (triggerId == (int)3)
+        {
+            tara_is_transforming = false;
+        }
     }
-    private void OnDialogNodeFinished()
+    private void OnDialogNodeFinished(int triggerId)
     {
-        //speaking = false;
+        Debug.Log("Dialog with id: " + triggerId);
     }
 
     private void OnDialogFinished()
@@ -450,7 +503,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
         else if (behaviour_state == tara_states.tara_scene_waitForPlayer)
         {
-            behaviour_state = tara_states.tara_scene_waitForPlayer;
+            if(tara_is_transforming)
+            {
+                behaviour_state = tara_states.tara_scene_transforming;
+            }
+            else
+            {
+                behaviour_state = tara_states.tara_scene_waitForDeath;
+            }
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
         }

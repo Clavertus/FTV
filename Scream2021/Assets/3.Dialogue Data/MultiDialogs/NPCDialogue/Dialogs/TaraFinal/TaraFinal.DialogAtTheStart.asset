@@ -16,6 +16,7 @@ MonoBehaviour:
   text: My head is blowing up...
   children:
   - 8d16702a-ec6e-43ec-b6e7-e53ffac4f9ff
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 255
@@ -55,6 +56,7 @@ MonoBehaviour:
   text: It was some kind of dream again...
   children:
   - b50822fe-b5dc-4893-aa3f-f5617e972bbe
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 528
@@ -77,6 +79,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: I need answers, but I must by carefull with her...
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 761

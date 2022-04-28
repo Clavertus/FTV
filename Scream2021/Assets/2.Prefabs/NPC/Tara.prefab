@@ -180,6 +180,7 @@ MonoBehaviour:
   headBone: {fileID: 7359847607746906967}
   distanceToLookAt: 8
   rotationSpeed: 120
+  angleCheck: 90
 --- !u!114 &1998302139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +213,8 @@ MonoBehaviour:
   taraMemento: {fileID: 0}
   reactOnShelf: 1
   taraShelf: {fileID: 0}
+  taraShelfDisableObjects: []
+  taraShelfEnableObjects: []
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
   dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
   dialog_2: {fileID: 11400000, guid: f6102488492a64346ad82cfa72bbcead, type: 2}
@@ -223,6 +226,7 @@ MonoBehaviour:
   point_0: {fileID: 0}
   point_1: {fileID: 0}
   point_2: {fileID: 0}
+  point_3: {fileID: 0}
   open_texture: {fileID: 2800000, guid: 1dda17baabe13f44281b7252610f89dd, type: 3}
   close_texture: {fileID: 2800000, guid: 2bf6a58f52daf2145af38fc496f6f4c0, type: 3}
   speak_texture: {fileID: 2800000, guid: b11daab2c72717a4989ffde9675de2a7, type: 3}
