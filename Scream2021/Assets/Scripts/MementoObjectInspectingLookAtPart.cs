@@ -10,6 +10,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
     [SerializeField] NPCDialogue smallObjInspectDialogue;
     [SerializeField] bool addExtraTriggerDialog = false;
     [SerializeField] NPCDialogue smallObjTriggerDialogue;
+    [SerializeField] GameObject[] revealObjects;
 
     //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
@@ -30,6 +31,20 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
     {
         DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
         soundOnMemento = GetComponentInChildren<PlaySoundOnMementoExamine>();
+        if (smallObjInteractionCounter != 0)
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -66,6 +81,12 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 
         FindObjectOfType<DialogueUI>().ShowDialogue(smallObjInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
+
+        //extra objects to show?
+        foreach(GameObject obj in revealObjects)
+        {
+            obj.SetActive(true);
+        }
 
         smallObjectTrigger = true;
         if (addExtraTriggerDialog)
@@ -133,6 +154,20 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         SaveData data = (SaveData)state;
         interactionCounter = data.interactionCounter;
         smallObjInteractionCounter = data.smallObjInteractionCounter;
+        if(smallObjInteractionCounter != 0)
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
     }
     #endregion
 

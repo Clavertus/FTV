@@ -183,6 +183,11 @@ MonoBehaviour:
   dialogToPlay: {fileID: 11400000, guid: a67df1be945821a4ea7e075c9cd607eb, type: 2}
   offsetXToMovePlayer: 0
   offsetZToMovePlayer: 0
+--- !u!1 &15181756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4816461374504366497, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
+  m_PrefabInstance: {fileID: 5696922442765767368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &31161489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4560,6 +4565,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2065135508}
     m_Modifications:
+    - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
+      propertyPath: distanceFromCam
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5762654831248937521, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_Size.x
       value: 1.5049994
@@ -13810,11 +13819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2865563337150019446, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_AmplitudeGain
-      value: 0
+      value: -0.009999925
       objectReference: {fileID: 0}
     - target: {fileID: 2865563337150019446, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_FrequencyGain
-      value: 0
+      value: -0.009999806
       objectReference: {fileID: 0}
     - target: {fileID: 6045591278918779741, guid: 8a1802850a9cd6140be884c6f52e57e1, type: 3}
       propertyPath: m_Name
@@ -14079,7 +14088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2065135508
 Transform:
   m_ObjectHideFlags: 0
@@ -14772,6 +14781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaraFirstMemento
       objectReference: {fileID: 0}
+    - target: {fileID: 4816461374504366497, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6933093424032809898, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
       propertyPath: m_Size.y
       value: 0.6567396
@@ -14788,6 +14801,14 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.00000012864976
       objectReference: {fileID: 0}
+    - target: {fileID: 8936496599355645253, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
+      propertyPath: revealObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936496599355645253, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
+      propertyPath: revealObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 15181756}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a331dd5661a45048a66aa297e95b324, type: 3}
 --- !u!1 &5696922442765767369 stripped
