@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: credits
       value: 
       objectReference: {fileID: 8359684029428893733}
+    - target: {fileID: 4758207013781931651, guid: 5a5f6b1a0747d274d8fa6999de426223, type: 3}
+      propertyPath: skipTimerAppear
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4758207013781931676, guid: 5a5f6b1a0747d274d8fa6999de426223, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -514,17 +518,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5f6b1a0747d274d8fa6999de426223, type: 3}
---- !u!114 &1755993848 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7548949423111191030, guid: b0266194f43475347a7d29c7a9706822, type: 3}
-  m_PrefabInstance: {fileID: 8359684029428893732}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1972881305 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1729708859282506785, guid: 5a5f6b1a0747d274d8fa6999de426223, type: 3}
@@ -653,6 +646,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 646065644161749991, guid: b0266194f43475347a7d29c7a9706822, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 837933700355892173, guid: b0266194f43475347a7d29c7a9706822, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -773,10 +770,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3799783947890954509, guid: b0266194f43475347a7d29c7a9706822, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5555708073642056693, guid: b0266194f43475347a7d29c7a9706822, type: 3}
       propertyPath: credits.Array.data[0]
       value: 
-      objectReference: {fileID: 1755993848}
+      objectReference: {fileID: 0}
     - target: {fileID: 5555708073642056693, guid: b0266194f43475347a7d29c7a9706822, type: 3}
       propertyPath: credits.Array.data[1]
       value: 

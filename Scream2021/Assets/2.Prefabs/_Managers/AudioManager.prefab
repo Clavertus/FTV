@@ -664,16 +664,16 @@ MonoBehaviour:
   - name: HeartBit
     clip: {fileID: 8300000, guid: 47a95c66c06a67a4f9dc7c21f522e387, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.5
+    volume: 0.2
     pitch: 0.1
     loop: 1
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 1
     rolloffMode: 1
-    min: 1
+    min: 0
     max: 100
     source: {fileID: 0}
   - name: UI2
@@ -817,6 +817,51 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.1
     loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: JarLoop
+    clip: {fileID: 8300000, guid: 0b7d5dc21daca5c498cd29032d3628b8, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.35
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: SFXChange2
+    clip: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.75
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: Decouple
+    clip: {fileID: 8300000, guid: efb1e4b6da5ff934f90701982f7dcd1c, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
     playOnAwake: 0
     advancedMode: 0
     spatialBlend: 3

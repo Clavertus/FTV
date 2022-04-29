@@ -70,7 +70,7 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.LockMenuControl();
         mouseLook.LockCamera();
         playerMovement.LockPlayer();
-        selectionManager.LockSelection();
+        if (selectionManager) selectionManager.LockSelection();
 
         dialogueBox.SetActive(true);
 
@@ -82,7 +82,7 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.LockMenuControl();
         mouseLook.LockCamera();
         playerMovement.LockPlayer();
-        selectionManager.LockSelection();
+        if (selectionManager) selectionManager.LockSelection();
 
         dialogueBox.SetActive(true);
 
@@ -224,7 +224,7 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.UnlockMenuControl();
         mouseLook.UnlockCamera();
         playerMovement.UnlockPlayer();
-        selectionManager.UnlockSelection();
+        if(selectionManager) selectionManager.UnlockSelection();
     }
 
     private bool showTutorialBox = true;

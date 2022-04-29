@@ -58,7 +58,8 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         }
 
         SetPlayerToSavedTransform();
-        AudioManager.instance.StopAllSounds();
+        AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.JarLoop);
     }
 
     // Update is called once per frame

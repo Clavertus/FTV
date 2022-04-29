@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Credits : MonoBehaviour
 {
+    [SerializeField] float silentDelayAtStart = 5f;
     public float textFadeSpeed;
     public float textDuration;
 
@@ -32,14 +33,13 @@ public class Credits : MonoBehaviour
             }
         }
     }
-    void Start()
+    IEnumerator Start()
     {
-        StartCoroutine(StartCredits());
+        AudioManager.instance.StopAllSounds();
 
-        foreach (var sound in AudioManager.instance.sounds)
-        {
-            sound.source.Stop();
-        }
+        yield return new WaitForSeconds(silentDelayAtStart);
+
+        StartCoroutine(StartCredits());
 
         AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Credits);
     }
@@ -85,7 +85,7 @@ public class Credits : MonoBehaviour
     {
         for (int i = 0; i < credits.Count; i++)
         {
-            if (i == 0)
+            /*if (i == 0)
             {
                 if (LevelLoader.instance.ending == Ending.Unknow)
                 {
@@ -99,7 +99,7 @@ public class Credits : MonoBehaviour
                 {
                     credits[i].text = "GOOD\nENDING"; 
                 }
-            }
+            }*/
             StartCoroutine(FadeInText(credits[i]));
 
             yield return new WaitForSecondsRealtime(textDuration);
@@ -107,9 +107,12 @@ public class Credits : MonoBehaviour
             StartCoroutine(FadeOutText(credits[i]));
         }
 
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        /*
         yield return StartCoroutine(FadeInFinalPanel());
 
         LevelLoader.instance.SetPlayedTheGame();
+        */
     }
 
     public IEnumerator FadeInFinalPanel()

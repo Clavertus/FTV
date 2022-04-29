@@ -157,7 +157,7 @@ MonoBehaviour:
   TriggerEffectCanvas: {fileID: 0}
   EffectTimeInSec: 0
   triggerSound: 0
-  triggerSoundEnum: 4
+  triggerSoundEnum: 53
 --- !u!1 &1170276819151245048
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,10 +495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transfromToRotate: {fileID: 4625142515065382420}
-  rotateToY: 90
-  rotateSpeedInSec: -30
+  rotateToY: 60
+  rotateSpeedInSec: -40
   spookPlayer: 1
-  spookRotateMultiplier: 20
+  spookRotateMultiplier: 27
   rotationDone: 0
 --- !u!114 &7897459568208425776
 MonoBehaviour:

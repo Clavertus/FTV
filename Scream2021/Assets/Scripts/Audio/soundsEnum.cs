@@ -52,5 +52,8 @@ public enum soundsEnum
 	TaraSpeechAggresive2 = 49,
 	TaraSpeechAggresive3 = 50,
 	TaraSpeechAggresive4 = 51,
+	JarLoop = 52,
+	SFXChange2 = 53,
+	Decouple = 54,
 
 }

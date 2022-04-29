@@ -94,11 +94,15 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
-        elderGodFinalCinematic.played += LockPlayerControl;
-        elderGodFinalCinematic.stopped += UnlockPlayerControl;
+        if(elderGodFinalCinematic) elderGodFinalCinematic.played += LockPlayerControl;
+        if(elderGodFinalCinematic) elderGodFinalCinematic.stopped += UnlockPlayerControl;
+
+        if (lookAtElderGodCinematicSequence) lookAtElderGodCinematicSequence.played += LockPlayerControl;
+        if (lookAtElderGodCinematicSequence) lookAtElderGodCinematicSequence.stopped += UnlockPlayerControl;
 
         if (stopZone) stopZone.SetActive(true);
         if (taraMemento) taraMemento.SetActive(false);
+        
         npc_Dialog.DisableInteraction();
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
@@ -107,9 +111,6 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         npc_Dialog.DialogIsFinished += OnDialogFinished;
         npc_Dialog.DialogNodeIsStarted += OnDialogNodeStarted;
         npc_Dialog.DialogNodeIsEnded += OnDialogNodeFinished;
-
-        lookAtElderGodCinematicSequence.played += LockPlayerControl;
-        lookAtElderGodCinematicSequence.stopped += UnlockPlayerControl;
 
         dialog_0_played = false;
         dialog_1_played = false;
@@ -140,6 +141,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
     }
 
+    [SerializeField] GameObject transformParticles = null;
     bool triggerAlternateEnd = false;
     private void Update()
     {
@@ -208,6 +210,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         else if ((behaviour_state > tara_states.tara_scene_waitForPlayer) && (dialog_4_played == false))
         {
             Debug.LogWarning(behaviour_state);
+            transformParticles.SetActive(true);
             //npc_Dialog.SetNewDialogAvailableNoPlay(dialog_3);
             dialog_4_played = true;
             //GetComponent<NPCMoving>().SetDestination(point_3, false);
@@ -632,10 +635,13 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     [SerializeField] float timeUntilElderGodBite = 20f;
     float TimeCounter = 0f;
-    bool countTimeToDeath = false;
+    public bool countTimeToDeath = false;
     private IEnumerator TaraStartWaitForDeath(bool useFader)
     {
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
+        AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformBackground);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformSFX);
         elderGodMovement.speed *= 0.86f;
         FindObjectOfType<CameraShaker>().enabled = true;
         yield return new WaitForSeconds(1.0f);

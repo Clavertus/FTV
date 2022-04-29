@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAtElderGodCinematicSequence: {fileID: 0}
+  elderGodFinalCinematic: {fileID: 0}
+  elderGodMovement: {fileID: 0}
   stopZone: {fileID: 0}
   taraMemento: {fileID: 0}
   reactOnShelf: 1
@@ -229,6 +231,8 @@ MonoBehaviour:
   idle_dialog: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
   shelf_dialog: {fileID: 0}
   changing_dialog: {fileID: 11400000, guid: 37a285fe08a6f7544bdb27e71415e9d9, type: 2}
+  good_dialog: {fileID: 0}
+  run_dialog: {fileID: 0}
   npc_Dialog: {fileID: 1954732293560671682}
   point_0: {fileID: 0}
   point_1: {fileID: 0}
@@ -251,6 +255,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  timeUntilElderGodBite: 16
 --- !u!114 &4680006666525053139
 MonoBehaviour:
   m_ObjectHideFlags: 0

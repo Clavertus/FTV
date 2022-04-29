@@ -263,7 +263,13 @@ public class Prevoid : MonoBehaviour
                 shakeSampleIndex++;
 
                 if(shakeSampleIndex > 5)
-                cam.GetComponent<CameraShaker>().power += 0.015f;
+                    if (cam)
+                    {
+                        if (cam.GetComponent<CameraShaker>())
+                        {
+                            cam.GetComponent<CameraShaker>().power += 0.015f;
+                        }
+                    }
 
             }
         }

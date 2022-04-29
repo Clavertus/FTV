@@ -11,6 +11,7 @@ public class PullLeverAndTriggerFinal : MonoBehaviour
     [SerializeField] float leverSpeedInSec = -180f;
     [Header("Final Sequence Objects")]
     [SerializeField] GameObject taraMonster = null;
+    [SerializeField] GameObject tara = null;
     [SerializeField] GameObject[] finalObjToHide = null;
     [SerializeField] Transform TrainToDisconnect = null;
     [SerializeField] float MaxTrainDissconectSpeed = 25f;
@@ -117,8 +118,9 @@ public class PullLeverAndTriggerFinal : MonoBehaviour
 
     private IEnumerator FinalSequence()
     {
+        if(tara) tara.GetComponent<Tara_Behaviour>().countTimeToDeath = false;
         escapeCinematic.Play();
-        if(taraMonster.activeSelf)
+        if (taraMonster.activeSelf)
         {
             taraMonster.GetComponent<TaraMonsterController>().SetMonsterState(TaraMonsterController.monsterStatesEnm.idle);
         }
