@@ -89,7 +89,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
 
     [Header("Sounds:")]
-    [SerializeField] float volume = 0.25f;
+    [SerializeField] float volume = 0.35f;
     [SerializeField] float pitch = 2f;
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
@@ -600,6 +600,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     public IEnumerator TaraStartTransforming(bool useFader)
     {
+        LevelLoader.instance.ending = Ending.Bad;
         if (!useFader)
         {
             foreach (GameObject obj in taraReferenceObjectsToHide)
@@ -638,6 +639,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public bool countTimeToDeath = false;
     private IEnumerator TaraStartWaitForDeath(bool useFader)
     {
+        LevelLoader.instance.ending = Ending.Good;
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
         AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformBackground);

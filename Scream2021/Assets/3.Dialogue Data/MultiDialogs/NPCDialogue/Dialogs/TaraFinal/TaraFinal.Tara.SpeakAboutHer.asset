@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: b55aa88a-8ecf-415a-9bde-313b3cdadc4a
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
   text: Argh.... Yes... Last time in Egypt... Our expedition... we does not have
     all money...
   children:
@@ -241,8 +241,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3020
-    y: 353
+    x: 3094
+    y: 345
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -307,14 +307,14 @@ MonoBehaviour:
   m_Name: eb2a5fca-7056-4c7c-8bf4-e9368a0339b4
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: I want to ask you one thing...
+  text: I want to ask you something...
   children:
   - 8d16702a-ec6e-43ec-b6e7-e53ffac4f9ff
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 222
-    y: 234
+    x: 235
+    y: 233
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -409,8 +409,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3379
-    y: 56
+    x: 3445
+    y: 51
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: ecca2f11-d8cd-462e-8d9a-bdfdb72efc42
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: I was in somekind of a dream... And seen strange thing, I think it is related
+  text: I was in somekind of a dream... And I saw strange thing, I think it is related
     to you.
   children:
   - 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: b50822fe-b5dc-4893-aa3f-f5617e972bbe
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Tell me, what have you done in before you get here?
+  text: Tell me, what did you do before you got here?
   children:
   - 73449551-0f1a-443b-80ea-6fe471237485
   triggerId: 1
@@ -874,8 +874,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3003
-    y: 195
+    x: 3091
+    y: 197
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}

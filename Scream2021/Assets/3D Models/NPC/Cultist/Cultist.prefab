@@ -847,6 +847,7 @@ MonoBehaviour:
   dialogObject: {fileID: 11400000, guid: b55a3605b4ca31f4aab88ed1d0202769, type: 2}
   npc: {fileID: 5805199059470501192}
   npcAnimator: {fileID: 7254805091955429970}
+  awryState: 0
 --- !u!95 &3762006798458359739
 Animator:
   serializedVersion: 3
@@ -905,6 +906,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083024fb2d3577d48944923a6c1a57f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogWithCultistTaraMonster: {fileID: 11400000, guid: c13cdc8f36972974492cae5ef814b0cc, type: 2}
+  dialogWithCultistTaraHuman: {fileID: 11400000, guid: 755301372ada04648952688865ee645b, type: 2}
+  npc_Dialog: {fileID: 6333243322696718003}
+  handBone: {fileID: 0}
+  handPosition: {fileID: 0}
 --- !u!1 &7610757550183971583
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,5 +59,10 @@ public enum soundsEnum
 	TaraAttack1 = 56,
 	EndlessTrainScream = 57,
 	EndlessMonsterLoop = 58,
+	CultistSpeech1 = 59,
+	CultistSpeech2 = 60,
+	CultistSpeech3 = 61,
+	CultistSpeech4 = 62,
+	CultistSpeech5 = 63,
 
 }

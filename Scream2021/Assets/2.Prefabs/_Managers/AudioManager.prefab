@@ -931,3 +931,78 @@ MonoBehaviour:
     min: 1
     max: 100
     source: {fileID: 0}
+  - name: CultistSpeech1
+    clip: {fileID: 8300000, guid: 9b11dee2216798348b131c8058f51756, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech2
+    clip: {fileID: 8300000, guid: c80c00556e0ed4d46a6d101626c88437, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech3
+    clip: {fileID: 8300000, guid: f4109c3874196274b9ee3126a1aeeb27, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech4
+    clip: {fileID: 8300000, guid: 6dc36ddbea984d54693e85164b9b9e57, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech5
+    clip: {fileID: 8300000, guid: c9bfd42da1241e843961f429b5cac543, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}

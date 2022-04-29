@@ -156,7 +156,7 @@ public class PlayNPCDialog : MonoBehaviour
     {
         gameObject.tag = "Untagged";
         interactionCounter++;
-        GetComponent<Selectable>().enabled = false;
+        if(GetComponent<Selectable>()) GetComponent<Selectable>().enabled = false;
     }
     public void SetNewDialogAvailableNoPlayAddPreTrigger(FTV.Dialog.NPCDialogue newDialogObject)
     {
