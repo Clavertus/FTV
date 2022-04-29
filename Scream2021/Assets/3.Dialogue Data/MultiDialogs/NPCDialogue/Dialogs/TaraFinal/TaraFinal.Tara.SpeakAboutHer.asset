@@ -64,11 +64,13 @@ MonoBehaviour:
   text: Why are you asking all this???
   children:
   - 62d9d3e7-b67c-4714-8808-6b97adc806ed
+  - e5be61be-bfdb-4ee3-b975-9199ba0f5152
+  - 95116a94-caa1-4305-9042-95c8c6d9e716
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1902
-    y: 28
+    x: 2247
+    y: 294
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -91,8 +93,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1358
-    y: 279
+    x: 1049
+    y: 250
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -184,12 +186,12 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Wait, I... Something... Argh, it hurts to remember...
   children:
-  - 47b151b3-9099-4af6-8561-e6ea025db1b3
+  - 60bca299-d43e-4c06-a1ce-0b068473a8d3
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1576
-    y: 24
+    x: 1595
+    y: 12
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -218,6 +220,31 @@ MonoBehaviour:
     y: 96
     width: 200
     height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-4609287625521950221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: b55aa88a-8ecf-415a-9bde-313b3cdadc4a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Argh.... Yes... Last time in Egypt... Our expedition... we does not have
+    all money...
+  children:
+  - d119468d-0384-47bc-90d4-216e145cee6c
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 3020
+    y: 353
+    width: 300
+    height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
 --- !u!114 &-4352497504851113515
 MonoBehaviour:
@@ -306,12 +333,12 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Yes... I can remeber that... But I do not want to remeber...
   children:
-  - a127f6c0-e085-4b10-9339-a72c33da85f4
+  - 47b151b3-9099-4af6-8561-e6ea025db1b3
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1919
-    y: 291
+    x: 1893
+    y: 254
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -328,14 +355,14 @@ MonoBehaviour:
   m_Name: 62d9d3e7-b67c-4714-8808-6b97adc806ed
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: I need to know the truth, so I can help both of us.
+  text: I need to know the truth, so I can help both of us!
   children:
   - 171a1187-5e47-4b0b-af05-1d42ec827877
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2381
-    y: 178
+    x: 2701
+    y: 440
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -382,8 +409,34 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3214
-    y: 73
+    x: 3379
+    y: 56
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-813130432872378429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 7c782b91-68c9-4020-b957-bbf387783b6a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Why are you asking all this???
+  children:
+  - 8398bb41-2118-4a11-939b-862457603f3b
+  - 62d9d3e7-b67c-4714-8808-6b97adc806ed
+  - 3609e922-d677-4136-8def-9c2d3fb525f9
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2302
+    y: 71
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -408,6 +461,30 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3927
     y: 455
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-598286369555846048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 3609e922-d677-4136-8def-9c2d3fb525f9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: You kill him with the gun?
+  children:
+  - 60b68399-15d8-460f-97ca-22cf3b8ed1be
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2703
+    y: 145
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -470,10 +547,8 @@ MonoBehaviour:
   - {fileID: -3280966639050482447}
   - {fileID: -5156310671020911790}
   - {fileID: -8836667519250063338}
-  - {fileID: -5382443930475611627}
   - {fileID: -2130586087391220089}
   - {fileID: 364843016341823226}
-  - {fileID: 5752633974711367861}
   - {fileID: 5803077538480930402}
   - {fileID: -1569638888397360412}
   - {fileID: 4360155457523709909}
@@ -482,6 +557,38 @@ MonoBehaviour:
   - {fileID: -5354839916827819057}
   - {fileID: 7646310382825078563}
   - {fileID: 8976044939880910612}
+  - {fileID: 3358371681127623246}
+  - {fileID: -813130432872378429}
+  - {fileID: 7197371472736925014}
+  - {fileID: 96828256323146168}
+  - {fileID: -598286369555846048}
+  - {fileID: 5616129731090674686}
+  - {fileID: -4609287625521950221}
+  - {fileID: 7495341798642858288}
+--- !u!114 &96828256323146168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: e5be61be-bfdb-4ee3-b975-9199ba0f5152
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: You have worked in archielogy?
+  children:
+  - b55aa88a-8ecf-415a-9bde-313b3cdadc4a
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2711
+    y: 301
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
 --- !u!114 &178488378167435310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,14 +626,14 @@ MonoBehaviour:
   m_Name: 8398bb41-2118-4a11-939b-862457603f3b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Please, tell me what happend?
+  text: Where have you worked... In Egypt?
   children:
-  - 4e6185f2-79e8-467b-b0ed-f0e3fc76c6b8
+  - ac2d6857-2460-46be-bee0-e116ff29f5fb
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2571
-    y: 28
+    x: 2691
+    y: 13
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -573,8 +680,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1678
-    y: 226
+    x: 1601
+    y: 228
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -676,6 +783,30 @@ MonoBehaviour:
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &3358371681127623246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 60bca299-d43e-4c06-a1ce-0b068473a8d3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes... I can remember to work on archielogy, with my husband...
+  children:
+  - 7c782b91-68c9-4020-b957-bbf387783b6a
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1940
+    y: 51
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
 --- !u!114 &3628299784405484258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,8 +850,32 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3304
-    y: 201
+    x: 3711
+    y: 79
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &5616129731090674686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 60b68399-15d8-460f-97ca-22cf3b8ed1be
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What!??? What are you saying? Argh...
+  children:
+  - 171a1187-5e47-4b0b-af05-1d42ec827877
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 3003
+    y: 195
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -768,8 +923,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2783
-    y: 390
+    x: 3150
+    y: 577
     width: 300
     height: 130
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -798,6 +953,54 @@ MonoBehaviour:
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &7197371472736925014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: ac2d6857-2460-46be-bee0-e116ff29f5fb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ... Yes... How?... Last time when we were there ...
+  children:
+  - d119468d-0384-47bc-90d4-216e145cee6c
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 3019
+    y: 47
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &7495341798642858288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 95116a94-caa1-4305-9042-95c8c6d9e716
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: You have stolen artifacts?
+  children:
+  - 60b68399-15d8-460f-97ca-22cf3b8ed1be
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2627
+    y: 556
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
 --- !u!114 &7646310382825078563
 MonoBehaviour:
   m_ObjectHideFlags: 0

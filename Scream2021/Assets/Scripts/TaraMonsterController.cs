@@ -32,6 +32,8 @@ public class TaraMonsterController : MonoBehaviour
 
     private AudioSource monsterFootstep;
     private AudioSource monsterSound0;
+    private AudioSource monsterAttack0;
+    private AudioSource monsterAttack1;
     private AudioSource monsterSound1;
     private AudioSource monsterScream;
     private AudioSource monsterImpact;
@@ -57,6 +59,14 @@ public class TaraMonsterController : MonoBehaviour
     public void Impact()
     {
         AudioManager.instance.InstantPlayFromGameObject(monsterImpact);
+    }
+    public void Attack0()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterAttack0);
+    }
+    public void Attack1()
+    {
+        AudioManager.instance.InstantPlayFromGameObject(monsterAttack1);
     }
 
     public void Scream()
@@ -91,6 +101,8 @@ public class TaraMonsterController : MonoBehaviour
 
         monsterFootstep = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.HeavyFootstep2);
         monsterSound0 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.TaraSpeechAggresive3);
+        monsterAttack0 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
+        monsterAttack1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
         /*
         monsterSound1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
         monsterScream = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);

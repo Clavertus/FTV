@@ -871,3 +871,33 @@ MonoBehaviour:
     min: 1
     max: 100
     source: {fileID: 0}
+  - name: EndlessTrainScream
+    clip: {fileID: 8300000, guid: 7e9fa2fb9162a894bb9c39972664a8ea, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: EndlessMonsterLoop
+    clip: {fileID: 8300000, guid: 7dba69ceb2693af429328e7cfd28b755, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.65
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}

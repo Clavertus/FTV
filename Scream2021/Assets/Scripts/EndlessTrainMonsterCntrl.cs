@@ -66,7 +66,7 @@ public class EndlessTrainMonsterCntrl : MonoBehaviour
         monsterFootstep = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.HeavyFootstep1);
         monsterSound0 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterMildAggressive);
         monsterSound1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
-        monsterScream = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
+        monsterScream = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.EndlessTrainScream);
         monsterImpact = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.OpenDoor);
     }
 
