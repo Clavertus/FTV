@@ -8,7 +8,10 @@ using UnityEngine.Playables;
 
 public class Tara_Behaviour : MonoBehaviour, ISaveable
 {
+    [Header("Cinematics:")]
     [SerializeField] PlayableDirector lookAtElderGodCinematicSequence = null;
+    [SerializeField] PlayableDirector elderGodFinalCinematic = null;
+    [SerializeField] GodPointMovement elderGodMovement = null;
     public enum tara_states
     {
         tara_scene_begin,
@@ -51,6 +54,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     bool shelf_dialog_played = false;
     [SerializeField] FTV.Dialog.NPCDialogue changing_dialog = null;
     bool changing_dialog_played = false;
+    [SerializeField] FTV.Dialog.NPCDialogue good_dialog = null;
+    bool good_dialog_played = false;
+    [SerializeField] FTV.Dialog.NPCDialogue run_dialog = null;
+    bool run_dialog_played = false;
 
 
     [Header("References:")]
@@ -87,7 +94,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public AudioSource[] taraSpeech = new AudioSource[5];
     private void Start()
     {
-        if(stopZone) stopZone.SetActive(true);
+        elderGodFinalCinematic.played += LockPlayerControl;
+        elderGodFinalCinematic.stopped += UnlockPlayerControl;
+
+        if (stopZone) stopZone.SetActive(true);
         if (taraMemento) taraMemento.SetActive(false);
         npc_Dialog.DisableInteraction();
         m_Renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -130,8 +140,24 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
     }
 
+    bool triggerAlternateEnd = false;
     private void Update()
     {
+        if(countTimeToDeath == true)
+        {
+            if(triggerAlternateEnd == false)
+            {
+                TimeCounter += Time.deltaTime;
+                if (TimeCounter > timeUntilElderGodBite)
+                {
+                    triggerAlternateEnd = true;
+                    //trigger alternate cinematic
+                    if (elderGodFinalCinematic) elderGodFinalCinematic.Play();
+                }
+
+            }
+        }
+
         if((behaviour_state == tara_states.tara_scene_begin) && (dialog_0_played == false))
         {
             Debug.LogWarning(behaviour_state);
@@ -449,6 +475,11 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             StartCoroutine(TaraStartTransforming(false));
         }
 
+        else if (data.behaviour_state == (int)tara_states.tara_scene_waitForDeath)
+        {
+            StartCoroutine(TaraStartWaitForDeath(false));
+        }
+
         AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
     #endregion
@@ -539,10 +570,16 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             else
             {
                 behaviour_state = tara_states.tara_scene_waitForDeath;
-                StartCoroutine(TaraStartWaitForDeath());
+                StartCoroutine(TaraStartWaitForDeath(true));
             }
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
+        }
+        else if (behaviour_state == tara_states.tara_scene_waitForDeath)
+        {
+            countTimeToDeath = true;
+            //reset "RUN!" dialog
+            npc_Dialog.SetNewDialogAvailableNoPlay(run_dialog);
         }
         else if (behaviour_state == tara_states.tara_scene_idle)
         {
@@ -593,10 +630,25 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         FindObjectOfType<DialogueUI>().ShowDialogue(changing_dialog);
     }
 
-    private IEnumerator TaraStartWaitForDeath()
+    [SerializeField] float timeUntilElderGodBite = 20f;
+    float TimeCounter = 0f;
+    bool countTimeToDeath = false;
+    private IEnumerator TaraStartWaitForDeath(bool useFader)
     {
-        LockPlayerControl(null);
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
-        throw new NotImplementedException();
+        elderGodMovement.speed *= 0.86f;
+        FindObjectOfType<CameraShaker>().enabled = true;
+        yield return new WaitForSeconds(1.0f);
+        LockPlayerControl(null);
+        if (useFader) StartCoroutine(LevelLoader.instance.CutIn());
+        yield return new WaitForSeconds(2f);
+        if (useFader) StartCoroutine(LevelLoader.instance.CutOut());
+
+        yield return new WaitForSeconds(0.5f);
+        UnlockPlayerControl(null);
+        FindObjectOfType<CameraShaker>().enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        FindObjectOfType<MouseLook>().LockAndLookAtPoint(GetComponent<NPCLookAtPlayer>().GetLookAtPoint().position);
+        npc_Dialog.SetNewDialogAvailableAndPlay(good_dialog);
     }
 }

@@ -9,7 +9,7 @@ public class GodPointMovement : MonoBehaviour
     [SerializeField] Transform pointB = null;
     [SerializeField] Transform pointC = null;
 
-    [SerializeField] float speed = 10f;
+    [SerializeField] public float speed = 10f;
     [SerializeField] float speedBoost = 10f;
     [SerializeField] bool changeRotationToPoints = false;
     bool enableMovement = false;

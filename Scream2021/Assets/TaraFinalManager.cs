@@ -60,4 +60,23 @@ public class TaraFinalManager : MonoBehaviour, ISaveable
         Debug.Log("Restore on " + Time.time);
         dialog_played = data.saved_on_entry;
     }
+
+    public void StartLoadingNextScene()
+    {
+        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+    }
+
+    public void StartLoadingSameScene()
+    {
+        StartCoroutine(LevelLoader.instance.StartLoadingSameScene(2f));
+    }
+
+    [SerializeField] GameObject[] objToHide = null;
+    public void hideObjectsInFinal()
+    {
+        foreach(GameObject obj in objToHide)
+        {
+            obj.SetActive(false);
+        }
+    }
 }
