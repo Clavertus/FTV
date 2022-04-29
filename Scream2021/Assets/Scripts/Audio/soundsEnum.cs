@@ -45,5 +45,12 @@ public enum soundsEnum
 	UI2 = 42,
 	UI3 = 43,
 	AwryBackground = 44,
+	WhooshEffect = 45,
+	TaraTransformSFX = 46,
+	TaraTransformBackground = 47,
+	TaraSpeechAggresive1 = 48,
+	TaraSpeechAggresive2 = 49,
+	TaraSpeechAggresive3 = 50,
+	TaraSpeechAggresive4 = 51,
 
 }

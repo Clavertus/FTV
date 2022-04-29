@@ -464,7 +464,7 @@ MonoBehaviour:
     sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 50
+    max: 100
     source: {fileID: 0}
   - name: HeavyFootstep3
     clip: {fileID: 8300000, guid: d071ab763837753418b357001922b547, type: 3}
@@ -708,6 +708,111 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: AwryBackground
     clip: {fileID: 8300000, guid: f31c4d2e3c97fb84ba82bb00ff480227, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: WhooshEffect
+    clip: {fileID: 8300000, guid: 1bdfcd033b97c5847926c11fcbf3ef41, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraTransformSFX
+    clip: {fileID: 8300000, guid: 1ea6f9cdcddb83a42842a0e26fd09274, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraTransformBackground
+    clip: {fileID: 8300000, guid: 78adfcf439fa54d45a485a437c2a4eec, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive1
+    clip: {fileID: 8300000, guid: 5e6087910da87694888d98654f18dcbf, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive2
+    clip: {fileID: 8300000, guid: 08a2712d188e4c946b5f99786a8a56b8, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive3
+    clip: {fileID: 8300000, guid: bc8e9ed3e25cb3f439703a517f129127, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive4
+    clip: {fileID: 8300000, guid: 0ca357bb5069ae14c95677f040c3de16, type: 3}
     audioMixerGroup: {fileID: 0}
     volume: 0.5
     pitch: 0.1

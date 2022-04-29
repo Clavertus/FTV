@@ -26,10 +26,13 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] GameObject taraShelf = null;
     [SerializeField] GameObject[] taraShelfDisableObjects = null;
     [SerializeField] GameObject[] taraShelfEnableObjects = null;
+    [SerializeField] GameObject[] taraReferenceObjectsToHide = null;
+    [SerializeField] GameObject taraMonster = null;
     [Header("ElderGodReferenceGameObjects:")]
     public bool elderGodDissapeared = false;
     [SerializeField] GameObject trainToDissapear = null;
     [SerializeField] GameObject elderGodToDissapear = null;
+    [SerializeField] GameObject elderGodToAppear = null;
 
     [Header("Dialogs:")]
     [SerializeField] FTV.Dialog.NPCDialogue dialog_0 = null;
@@ -46,6 +49,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     bool idle_dialog_played = false;
     [SerializeField] FTV.Dialog.NPCDialogue shelf_dialog = null;
     bool shelf_dialog_played = false;
+    [SerializeField] FTV.Dialog.NPCDialogue changing_dialog = null;
+    bool changing_dialog_played = false;
 
 
     [Header("References:")]
@@ -439,6 +444,11 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             trainToDissapear.SetActive(false);
         }
 
+        if(data.behaviour_state == (int) tara_states.tara_scene_transforming)
+        {
+            StartCoroutine(TaraStartTransforming(false));
+        }
+
         AudioManager.instance.InstantStopFromAudioManager(soundsEnum.TaraTalkingBackground);
     }
     #endregion
@@ -455,7 +465,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     private void UnlockPlayerControl(PlayableDirector pd)
     {
         FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
-        FindObjectOfType<MouseLook>().UnlockFromPoint();
+        FindObjectOfType<MouseLook>().UnlockFromPoint(); //unlock camera and movement
 
         if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
         {
@@ -521,13 +531,15 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
         else if (behaviour_state == tara_states.tara_scene_waitForPlayer)
         {
-            if(tara_is_transforming)
+            if (tara_is_transforming)
             {
                 behaviour_state = tara_states.tara_scene_transforming;
+                StartCoroutine(TaraStartTransforming(true));
             }
             else
             {
                 behaviour_state = tara_states.tara_scene_waitForDeath;
+                StartCoroutine(TaraStartWaitForDeath());
             }
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
             FindObjectOfType<SavingWrapper>().CheckpointSave();
@@ -545,4 +557,46 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         }
     }
     #endregion
+
+    public IEnumerator TaraStartTransforming(bool useFader)
+    {
+        if (!useFader)
+        {
+            foreach (GameObject obj in taraReferenceObjectsToHide)
+            {
+                obj.SetActive(false);
+            }
+            taraMonster.SetActive(true);
+        }
+        elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
+        FindObjectOfType<CameraShaker>().enabled = true;
+        yield return new WaitForSeconds(1.0f);
+        LockPlayerControl(null);
+        if(useFader) StartCoroutine(LevelLoader.instance.CutIn());
+        yield return new WaitForSeconds(1.75f);
+        if(useFader)
+        {
+            foreach (GameObject obj in taraReferenceObjectsToHide)
+            {
+                obj.SetActive(false);
+            }
+            taraMonster.SetActive(true);
+        }
+        yield return new WaitForSeconds(0.25f);
+        if (useFader) StartCoroutine(LevelLoader.instance.CutOut());
+
+        yield return new WaitForSeconds(0.5f);
+        UnlockPlayerControl(null);
+        FindObjectOfType<CameraShaker>().enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        FindObjectOfType<MouseLook>().LockAndLookAtPoint(taraMonster.GetComponent<TaraMonsterController>().GetLookAtPoint());
+        FindObjectOfType<DialogueUI>().ShowDialogue(changing_dialog);
+    }
+
+    private IEnumerator TaraStartWaitForDeath()
+    {
+        LockPlayerControl(null);
+        elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
+        throw new NotImplementedException();
+    }
 }

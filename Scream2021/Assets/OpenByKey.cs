@@ -8,7 +8,7 @@ public class OpenByKey : MonoBehaviour, ISaveable
 {
     [SerializeField] NPCDialogue noKeyDialog = null;
     [SerializeField] GameObject KeyObjectInventory = null;
-    [SerializeField] GameObject revealObject = null;
+    [SerializeField] GameObject[] revealObjects = null;
     [SerializeField] Transform shelfDoor = null;
     [SerializeField] float rotateToAngle = -90;
     [SerializeField] float rotateSpeedInSec = -90;
@@ -37,7 +37,10 @@ public class OpenByKey : MonoBehaviour, ISaveable
         interactionCounter++;
         if (KeyObjectInventory.activeSelf)
         {
-            revealObject.SetActive(true);
+            foreach(GameObject obj in revealObjects)
+            {
+                obj.SetActive(true);
+            }
             KeyObjectInventory.SetActive(false);
             gameObject.tag = ("Untagged");
             this.GetComponent<Selectable>().enabled = false;

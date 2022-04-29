@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27128706808116596}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.8, y: 0, z: 248.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.02666677, y: 0, z: 8.276667}
+  m_LocalScale: {x: 0.033333335, y: 0.033333335, z: 0.033333335}
   m_Children: []
-  m_Father: {fileID: 1435414342609484994}
-  m_RootOrder: 0
+  m_Father: {fileID: 495762647211108144}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!108 &5159668885266183889
 Light:
@@ -121,7 +121,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 49814204373434710}
   - {fileID: 495762647211108144}
   - {fileID: 2614326123391492379}
   m_Father: {fileID: 0}
@@ -145,7 +144,7 @@ MonoBehaviour:
   idleOnAwake: 1
   explosion: {fileID: 0}
   trainToDissapear: {fileID: 0}
-  elderFodObjectToDissapear: {fileID: 0}
+  elderGodObjectToDissapear: {fileID: 0}
 --- !u!1 &1922879662663512353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5051,7 +5050,7 @@ Transform:
   - {fileID: 424136417494324875}
   - {fileID: 7945060265556225343}
   m_Father: {fileID: 1435414342609484994}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &8742135281683647702
 ParticleSystem:
@@ -19662,8 +19661,9 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 7770747838428677578}
+  - {fileID: 49814204373434710}
   m_Father: {fileID: 1435414342609484994}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7359154798141707427
 GameObject:

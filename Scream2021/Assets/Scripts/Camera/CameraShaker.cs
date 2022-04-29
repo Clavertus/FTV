@@ -21,4 +21,9 @@ public class CameraShaker : MonoBehaviour
     {
         cameraShakeObject.localPosition = startPosition + Random.insideUnitSphere * power;
     }
+
+    private void OnDisable()
+    {
+        cameraShakeObject.localPosition = startPosition;
+    }
 }
