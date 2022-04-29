@@ -81,6 +81,7 @@ public class Credits : MonoBehaviour
         AudioManager.instance.InstantPlayOneShotFromAudioManager(soundsEnum.UIClick);
     }
 
+    [SerializeField] bool loadNextSceneDirectly = false;
     IEnumerator StartCredits()
     {
         for (int i = 0; i < credits.Count; i++)
@@ -107,12 +108,18 @@ public class Credits : MonoBehaviour
             StartCoroutine(FadeOutText(credits[i]));
         }
 
-        StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
-        /*
-        yield return StartCoroutine(FadeInFinalPanel());
-
-        LevelLoader.instance.SetPlayedTheGame();
-        */
+        if(loadNextSceneDirectly)
+        {
+            LevelLoader.instance.SetPlayedTheGame();
+            StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+        }
+        else
+        {
+            LevelLoader.instance.SetPlayedTheGame();
+            yield return StartCoroutine(FadeInFinalPanel());
+        }
+        
+        
     }
 
     public IEnumerator FadeInFinalPanel()

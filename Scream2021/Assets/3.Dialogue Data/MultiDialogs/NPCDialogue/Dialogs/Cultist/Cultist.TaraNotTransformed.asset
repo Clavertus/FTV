@@ -23,7 +23,7 @@ MonoBehaviour:
     y: 686
     width: 300
     height: 130
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
 --- !u!114 &-4981796700046063709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 729
     width: 300
     height: 130
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
 --- !u!114 &-4297063942978689597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 6f7393f0-3f06-45ea-80a4-c4a08af73f39
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: She had a gift for you. You will find it near you, when wake up.
+  text: She had a gift for you. You will find it near when waked up.
   children:
   - a12558be-86ff-4113-b106-059c85a89ed5
   triggerId: 0
@@ -286,4 +286,4 @@ MonoBehaviour:
     y: 538
     width: 300
     height: 130
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}

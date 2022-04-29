@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: credits.Array.data[2]
       value: 
       objectReference: {fileID: 1043608750}
+    - target: {fileID: 5555708073642056693, guid: b0266194f43475347a7d29c7a9706822, type: 3}
+      propertyPath: loadNextSceneDirectly
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6686267175622475128, guid: b0266194f43475347a7d29c7a9706822, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
