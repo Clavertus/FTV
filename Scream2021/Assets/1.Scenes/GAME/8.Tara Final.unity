@@ -12499,45 +12499,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.size
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].max
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].min
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ffabeec60ebc91049ac5a41a02823e55, type: 3}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].name
-      value: Endless
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].pitch
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].spatialBlend
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053742028884216275, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}
-      propertyPath: sounds.Array.data[55].sourceCurveType
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6664da556089cc14e935b8f511fc7b31, type: 3}

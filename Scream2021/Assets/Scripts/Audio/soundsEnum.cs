@@ -55,7 +55,9 @@ public enum soundsEnum
 	JarLoop = 52,
 	SFXChange2 = 53,
 	Decouple = 54,
-	EndlessTrainScream = 55,
-	EndlessMonsterLoop = 56,
+	TaraAttack0 = 55,
+	TaraAttack1 = 56,
+	EndlessTrainScream = 57,
+	EndlessMonsterLoop = 58,
 
 }
