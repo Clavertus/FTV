@@ -7,7 +7,8 @@ public class CultistOnTheStationManager : MonoBehaviour
 {
     [Header("Timing")]
     [SerializeField] float startupDelay = 4f;
-    [SerializeField] float trainPassedDelay = 1f;
+    [SerializeField] float trainSoundDelay = 1f;
+    [SerializeField] float delayCultist = 1f;
     [Header("Train Ref")]
     [SerializeField] Transform train = null;
     [SerializeField] float trainSpeed = 5f;
@@ -19,6 +20,7 @@ public class CultistOnTheStationManager : MonoBehaviour
 
     [Header("Music")]
     [SerializeField] soundsEnum soundToPlay = soundsEnum.TaraTalkingBackground;
+    [SerializeField] soundsEnum trainSound = soundsEnum.TaraTalkingBackground;
 
     PlayerMovement playerMovement = null;
     MouseLook playerLook = null;
@@ -42,12 +44,15 @@ public class CultistOnTheStationManager : MonoBehaviour
         AudioManager.instance.StartPlayingFromAudioManager(soundToPlay);
         yield return new WaitForSeconds(startupDelay);
 
+        AudioManager.instance.StartPlayingFromAudioManager(trainSound);
+        yield return new WaitForSeconds(trainSoundDelay);
         state = scene_state.start_train;
     }
 
     // Update is called once per frame
     void Update()
     {
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
         playerMovement.LockPlayer();
         if (state == scene_state.start_train)
         {
@@ -62,8 +67,14 @@ public class CultistOnTheStationManager : MonoBehaviour
         if(train.position.z >= trainPassPosition.position.z)
         {
             state = scene_state.start_cultist;
-            cultist.SetActive(true);
-            playerLook.LockAndLookAtPoint(cultist.GetComponent<NPCLookAtPlayer>().GetLookAtPoint().position); //look at cultist
+            StartCoroutine(TriggerCultist());
         }
+    }
+
+    private IEnumerator TriggerCultist()
+    {
+        yield return new WaitForSeconds(delayCultist);
+        cultist.SetActive(true);
+        playerLook.LockAndLookAtPoint(cultist.GetComponent<NPCLookAtPlayer>().GetLookAtPoint().position); //look at cultist
     }
 }
