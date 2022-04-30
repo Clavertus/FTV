@@ -7,8 +7,8 @@ public class PlayNPCDialog : MonoBehaviour
 {
     public Action PreTriggerEventCall { get; set; }
     public Action DialogIsStarted { get; set; }
-    public Action DialogNodeIsStarted { get; set; }
-    public Action DialogNodeIsEnded { get; set; }
+    public Action<int> DialogNodeIsStarted { get; set; }
+    public Action<int> DialogNodeIsEnded { get; set; }
     public Action DialogIsFinished { get; set; }
 
     [SerializeField] FTV.Dialog.NPCDialogue dialogObject = null;
@@ -24,24 +24,30 @@ public class PlayNPCDialog : MonoBehaviour
         dialogUI = FindObjectOfType<DialogueUI>();
     }
 
-    private void NPCDialogIsStarted()
+    private void NPCDialogIsStarted(FTV.Dialog.NPCDialogue f_dialogObject)
     {
+        if (f_dialogObject != dialogObject) return;
         DialogIsStarted?.Invoke();
     }
 
-    private void NPCDialogNodeStarted(bool isPlayerSpeaking)
+    private void NPCDialogNodeStarted(FTV.Dialog.NPCDialogue f_dialogObject, bool isPlayerSpeaking, int TriggerId)
     {
-        if(!isPlayerSpeaking)
+        if (f_dialogObject != dialogObject) return;
+        if (!isPlayerSpeaking)
         {
-            DialogNodeIsStarted?.Invoke();
+            Debug.Log("Dialog with id: " + TriggerId);
+            DialogNodeIsStarted?.Invoke(TriggerId);
         }
     }
-    private void NPCDialogNodeEnd()
+    private void NPCDialogNodeEnd(FTV.Dialog.NPCDialogue f_dialogObject, int TriggerId)
     {
-        DialogNodeIsEnded?.Invoke();
+        Debug.Log("Dialog with id: " + TriggerId);
+        if (f_dialogObject != dialogObject) return;
+        DialogNodeIsEnded?.Invoke(TriggerId);
     }
-    private void NPCDialogFinished(FTV.Dialog.NPCDialogue dialog)
+    private void NPCDialogFinished(FTV.Dialog.NPCDialogue f_dialogObject)
     {
+        if (f_dialogObject != dialogObject) return;
         DialogIsFinished?.Invoke();
 
         UnsubscribeOnDialogEvents();
@@ -105,25 +111,43 @@ public class PlayNPCDialog : MonoBehaviour
         dialogUI.OnDialogShowEnd -= NPCDialogFinished;
     }
 
-    private void playIdleAnimation(FTV.Dialog.NPCDialogue dialog)
+    private void playIdleAnimation(FTV.Dialog.NPCDialogue f_DialogObject)
     {
-        if(npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
+        if (f_DialogObject != dialogObject) return;
+        if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
             npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
         }
     }
 
-    private void playTalkAnimation(bool isPlayerSpeaking)
+    public bool awryState = false;
+    private void playTalkAnimation(FTV.Dialog.NPCDialogue f_DialogObject, bool isPlayerSpeaking, int TriggerId)
     {
+        if (f_DialogObject != dialogObject) return;
         if (npcAnimator.GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
         {
             if (!isPlayerSpeaking)
             {
-                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
+                if(awryState == true)
+                {
+                    int randomTalkId = UnityEngine.Random.Range((int)0, (int)3);
+                    npcAnimator.SetAnimation((NPCAnimationController.NpcAnimationState) ((int)NPCAnimationController.NpcAnimationState.awry0 + randomTalkId));
+                }
+                else
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.talk);
+                }
             }
             else
             {
-                npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                if (awryState == true)
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.awryIdle);
+                }
+                else
+                {
+                    npcAnimator.SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                }
             }
         }
     }
@@ -132,7 +156,7 @@ public class PlayNPCDialog : MonoBehaviour
     {
         gameObject.tag = "Untagged";
         interactionCounter++;
-        GetComponent<Selectable>().enabled = false;
+        if(GetComponent<Selectable>()) GetComponent<Selectable>().enabled = false;
     }
     public void SetNewDialogAvailableNoPlayAddPreTrigger(FTV.Dialog.NPCDialogue newDialogObject)
     {

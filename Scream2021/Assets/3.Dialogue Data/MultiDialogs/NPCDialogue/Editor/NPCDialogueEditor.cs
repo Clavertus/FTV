@@ -32,7 +32,7 @@ namespace FTV.Dialog.Editor
         Vector2 draggingCanvasOffset;
 
 
-        const float canvasSize = 4000;
+        const float canvasSize = 10000;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
@@ -194,6 +194,8 @@ namespace FTV.Dialog.Editor
             GUILayout.BeginArea(node.GetRect(), style);
 
             node.SetText(EditorGUILayout.TextField(node.GetText()));
+
+            node.SetTriggerId(EditorGUILayout.IntField(node.GetTriggerId()));
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("x"))

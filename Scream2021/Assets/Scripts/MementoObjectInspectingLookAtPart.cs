@@ -8,6 +8,9 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 {
     [SerializeField] NPCDialogue baseObjInspectDialogue;
     [SerializeField] NPCDialogue smallObjInspectDialogue;
+    [SerializeField] bool addExtraTriggerDialog = false;
+    [SerializeField] NPCDialogue smallObjTriggerDialogue;
+    [SerializeField] GameObject[] revealObjects;
 
     //[SerializeField] GameObject DialogueBox;
     [SerializeField] GameObject smallObject;
@@ -17,13 +20,31 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
     GameObject DialogueBox;
 
     public int interactionCounter = 0;
-    public int smallObjInteractionCounter = 0; 
-    
-    
+    public int smallObjInteractionCounter = 0;
+    public bool smallObjectTrigger = false;
+    public bool smallObjectTriggerDone = false;
+
+    PlaySoundOnMementoExamine soundOnMemento = null;
+
     // Start is called before the first frame update
     void Start()
     {
         DialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
+        soundOnMemento = GetComponentInChildren<PlaySoundOnMementoExamine>();
+        if (smallObjInteractionCounter != 0)
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +70,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
+        if (soundOnMemento) soundOnMemento.SetFullSound();
         yield return new WaitUntil(() => !DialogueBox.activeSelf);  
         smallObject.GetComponent<BoxCollider>().enabled = true; 
     }
@@ -60,6 +82,23 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         FindObjectOfType<DialogueUI>().ShowDialogue(smallObjInspectDialogue);
         yield return new WaitUntil(() => !DialogueBox.activeSelf);
 
+        //extra objects to show?
+        foreach(GameObject obj in revealObjects)
+        {
+            obj.SetActive(true);
+        }
+
+        smallObjectTrigger = true;
+        if (addExtraTriggerDialog)
+        {
+            yield return new WaitUntil(() => smallObjectTriggerDone);
+
+            if (soundOnMemento) soundOnMemento.SetSilent();
+            FindObjectOfType<DialogueUI>().ShowDialogue(smallObjTriggerDialogue);
+            yield return new WaitUntil(() => !DialogueBox.activeSelf);
+        }
+
+        if(soundOnMemento) soundOnMemento.SetSilent();
         GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         //disable small object collider
         smallObject.GetComponent<BoxCollider>().enabled = false;
@@ -115,6 +154,20 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
         SaveData data = (SaveData)state;
         interactionCounter = data.interactionCounter;
         smallObjInteractionCounter = data.smallObjInteractionCounter;
+        if(smallObjInteractionCounter != 0)
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in revealObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
     }
     #endregion
 

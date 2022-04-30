@@ -106,6 +106,7 @@ namespace FTV.Dialog
 
             newChildNode.name = System.Guid.NewGuid().ToString();
             newChildNode.SetText("Enter dialogue text to display");
+            newChildNode.SetTriggerId(0);
             if (parent != null)
             {
                 bool isParentPlayerSpeaker = parent.GetIsPlayerSpeaking();

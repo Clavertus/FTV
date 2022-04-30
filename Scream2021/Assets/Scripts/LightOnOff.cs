@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class LightOnOff : MonoBehaviour
 {
-    [SerializeField] float minLightOn = 1f;
-    [SerializeField] float maxLightOn = 1f;
-    [SerializeField] float minLightOff = 1f;
-    [SerializeField] float maxLightOff = 1f;
+    [SerializeField] float minLight_Off = 1f;
+    [SerializeField] float maxLight_Off = 1f;
+    [SerializeField] float minLight_On = 1f;
+    [SerializeField] float maxLight_On = 1f;
 
     [SerializeField] Light myLight = null;
 
@@ -23,7 +23,7 @@ public class LightOnOff : MonoBehaviour
             if (TimeCount >= LightOffTime)
             {
                 myLight.enabled = false;
-                LightOffTime = Random.Range(minLightOff, maxLightOff);
+                LightOffTime = Random.Range(minLight_On, maxLight_On);
                 TimeCount = 0f;
                 return;
             }
@@ -33,12 +33,20 @@ public class LightOnOff : MonoBehaviour
             if (TimeCount >= LightOnTime)
             {
                 myLight.enabled = true;
-                LightOnTime = Random.Range(minLightOn, maxLightOn);
+                LightOnTime = Random.Range(minLight_Off, maxLight_Off);
                 TimeCount = 0f;
                 return;
             }
         }
 
         TimeCount += Time.deltaTime;
+    }
+
+    private void OnDisable()
+    {
+        myLight.enabled = true;
+        TimeCount = 0f;
+        LightOffTime = 0.1f;
+        LightOnTime = 0.1f;
     }
 }

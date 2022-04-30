@@ -15,8 +15,10 @@ namespace FTV.Dialog
         string text;
         [SerializeField] 
         List<string> children = new List<string>();
+        [SerializeField]
+        int triggerId = 0;
         [SerializeField] 
-        Rect rect = new Rect(0,0,200,120);
+        Rect rect = new Rect(0,0,300,130);
         [SerializeField]
         DialogStyle style;
 
@@ -42,6 +44,10 @@ namespace FTV.Dialog
         public DialogStyle GetDialogStyle()
         {
             return style;
+        }
+        public int GetTriggerId()
+        {
+            return triggerId;
         }
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)
@@ -88,6 +94,12 @@ namespace FTV.Dialog
                 style = newStyle;
                 EditorUtility.SetDirty(this);
             }
+        }
+        public void SetTriggerId(int newId)
+        {
+            triggerId = newId;
+            Undo.RecordObject(this, "Edit dialogue node");
+            EditorUtility.SetDirty(this);
         }
 #endif
     }

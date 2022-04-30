@@ -180,6 +180,7 @@ MonoBehaviour:
   headBone: {fileID: 7359847607746906967}
   distanceToLookAt: 8
   rotationSpeed: 120
+  angleCheck: 90
 --- !u!114 &1998302139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventReceiver: {fileID: 1449905081869849654}
+  footstepSound: 24
   animator: {fileID: 2726992538842670850}
 --- !u!114 &1787795100
 MonoBehaviour:
@@ -207,30 +209,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAtElderGodCinematicSequence: {fileID: 0}
+  elderGodFinalCinematic: {fileID: 0}
+  elderGodMovement: {fileID: 0}
   stopZone: {fileID: 0}
   taraMemento: {fileID: 0}
+  reactOnShelf: 1
+  taraShelf: {fileID: 0}
+  taraShelfDisableObjects: []
+  taraShelfEnableObjects: []
+  taraReferenceObjectsToHide: []
+  taraMonster: {fileID: 0}
+  elderGodDissapeared: 0
+  trainToDissapear: {fileID: 0}
+  elderGodToDissapear: {fileID: 0}
+  elderGodToAppear: {fileID: 0}
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
   dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
   dialog_2: {fileID: 11400000, guid: f6102488492a64346ad82cfa72bbcead, type: 2}
-  dialog_3: {fileID: 0}
+  dialog_3: {fileID: 11400000, guid: 4bf3c32832a0e7341a20afca961a432d, type: 2}
   dialog_4: {fileID: 0}
   idle_dialog: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
+  shelf_dialog: {fileID: 0}
+  changing_dialog: {fileID: 11400000, guid: 37a285fe08a6f7544bdb27e71415e9d9, type: 2}
+  good_dialog: {fileID: 0}
+  run_dialog: {fileID: 0}
   npc_Dialog: {fileID: 1954732293560671682}
   point_0: {fileID: 0}
   point_1: {fileID: 0}
   point_2: {fileID: 0}
+  point_3: {fileID: 0}
   open_texture: {fileID: 2800000, guid: 1dda17baabe13f44281b7252610f89dd, type: 3}
   close_texture: {fileID: 2800000, guid: 2bf6a58f52daf2145af38fc496f6f4c0, type: 3}
+  open_Awry_texture: {fileID: 2800000, guid: 3cc63b82bc130fb468870947a6ca3218, type: 3}
+  close_Awry_texture: {fileID: 2800000, guid: a571191670303cf4a9dd1cf838391d0c, type: 3}
   speak_texture: {fileID: 2800000, guid: b11daab2c72717a4989ffde9675de2a7, type: 3}
+  behaviour_state: 0
   openTime: 4
   closeTime: 0.25
   speakTime: 0.25
+  volume: 0.1
+  pitch: 1.05
   taraSpeech:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  timeUntilElderGodBite: 16
 --- !u!114 &4680006666525053139
 MonoBehaviour:
   m_ObjectHideFlags: 0

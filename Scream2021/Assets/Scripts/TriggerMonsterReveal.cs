@@ -60,6 +60,7 @@ public class TriggerMonsterReveal : MonoBehaviour
     public void CinematicMonsterRunActivation()
     {
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Drone2);
+        AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.EndlessMonsterLoop);
         monsterToReveal.GetComponent<EndlessTrainMonsterCntrl>().SetMonsterState(EndlessTrainMonsterCntrl.monsterStatesEnm.walk);
     }
 

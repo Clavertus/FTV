@@ -107,6 +107,16 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
         StartCoroutine(FadeInSound(s.source));
     }
+    public void AdjustVolumeManually(soundsEnum name, float newVolume)
+    {
+        Sound s = FindSound(name);
+        s.source.volume = newVolume;
+    }
+    public float getCurrentVolume(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        return s.source.volume;
+    }
 
     public void StopFromAudioManager(soundsEnum name)
     {
@@ -254,4 +264,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool IsPlaying(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        return s.source.isPlaying;
+    }
 }

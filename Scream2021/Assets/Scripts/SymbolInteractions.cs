@@ -192,6 +192,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
         elderGodMove.GetComponent<GodPointMovement>().increaseSpeed();
 
         doorToCar.GetComponent<Selectable>().enabled = true;
+        doorToCar.tag = "Selectable";
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX(); 
         FindObjectOfType<SecondTrain>().TriggerTrain();
         FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked);
@@ -212,6 +213,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
 
         secondTrainMove.SetActive(true);
         doorToCar.GetComponent<Selectable>().enabled = true;
+        doorToCar.tag = "Selectable";
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX();
         FindObjectOfType<SecondTrain>().TriggerTrain();
 

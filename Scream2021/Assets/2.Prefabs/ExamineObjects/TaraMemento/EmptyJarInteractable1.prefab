@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2433558281190471963}
   - component: {fileID: 4527596345651807443}
   - component: {fileID: 4924533392160444014}
+  - component: {fileID: 7572741211786690392}
   m_Layer: 0
   m_Name: ExamineObject
   m_TagString: Untagged
@@ -209,11 +210,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObjInspectDialogue: {fileID: 11400000, guid: faed175eb4ad609458743c87233a1784, type: 2}
-  smallObjInspectDialogue: {fileID: 11400000, guid: 2605e0cc8c7b0d4458148f03803a681a, type: 2}
+  smallObjInspectDialogue: {fileID: 11400000, guid: 7f2366801a10a4b4c820093f19d66796, type: 2}
+  addExtraTriggerDialog: 1
+  smallObjTriggerDialogue: {fileID: 11400000, guid: 2605e0cc8c7b0d4458148f03803a681a, type: 2}
   smallObject: {fileID: 7858650591515940308}
   inspectCanvas: {fileID: 6324291833217258038}
   interactionCounter: 0
   smallObjInteractionCounter: 0
+  smallObjectTrigger: 0
+  smallObjectTriggerDone: 0
 --- !u!114 &4924533392160444014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +232,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueIdentifier: 7abe7588-088d-4a47-a228-09d0c0db303f
+--- !u!114 &7572741211786690392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998334153013424439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b216a4ff28e0a0f4d90ec36d3dac56bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inspectScriptRef: {fileID: 4527596345651807443}
+  rotateScriptRef: {fileID: 8416420344399168819}
 --- !u!1 &7858650591515940308
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +259,7 @@ GameObject:
   - component: {fileID: 7668594024730910894}
   - component: {fileID: 2929394902597837449}
   - component: {fileID: 889017117730387071}
+  - component: {fileID: 8416420344399168819}
   m_Layer: 0
   m_Name: SmallItemExamineObject
   m_TagString: Untagged
@@ -322,6 +342,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObjRenderer: {fileID: 8903114031990805422}
   smallObjRenderer: {fileID: 1050820632543276034}
+--- !u!114 &8416420344399168819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858650591515940308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7085c2e1633da44d9104d39b8658684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transfromToRotate: {fileID: 3957075556777280142}
+  rotateToY: 150
+  rotateSpeedInSec: -15
+  spookPlayer: 0
+  spookRotateMultiplier: 20
+  rotationDone: 0
 --- !u!1 &8189099882696915384
 GameObject:
   m_ObjectHideFlags: 0
