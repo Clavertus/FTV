@@ -79,6 +79,7 @@ public class ExamineLockObject : MonoBehaviour
 
         targetRotation = new float[SlotImages.Length];
         rotateSegments = new bool[SlotImages.Length];
+        tartgetValue = new int[SlotImages.Length];
         for (int ix = 0; ix < SlotImages.Length; ix++)
         {
             targetRotation[ix] = 0.0000f;
@@ -251,10 +252,12 @@ public class ExamineLockObject : MonoBehaviour
         rotateSegments[currentSlotId] = true;
 
         SlotImages[currentSlotId].GetComponent<Image>().sprite = imageList[nextSlotValue];
-        slotValuesArray[currentSlotId] = nextSlotValue;
+        //slotValuesArray[currentSlotId] = nextSlotValue;
+        tartgetValue[currentSlotId] = nextSlotValue;
     }
 
     bool[] rotateSegments;
+    int[] tartgetValue;
     float[] targetRotation;
     private void MoveToTargetRotation()
     {
@@ -278,6 +281,7 @@ public class ExamineLockObject : MonoBehaviour
                         lockSegments[ix].localEulerAngles.y,
                         lockSegments[ix].localEulerAngles.z + targetRotation[ix]);
                 targetRotation[ix] = 0f;
+                slotValuesArray[ix] = tartgetValue[ix];
                 rotateSegments[ix] = false;
             }
         }

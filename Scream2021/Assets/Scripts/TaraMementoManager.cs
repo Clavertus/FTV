@@ -147,6 +147,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
         {
             memento_state = currentMementoEnum.memento_move_to_next_scene;
             StartCoroutine(LevelLoader.instance.StartLoadingNextScene());
+            AudioManager.instance.StopFromAudioManager(soundsEnum.JarLoop);
         }
     }
 
