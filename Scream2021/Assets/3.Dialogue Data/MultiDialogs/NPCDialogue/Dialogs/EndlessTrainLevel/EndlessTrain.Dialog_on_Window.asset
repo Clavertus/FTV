@@ -15,6 +15,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: I need to forget about it.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 555
@@ -35,9 +36,10 @@ MonoBehaviour:
   m_Name: f590fcaa-5a3b-408b-b1bf-f321cf229bf9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: That dream was ...
+  text: That dream was...
   children:
   - 14b449b5-ba6c-4ae0-9855-1989cd6e1729
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 317
@@ -77,6 +79,7 @@ MonoBehaviour:
   text: ...
   children:
   - f590fcaa-5a3b-408b-b1bf-f321cf229bf9
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 83

@@ -29,8 +29,9 @@ MonoBehaviour:
   m_Name: ee4549ea-c97e-4657-85f1-e644746bd532
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Taaraaa! Open the door!
+  text: Taaraaa! Open the door! Please!
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 765
@@ -51,9 +52,10 @@ MonoBehaviour:
   m_Name: 0c5ba3c4-718b-4c73-82d2-06f8e960ce5f
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: The door is closed... Can not open it.
+  text: The door is closed... I can't open it.
   children:
   - 4bf5e034-4d59-498c-875e-f98017f674a0
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 186
@@ -77,6 +79,7 @@ MonoBehaviour:
   text: Tara!
   children:
   - ee4549ea-c97e-4657-85f1-e644746bd532
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 465

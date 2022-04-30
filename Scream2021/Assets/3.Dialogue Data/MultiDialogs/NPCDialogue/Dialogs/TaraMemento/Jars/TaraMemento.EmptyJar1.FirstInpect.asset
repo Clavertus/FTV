@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 66c91406-1e0e-4957-a8d6-1f81e4287617
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Is it a Bird head?
+  text: Is it a bird head?
   children:
   - b0939e2d-2a27-4aaf-8438-01e08042b563
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -36,11 +37,12 @@ MonoBehaviour:
   m_Name: fa67798b-5ebf-4343-8893-ad2db8b65ee1
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: What is the purpose of those?
+  text: What is their purpose?
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 711
+    x: 710
     y: 222
     width: 200
     height: 120
@@ -74,9 +76,10 @@ MonoBehaviour:
   m_Name: b0939e2d-2a27-4aaf-8438-01e08042b563
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Those jars are strange...
+  text: These jars are strange...
   children:
   - fa67798b-5ebf-4343-8893-ad2db8b65ee1
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 408

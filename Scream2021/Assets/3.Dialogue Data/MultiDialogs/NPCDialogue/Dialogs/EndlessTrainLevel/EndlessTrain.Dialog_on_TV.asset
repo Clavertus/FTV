@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: a2641a25-c3da-46bd-b5a1-deea10860b02
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Perhaps it turns off after end station.
+  text: Perhaps it turns off after the last station.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 334
@@ -35,9 +36,10 @@ MonoBehaviour:
   m_Name: 151af312-35fb-4c6e-87b9-11c09e17ee20
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Can not remeber to see them without advertising.
+  text: Can't remember seeing them without advertisement turned on.
   children:
   - a2641a25-c3da-46bd-b5a1-deea10860b02
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 119

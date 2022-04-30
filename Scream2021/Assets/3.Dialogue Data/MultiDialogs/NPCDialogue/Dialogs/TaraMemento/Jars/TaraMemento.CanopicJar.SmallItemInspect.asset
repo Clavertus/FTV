@@ -16,6 +16,7 @@ MonoBehaviour:
   text: I am hearing the heart beat for sure.
   children:
   - b0939e2d-2a27-4aaf-8438-01e08042b563
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -51,8 +52,9 @@ MonoBehaviour:
   m_Name: b0939e2d-2a27-4aaf-8438-01e08042b563
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Not sure I want to try open it, but no other choice.
+  text: Not sure if I want to open it, but there's no other choice.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 408

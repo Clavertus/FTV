@@ -31,6 +31,7 @@ MonoBehaviour:
   text: Where is everyone?
   children:
   - cb446863-264f-491b-999d-88dbde2c1932
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 197
@@ -51,12 +52,13 @@ MonoBehaviour:
   m_Name: cb446863-264f-491b-999d-88dbde2c1932
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Have I missed a station ? ...
+  text: Have I missed a station?
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 468
-    y: 197
+    y: 196
     width: 200
     height: 100
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

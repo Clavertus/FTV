@@ -16,6 +16,7 @@ MonoBehaviour:
   text: Care to watch the show with me?/ Besides, you don't want to miss the show.
   children:
   - 04b24cf5-1b40-45ea-8008-8eff8b496204
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1046
@@ -39,6 +40,7 @@ MonoBehaviour:
   text: Friend?
   children:
   - 4e23c4b8-7eef-4321-8100-a45afd79f486
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1894
@@ -62,6 +64,7 @@ MonoBehaviour:
   text: My name? ...This isn't the time for small talk.
   children:
   - d86874fc-c045-4875-90f4-19d8b4f61c1f
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 564
@@ -85,6 +88,7 @@ MonoBehaviour:
   text: Show?
   children:
   - 9d539bda-5349-4e0b-8550-c7d3ef66459b
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1369
@@ -132,6 +136,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: Choose me!
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 711
@@ -155,6 +160,7 @@ MonoBehaviour:
   text: Who are you?
   children:
   - 29c65b1f-d57a-45c3-b237-45d00cc2fec2
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 356
@@ -179,6 +185,7 @@ MonoBehaviour:
   children:
   - ee3778e8-3ddf-4ce6-86ab-4e7db3b220c7
   - 7b5882b8-e568-4e69-81bc-0f7850093754
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 93
@@ -201,6 +208,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Shh! It's starting
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2169
@@ -225,6 +233,7 @@ MonoBehaviour:
     now. '
   children:
   - 156b2528-c6b0-4814-bdfb-391a7f171944
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 620
@@ -248,6 +257,7 @@ MonoBehaviour:
   text: Care to watch the show with me?
   children:
   - 04b24cf5-1b40-45ea-8008-8eff8b496204
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 895
@@ -270,6 +280,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: Cool that it works!
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 711
@@ -294,6 +305,7 @@ MonoBehaviour:
   children:
   - 7307dbf5-5ed5-4340-8379-0dac1a2e800a
   - 6ae216ce-5abe-4e75-af68-504e1d97b28c
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 415
@@ -318,6 +330,7 @@ MonoBehaviour:
     the first to know.
   children:
   - 34da5f10-0db1-43f4-bf2d-c54ab5cbf6db
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1628
@@ -341,6 +354,7 @@ MonoBehaviour:
   text: I've never been one for small talk.
   children:
   - 33b09ef9-0b72-45a2-8644-7bf964884101
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 812
@@ -364,6 +378,7 @@ MonoBehaviour:
   text: What is this place?
   children:
   - de8cc05c-32c8-461d-b168-f7066e86cae6
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 352

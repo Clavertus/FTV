@@ -27,12 +27,13 @@ MonoBehaviour:
   m_Name: 3560d5c7-f2ff-49a5-a314-ece0dabb518a
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Oh, this one is a open...
+  text: Oh, this one is open...
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 117
-    y: 78
+    x: 265
+    y: 182
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

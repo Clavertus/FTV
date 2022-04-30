@@ -15,6 +15,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: 'Was it just a dream? '
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 424
@@ -38,6 +39,7 @@ MonoBehaviour:
   text: What ...
   children:
   - a71d5ff7-06b2-4f1e-a2ea-be93b62f9085
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 155

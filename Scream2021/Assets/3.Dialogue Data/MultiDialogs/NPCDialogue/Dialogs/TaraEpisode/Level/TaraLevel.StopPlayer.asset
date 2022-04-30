@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ae70c060-3b3e-41c7-aaf6-78b311d1f432
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: I should speak with her at first ...
+  text: I should speak with her first...
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 157
+    x: 156
     y: 162
     width: 200
     height: 120

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: c6dfdcb5-20b2-42fb-8178-cca0568f94c0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Its mine! Do not even think to open it!
+  text: It's mine! Do not even think to open it!
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 452
@@ -49,10 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: 1ba605a8-e29c-469a-a88a-fb0934c0f91c
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
   text: Hey!
   children:
   - c6dfdcb5-20b2-42fb-8178-cca0568f94c0
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 154

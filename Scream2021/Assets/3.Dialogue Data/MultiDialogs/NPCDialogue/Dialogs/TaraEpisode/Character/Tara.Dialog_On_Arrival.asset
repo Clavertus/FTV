@@ -17,6 +17,7 @@ MonoBehaviour:
   children:
   - 56efc48a-1fa1-4851-9bea-f17285f1aac1
   - a2dd3bfd-89c1-446f-8b84-73bd59d0b38d
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2082
@@ -37,9 +38,10 @@ MonoBehaviour:
   m_Name: f3b93dbf-9727-456d-a8a4-c05b157144b6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: What happend?
+  text: What happened?
   children:
   - 1a84fc38-407e-48b9-abd4-2f0d0c395bfb
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 848
@@ -59,10 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: b64f0ff9-e5ad-4e01-99dc-ba04efb6c1fa
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: My name? ...This isn't the time for small talk.
+  isPlayerSpeaking: 1
+  text: My name? This isn't the time for small talk.
   children:
   - f741b62e-b5f0-4dc7-8487-1939e151a405
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1840
@@ -110,12 +113,13 @@ MonoBehaviour:
   m_Name: 1a84fc38-407e-48b9-abd4-2f0d0c395bfb
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: You jumped and get unconcious.
+  text: You jumped and fell unconsious.
   children:
   - 0fef9f11-94fd-4c36-9cd5-22f5300cc9e7
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1090
+    x: 1089
     y: 347
     width: 200
     height: 120
@@ -136,6 +140,7 @@ MonoBehaviour:
   text: Who are you?
   children:
   - b64f0ff9-e5ad-4e01-99dc-ba04efb6c1fa
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1581
@@ -156,9 +161,10 @@ MonoBehaviour:
   m_Name: 1ba605a8-e29c-469a-a88a-fb0934c0f91c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Aaaaaargghhh...
+  text: Aaghh my head...
   children:
   - 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 151
@@ -182,6 +188,7 @@ MonoBehaviour:
   text: Rude. I am Tara.
   children:
   - 682717b2-e311-4540-bc04-433606478325
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2608
@@ -204,6 +211,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Care to watch show with me?
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2947
@@ -227,6 +235,7 @@ MonoBehaviour:
   text: Do not make such face. Tara is my name.
   children:
   - 682717b2-e311-4540-bc04-433606478325
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2657
@@ -247,9 +256,10 @@ MonoBehaviour:
   m_Name: a2dd3bfd-89c1-446f-8b84-73bd59d0b38d
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: You can still try now and tell me your name.
+  text: You can still tell me your name.
   children:
   - 64a6f283-4a0e-46ae-9dfb-9f8a6a868be7
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 2378
@@ -273,6 +283,7 @@ MonoBehaviour:
   text: I am surprised you made it across.
   children:
   - eeeb4304-c7cd-4032-8198-1d68bede9057
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1317
@@ -296,10 +307,11 @@ MonoBehaviour:
   text: ...
   children:
   - e93b0a4a-9617-4746-a0d1-ecccf305a7c5
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2385
-    y: 578
+    x: 2386
+    y: 579
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -316,13 +328,14 @@ MonoBehaviour:
   m_Name: bcc692d3-1e5a-46ad-81f9-a94b934f62db
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: They are always here while sleeping...
+  text: Was she always here while I was sleeping?
   children:
   - f3b93dbf-9727-456d-a8a4-c05b157144b6
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 608
-    y: 391
+    y: 390
     width: 200
     height: 120
   style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
@@ -339,9 +352,10 @@ MonoBehaviour:
   m_Name: 1e049a1f-ed82-4737-b8a3-4b7ecfeca283
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "Having nightmares aren\xB4t you?"
+  text: Having nightmares aren't you?
   children:
   - bcc692d3-1e5a-46ad-81f9-a94b934f62db
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 381

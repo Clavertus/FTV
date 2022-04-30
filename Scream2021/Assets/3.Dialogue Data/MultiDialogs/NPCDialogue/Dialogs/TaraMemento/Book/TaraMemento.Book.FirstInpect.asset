@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 66c91406-1e0e-4957-a8d6-1f81e4287617
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: The book?
+  text: A book?
   children:
   - 9b122742-f16a-4e38-85ed-32a74772e606
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -39,6 +40,7 @@ MonoBehaviour:
   text: '"Story of egyptian gods"...'
   children:
   - 1cde4b66-3634-4356-8cd1-d0e4d7316fac
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 410
@@ -61,6 +63,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: It belongs to Tara?
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 711
