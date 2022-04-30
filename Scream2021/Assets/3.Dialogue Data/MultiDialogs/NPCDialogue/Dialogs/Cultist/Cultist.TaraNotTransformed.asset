@@ -19,8 +19,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3210
-    y: 686
+    x: 3371
+    y: 707
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -42,8 +42,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 3626
-    y: 729
+    x: 3818
+    y: 733
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -66,8 +66,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2073
-    y: 588
+    x: 2223
+    y: 558
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -90,8 +90,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1345
-    y: 241
+    x: 1223
+    y: 234
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -108,14 +108,14 @@ MonoBehaviour:
   m_Name: b4c3cb86-d069-4e12-81dc-6d3f07f12841
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Directly with questions right?
+  text: Directly with questions, right?
   children:
   - 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 933
-    y: 189
+    x: 865
+    y: 187
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -162,8 +162,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1550
-    y: 394
+    x: 1549
+    y: 323
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: e5dbf818-a638-4ec7-9027-fb9e92100149
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: New one? ... great, and who are you?
+  text: New one? ...and who are you?
   children:
   - b4c3cb86-d069-4e12-81dc-6d3f07f12841
   triggerId: 0
@@ -204,14 +204,14 @@ MonoBehaviour:
   m_Name: 522b86ab-1429-42c5-a9c2-408989afc03c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Yes. I have speaked with her at the last moments.
+  text: Yes, I have spoken with her at the last moment.
   children:
   - 6f7393f0-3f06-45ea-80a4-c4a08af73f39
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2411
-    y: 690
+    x: 2578
+    y: 640
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -252,14 +252,14 @@ MonoBehaviour:
   m_Name: 6f7393f0-3f06-45ea-80a4-c4a08af73f39
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: She had a gift for you. You will find it near when waked up.
+  text: She had a gift for you. You will find it by your side when you wake up.
   children:
   - a12558be-86ff-4113-b106-059c85a89ed5
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 2807
-    y: 658
+    x: 2909
+    y: 663
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
@@ -282,8 +282,8 @@ MonoBehaviour:
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 1773
-    y: 538
+    x: 1884
+    y: 451
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}

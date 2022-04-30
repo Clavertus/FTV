@@ -61,13 +61,13 @@ MonoBehaviour:
   m_Name: b4c3cb86-d069-4e12-81dc-6d3f07f12841
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Directly with questions right?
+  text: Directly with questions, right?
   children:
   - 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 933
+    x: 932
     y: 189
     width: 300
     height: 130
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 8a35804d-65e6-4a1d-bbbf-9bc0dd11cdeb
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: We need to met. Physically. I will guide you, so you could find me.
+  text: We need to meet. Physically. I will guide you, so you could find me.
   children:
   - 8a5d652f-e03e-4f74-856a-be761ae1ead4
   triggerId: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: e5dbf818-a638-4ec7-9027-fb9e92100149
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: New one? ... great, and who are you?
+  text: New one? ...great, and who are you?
   children:
   - b4c3cb86-d069-4e12-81dc-6d3f07f12841
   triggerId: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 8a5d652f-e03e-4f74-856a-be761ae1ead4
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Be brave, stranger and do not afraid. We will help each other.
+  text: Be brave, stranger and do not be afraid. We will help each other.
   children: []
   triggerId: 0
   rect:

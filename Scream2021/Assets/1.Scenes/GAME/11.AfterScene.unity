@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163530058110985187, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8199629161046547863, guid: da0d9aa9629ff924e8cf228266a06cf5, type: 3}
       propertyPath: m_IsActive
@@ -1155,10 +1155,10 @@ MonoBehaviour:
     Fear the Void: Prologue!
 
 
-    You got one of
-    two possible ends of this demo.
+    You got one out
+    of two possible demo endings.
 
-    Could you get another one?'
+    Will you be able to get a another one?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b66a16d1d3b3dc544a5d04d3df595314, type: 2}
   m_sharedMaterial: {fileID: 614506174766373767, guid: b66a16d1d3b3dc544a5d04d3df595314, type: 2}
