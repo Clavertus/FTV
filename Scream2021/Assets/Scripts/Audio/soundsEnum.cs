@@ -64,5 +64,6 @@ public enum soundsEnum
 	CultistSpeech3 = 61,
 	CultistSpeech4 = 62,
 	CultistSpeech5 = 63,
+	TrainSoundPassesBy = 64,
 
 }

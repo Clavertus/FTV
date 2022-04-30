@@ -600,6 +600,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     public IEnumerator TaraStartTransforming(bool useFader)
     {
+        GetComponentInChildren<PlayNPCDialog>().awryState = true;
+        awryState = true;
         LevelLoader.instance.ending = Ending.Bad;
         if (!useFader)
         {
@@ -639,6 +641,8 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public bool countTimeToDeath = false;
     private IEnumerator TaraStartWaitForDeath(bool useFader)
     {
+        GetComponentInChildren<PlayNPCDialog>().awryState = true;
+        awryState = true;
         LevelLoader.instance.ending = Ending.Good;
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
         AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
