@@ -86,7 +86,7 @@ public class Selectable : MonoBehaviour
     {
         enteredSelectable = true; 
         gameObject.tag = ("Selectable"); 
-        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.UI1);  
+        // AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.UI1);  
     }
     public void ExitSelectionZone() 
     {

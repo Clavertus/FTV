@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
             }
 
             //It should always be at the end after setting all the parameters
-            if (s.playOnAwake)
+            if (s.source.playOnAwake)
             {
                 s.source.Play();
                 StartCoroutine(FadeInSound(s.source));

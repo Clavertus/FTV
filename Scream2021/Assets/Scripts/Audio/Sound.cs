@@ -18,7 +18,7 @@ public class Sound
     public float pitch;
 
     public bool loop;
-    public bool playOnAwake;
+    public bool playOnAwake = false;
     [Header("Advanced Settings")]
     public bool advancedMode;
 
