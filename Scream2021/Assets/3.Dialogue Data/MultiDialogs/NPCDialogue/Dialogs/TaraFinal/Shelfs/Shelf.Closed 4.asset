@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
-  m_Name: Shelf.WillNotOpenWhenSheLooks
+  m_Name: Shelf.Closed 4
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 7415720034263753844}
@@ -27,13 +27,13 @@ MonoBehaviour:
   m_Name: 3560d5c7-f2ff-49a5-a314-ece0dabb518a
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: I will not open it, while she looks...
+  text: Locked...
   children: []
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 117
-    y: 77
+    x: 195
+    y: 75
     width: 200
     height: 120
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}

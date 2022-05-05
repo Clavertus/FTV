@@ -6384,10 +6384,10 @@ PrefabInstance:
     - target: {fileID: 5588769760082006483, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: dialogObject
       value: 
-      objectReference: {fileID: 11400000, guid: fe04625e3e6e1dd4381649245bb7f803, type: 2}
+      objectReference: {fileID: 11400000, guid: 14020fbb906be744a8be1bbf424aa440, type: 2}
     - target: {fileID: 5674044477677716145, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7259739616171627305, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_RootOrder
@@ -6744,9 +6744,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686387168}
     m_Modifications:
+    - target: {fileID: 5588769760082006483, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
+      propertyPath: dialogObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eca8b83d27ac261488e30697ac7539bf, type: 2}
     - target: {fileID: 5674044477677716145, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7259739616171627305, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_RootOrder
@@ -7856,10 +7860,10 @@ PrefabInstance:
     - target: {fileID: 5588769760082006483, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: dialogObject
       value: 
-      objectReference: {fileID: 11400000, guid: d661ae771647d594b8ae85d173bad4ec, type: 2}
+      objectReference: {fileID: 11400000, guid: e2038416f5b5345479e2ba6c4293f9fa, type: 2}
     - target: {fileID: 5674044477677716145, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7259739616171627305, guid: 86ce0b44fe60de84da035a5ba09ef02a, type: 3}
       propertyPath: m_RootOrder
