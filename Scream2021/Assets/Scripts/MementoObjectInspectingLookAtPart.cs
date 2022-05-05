@@ -67,7 +67,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 
     IEnumerator FirstInteraction()
     {
-        Debug.Log("select object"); 
+        //Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
         if (soundOnMemento) soundOnMemento.SetFullSound();
@@ -122,7 +122,7 @@ public class MementoObjectInspectingLookAtPart : MonoBehaviour, ISaveable
 
     IEnumerator SecondInteraction()
     {
-        Debug.Log("second interaction");
+        // Debug.Log("second interaction");
         FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));

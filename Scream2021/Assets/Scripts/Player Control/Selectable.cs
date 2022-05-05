@@ -46,7 +46,7 @@ public class Selectable : MonoBehaviour
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == true)) 
         {
-            Debug.Log(player.transform.eulerAngles.y);
+            //Debug.Log(player.transform.eulerAngles.y);
             if (player.transform.eulerAngles.y >= minYLookRotation && player.transform.eulerAngles.y <= maxYLookRotation) 
             EnterSelectionZone(); 
         }

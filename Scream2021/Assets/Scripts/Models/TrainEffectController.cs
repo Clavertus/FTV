@@ -159,7 +159,7 @@ public class TrainEffectController : MonoBehaviour
     public void setTrainMaterial(trainMaterialType trainMaterial)
     {
         int materialId = (int)trainMaterial;
-        Debug.Log("DEBUG: " + materialId);
+        //Debug.Log("DEBUG: " + materialId);
 
         if (materialId > trainMaterials.Length)
         {
@@ -169,9 +169,9 @@ public class TrainEffectController : MonoBehaviour
         foreach(MeshRenderer renderer in trainBaseToChange)
         {
             renderer.sharedMaterial = trainMaterials[materialId];
-            Debug.Log(renderer + "set material to " + trainMaterials[materialId]);
+            //Debug.Log(renderer + "set material to " + trainMaterials[materialId]);
         }
 
-        Debug.Log("DEBUG: " + trainMaterials[materialId]);
+        //Debug.Log("DEBUG: " + trainMaterials[materialId]);
     }
 }

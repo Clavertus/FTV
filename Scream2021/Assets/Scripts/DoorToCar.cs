@@ -66,7 +66,7 @@ public class DoorToCar : MonoBehaviour, ISaveable
     }
     void OpenDoor()
     {
-        Debug.Log("opening");
+        //Debug.Log("opening");
         physicalDoor.transform.position = Vector3.MoveTowards(physicalDoor.transform.position, doorOpenPosition.position, openSpeed * Time.deltaTime);
 
         if(physicalDoor.transform.position == doorOpenPosition.position) { gameObject.SetActive(false); }

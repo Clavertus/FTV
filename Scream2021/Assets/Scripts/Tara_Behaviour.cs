@@ -256,10 +256,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             {
                 if (GetComponent<NPCMoving>().IsSitTarget())
                 {
-                    Debug.Log("On sit target");
-                    if(GetComponent<NPCAnimationController>().GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
+                    //Debug.Log("On sit target");
+                    if (GetComponent<NPCAnimationController>().GetCurrentState() != NPCAnimationController.NpcAnimationState.sit)
                     {
-                        Debug.Log("sit down");
+                        //Debug.Log("sit down");
                         GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.sit_down);
                     }
                 }

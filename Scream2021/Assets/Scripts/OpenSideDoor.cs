@@ -38,7 +38,7 @@ public class OpenSideDoor : MonoBehaviour
     public void PushDoor()
     {
         AudioManager.instance.InstantPlayFromGameObject(myAudioSource);
-        Debug.Log("push");
+        //Debug.Log("push");
         gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - pushDistance);
         doorSelectable.tag = ("Untagged");
         

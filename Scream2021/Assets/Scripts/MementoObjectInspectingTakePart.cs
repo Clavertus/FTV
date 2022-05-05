@@ -43,7 +43,7 @@ public class MementoObjectInspectingTakePart : MonoBehaviour, ISaveable
 
     IEnumerator FirstInteraction()
     {
-        Debug.Log("select object"); 
+        //Debug.Log("select object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
         yield return new WaitUntil(() => !DialogueBox.activeSelf);  
@@ -79,10 +79,10 @@ public class MementoObjectInspectingTakePart : MonoBehaviour, ISaveable
         yield return new WaitUntil(() =>  FindObjectOfType<Examine>().GetExamineMode() == false); 
 
         FindObjectOfType<MouseLook>().UnlockCamera();
-        Debug.Log("test");
-        
-        
-        if(symbol) symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
+        //Debug.Log("test");
+
+
+        if (symbol) symbol.GetComponent<SymbolInteractions>().IsPocketed(pocketItemName); 
         changeTVstatic();
 
         DisableCanvasAndTriggering();

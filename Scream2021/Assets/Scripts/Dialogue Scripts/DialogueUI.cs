@@ -231,7 +231,7 @@ public class DialogueUI : MonoBehaviour
     private int showMessageId = 0;
     public void ShowTutorialBox(int messageId)
     {
-        Debug.Log("Show tutorial box");
+        //Debug.Log("Show tutorial box");
         if (messageId >= tutorialBox_Messages.Length) return;
 
         showTutorialBox = true;

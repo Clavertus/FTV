@@ -231,7 +231,7 @@ public class TaraMonsterController : MonoBehaviour
 
     private void BadEndGameTrigger()
     {
-        Debug.Log("Game has been ended with BAD END! :-)");
+        //Debug.Log("Game has been ended with BAD END! :-)");
         //make something to end the game
         //currently just disables monster
         AudioManager.instance.StopAllSounds();

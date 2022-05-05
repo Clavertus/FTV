@@ -27,7 +27,7 @@ public class Escape : MonoBehaviour
         if (moveToPointB && !hitPointB) { MoveToPointB(); }
         if (player.transform.position == pointB.transform.position)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             hitPointB = true;
         }
         if (hitPointB)

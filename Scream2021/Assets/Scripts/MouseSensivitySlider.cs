@@ -15,7 +15,7 @@ public class MouseSensivitySlider : MonoBehaviour
 		mouseLook = FindObjectOfType<MouseLook>();
 		if (mouseLook)
 		{
-			Debug.Log("mouse Look found!");
+			//Debug.Log("mouse Look found!");
 			if (PlayerPrefs.HasKey("mouse_sensivity")) mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
 		}
 		else
@@ -43,7 +43,7 @@ public class MouseSensivitySlider : MonoBehaviour
 
 	public void ValueChangeCheck()
 	{
-		Debug.Log(sensivitySlider.value);
+		//Debug.Log(sensivitySlider.value);
 		if(mouseLook) mouseLook.mouseSensitivity = sensivitySlider.value;
 		PlayerPrefs.SetFloat("mouse_sensivity", sensivitySlider.value);
 	}

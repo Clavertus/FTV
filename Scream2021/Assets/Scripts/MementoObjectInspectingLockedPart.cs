@@ -87,7 +87,7 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 
     IEnumerator FirstInteraction()
     {
-        Debug.Log("select main object"); 
+        //Debug.Log("select main object"); 
         FindObjectOfType<DialogueUI>().ShowDialogue(baseObjInspectDialogue);
         interactionCounter++;
         yield return new WaitUntil(() => !DialogueBox.activeSelf);  
@@ -158,7 +158,7 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 
     IEnumerator SecondInteraction()
     {
-        Debug.Log("second interaction");
+        //Debug.Log("second interaction");
 
         if(examineLockObject.IsUnlocked() == true)
         {

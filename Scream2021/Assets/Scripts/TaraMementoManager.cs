@@ -165,7 +165,7 @@ public class TaraMementoManager : MonoBehaviour, ISaveable
             player.transform.position = startPosition.position;
         }
         player.enabled = true;
-        Debug.Log("SetPlayerToSavedTransform");
+        //Debug.Log("SetPlayerToSavedTransform");
     }
 
     #region REGION_SAVING

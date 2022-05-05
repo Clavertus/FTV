@@ -66,7 +66,7 @@ public class SecondTrain : MonoBehaviour
         
         if (transform.position == pointB.transform.position)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             hitPointB = true;
             transform.rotation = Quaternion.Euler(0, 90, 0);   
             
@@ -108,7 +108,7 @@ public class SecondTrain : MonoBehaviour
 
         else if (currentCatchUpSpeed <= minCatchUpSpeed) 
         { currentCatchUpSpeed += Random.Range(minSpeedSpike, maxSpeedSpike); }
-        Debug.Log(currentCatchUpSpeed); 
+        //Debug.Log(currentCatchUpSpeed); 
     }
     private void MoveToPointC()
     {

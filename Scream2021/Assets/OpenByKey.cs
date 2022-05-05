@@ -58,8 +58,8 @@ public class OpenByKey : MonoBehaviour, ISaveable
     {
         if (rotateToOpen)
         {
-            Debug.Log(rotateToAngle);
-            Debug.Log(shelfDoor.localEulerAngles.y);
+            //Debug.Log(rotateToAngle);
+            //Debug.Log(shelfDoor.localEulerAngles.y);
             if ((shelfDoor.localEulerAngles.y <= rotateToAngle + 10f) && (shelfDoor.localEulerAngles.y >= rotateToAngle - 10f))
             {
                 shelfDoor.localEulerAngles = new Vector3(

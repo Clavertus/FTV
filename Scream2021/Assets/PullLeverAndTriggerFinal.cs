@@ -76,8 +76,8 @@ public class PullLeverAndTriggerFinal : MonoBehaviour
     {
         if (rotateToTarget)
         {
-            Debug.Log(leverTargetAngle);
-            Debug.Log(leverToPull.localEulerAngles.y);
+            //Debug.Log(leverTargetAngle);
+            //Debug.Log(leverToPull.localEulerAngles.y);
             if ((leverToPull.localEulerAngles.z <= leverTargetAngle + 10f) && (leverToPull.localEulerAngles.z >= leverTargetAngle - 10f))
             {
                 leverToPull.localEulerAngles = new Vector3(
