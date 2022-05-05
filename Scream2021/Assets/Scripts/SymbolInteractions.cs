@@ -216,6 +216,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
         doorToCar.tag = "Selectable";
         doorToCar.GetComponent<DoorToCar>().UnlockDoorSFX();
         FindObjectOfType<SecondTrain>().TriggerTrain();
+        FindObjectOfType<SecondTrain>().SetPointBPosition();
 
         //FindObjectOfType<DialogueUI>().ShowDialogue(doorUnlocked);
     }
@@ -243,6 +244,7 @@ public class SymbolInteractions : MonoBehaviour, ISaveable
         checkpointArrived = data.checkpointArrived;
         if(checkpointArrived)
         {
+            AfterSave();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class ObjectExaminationConfig : MonoBehaviour {
     [SerializeField] float yRotation = 0;
     [SerializeField] float zRotation = 0;
     [SerializeField] public bool extraPressToShow = true;
+    [Range(0.000f, 1.000f)]
+    [SerializeField] float turnSpeedModifier = 1.000f;
 
     public float ReturnDistanceFromCam() { return distanceFromCam; }
     public bool ReturnIfOffset() { return offsetCamPos; }
@@ -24,6 +27,8 @@ public class ObjectExaminationConfig : MonoBehaviour {
     public float ReturnZRotation() { return zRotation; }
 
 
-    
-
+    public float ReturnTurnSpeedModifier()
+    {
+        return turnSpeedModifier;
+    }
 }

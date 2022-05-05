@@ -78,6 +78,12 @@ public class SecondTrain : MonoBehaviour
         }
     }
 
+    public void SetPointBPosition()
+    {
+        transform.position = pointB.transform.position;
+        transform.rotation = Quaternion.Euler(0, 90, 0);
+    }
+
     public void TriggerTrain()
     {
         triggerTrain = true; 

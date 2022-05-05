@@ -153,7 +153,7 @@ public class Examine : MonoBehaviour
 
             clickedObject.tag = ("Untagged");
             
-            float rotationSpeed = 15;
+            float rotationSpeed = 15 * clickedObject.GetComponent<ObjectExaminationConfig>().ReturnTurnSpeedModifier();
 
             Vector3 rotatePosition = savedObjectPivotPosition;
 

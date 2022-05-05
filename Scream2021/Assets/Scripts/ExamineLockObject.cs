@@ -115,12 +115,19 @@ public class ExamineLockObject : MonoBehaviour
 
     private void ProcessSelectionAndUnlocking()
     {
+        if(inspection == false)
+        {
+            lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotUnselected;
+            LockHintUiCanvas.gameObject.SetActive(false);
+            gameObject.tag = "Untagged";
+            return;
+        }
         if (gameObject.CompareTag("Selectable"))
         {
             //SlotBackgrounds[currentSlotId].GetComponent<Image>().color = slotSelected;
-            lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotSelected;
+            if(inspection) lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotSelected;
             //LockInterfaceUiCanvas.gameObject.SetActive(true);
-            LockHintUiCanvas.gameObject.SetActive(true);
+            if (inspection) LockHintUiCanvas.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -169,6 +176,19 @@ public class ExamineLockObject : MonoBehaviour
     {
         return unlocked;
     }
+    public bool IsRotating()
+    {
+        bool rotating = false;
+        foreach(bool var in rotateSegments)
+        {
+            if(var == true)
+            {
+                rotating = true;
+                break;
+            }
+        }
+        return rotating;
+    }
 
     public void InspectedOnce()
     {
@@ -181,8 +201,26 @@ public class ExamineLockObject : MonoBehaviour
         gameObject.tag = "Selectable";
     }
 
+    bool inspection = false;
+    public void EnterInspection()
+    {
+        if(unlocked == false)
+        {
+            inspection = true;
+        }
+    }
+
+    public void ExitInspection()
+    {
+        inspection = false;
+        lockSegments[currentSlotId].GetComponent<MeshRenderer>().material = slotUnselected;
+        LockHintUiCanvas.gameObject.SetActive(false);
+    }
+
     public void SelectNextSlotInPositiveDirection(bool positiveDirection)
     {
+        if (inspection == false) return;
+
         if(SlotBackgrounds.Length == 0)
         {
             Debug.LogError("No slots assigned at all!");
@@ -217,7 +255,9 @@ public class ExamineLockObject : MonoBehaviour
 
     public void SelectNextImageInPositiveDirection(bool positiveDirection)
     {
-        if(rotateSegments[currentSlotId] == true)
+        if (inspection == false) return;
+
+        if (rotateSegments[currentSlotId] == true)
         {
             return;
         }

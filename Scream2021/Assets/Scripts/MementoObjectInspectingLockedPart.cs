@@ -104,12 +104,30 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 
         GetComponent<ObjectExaminationConfig>().extraPressToShow = false;
         examineLockObject.InspectedOnce();
+        examineLockObject.EnterInspection();
 
         examineCanvas.SetExtraFieldToState(true);
 
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+        bool exit = false;
+        while(exit == false)
+        {
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+            if (examineLockObject.IsUnlocked() == false)
+            {
+                if(examineLockObject.IsRotating() == false)
+                {
+                    exit = true;
+                }
+            }
+            else
+            {
+                exit = true;
+            }
+        }
 
-        if(examineLockObject.IsUnlocked() == false)
+        examineLockObject.ExitInspection();
+
+        if (examineLockObject.IsUnlocked() == false)
         {
             FindObjectOfType<Examine>().ExitExamineMode();
             StartCoroutine(ExitInspectionOfThisObject());
@@ -148,6 +166,7 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
         }
         else
         {
+            examineLockObject.EnterInspection();
             lockObject.GetComponent<BoxCollider>().enabled = true;
         }
 
@@ -155,7 +174,23 @@ public class MementoObjectInspectingLockedPart : MonoBehaviour, ISaveable
 
         examineCanvas.SetExtraFieldToState(true);
 
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+        bool exit = false;
+        while (exit == false)
+        {
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+            if (examineLockObject.IsUnlocked() == false)
+            {
+                if (examineLockObject.IsRotating() == false)
+                {
+                    exit = true;
+                }
+            }
+            else
+            {
+                exit = true;
+            }
+        }
+        examineLockObject.ExitInspection();
 
         interactionCounter--;
         FindObjectOfType<Examine>().ExitExamineMode();
