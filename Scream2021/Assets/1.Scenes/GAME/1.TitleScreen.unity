@@ -411,10 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb029b4518030d8419981eb154b8cd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightOn: 10
-  maxLightOn: 10
-  minLightOff: 1
-  maxLightOff: 1
+  minLight_Off: 1
+  maxLight_Off: 1
+  minLight_On: 1
+  maxLight_On: 1
   myLight: {fileID: 134532540}
 --- !u!1 &159538349
 GameObject:
@@ -771,6 +771,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4083074629147146187, guid: b16bccb56ea745d42bfd35d0072b0193, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16bccb56ea745d42bfd35d0072b0193, type: 3}
 --- !u!1001 &307829232
@@ -1033,10 +1037,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb029b4518030d8419981eb154b8cd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightOn: 0.1
-  maxLightOn: 0.2
-  minLightOff: 0.05
-  maxLightOff: 0.4
+  minLight_Off: 1
+  maxLight_Off: 1
+  minLight_On: 1
+  maxLight_On: 1
   myLight: {fileID: 335751291}
 --- !u!1 &367846723
 GameObject:
@@ -2144,10 +2148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb029b4518030d8419981eb154b8cd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightOn: 10
-  maxLightOn: 10
-  minLightOff: 0
-  maxLightOff: 0
+  minLight_Off: 1
+  maxLight_Off: 1
+  minLight_On: 1
+  maxLight_On: 1
   myLight: {fileID: 770444470}
 --- !u!1 &853518725
 GameObject:
@@ -3147,10 +3151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb029b4518030d8419981eb154b8cd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightOn: 1
-  maxLightOn: 1
-  minLightOff: 1
-  maxLightOff: 1
+  minLight_Off: 1
+  maxLight_Off: 1
+  minLight_On: 1
+  maxLight_On: 1
   myLight: {fileID: 1450964727}
 --- !u!1 &1463739097
 GameObject:
@@ -4533,10 +4537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb029b4518030d8419981eb154b8cd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightOn: 1
-  maxLightOn: 1
-  minLightOff: 1
-  maxLightOff: 1
+  minLight_Off: 1
+  maxLight_Off: 1
+  minLight_On: 1
+  maxLight_On: 1
   myLight: {fileID: 1840832742}
 --- !u!1001 &1845000627
 PrefabInstance:

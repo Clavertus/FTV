@@ -198,6 +198,11 @@ public class Begin : MonoBehaviour {
 
     private IEnumerator ZoomPanel(bool IfNewGame)
     {
+        if (newGameCanvas.activeSelf)
+        {
+            newGameCanvas.SetActive(false);
+        }
+
         float t = 0;
         float scale = zoomInPanel.GetComponent<RectTransform>().localScale.x;
         while (t < zoomDuration)
