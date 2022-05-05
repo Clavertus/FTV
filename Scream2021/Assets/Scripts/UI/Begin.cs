@@ -30,6 +30,7 @@ public class Begin : MonoBehaviour {
         settingsCanvas.SetActive(false);
         newGameCanvas.SetActive(false);
 
+        AudioManager.instance.StopAllSounds();
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Title);
 
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
