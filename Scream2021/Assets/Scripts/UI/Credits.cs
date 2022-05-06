@@ -67,7 +67,7 @@ public class Credits : MonoBehaviour
     public void MainManu()
     {
         PlaySound();
-        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+        StartCoroutine(LevelLoader.instance.StartLoadingScene(LevelLoader.mainMenuSceneIndex));
     }
 
     public void QuitGame()

@@ -12,6 +12,7 @@ public enum Ending
 
 public class LevelLoader : MonoBehaviour
 {
+    public const int mainMenuSceneIndex = 1;
     public static LevelLoader instance;
 
     public CanvasGroup canvasGroup;
