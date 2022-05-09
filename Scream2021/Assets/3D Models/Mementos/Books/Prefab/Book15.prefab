@@ -163,10 +163,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6845719483718852155}
-  - component: {fileID: 1643085299509123141}
-  - component: {fileID: -9116717833310523296}
+  - component: {fileID: 6158629527403670360}
+  - component: {fileID: 4900527723944049515}
   m_Layer: 0
-  m_Name: Book11
+  m_Name: Book15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,16 +179,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6074002626976416897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.13636623, y: -0, z: -0, w: 0.9906585}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4912502328721207552}
   - {fileID: 284301077846504591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1643085299509123141
+  m_LocalEulerAnglesHint: {x: -15.675, y: 0, z: 0}
+--- !u!95 &6158629527403670360
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-9116717833310523296
+--- !u!114 &4900527723944049515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipIndex: 0
   clipName: BookArmature|Book.0_Closed
-  animator: {fileID: 1643085299509123141}
+  animator: {fileID: 6158629527403670360}
   controller: {fileID: 0}
 --- !u!1 &8301695897432237304
 GameObject:
@@ -273,7 +273,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97a42002faae52b47a467e6c7627bc96, type: 2}
+  - {fileID: 2100000, guid: 7524260f3ccb38b45b78da375a50a6ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
