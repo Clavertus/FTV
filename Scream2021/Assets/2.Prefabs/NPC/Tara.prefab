@@ -255,7 +255,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeUntilElderGodBite: 16
+  transformParticles: {fileID: 0}
+  timeUntilElderGodBite: 18
+  countTimeToDeath: 0
 --- !u!114 &4680006666525053139
 MonoBehaviour:
   m_ObjectHideFlags: 0

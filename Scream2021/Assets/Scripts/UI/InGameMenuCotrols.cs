@@ -70,7 +70,7 @@ public class InGameMenuCotrols : MonoBehaviour
         {
             sound.source.Stop();
         }
-        StartCoroutine(LevelLoader.instance.StartLoadingScene(0));
+        StartCoroutine(LevelLoader.instance.StartLoadingScene(LevelLoader.mainMenuSceneIndex));
     }
 
     private void PlayButtonSound()
