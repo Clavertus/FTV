@@ -15,6 +15,14 @@ public class LightOnOff : MonoBehaviour
     float LightOffTime = 0.1f;
     float LightOnTime = 0.1f;
 
+    private void Start()
+    {
+        if(!myLight)
+        {
+            myLight = GetComponent<Light>();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
