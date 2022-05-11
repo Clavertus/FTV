@@ -602,7 +602,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     {
         GetComponentInChildren<PlayNPCDialog>().awryState = true;
         awryState = true;
-        LevelLoader.instance.ending = Ending.Bad;
+        ProgressTracker.instance.taraEnding = ProgressTracker.endingType.Bad;
         if (!useFader)
         {
             foreach (GameObject obj in taraReferenceObjectsToHide)
@@ -643,7 +643,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     {
         GetComponentInChildren<PlayNPCDialog>().awryState = true;
         awryState = true;
-        LevelLoader.instance.ending = Ending.Good;
+        ProgressTracker.instance.taraEnding = ProgressTracker.endingType.Good;
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
         AudioManager.instance.StopFromAudioManager(soundsEnum.TaraTalkingBackground);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformBackground);

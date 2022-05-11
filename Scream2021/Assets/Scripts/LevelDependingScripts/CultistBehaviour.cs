@@ -12,9 +12,9 @@ public class CultistBehaviour : MonoBehaviour
     private AudioSource[] cultistSpeech = new AudioSource[5];
     private void OnEnable()
     {
-        if(LevelLoader.instance)
+        if(ProgressTracker.instance)
         {
-            if(LevelLoader.instance.ending == Ending.Good)
+            if(ProgressTracker.instance.taraEnding == ProgressTracker.endingType.Good)
             {
                 npc_Dialog.SetNewDialogAvailableAndPlay(dialogWithCultistTaraHuman);
             }
