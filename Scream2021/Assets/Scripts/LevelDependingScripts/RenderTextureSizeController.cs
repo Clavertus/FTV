@@ -30,7 +30,7 @@ public class RenderTextureSizeController : MonoBehaviour
         /*if (PlayerPrefs.HasKey("resTargetHeigth"))
         {
             targetResHeigth = PlayerPrefs.GetInt("resTargetHeigth");
-        }*/
+        }
 
         int pixaleRateWidth = width / targetResWidth;
         Debug.LogWarning("pixaleRateWidth: " + pixaleRateWidth);
@@ -38,13 +38,13 @@ public class RenderTextureSizeController : MonoBehaviour
         Debug.LogWarning("pixaleRateHeight: " + pixaleRateHeigth);
 
         if (pixaleRateWidth == 0) pixaleRateWidth = 1;
-        if (pixaleRateHeigth == 0) pixaleRateHeigth = 1;
+        if (pixaleRateHeigth == 0) pixaleRateHeigth = 1;*/
 
 
         if (rawImage != null)
         {
-            rawImage.width = width / pixaleRateWidth;
-            rawImage.height = heigth / pixaleRateHeigth;
+            rawImage.width = width / PixelateRate;
+            rawImage.height = heigth / PixelateRate;
         }
     }
 }
