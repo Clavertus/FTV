@@ -21,12 +21,12 @@ public class RenderTextureSizeController : MonoBehaviour
         width = Screen.width;
         heigth = Screen.height;
 
-        targetResWidth = 640;
+        //targetResWidth = 640;
         /*if (PlayerPrefs.HasKey("resTargetWidth"))
         {
             targetResWidth = PlayerPrefs.GetInt("resTargetWidth");
         }*/
-        targetResHeigth = 360;
+        //targetResHeigth = 360;
         /*if (PlayerPrefs.HasKey("resTargetHeigth"))
         {
             targetResHeigth = PlayerPrefs.GetInt("resTargetHeigth");
