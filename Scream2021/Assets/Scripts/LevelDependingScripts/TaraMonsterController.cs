@@ -46,6 +46,9 @@ public class TaraMonsterController : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float minimalDistanceToPlayer = 5f;
 
+    InGameMenuCotrols inGameMenuControls = null;
+    MouseLook mouseLook = null;
+    PlayerMovement playerMovement = null;
     public void MonsterSound0()
     {
         AudioManager.instance.InstantPlayFromGameObject(monsterSound0);
@@ -113,6 +116,10 @@ public class TaraMonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inGameMenuControls = FindObjectOfType<InGameMenuCotrols>();
+        mouseLook = FindObjectOfType<MouseLook>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+
         transformationFinishedCinematic.played += LockPlayerControl;
         transformationFinishedCinematic.stopped += UnlockPlayerControl;
 
@@ -222,10 +229,10 @@ public class TaraMonsterController : MonoBehaviour
     private void MakePlayerLookAtMonster()
     {
         Debug.Log("LockMenuControl");
-        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        inGameMenuControls.LockMenuControl();
         Vector3 LookAtPlayer = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z); //to use the same ground
         transform.LookAt(LookAtPlayer);
-        FindObjectOfType<MouseLook>().LockAndLookAtPoint(GetLookAtPoint()); //lock camera and player movement
+        mouseLook.LockAndLookAtPoint(GetLookAtPoint()); //lock camera and player movement
         //transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
     }
 
@@ -245,17 +252,17 @@ public class TaraMonsterController : MonoBehaviour
     private void LockPlayerControl(PlayableDirector pd)
     {
         Debug.Log("LockMenuControl");
-        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<PlayerMovement>().LockPlayer();
+        inGameMenuControls.LockMenuControl();
+        mouseLook.LockCamera();
+        playerMovement.LockPlayer();
     }
 
     private void UnlockPlayerControl(PlayableDirector pd)
     {
         if(pd != null) transformationFinished = true;
 
-        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
-        FindObjectOfType<MouseLook>().UnlockFromPoint();
-        FindObjectOfType<PlayerMovement>().UnlockPlayer();
+        inGameMenuControls.UnlockMenuControl();
+        mouseLook.UnlockFromPoint();
+        playerMovement.UnlockPlayer();
     }
 }

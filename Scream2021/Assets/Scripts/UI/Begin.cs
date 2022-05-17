@@ -22,6 +22,8 @@ public class Begin : MonoBehaviour {
     public Slider sensivitySlider;
     //[SerializeField] TMPro.TMP_Dropdown resoultionDropdown = null;
 
+    TitleSavingWrapper titleSavingWrapper = null;
+
     void Start()
     {
         beginning = false;
@@ -57,7 +59,8 @@ public class Begin : MonoBehaviour {
 
         if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
 
-        if (FindObjectOfType<TitleSavingWrapper>().CheckSaveGame() == false)
+        titleSavingWrapper = FindObjectOfType<TitleSavingWrapper>();
+        if (titleSavingWrapper.CheckSaveGame() == false)
         {
             loadButton.SetActive(false);
         }
@@ -116,7 +119,7 @@ public class Begin : MonoBehaviour {
 
     public void BeginGame()
     {
-        if (FindObjectOfType<TitleSavingWrapper>().CheckSaveGame())
+        if (titleSavingWrapper.CheckSaveGame())
         {
             Debug.Log("Save file exists");
             ToggleNewGameCanvas();
@@ -133,7 +136,7 @@ public class Begin : MonoBehaviour {
         beginning = true;
         Cursor.visible = false;
 
-        FindObjectOfType<TitleSavingWrapper>().DeleteSaveFile();
+        titleSavingWrapper.DeleteSaveFile();
 
         AudioManager.instance.StopFromAudioManager(soundsEnum.Title);
 

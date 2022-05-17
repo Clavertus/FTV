@@ -92,9 +92,22 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     [SerializeField] float volume = 0.35f;
     [SerializeField] float pitch = 2f;
     public AudioSource[] taraSpeech = new AudioSource[5];
+
+    SavingWrapper savingWrapper = null;
+    InGameMenuCotrols inGameMenuControls = null;
+    MouseLook mouseLook = null;
+    PlayerMovement playerMovement = null;
+    DialogueUI dialogUI = null;
+
     private void Start()
     {
-        if(elderGodFinalCinematic) elderGodFinalCinematic.played += LockPlayerControl;
+        savingWrapper = FindObjectOfType<SavingWrapper>();
+        inGameMenuControls = FindObjectOfType<InGameMenuCotrols>();
+        mouseLook = FindObjectOfType<MouseLook>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        dialogUI = FindObjectOfType<DialogueUI>();
+
+        if (elderGodFinalCinematic) elderGodFinalCinematic.played += LockPlayerControl;
         if(elderGodFinalCinematic) elderGodFinalCinematic.stopped += UnlockPlayerControl;
 
         if (lookAtElderGodCinematicSequence) lookAtElderGodCinematicSequence.played += LockPlayerControl;
@@ -237,7 +250,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         {
             if ((taraShelf.GetComponentInChildren<PlayDialogOnInspection>().interactionCounter > 0) && (shelf_dialog_played == false))
             {
-                if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
+                if (!dialogUI.dialogueBox.activeSelf)
                 {
                     shelf_dialog_played = true;
                     reactOnShelf = false;
@@ -246,7 +259,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             }
         }
 
-        if (!FindObjectOfType<DialogueUI>().dialogueBox.activeSelf)
+        if (!dialogUI.dialogueBox.activeSelf)
         {
             if (GetComponent<NPCMoving>().IsMoving())
             {
@@ -491,15 +504,15 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     private void LockPlayerControl(PlayableDirector pd)
     {
         Debug.Log("LockMenuControl");
-        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        FindObjectOfType<MouseLook>().LockCamera();
-        FindObjectOfType<PlayerMovement>().LockPlayer();
+        inGameMenuControls.LockMenuControl();
+        mouseLook.LockCamera();
+        playerMovement.LockPlayer();
     }
 
     private void UnlockPlayerControl(PlayableDirector pd)
     {
-        FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
-        FindObjectOfType<MouseLook>().UnlockFromPoint(); //unlock camera and movement
+        inGameMenuControls.UnlockMenuControl();
+        mouseLook.UnlockFromPoint();
 
         if (behaviour_state == tara_states.tara_scene_lookAtElderGod)
         {
@@ -561,7 +574,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         {
             behaviour_state = tara_states.tara_scene_idle;
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
-            FindObjectOfType<SavingWrapper>().CheckpointSave();
+            savingWrapper.CheckpointSave();
         }
         else if (behaviour_state == tara_states.tara_scene_waitForPlayer)
         {
@@ -576,7 +589,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
                 StartCoroutine(TaraStartWaitForDeath(true));
             }
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
-            FindObjectOfType<SavingWrapper>().CheckpointSave();
+            savingWrapper.CheckpointSave();
         }
         else if (behaviour_state == tara_states.tara_scene_waitForDeath)
         {
@@ -593,13 +606,14 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         {
             behaviour_state++;
             Debug.Log("FindObjectOfType<SavingWrapper>().CheckpointSave();");
-            FindObjectOfType<SavingWrapper>().CheckpointSave();
+            savingWrapper.CheckpointSave();
         }
     }
     #endregion
 
     public IEnumerator TaraStartTransforming(bool useFader)
     {
+        CameraShaker cameraShaker = FindObjectOfType<CameraShaker>();
         GetComponentInChildren<PlayNPCDialog>().awryState = true;
         awryState = true;
         ProgressTracker.instance.taraEnding = ProgressTracker.endingType.Bad;
@@ -612,7 +626,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             taraMonster.SetActive(true);
         }
         elderGodToAppear.GetComponent<ElderGodAnimationTrigger>().TriggerAppear();
-        FindObjectOfType<CameraShaker>().enabled = true;
+        cameraShaker.enabled = true;
         yield return new WaitForSeconds(1.0f);
         LockPlayerControl(null);
         if(useFader) StartCoroutine(LevelLoader.instance.CutIn());
@@ -630,10 +644,10 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         yield return new WaitForSeconds(0.5f);
         UnlockPlayerControl(null);
-        FindObjectOfType<CameraShaker>().enabled = false;
+        cameraShaker.enabled = false;
         yield return new WaitForSeconds(0.25f);
-        FindObjectOfType<MouseLook>().LockAndLookAtPoint(taraMonster.GetComponent<TaraMonsterController>().GetLookAtPoint());
-        FindObjectOfType<DialogueUI>().ShowDialogue(changing_dialog);
+        mouseLook.LockAndLookAtPoint(taraMonster.GetComponent<TaraMonsterController>().GetLookAtPoint());
+        dialogUI.ShowDialogue(changing_dialog);
     }
 
     [SerializeField] float timeUntilElderGodBite = 20f;
@@ -641,6 +655,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
     public bool countTimeToDeath = false;
     private IEnumerator TaraStartWaitForDeath(bool useFader)
     {
+        CameraShaker cameraShaker = FindObjectOfType<CameraShaker>();
         GetComponentInChildren<PlayNPCDialog>().awryState = true;
         awryState = true;
         ProgressTracker.instance.taraEnding = ProgressTracker.endingType.Good;
@@ -649,7 +664,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformBackground);
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.TaraTransformSFX);
         elderGodMovement.speed *= 0.86f;
-        FindObjectOfType<CameraShaker>().enabled = true;
+        cameraShaker.enabled = true;
         yield return new WaitForSeconds(1.0f);
         LockPlayerControl(null);
         if (useFader) StartCoroutine(LevelLoader.instance.CutIn());
@@ -658,9 +673,9 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
         yield return new WaitForSeconds(0.5f);
         UnlockPlayerControl(null);
-        FindObjectOfType<CameraShaker>().enabled = false;
+        cameraShaker.enabled = false;
         yield return new WaitForSeconds(0.25f);
-        FindObjectOfType<MouseLook>().LockAndLookAtPoint(GetComponent<NPCLookAtPlayer>().GetLookAtPoint().position);
+        mouseLook.LockAndLookAtPoint(GetComponent<NPCLookAtPlayer>().GetLookAtPoint().position);
         npc_Dialog.SetNewDialogAvailableAndPlay(good_dialog);
     }
 }

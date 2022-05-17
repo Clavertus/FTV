@@ -9,9 +9,11 @@ public class SideDoorDialog : MonoBehaviour
 
     bool inspectedOnce = false;
 
+    DialogueUI dialogUI = null;
     // Start is called before the first frame update
     void Start()
     {
+        dialogUI = FindObjectOfType<DialogueUI>();
         inspectedOnce = false;
     }
 
@@ -24,7 +26,7 @@ public class SideDoorDialog : MonoBehaviour
     private void FirstInteraction()
     {
         gameObject.tag = ("Untagged");
-        FindObjectOfType<DialogueUI>().ShowDialogue(sideDoorInspection);
+        dialogUI.ShowDialogue(sideDoorInspection);
         inspectedOnce = true;
     }
 

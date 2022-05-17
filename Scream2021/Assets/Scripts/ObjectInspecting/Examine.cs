@@ -26,10 +26,14 @@ public class Examine : MonoBehaviour
     //If True Allow Rotation Of Object
     private bool examineMode;
 
+    ExamineCanvas examineCanvasScript = null;
+    InGameMenuCotrols menuControls = null;
     void Start()
     {
-        examineCanvas = FindObjectOfType<ExamineCanvas>().GetComponent<Canvas>();
+        examineCanvasScript = FindObjectOfType<ExamineCanvas>();
+        examineCanvas = examineCanvasScript.GetComponent<Canvas>();
         dialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
+        menuControls = FindObjectOfType<InGameMenuCotrols>();
         examineMode = false;
     }
 
@@ -43,7 +47,7 @@ public class Examine : MonoBehaviour
         {
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
-            FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+            menuControls.LockMenuControl();
         }
     }
 
@@ -78,7 +82,7 @@ public class Examine : MonoBehaviour
                     cameraFrontObject.GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                      
-                    FindObjectOfType<PlayerMovement>().LockPlayer();
+                    player.GetComponent<PlayerMovement>().LockPlayer();
                     
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
@@ -173,15 +177,15 @@ public class Examine : MonoBehaviour
         if (examineMode)
         {
             examineCanvas.enabled = false;
-            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
+            examineCanvasScript.SetExtraFieldToState(false);
             playerBody.tag = ("Player");
 
             cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
-            FindObjectOfType<PlayerMovement>().UnlockPlayer();
-            FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+            player.GetComponent<PlayerMovement>().UnlockPlayer();
+            menuControls.UnlockMenuControl();
 
             examineCanvas.enabled = false;
-            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
+            examineCanvasScript.SetExtraFieldToState(false);
             //Reset Object To Original Position
             clickedObject.transform.position = originaPosition;
             clickedObject.transform.eulerAngles = originalRotation;
