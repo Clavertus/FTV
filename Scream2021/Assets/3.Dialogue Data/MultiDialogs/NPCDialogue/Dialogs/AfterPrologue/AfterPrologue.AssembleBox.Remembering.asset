@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1809592688280730796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 92857466-a1e6-4726-81da-b915cf6c999c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Anyway I do not need to use it now.
+  children: []
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 881
+    y: 322
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-1311490850058754635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: add9ed20-ac66-4689-a330-888dbbdf66d9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: It was a horrible experience.
+  children:
+  - 92857466-a1e6-4726-81da-b915cf6c999c
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 344
+    y: 229
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: AfterPrologue.AssembleBox.Remembering
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1311490850058754635}
+  - {fileID: -1809592688280730796}
