@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 5660299804639869992}
   - component: {fileID: 183388097845211189}
   - component: {fileID: 8585857830479533988}
+  - component: {fileID: 3488600286568276051}
   m_Layer: 0
   m_Name: TaraNoteBook
   m_TagString: Untagged
@@ -334,6 +335,27 @@ MonoBehaviour:
   checkPlayerRotation: 0
   minYLookRotation: 0
   maxYLookRotation: 0
+--- !u!114 &3488600286568276051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604437569636089362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceFromCam: 2
+  offsetCamPos: 0
+  offsetY: 1
+  offsetX: 1
+  xRotation: 0
+  yRotation: 0
+  zRotation: 0
+  extraPressToShow: 0
+  turnSpeedModifier: 0
 --- !u!1 &1994961374936685033
 GameObject:
   m_ObjectHideFlags: 0

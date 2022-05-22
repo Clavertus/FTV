@@ -24,9 +24,10 @@ public class BookReader : MonoBehaviour
 
     private IEnumerator Interaction()
     {
-        gameObject.tag = "Untagged";
+        //gameObject.tag = "Untagged";
         interactionCounter++;
 
+        FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(true);
         FindObjectOfType<PlayerMovement>().LockPlayer();
         FindObjectOfType<MouseLook>().LockCamera();
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
@@ -61,7 +62,8 @@ public class BookReader : MonoBehaviour
         CloseBook();
 
         interactionCounter--;
-        gameObject.tag = "Selectable";
+        gameObject.tag = ("Selectable");
+        FindObjectOfType<Examine>().ExitExamineMode();
     }
 
     public void OpenBook()
