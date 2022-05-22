@@ -5675,12 +5675,28 @@ PrefabInstance:
       value: TaraNoteBook
       objectReference: {fileID: 0}
     - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
+      propertyPath: offsetX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
+      propertyPath: offsetY
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
+      propertyPath: xRotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
       propertyPath: yRotation
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
       propertyPath: zRotation
-      value: -30
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
+      propertyPath: lookAtPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
       propertyPath: offsetCamPos
@@ -5688,7 +5704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3488600286568276051, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
       propertyPath: distanceFromCam
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5566392060883437491, guid: 6d9752e698f53694aa461f61f3968e95, type: 3}
       propertyPath: m_LocalRotation.w

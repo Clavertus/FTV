@@ -101,7 +101,7 @@ public class Examine : MonoBehaviour
                     if (clickedObject.GetComponent<ObjectExaminationConfig>())
                     {
                         if (clickedObject.GetComponent<ObjectExaminationConfig>().ReturnIfOffset() == true)
-                        { 
+                        {
                             var xOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXOffset();
                             var yOffset = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYOffset();
 
@@ -109,12 +109,20 @@ public class Examine : MonoBehaviour
                             clickedObject.transform.position += (transform.right * xOffset);
                             clickedObject.transform.position += (transform.up * yOffset);
                         }
-                        float xRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXRotation();
-                        float yRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYRotation();
-                        float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation(); 
 
-                        clickedObject.transform.rotation = 
-                            Quaternion.Euler(xRotation, yRotation, zRotation);
+                        if (clickedObject.GetComponent<ObjectExaminationConfig>().ReturnLookAtPlayer() == true)
+                        {
+                            clickedObject.transform.LookAt(cameraFrontObject);
+                        }
+                        else
+                        {
+                            float xRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnXRotation();
+                            float yRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnYRotation();
+                            float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation();
+
+                            clickedObject.transform.rotation =
+                                Quaternion.Euler(xRotation, yRotation, zRotation);
+                        }
 
                         savedObjectPivotPosition = clickedObject.transform.position;
 
@@ -146,6 +154,11 @@ public class Examine : MonoBehaviour
             if (turningObjectEnabled == false)
             {
                 //do not allow to rotate while dialog
+                return;
+            }
+
+            if(clickedObject.GetComponent<ObjectExaminationConfig>().ReturnLookAtPlayer() == true)
+            {
                 return;
             }
 

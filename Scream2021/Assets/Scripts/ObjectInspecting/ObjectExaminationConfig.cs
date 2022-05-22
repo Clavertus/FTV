@@ -16,6 +16,7 @@ public class ObjectExaminationConfig : MonoBehaviour {
     [SerializeField] public bool extraPressToShow = true;
     [Range(0.000f, 1.000f)]
     [SerializeField] float turnSpeedModifier = 1.000f;
+    [SerializeField] bool lookAtPlayer = false;
 
     public float ReturnDistanceFromCam() { return distanceFromCam; }
     public bool ReturnIfOffset() { return offsetCamPos; }
@@ -31,4 +32,5 @@ public class ObjectExaminationConfig : MonoBehaviour {
     {
         return turnSpeedModifier;
     }
+    public bool ReturnLookAtPlayer() { return lookAtPlayer; }
 }
