@@ -291,6 +291,15 @@ MonoBehaviour:
       do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     pageImageSprite: {fileID: 0}
     pageImageColor: {r: 1, g: 1, b: 1, a: 0}
+  - pageText: Page 4  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    pageImageSprite: {fileID: 0}
+    pageImageColor: {r: 1, g: 1, b: 1, a: 0}
+  - pageText: Page 5  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    pageImageSprite: {fileID: 0}
+    pageImageColor: {r: 1, g: 1, b: 1, a: 0}
+  listPageEffectTimeInSec: 0.15
 --- !u!65 &5660299804639869992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -318,6 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookAnimator: {fileID: 2173358114338245409}
   bookContent: {fileID: 8544679230644251228}
+  openBookSound: 65
+  listPageSound: 66
+  closeBookSound: 67
 --- !u!114 &8585857830479533988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +368,7 @@ MonoBehaviour:
   zRotation: 0
   extraPressToShow: 0
   turnSpeedModifier: 0
+  lookAtPlayer: 0
 --- !u!1 &1994961374936685033
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +735,7 @@ GameObject:
   - component: {fileID: 2571148006040215669}
   - component: {fileID: 8947590227101975325}
   m_Layer: 5
-  m_Name: Page Canvas
+  m_Name: Page Canvas 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1203,7 @@ GameObject:
   - component: {fileID: 7895519997873716053}
   - component: {fileID: 306227176677913544}
   m_Layer: 5
-  m_Name: Page Canvas
+  m_Name: Page Canvas 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1021,3 +1021,48 @@ MonoBehaviour:
     min: 1
     max: 100
     source: {fileID: 0}
+  - name: OpenBook
+    clip: {fileID: 8300000, guid: a3b00fa06c5b5dc46adab299e5ecd644, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TurnPageBook
+    clip: {fileID: 8300000, guid: e4b126eb8b7eddd43b6daa00132848c9, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CloseBook
+    clip: {fileID: 8300000, guid: 85b702683afb0d744af8de76bf73d272, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}

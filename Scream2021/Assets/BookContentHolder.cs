@@ -24,6 +24,8 @@ public class BookContentHolder : MonoBehaviour
 
     [SerializeField] pageContent[] bookContent = null;
 
+    [SerializeField] float listPageEffectTimeInSec = 0.15f;
+
     Image[] pageImage = null;
 
     TMP_Text[] pageText = null;
@@ -88,6 +90,29 @@ public class BookContentHolder : MonoBehaviour
     public int GetNumberOfPages()
     {
         return bookContent.Length;
+    }
+
+    public IEnumerator hidePages()
+    {
+        StopCoroutine(revealPages());
+
+        while(pageLeft.alpha > 0)
+        {
+            pageRight.alpha -= (1f / listPageEffectTimeInSec) * (0.01f);
+            pageLeft.alpha -= (1f / listPageEffectTimeInSec) * (0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+    public IEnumerator revealPages()
+    {
+        StopCoroutine(hidePages());
+
+        while (pageLeft.alpha < 1)
+        {
+            pageRight.alpha += (1f / listPageEffectTimeInSec) * (0.01f);
+            pageLeft.alpha += (1f / listPageEffectTimeInSec) * (0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     private void FillPageWithContent(page pageId, pageContent pageContent)

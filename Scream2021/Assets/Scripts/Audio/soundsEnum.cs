@@ -65,5 +65,8 @@ public enum soundsEnum
 	CultistSpeech4 = 62,
 	CultistSpeech5 = 63,
 	TrainSoundPassesBy = 64,
+	OpenBook = 65,
+	TurnPageBook = 66,
+	CloseBook = 67,
 
 }

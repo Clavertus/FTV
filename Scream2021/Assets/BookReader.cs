@@ -7,6 +7,9 @@ public class BookReader : MonoBehaviour
 {
     [SerializeField] Animator bookAnimator = null;
     [SerializeField] BookContentHolder bookContent = null;
+    [SerializeField] soundsEnum openBookSound = soundsEnum.OpenBook;
+    [SerializeField] soundsEnum listPageSound = soundsEnum.TurnPageBook;
+    [SerializeField] soundsEnum closeBookSound = soundsEnum.CloseBook;
 
     private int interactionCounter = 0;
 
@@ -45,11 +48,11 @@ public class BookReader : MonoBehaviour
                 }
                 else if(Input.GetKeyDown(KeyCode.A))
                 {
-                    ListBookLeft(); yield return new WaitForSeconds(0.1f);
+                    yield return StartCoroutine(ListBookLeft()); //yield return new WaitForSeconds(0.1f);
                 }
                 else if(Input.GetKeyDown(KeyCode.D))
                 {
-                    ListBookRight(); yield return new WaitForSeconds(0.1f);
+                    yield return StartCoroutine(ListBookRight()); //yield return new WaitForSeconds(0.1f);
                 }
             }
         }
@@ -71,19 +74,27 @@ public class BookReader : MonoBehaviour
         bookAnimator.SetTrigger("Open");
         bookContent.ResetPages();
         bookContent.ShowUI();
+        AudioManager.instance.StartPlayingFromAudioManager(openBookSound);
     }
     public void CloseBook()
     {
         bookAnimator.SetTrigger("Close");
         bookContent.HideUI();
+        AudioManager.instance.StartPlayingFromAudioManager(closeBookSound);
     }
 
-    public void ListBookRight()
+    public IEnumerator ListBookRight()
     {
+        AudioManager.instance.StartPlayingFromAudioManager(listPageSound);
+        yield return StartCoroutine(bookContent.hidePages());
         bookContent.FillPagesWithNextContentRightDirection();
+        yield return StartCoroutine(bookContent.revealPages());
     }
-    public void ListBookLeft()
+    public IEnumerator ListBookLeft()
     {
+        AudioManager.instance.StartPlayingFromAudioManager(listPageSound);
+        yield return StartCoroutine(bookContent.hidePages());
         bookContent.FillPagesWithNextContentLeftDirection();
+        yield return StartCoroutine(bookContent.revealPages());
     }
 }
