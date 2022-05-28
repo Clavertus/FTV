@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour, ISaveable
 
     void Update()
     {
+        Debug.Log(isGrounded); 
         Move();
         PlayerGravity();
         SimulateFall();
@@ -123,14 +124,15 @@ public class PlayerMovement : MonoBehaviour, ISaveable
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
 
         //reset velocity so it doesn't infinetely count
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y <= 0) 
         {
+            Debug.Log("yo");   
             velocity.y = -2f; 
         }
 
-        //increment our velocity variable with the gravity variable then let character controller do the rest ;)
+        
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(new Vector3(0, -9.7f, 0) * Time.deltaTime); 
     }
 
     private bool simulateFallEnabled = false;
