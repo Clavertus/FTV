@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogObject: {fileID: 0}
+  playDialog: 1
   disableSameDialogues: 1
   interactionCounter: 0
 --- !u!114 &4945968055245931205
@@ -119,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
       value: Inspect Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800991, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Pivot.x
