@@ -4570,8 +4570,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 2065135508}
     m_Modifications:
     - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
+      propertyPath: xRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
+      propertyPath: yRotation
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
+      propertyPath: zRotation
+      value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: distanceFromCam
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652595645003621023, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
+      propertyPath: extraPressToShow
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700283252954428412, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: highlightMat
@@ -4639,7 +4655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867539, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.860016
+      value: 78.13
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867539, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4647,7 +4663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867539, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0099983215
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8938807975620867539, guid: 152d7ef69daceff4c8df59ab045181b8, type: 3}
       propertyPath: m_LocalRotation.w
