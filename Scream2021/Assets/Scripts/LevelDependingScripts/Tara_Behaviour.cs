@@ -62,6 +62,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
 
     [Header("References:")]
     [SerializeField] PlayNPCDialog npc_Dialog = null;
+    [SerializeField] Selectable npc_Inspect = null;
 
     [Header("Location Points:")]
     [SerializeField] Transform point_0 = null;
@@ -264,6 +265,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             if (GetComponent<NPCMoving>().IsMoving())
             {
                 GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.walk);
+                npc_Inspect.gameObject.SetActive(false);
             }
             else
             {
@@ -274,6 +276,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
                     {
                         //Debug.Log("sit down");
                         GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.sit_down);
+                        npc_Inspect.gameObject.SetActive(true);
                     }
                 }
                 else
@@ -285,6 +288,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
                     else
                     {
                         GetComponent<NPCAnimationController>().SetAnimation(NPCAnimationController.NpcAnimationState.idle);
+                        npc_Inspect.gameObject.SetActive(true);
                     }
                 }
             }

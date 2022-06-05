@@ -233,6 +233,7 @@ MonoBehaviour:
   good_dialog: {fileID: 0}
   run_dialog: {fileID: 0}
   npc_Dialog: {fileID: 1954732293560671682}
+  npc_Inspect: {fileID: 386303332579101057}
   point_0: {fileID: 0}
   point_1: {fileID: 0}
   point_2: {fileID: 0}
@@ -401,6 +402,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+--- !u!114 &386303332579101057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 368575087707982604, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+  m_PrefabInstance: {fileID: 18328598822371981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425d85a69ad08c743a1d599b906dffd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1954732293560671682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1973006998461144911, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
