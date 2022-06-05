@@ -6,8 +6,10 @@ using TMPro;
 public class DisplayDialogue : MonoBehaviour
 {
     [SerializeField] float typewriteSpeed = 50f;
+    [SerializeField] float fixedDialogDisplayTime = 0.35f;
     float originalTSpeed; 
     bool typewriting = false;
+    bool allowDialogSkip = false;
 
     private void Start()
     {
@@ -15,12 +17,11 @@ public class DisplayDialogue : MonoBehaviour
     }
     private void Update()
     {
-        if(typewriting && Input.GetKeyDown(KeyCode.E) && typewriteSpeed == originalTSpeed) 
+        if(typewriting && Input.GetKeyDown(KeyCode.E) && (typewriteSpeed == originalTSpeed) && (allowDialogSkip == true)) 
         {
             typewriteSpeed *= 4;
-             
         }
-        if (typewriting == false)
+        if ((typewriting == false) || (allowDialogSkip == false))
         {
             typewriteSpeed = originalTSpeed; 
         }
@@ -32,11 +33,17 @@ public class DisplayDialogue : MonoBehaviour
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
         float t = 0;
+        float time = 0f;
         int charIndex = 0;
         typewriting = true;
         while(charIndex < textToType.Length)
         {
-            t += Time.deltaTime * typewriteSpeed; 
+            t += Time.deltaTime * typewriteSpeed;
+            time += Time.deltaTime;
+            if (time > fixedDialogDisplayTime)
+            {
+                allowDialogSkip = true;
+            }
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
@@ -45,7 +52,7 @@ public class DisplayDialogue : MonoBehaviour
             yield return null; 
         }
         typewriting = false;
-        
+        allowDialogSkip = false;
 
 
         textLabel.text = textToType;
