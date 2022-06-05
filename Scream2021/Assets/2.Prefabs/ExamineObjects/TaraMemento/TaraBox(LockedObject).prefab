@@ -102,6 +102,7 @@ MonoBehaviour:
   zRotation: 0
   extraPressToShow: 1
   turnSpeedModifier: 0.15
+  lookAtPlayer: 0
 --- !u!114 &3178314520853915758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 368164650308205529, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4541d395c56822d4c9f6fdd9227fc721, type: 3}
+      objectReference: {fileID: 21300000, guid: 0229a7b60c571044b93cdb0f25ebe6a0, type: 3}
     - target: {fileID: 2478398320889405320, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
       propertyPath: m_Name
       value: BoxPrototype
@@ -354,10 +355,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4077433406281325073, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0229a7b60c571044b93cdb0f25ebe6a0, type: 3}
+    - target: {fileID: 5210484930228281056, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d47f0038d0a8bf34f9679d4d94844853, type: 3}
     - target: {fileID: 6147017693529666757, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a308b41f9c0270546aeec35253c5f2bd, type: 2}
+    - target: {fileID: 7818672372107735830, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22db771dd5c3a774089dffbd66d6c075, type: 3}
     - target: {fileID: 8767487305652790233, guid: edf349dadd36c964e91fa13b393fefd1, type: 3}
       propertyPath: unlockSequence.Array.data[1]
       value: 1
