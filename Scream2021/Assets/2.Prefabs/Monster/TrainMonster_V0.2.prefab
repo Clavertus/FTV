@@ -400,7 +400,8 @@ Transform:
   m_LocalRotation: {x: -0.00000008146034, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
-  m_Children: []
+  m_Children:
+  - {fileID: 954758135687390437}
   m_Father: {fileID: 7321549882161581250}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2144,18 +2145,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e221ad1eb7c8e874d9788a50ba0d67a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtWindowCinematic: {fileID: 0}
+  trainMonsterCinematic: {fileID: 0}
+  GetUpCinematic: {fileID: 0}
   myAnimator: {fileID: 0}
+  myExtraLight: {fileID: 0}
+  lookAt: {fileID: 954758135687390437}
   currentState: 0
   walkSpeed: 2
   walkAfterDoorSpeed: 4
+  runToDoorSpeed: 35
   runSpeed: 15
   jumpSpeed: 30
   pauseAfterReveal: 0
   numberOfTriesToOpenDoor: 10
-  jumpDistance: 15
-  lookAtDistance: 20
+  jumpDistance: 17
+  lookAtDistance: 10
   minDistance: 20
+  playerFoundDistance: 4
   monsterInTheDoor: {fileID: 0}
+  playerAfterFallPosition: {fileID: 0}
+  TooCloseToMonsterZone: {fileID: 0}
   revealZone: {fileID: 0}
   doorZone: {fileID: 0}
   doorStayPoint: {fileID: 0}
@@ -2172,6 +2182,7 @@ MonoBehaviour:
   monsterForceDoor1: {fileID: 0}
   monsterForceDoor2: {fileID: 0}
   offsetJumpY: 0.75
+  BloodEffectCanvas: {fileID: 0}
   trains:
   - {fileID: 0}
 --- !u!136 &6348297576357418948
@@ -2204,6 +2215,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &7996135353039778463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954758135687390437}
+  m_Layer: 9
+  m_Name: LookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954758135687390437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996135353039778463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.82, z: 0.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4813618255425595566}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8131824121554996171
 GameObject:
   m_ObjectHideFlags: 0

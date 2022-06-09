@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MonsterAction : MonoBehaviour
 {
+    [SerializeField] PlayableDirector lookAtWindowCinematic = null;
+    [SerializeField] PlayableDirector trainMonsterCinematic = null;
+    [SerializeField] PlayableDirector GetUpCinematic = null;
     public enum monsterStatesEnm
     {
         idle,
@@ -24,6 +28,7 @@ public class MonsterAction : MonoBehaviour
 
     [SerializeField] Animator myAnimator = null;
     [SerializeField] Light myExtraLight = null;
+    [SerializeField] Transform lookAt = null;
 
     [Header("State machine feedback")]
     [SerializeField] monsterStatesEnm currentState = monsterStatesEnm.idle;
@@ -32,6 +37,7 @@ public class MonsterAction : MonoBehaviour
     [Header("Speed controls")]
     [SerializeField] float walkSpeed = 2f;
     [SerializeField] float walkAfterDoorSpeed = 4f;
+    [SerializeField] float runToDoorSpeed = 20f;
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
 
@@ -43,7 +49,9 @@ public class MonsterAction : MonoBehaviour
     [SerializeField] float minDistance = 4f;
     [SerializeField]
     float playerFoundDistance = 4f;
-    [SerializeField] Transform monsterInTheDoor; 
+    [SerializeField] Transform monsterInTheDoor;
+    [SerializeField] Transform playerAfterFallPosition;
+    [SerializeField] GameObject TooCloseToMonsterZone; 
 
     [Header("References to transforms")]
     [SerializeField] Transform revealZone = null;
@@ -76,10 +84,17 @@ public class MonsterAction : MonoBehaviour
     public AudioSource monsterForceDoor2;
 
 
-
+    float lightIntensity = 0f;
     // Start is called before the first frame update
     void Start()
     {
+        TooCloseToMonsterZone.SetActive(false);
+
+        if (!trainMonsterCinematic)
+        {
+            Debug.LogError("Monster need trainMonsterCinematic to work!");
+        }
+
         if(!myAnimator)
         {
             Debug.LogError("Monster need animation controller to work!");
@@ -104,6 +119,39 @@ public class MonsterAction : MonoBehaviour
         {
             Debug.LogError("player transform must be applied!");
         }
+
+        trainMonsterCinematic.stopped += CinematicEnded;
+        GetUpCinematic.stopped += GetUpCinematicEnded;
+    }
+
+    private void GetUpCinematicEnded(PlayableDirector obj)
+    {
+        FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
+        TooCloseToMonsterZone.SetActive(true);
+    }
+
+    private void CinematicEnded(PlayableDirector obj)
+    {
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        FindObjectOfType<MouseLook>().LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        if (playerAfterFallPosition)
+        {
+            Player.position = new Vector3(
+                playerAfterFallPosition.position.x,
+                Player.position.y,
+                playerAfterFallPosition.position.z);
+        }
+        Player.GetComponent<PlayerMovement>().enabled = true;
+
+        FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
+        FindObjectOfType<MouseLook>().LockCamera();
+        FindObjectOfType<PlayerMovement>().LockPlayer();
+
+        //startGetUpCinematic
+        GetUpCinematic.Play();
     }
 
     // Update is called once per frame
@@ -122,9 +170,9 @@ public class MonsterAction : MonoBehaviour
 
     private void FadeOutLight()
     {
-        if(myExtraLight)
+        if(myExtraLight.enabled == true)
         {
-            if(myExtraLight.intensity < 0.35f)
+            if(myExtraLight.intensity < lightIntensity)
             {
                 myExtraLight.intensity += 0.5f * Time.deltaTime;
             }
@@ -139,9 +187,12 @@ public class MonsterAction : MonoBehaviour
 
     private void OnEnable()
     {
-        if(myExtraLight)  myExtraLight.intensity = 0f;
-           //TODO: set this variable to true from another script after player has done final things
-           StartSequence = true;
+        lightIntensity = myExtraLight.intensity;
+        myExtraLight.intensity = 0f;
+        myExtraLight.enabled = false;
+
+        //TODO: set this variable to true from another script after player has done final things
+        StartSequence = true;
 
          monsterBreathe = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterBreathe);
          monsterAttack = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.MonsterAttack);
@@ -150,6 +201,11 @@ public class MonsterAction : MonoBehaviour
          monsterFootstep = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.HeavyFootstep1);
          monsterForceDoor1 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.ForceDoor1);
          monsterForceDoor2 = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.ForceDoor2);
+    }
+
+    public Transform getLookAtPoint()
+    {
+        return lookAt;
     }
 
     public void StopMoving()
@@ -176,7 +232,7 @@ public class MonsterAction : MonoBehaviour
                 if (StartSequence)
                 {
                     currentState = monsterStatesEnm.walk;
-                    AudioManager.instance.InstantPlayFromGameObject(monsterBreathe);  
+                    AudioManager.instance.InstantPlayFromGameObject(monsterBreathe);
                 }
                 break;
             case monsterStatesEnm.walk:
@@ -184,6 +240,7 @@ public class MonsterAction : MonoBehaviour
                 if (revealZoneTriggered)
                 {
                     yield return new WaitUntil(() => !dialogueBox.activeSelf);
+                    myExtraLight.enabled = true;
                     currentState = monsterStatesEnm.reveal;
                 }
                 break;
@@ -198,13 +255,14 @@ public class MonsterAction : MonoBehaviour
 
                 break;
             case monsterStatesEnm.run:
-                MonsterMove(runSpeed);
+                MonsterMove(runToDoorSpeed);
                 if (doorZoneTriggered)
                 {
+                    lookAtWindowCinematic.Stop();
+                    trainMonsterCinematic.Play();
                     if (doorStayPoint)
                     {
                         transform.position = doorStayPoint.position;
-                        Player.localPosition = Player.localPosition + Vector3.forward * 1.5f;
                     }
                     currentState = monsterStatesEnm.to_open;
                 }
@@ -212,7 +270,6 @@ public class MonsterAction : MonoBehaviour
             case monsterStatesEnm.to_open:
                 if (finishedToOpen)
                 {
-                    FindObjectOfType<DialogueUI>().ShowDialogue(gTFO);
                     AudioManager.instance.InstantPlayFromGameObject(monsterAgressive2);
                     FindObjectOfType<SecondDoorToCar>().ShakeDoor();
 
@@ -374,6 +431,7 @@ public class MonsterAction : MonoBehaviour
         transform.LookAt(Player);
         FindObjectOfType<MouseLook>().MonsterIsJumping();
         offsetY = transform.position.y + offsetJumpY;
+        FindObjectOfType<DialogueUI>().dialogueBox.SetActive(false);
     }
 
     private void MonsterJump()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SecondDoorToCar : MonoBehaviour
 {
@@ -61,9 +62,11 @@ public class SecondDoorToCar : MonoBehaviour
         }
     }
 
+    [SerializeField] PlayableDirector lookAtDoorCinematic = null;
     IEnumerator FirstInteraction()
     {
         OpenDoorToGap();
+        lookAtDoorCinematic.Play();
         FindObjectOfType<DialogueUI>().ShowDialogue(door2FirstLook); 
         gameObject.tag = ("Untagged");
         yield return new WaitUntil(() => !dialogueBox.activeSelf);

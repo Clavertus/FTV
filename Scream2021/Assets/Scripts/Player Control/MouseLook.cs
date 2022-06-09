@@ -68,8 +68,7 @@ public class MouseLook : MonoBehaviour
         monsterJumping = true;
         LockCamera();
         FindObjectOfType<PlayerMovement>().LockPlayer();
-        var monsterTransform = FindObjectOfType<MonsterAction>().gameObject.transform.position;
-        transform.LookAt(new Vector3(monsterTransform.x, monsterTransform.y + lookOffset, monsterTransform.z));
+        transform.LookAt(FindObjectOfType<MonsterAction>().getLookAtPoint());
     }
 
     public void LockAndLookAtPoint(Vector3 lookAtPosition)

@@ -426,10 +426,6 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
-      propertyPath: jumpDistance
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: myExtraLight
       value: 
       objectReference: {fileID: 5642275692337034217}
@@ -437,10 +433,6 @@ PrefabInstance:
       propertyPath: doorStayPoint
       value: 
       objectReference: {fileID: 123216545}
-    - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
-      propertyPath: lookAtDistance
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: -7854341444819138790, guid: be4e9a2404ad85b4bb132e6ff03bbcd9, type: 3}
       propertyPath: monsterInTheDoor
       value: 
