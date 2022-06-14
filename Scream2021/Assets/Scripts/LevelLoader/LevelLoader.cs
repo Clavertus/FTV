@@ -12,6 +12,7 @@ public enum Ending
 
 public class LevelLoader : MonoBehaviour
 {
+    public const int mainMenuSceneIndex = 1;
     public static LevelLoader instance;
 
     public CanvasGroup canvasGroup;
@@ -25,6 +26,8 @@ public class LevelLoader : MonoBehaviour
     public Ending ending;
 
     public bool HasPlayedTheGame;
+
+    Transform savedTransform = null;
 
     void Awake()
     {
@@ -92,6 +95,20 @@ public class LevelLoader : MonoBehaviour
         yield return StartCoroutine(CutIn());
         LoadNextScene();
         StartCoroutine(CutOut());
+    }
+    
+    public IEnumerator StartLoadingNextSceneWithSavingTransform(Transform transformToSave)
+    {
+        savedTransform = transformToSave;
+        StopAllCoroutines();
+        yield return StartCoroutine(FadeIn());
+        LoadNextScene();
+        StartCoroutine(FadeOut());
+    }
+
+    public Transform GetSavedTransform()
+    {
+        return savedTransform;
     }
 
     public IEnumerator StartLoadingSameScene()

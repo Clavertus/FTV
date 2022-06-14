@@ -46,7 +46,7 @@ public class SavingWrapper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.L))
+        /*if(Input.GetKey(KeyCode.L))
         {
             Load();
         }
@@ -54,7 +54,7 @@ public class SavingWrapper : MonoBehaviour
         if (Input.GetKey(KeyCode.K))
         {
             Save();
-        }
+        }*/
     }
 
     public void CheckpointSave()

@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
             }
 
             //It should always be at the end after setting all the parameters
-            if (s.playOnAwake)
+            if (s.source.playOnAwake)
             {
                 s.source.Play();
                 StartCoroutine(FadeInSound(s.source));
@@ -106,6 +106,16 @@ public class AudioManager : MonoBehaviour
         Sound s = FindSound(name);
         s.source.Play();
         StartCoroutine(FadeInSound(s.source));
+    }
+    public void AdjustVolumeManually(soundsEnum name, float newVolume)
+    {
+        Sound s = FindSound(name);
+        s.source.volume = newVolume;
+    }
+    public float getCurrentVolume(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        return s.source.volume;
     }
 
     public void StopFromAudioManager(soundsEnum name)
@@ -254,4 +264,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool IsPlaying(soundsEnum name)
+    {
+        Sound s = FindSound(name);
+        return s.source.isPlaying;
+    }
 }

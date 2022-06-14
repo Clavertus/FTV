@@ -16,6 +16,7 @@ MonoBehaviour:
   text: There is nowhere to go. Just appreciate the view.
   children:
   - d1f35c61-5591-46a1-bde0-1ab242a3cffa
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 791
@@ -36,9 +37,10 @@ MonoBehaviour:
   m_Name: 7e887c27-4d41-406f-8c28-a0d71055b197
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: ... friend?
+  text: ...friend?
   children:
   - f858c267-1706-45d8-86af-ba5cbcccf4f5
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1406
@@ -61,6 +63,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Do what you want, but be quiet.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1391
@@ -84,6 +87,7 @@ MonoBehaviour:
   text: What is that thing?
   children:
   - 0063edcb-aecd-4253-ad1c-c6c838a46b16
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 453
@@ -104,9 +108,10 @@ MonoBehaviour:
   m_Name: 0063edcb-aecd-4253-ad1c-c6c838a46b16
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: It has never comed so close to me.
+  text: It has never come so close to me.
   children:
   - da6c3a14-f840-4639-89c9-8a46d8df2deb
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 794
@@ -130,6 +135,7 @@ MonoBehaviour:
   text: We need to get away from here...
   children:
   - d2c7f9b3-7da9-49c5-a167-7102d18ce16a
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 459
@@ -176,6 +182,7 @@ MonoBehaviour:
   text: I believe I must thank you for that. Or your friend...
   children:
   - 7e887c27-4d41-406f-8c28-a0d71055b197
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1098
@@ -196,9 +203,10 @@ MonoBehaviour:
   m_Name: d1f35c61-5591-46a1-bde0-1ab242a3cffa
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: There must be something we could do!
+  text: There must be something we can do!
   children:
   - a455f19c-1e7f-4036-8031-4702be0adc61
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1091
@@ -221,6 +229,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Shh... Let me see the show.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1706
@@ -241,13 +250,14 @@ MonoBehaviour:
   m_Name: 68c621a1-6aa8-4313-a910-577fb93b1986
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: 'Isn`t ... Magnificent? '
+  text: 'Isn''t it... Magnificent? '
   children:
   - d7966c40-0141-4f15-b881-f496f49c371f
   - 4169b2ba-ee9d-4afe-b503-e18949c238ab
+  triggerId: 0
   rect:
     serializedVersion: 2
-    x: 158
+    x: 159
     y: 143
     width: 200
     height: 120

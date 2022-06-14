@@ -8,10 +8,10 @@ using System;
 public class DialogueUI : MonoBehaviour
 {
 
-    public Action OnDialogShowStart { get; set; }
-    public Action<bool> OnDialogNodeStart { get; set; }
-    public Action OnDialogNodeEnd { get; set; }
-    public Action OnDialogShowEnd { get; set; }
+    public Action<NPCDialogue> OnDialogShowStart { get; set; }
+    public Action<NPCDialogue, bool, int> OnDialogNodeStart { get; set; }
+    public Action<NPCDialogue, int> OnDialogNodeEnd { get; set; }
+    public Action<NPCDialogue> OnDialogShowEnd { get; set; }
 
 
     [Header("dialog box")]
@@ -70,7 +70,7 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.LockMenuControl();
         mouseLook.LockCamera();
         playerMovement.LockPlayer();
-        selectionManager.LockSelection();
+        if (selectionManager) selectionManager.LockSelection();
 
         dialogueBox.SetActive(true);
 
@@ -82,7 +82,7 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.LockMenuControl();
         mouseLook.LockCamera();
         playerMovement.LockPlayer();
-        selectionManager.LockSelection();
+        if (selectionManager) selectionManager.LockSelection();
 
         dialogueBox.SetActive(true);
 
@@ -107,7 +107,7 @@ public class DialogueUI : MonoBehaviour
         bool exitDialogue = false;
         dialogueObject.EnableAndFixDialog();
 
-        OnDialogShowStart?.Invoke();
+        OnDialogShowStart?.Invoke(dialogueObject);
 
         DialogNode nextDialogue = dialogueObject.GetRootNode();
 
@@ -115,7 +115,8 @@ public class DialogueUI : MonoBehaviour
         {
             ApplyNodeStyle(nextDialogue);
 
-            OnDialogNodeStart?.Invoke(nextDialogue.GetIsPlayerSpeaking());
+            Debug.Log("Dialog with id: " + nextDialogue.GetTriggerId());
+            OnDialogNodeStart?.Invoke(dialogueObject, nextDialogue.GetIsPlayerSpeaking(), nextDialogue.GetTriggerId());
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(nextDialogue.GetText(), dialogueBoxTextLabel);
 
@@ -151,28 +152,28 @@ public class DialogueUI : MonoBehaviour
                     // if it is an NPC -> random? or always the first one
                     int randomDialogId = UnityEngine.Random.Range((int)0, (int)(nextDialogue.GetChildren().Count));
                     nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[randomDialogId]);
-                    OnDialogNodeEnd?.Invoke();
+                    OnDialogNodeEnd?.Invoke(dialogueObject, nextDialogue.GetTriggerId());
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 }
             }
             else if (nextDialogue.GetChildren().Count == 1)
             {
 
-                OnDialogNodeEnd?.Invoke();
+                OnDialogNodeEnd?.Invoke(dialogueObject, nextDialogue.GetTriggerId());
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 nextDialogue = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
             }
             else
             {
 
-                OnDialogNodeEnd?.Invoke();
+                OnDialogNodeEnd?.Invoke(dialogueObject, nextDialogue.GetTriggerId());
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
                 exitDialogue = true;
             }
 
         }
 
-        OnDialogShowEnd?.Invoke();
+        OnDialogShowEnd?.Invoke(dialogueObject);
         CloseDialogueBox();
     }
 
@@ -223,14 +224,14 @@ public class DialogueUI : MonoBehaviour
         inGameMenuCotrols.UnlockMenuControl();
         mouseLook.UnlockCamera();
         playerMovement.UnlockPlayer();
-        selectionManager.UnlockSelection();
+        if(selectionManager) selectionManager.UnlockSelection();
     }
 
     private bool showTutorialBox = true;
     private int showMessageId = 0;
     public void ShowTutorialBox(int messageId)
     {
-        Debug.Log("Show tutorial box");
+        //Debug.Log("Show tutorial box");
         if (messageId >= tutorialBox_Messages.Length) return;
 
         showTutorialBox = true;

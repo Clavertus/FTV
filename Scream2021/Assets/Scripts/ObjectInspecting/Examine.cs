@@ -9,7 +9,7 @@ public class Examine : MonoBehaviour
     Canvas examineCanvas;
     //[SerializeField]
     GameObject dialogueBox;
-    [SerializeField] GameObject playerBod;
+    [SerializeField] GameObject playerBody;
     [SerializeField] GameObject player;
     [SerializeField] Transform cameraFrontObject;//Camera Object Will Be Placed In Front Of
     GameObject clickedObject;//Currently Clicked Object
@@ -17,36 +17,43 @@ public class Examine : MonoBehaviour
     //Holds Original Postion And Rotation So The Object Can Be Replaced Correctly
     Vector3 originaPosition;
     Vector3 originalRotation;
-    [SerializeField] float distanceFromCam;
+    [SerializeField] float distanceFromCam; 
+    //[SerializeField] bool useCalculatedCenterPosition;
 
 
     Transform originalParent;
 
     //If True Allow Rotation Of Object
-    public bool examineMode;
+    private bool examineMode;
 
+    ExamineCanvas examineCanvasScript = null;
+    InGameMenuCotrols menuControls = null;
     void Start()
     {
-        examineCanvas = FindObjectOfType<ExamineCanvas>().GetComponent<Canvas>();
+        examineCanvasScript = FindObjectOfType<ExamineCanvas>();
+        examineCanvas = examineCanvasScript.GetComponent<Canvas>();
         dialogueBox = FindObjectOfType<DialogueUI>().dialogueBox;
+        menuControls = FindObjectOfType<InGameMenuCotrols>();
         examineMode = false;
     }
 
+    private bool examineModeToogle = false;
     private void Update()
     {
 
         ClickObject();//Decide What Object To Examine
 
-        TurnObject();//Allows Object To Be Rotated
-
         if(examineMode == true)
         {
-            Debug.Log("examineMode = true");
             cameraFrontObject.GetComponent<MouseLook>().LockCamera();
             player.GetComponent<PlayerMovement>().LockPlayer();
-            FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
-        }  
+            menuControls.LockMenuControl();
+        }
+    }
 
+    private void LateUpdate()
+    {
+        TurnObject();//Allows Object To Be Rotated
     }
 
 
@@ -54,32 +61,33 @@ public class Examine : MonoBehaviour
     {
         if (examineMode == false)
         {
-
             RaycastHit hit;
             var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
 
             if (Physics.Raycast(ray, out hit))
             {
-
                 //ClickedObject Will Be The Object Hit By The Raycast
                 clickedObject = hit.transform.gameObject;
                 //Debug.LogError(clickedObject.name);
-                 
-                if (clickedObject.tag == ("Selected") && clickedObject.GetComponent<ObjectExaminationConfig>() && Input.GetKeyDown(KeyCode.E)) 
+
+                ObjectExaminationConfig examineConfig = clickedObject.GetComponent<ObjectExaminationConfig>();
+                if (
+                    (clickedObject.tag == ("Selected")) && examineConfig &&
+                    (((examineConfig.extraPressToShow == true) && Input.GetKeyDown(KeyCode.E)) || (examineConfig.extraPressToShow == false))
+                    ) 
                 {
-                    
                     examineMode = true;
                     Debug.Log("examineMode");
                     cameraFrontObject.GetComponent<MouseLook>().LockCamera();
                     clickedObject.GetComponent<Selectable>().DisableSelectable();
                      
-                    FindObjectOfType<PlayerMovement>().LockPlayer();
+                    player.GetComponent<PlayerMovement>().LockPlayer();
                     
                     distanceFromCam = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnDistanceFromCam();
 
                     examineCanvas.enabled = true;
-                    FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
+                    //FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
                     //Save The Original Postion And Rotation
                     originaPosition = clickedObject.transform.position;
                     originalRotation = clickedObject.transform.rotation.eulerAngles;
@@ -87,6 +95,7 @@ public class Examine : MonoBehaviour
                     //Now Move Object In Front Of Camera, offsets if bool is true
                     var relativePosition = cameraFrontObject.transform.InverseTransformDirection(transform.position - cameraFrontObject.transform.position);
                     clickedObject.transform.position = transform.position + (transform.forward * distanceFromCam);
+                    savedCenterPosition = clickedObject.transform.position;
 
                     //checking if this object has config script and if the position should be offset, if true offset according to it's script.
                     if (clickedObject.GetComponent<ObjectExaminationConfig>())
@@ -105,7 +114,9 @@ public class Examine : MonoBehaviour
                         float zRotation = clickedObject.GetComponent<ObjectExaminationConfig>().ReturnZRotation(); 
 
                         clickedObject.transform.rotation = 
-                            Quaternion.Euler(xRotation, yRotation, zRotation); 
+                            Quaternion.Euler(xRotation, yRotation, zRotation);
+
+                        savedObjectPivotPosition = clickedObject.transform.position;
 
                     }
                     //Pause The Game
@@ -114,44 +125,50 @@ public class Examine : MonoBehaviour
                     //Turn Examine Mode To True
                     
 
-                    playerBod.tag = ("Untagged");
+                    playerBody.tag = ("Untagged");
                 }
             }
         }
     }
 
+    public bool GetExamineMode()
+    {
+        return examineMode;
+    }
+
+    public bool turningObjectEnabled = true; 
+    Vector3 savedCenterPosition;
+    Vector3 savedObjectPivotPosition;
     void TurnObject()
     {
         if (Input.GetMouseButton(0) && examineMode)
         {
-            clickedObject.tag = ("Untagged");
-            
-            float rotationSpeed = 15;
-
-            Vector3 centerPosition = Vector3.zero;
-            if (clickedObject.GetComponent<Renderer>())
+            if (turningObjectEnabled == false)
             {
-                centerPosition = clickedObject.GetComponent<Renderer>().bounds.center;
-            }
-            else if(clickedObject.GetComponent<MeshRenderer>())
-            {
-                centerPosition = clickedObject.GetComponent<MeshRenderer>().bounds.center;
-            }
-            else if (clickedObject.GetComponent<ExamineObjectReferences>())
-            {
-                centerPosition = clickedObject.GetComponent<ExamineObjectReferences>().GetMainObjRenderer().bounds.center;
-            }
-            else
-            {
-                Debug.LogError("Object should have any render applied!");
+                //do not allow to rotate while dialog
                 return;
             }
+
+            /*if (dialogueBox.activeSelf)
+            {
+                //do not allow to rotate while dialog
+                return;
+            }*/
+
+            clickedObject.tag = ("Untagged");
+            
+            float rotationSpeed = 15 * clickedObject.GetComponent<ObjectExaminationConfig>().ReturnTurnSpeedModifier();
+
+            Vector3 rotatePosition = savedObjectPivotPosition;
 
             float xAxis = Input.GetAxis("Mouse X") * rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            clickedObject.transform.RotateAround(centerPosition, Camera.main.transform.up, -xAxis);
-            clickedObject.transform.RotateAround(centerPosition, Camera.main.transform.right, yAxis);
+            
+
+            clickedObject.transform.RotateAround(rotatePosition, Camera.main.transform.up, -xAxis);
+            clickedObject.transform.RotateAround(rotatePosition, Camera.main.transform.right, yAxis);
+            clickedObject.transform.position = savedObjectPivotPosition;
         }
     }
 
@@ -160,15 +177,15 @@ public class Examine : MonoBehaviour
         if (examineMode)
         {
             examineCanvas.enabled = false;
-            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
-            playerBod.tag = ("Player");
+            examineCanvasScript.SetExtraFieldToState(false);
+            playerBody.tag = ("Player");
 
             cameraFrontObject.GetComponent<MouseLook>().UnlockCamera();
-            FindObjectOfType<PlayerMovement>().UnlockPlayer();
-            FindObjectOfType<InGameMenuCotrols>().UnlockMenuControl();
+            player.GetComponent<PlayerMovement>().UnlockPlayer();
+            menuControls.UnlockMenuControl();
 
             examineCanvas.enabled = false;
-            FindObjectOfType<ExamineCanvas>().SetExtraFieldToState(false);
+            examineCanvasScript.SetExtraFieldToState(false);
             //Reset Object To Original Position
             clickedObject.transform.position = originaPosition;
             clickedObject.transform.eulerAngles = originalRotation;

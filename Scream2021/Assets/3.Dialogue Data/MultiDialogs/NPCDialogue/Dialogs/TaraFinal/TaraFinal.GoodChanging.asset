@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3505922431475038874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: eb2a5fca-7056-4c7c-8bf4-e9368a0339b4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Gahh.... I can feel... I hear H I M
+  children:
+  - 8a62d96d-c8a8-4902-8888-92a0ca27fbec
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 184
+    y: 81
+    width: 200
+    height: 120
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &-3419018473261041062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 8a62d96d-c8a8-4902-8888-92a0ca27fbec
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What???
+  children:
+  - 56ff54c7-1c1a-4906-975d-6ddf27f6b294
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 405
+    y: 101
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-2308054707279388704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 2ed71cb6-3d0a-426d-bfd7-7e35c539d433
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Take my notes... Run!
+  children: []
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1481
+    y: 240
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: TaraFinal.GoodChanging
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -3505922431475038874}
+  - {fileID: -3419018473261041062}
+  - {fileID: 8219486062856378302}
+  - {fileID: 4653204790478356168}
+  - {fileID: -2308054707279388704}
+--- !u!114 &4653204790478356168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 9db84ea9-39c2-4fc8-bba1-5263f5e46316
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: There is a key in my box... in the corner... Arghh... Use it...
+  children:
+  - 2ed71cb6-3d0a-426d-bfd7-7e35c539d433
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1113
+    y: 192
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+--- !u!114 &8219486062856378302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 56ff54c7-1c1a-4906-975d-6ddf27f6b294
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Listen... Something is happening to me... Run from here...
+  children:
+  - 9db84ea9-39c2-4fc8-bba1-5263f5e46316
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 755
+    y: 142
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}

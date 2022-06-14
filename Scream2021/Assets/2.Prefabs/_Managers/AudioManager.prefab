@@ -79,7 +79,7 @@ MonoBehaviour:
   - name: UI1
     clip: {fileID: 8300000, guid: 37ecc8cdd33ed264492316cdbbaac1e5, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.15
+    volume: 0.5
     pitch: 0
     loop: 0
     playOnAwake: 0
@@ -413,13 +413,13 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     playOnAwake: 0
-    advancedMode: 0
+    advancedMode: 1
     spatialBlend: 3
     stereoPan: 0
     sourceCurveType: 3
     rolloffMode: 1
     min: 0
-    max: 5
+    max: 50
     source: {fileID: 0}
   - name: Footstep4
     clip: {fileID: 8300000, guid: 506faa39c23d4224f8846b35151b8a97, type: 3}
@@ -464,7 +464,7 @@ MonoBehaviour:
     sourceCurveType: 1
     rolloffMode: 1
     min: 0
-    max: 50
+    max: 100
     source: {fileID: 0}
   - name: HeavyFootstep3
     clip: {fileID: 8300000, guid: d071ab763837753418b357001922b547, type: 3}
@@ -574,7 +574,7 @@ MonoBehaviour:
   - name: TaraSpeech1
     clip: {fileID: 8300000, guid: abfd5818339a3b44db1fb45a26cc9030, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.25
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   - name: TaraSpeech2
     clip: {fileID: 8300000, guid: f062a6f6262ca1244af7e31c5e4f9d5e, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.25
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   - name: TaraSpeech3
     clip: {fileID: 8300000, guid: 8f859e685ca1a664596f3611e41bff9c, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.25
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   - name: TaraSpeech4
     clip: {fileID: 8300000, guid: 37396eed9f9c89d46858c799426055d1, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.25
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   - name: TaraSpeech5
     clip: {fileID: 8300000, guid: 98f122c6e95e1e0429f5d770f364e6bd, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.01
+    volume: 0.25
     pitch: 0.1
     loop: 0
     playOnAwake: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   - name: TaraTalkingBackground
     clip: {fileID: 8300000, guid: 8684fbe6212706a4dbe9f12741fa84c1, type: 3}
     audioMixerGroup: {fileID: 0}
-    volume: 0.2
+    volume: 0.15
     pitch: 0.1
     loop: 1
     playOnAwake: 0
@@ -660,4 +660,364 @@ MonoBehaviour:
     rolloffMode: 1
     min: 0
     max: 50
+    source: {fileID: 0}
+  - name: HeartBit
+    clip: {fileID: 8300000, guid: 47a95c66c06a67a4f9dc7c21f522e387, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 1
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 0
+    max: 100
+    source: {fileID: 0}
+  - name: UI2
+    clip: {fileID: 8300000, guid: 511793b640f428c47a6385b954312102, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: UI3
+    clip: {fileID: 8300000, guid: f31d27307e1d59245a88ed1188293ba5, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: AwryBackground
+    clip: {fileID: 8300000, guid: f31c4d2e3c97fb84ba82bb00ff480227, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: WhooshEffect
+    clip: {fileID: 8300000, guid: 1bdfcd033b97c5847926c11fcbf3ef41, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraTransformSFX
+    clip: {fileID: 8300000, guid: 1ea6f9cdcddb83a42842a0e26fd09274, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraTransformBackground
+    clip: {fileID: 8300000, guid: 78adfcf439fa54d45a485a437c2a4eec, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive1
+    clip: {fileID: 8300000, guid: 5e6087910da87694888d98654f18dcbf, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive2
+    clip: {fileID: 8300000, guid: 08a2712d188e4c946b5f99786a8a56b8, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive3
+    clip: {fileID: 8300000, guid: bc8e9ed3e25cb3f439703a517f129127, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraSpeechAggresive4
+    clip: {fileID: 8300000, guid: 0ca357bb5069ae14c95677f040c3de16, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.5
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: JarLoop
+    clip: {fileID: 8300000, guid: 0b7d5dc21daca5c498cd29032d3628b8, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.35
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: SFXChange2
+    clip: {fileID: 8300000, guid: 4e1e2e7c785eb094d8f923d8bdcc919b, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.75
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: Decouple
+    clip: {fileID: 8300000, guid: ffabeec60ebc91049ac5a41a02823e55, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraAttack0
+    clip: {fileID: 8300000, guid: e1ccd52f3ad5a9c43bcc9b4523fd185c, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TaraAttack1
+    clip: {fileID: 8300000, guid: 2a94600d5c883824a8a9c87c5e7c3c1a, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: EndlessTrainScream
+    clip: {fileID: 8300000, guid: 7e9fa2fb9162a894bb9c39972664a8ea, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: EndlessMonsterLoop
+    clip: {fileID: 8300000, guid: 7dba69ceb2693af429328e7cfd28b755, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 1
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech1
+    clip: {fileID: 8300000, guid: 9b11dee2216798348b131c8058f51756, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech2
+    clip: {fileID: 8300000, guid: c80c00556e0ed4d46a6d101626c88437, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech3
+    clip: {fileID: 8300000, guid: f4109c3874196274b9ee3126a1aeeb27, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech4
+    clip: {fileID: 8300000, guid: 6dc36ddbea984d54693e85164b9b9e57, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: CultistSpeech5
+    clip: {fileID: 8300000, guid: c9bfd42da1241e843961f429b5cac543, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.55
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
+    source: {fileID: 0}
+  - name: TrainSoundPassesBy
+    clip: {fileID: 8300000, guid: 4fea7970891d33143a7df4738179fe59, type: 3}
+    audioMixerGroup: {fileID: 0}
+    volume: 0.85
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    advancedMode: 0
+    spatialBlend: 3
+    stereoPan: 0
+    sourceCurveType: 1
+    rolloffMode: 1
+    min: 1
+    max: 100
     source: {fileID: 0}

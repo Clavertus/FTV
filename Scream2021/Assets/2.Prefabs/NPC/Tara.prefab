@@ -19,6 +19,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1449905081869849654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074922609961956301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4338b0a2a823e408aeb5c11592ba84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9011476356461075190
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5709144112558417294}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1522343769676070383
 Light:
@@ -145,7 +157,6 @@ Transform:
   m_LocalPosition: {x: -4.23, y: 0, z: -1.92}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
-  - {fileID: 7703063433098142495}
   - {fileID: 405663473920452983}
   - {fileID: 784377106472356994}
   m_Father: {fileID: 0}
@@ -168,6 +179,7 @@ MonoBehaviour:
   headBone: {fileID: 7359847607746906967}
   distanceToLookAt: 8
   rotationSpeed: 120
+  angleCheck: 90
 --- !u!114 &1998302139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1ff3f1b48f3e0409b98d14deec7e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventReceiver: {fileID: 1449905081869849654}
+  footstepSound: 24
   animator: {fileID: 2726992538842670850}
 --- !u!114 &1787795100
 MonoBehaviour:
@@ -193,27 +207,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecae1805ddc592144804c0765e7bb202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtElderGodCinematicSequence: {fileID: 0}
+  elderGodFinalCinematic: {fileID: 0}
+  elderGodMovement: {fileID: 0}
+  stopZone: {fileID: 0}
+  taraMemento: {fileID: 0}
+  reactOnShelf: 1
+  taraShelf: {fileID: 0}
+  taraShelfDisableObjects: []
+  taraShelfEnableObjects: []
+  taraReferenceObjectsToHide: []
+  taraMonster: {fileID: 0}
+  elderGodDissapeared: 0
+  trainToDissapear: {fileID: 0}
+  elderGodToDissapear: {fileID: 0}
+  elderGodToAppear: {fileID: 0}
   dialog_0: {fileID: 11400000, guid: 45346c7a33377df48b3ced3c8d3624c6, type: 2}
   dialog_1: {fileID: 11400000, guid: 640ddd756f520b14b8c810cdf7dce33e, type: 2}
-  dialog_2: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
-  dialog_3: {fileID: 0}
+  dialog_2: {fileID: 11400000, guid: f6102488492a64346ad82cfa72bbcead, type: 2}
+  dialog_3: {fileID: 11400000, guid: 4bf3c32832a0e7341a20afca961a432d, type: 2}
   dialog_4: {fileID: 0}
+  idle_dialog: {fileID: 11400000, guid: b3ea709bd539555419e76591650c1316, type: 2}
+  shelf_dialog: {fileID: 0}
+  changing_dialog: {fileID: 11400000, guid: 37a285fe08a6f7544bdb27e71415e9d9, type: 2}
+  good_dialog: {fileID: 0}
+  run_dialog: {fileID: 0}
   npc_Dialog: {fileID: 1954732293560671682}
   point_0: {fileID: 0}
   point_1: {fileID: 0}
   point_2: {fileID: 0}
+  point_3: {fileID: 0}
   open_texture: {fileID: 2800000, guid: 1dda17baabe13f44281b7252610f89dd, type: 3}
   close_texture: {fileID: 2800000, guid: 2bf6a58f52daf2145af38fc496f6f4c0, type: 3}
+  open_Awry_texture: {fileID: 2800000, guid: 3cc63b82bc130fb468870947a6ca3218, type: 3}
+  close_Awry_texture: {fileID: 2800000, guid: a571191670303cf4a9dd1cf838391d0c, type: 3}
   speak_texture: {fileID: 2800000, guid: b11daab2c72717a4989ffde9675de2a7, type: 3}
+  behaviour_state: 0
   openTime: 4
   closeTime: 0.25
   speakTime: 0.25
+  volume: 0.1
+  pitch: 1.05
   taraSpeech:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  transformParticles: {fileID: 0}
+  timeUntilElderGodBite: 18
+  countTimeToDeath: 0
 --- !u!114 &4680006666525053139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +309,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5709144112558417294}
+    m_TransformParent: {fileID: 7359847607746906967}
     m_Modifications:
     - target: {fileID: 368575087707982604, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: checkPlayerRotation
@@ -292,37 +335,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCInspectable
       objectReference: {fileID: 0}
+    - target: {fileID: 7662941911680507375, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662941911680507375, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.925
+      objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.100000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.099999994
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.008641433
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.62
+      value: -0.21323198
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.025205743
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.733719
+      value: 0.72143483
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.022035068
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.679453
+      value: 0.69144356
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.030856792
       objectReference: {fileID: 0}
     - target: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -338,11 +401,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
---- !u!4 &7703063433098142495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7685351679693447570, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
-  m_PrefabInstance: {fileID: 18328598822371981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1954732293560671682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1973006998461144911, guid: 15ba8acb894ab514bbcf6528d57680d1, type: 3}
@@ -371,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6263c43d0cc9b874b91903dbcd5b0d22, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6263c43d0cc9b874b91903dbcd5b0d22, type: 3}
       propertyPath: m_LocalPosition.x

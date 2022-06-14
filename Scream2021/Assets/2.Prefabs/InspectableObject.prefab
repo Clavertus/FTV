@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8946312299331486744}
   - component: {fileID: 7840559975353710884}
   - component: {fileID: 4945968055245931205}
+  - component: {fileID: 4187489491323570276}
   m_Layer: 0
   m_Name: InspectableObject
   m_TagString: Untagged
@@ -79,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogObject: {fileID: 0}
   disableSameDialogues: 1
+  interactionCounter: 0
 --- !u!114 &4945968055245931205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +94,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueIdentifier: 
+--- !u!114 &4187489491323570276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069974297844066886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18daa23f697917a4cbcf8a19c7e7dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSoundOnInspection: 0
+  sound: 10
+  interactionCounter: 0
 --- !u!1001 &935871765906205444
 PrefabInstance:
   m_ObjectHideFlags: 0

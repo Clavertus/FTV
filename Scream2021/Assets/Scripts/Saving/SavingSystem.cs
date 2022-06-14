@@ -43,6 +43,7 @@ namespace FTV.Saving
         public bool checkSave(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);
+            Debug.LogWarning("That path will be checked: " + path);
             return File.Exists(path);
         }
 
@@ -63,7 +64,7 @@ namespace FTV.Saving
         private void SaveFile(string saveFile, object state)
         {
             string path = GetPathFromSaveFile(saveFile);
-            print("Saving to " + path);
+            Debug.LogWarning("Saving to " + path);
             using (FileStream stream = File.Open(path, FileMode.Create))
             {
                 BinaryFormatter formatter = new BinaryFormatter();

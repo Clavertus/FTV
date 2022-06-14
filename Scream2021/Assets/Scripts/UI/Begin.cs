@@ -1,6 +1,8 @@
 using FTV.Saving;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,9 @@ public class Begin : MonoBehaviour {
 
     [SerializeField] Toggle showFpsToogle = null;
     public Slider sensivitySlider;
+    //[SerializeField] TMPro.TMP_Dropdown resoultionDropdown = null;
+
+    TitleSavingWrapper titleSavingWrapper = null;
 
     void Start()
     {
@@ -30,6 +35,7 @@ public class Begin : MonoBehaviour {
         settingsCanvas.SetActive(false);
         newGameCanvas.SetActive(false);
 
+        AudioManager.instance.StopAllSounds();
         AudioManager.instance.StartPlayingFromAudioManager(soundsEnum.Title);
 
         if (PlayerPrefs.HasKey("Setting_ShowFps"))
@@ -38,18 +44,28 @@ public class Begin : MonoBehaviour {
             if (showFpsToogle) showFpsToogle.isOn = showFPS;
         }
 
+        /*if (PlayerPrefs.HasKey("resTargetWidth"))
+        {
+            int targetRes = PlayerPrefs.GetInt("resTargetWidth");
+            if (targetRes == 640)
+            {
+                resoultionDropdown.value = (Int32)ResolutionList.res640x360;
+            }
+        }*/
+
         if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
 
         if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
 
         if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
 
-        if(FindObjectOfType<TitleSavingWrapper>().CheckSaveGame() == false)
+        titleSavingWrapper = FindObjectOfType<TitleSavingWrapper>();
+        if (titleSavingWrapper.CheckSaveGame() == false)
         {
             loadButton.SetActive(false);
         }
     }
-  
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.L) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
@@ -103,7 +119,7 @@ public class Begin : MonoBehaviour {
 
     public void BeginGame()
     {
-        if (FindObjectOfType<TitleSavingWrapper>().CheckSaveGame())
+        if (titleSavingWrapper.CheckSaveGame())
         {
             Debug.Log("Save file exists");
             ToggleNewGameCanvas();
@@ -120,7 +136,7 @@ public class Begin : MonoBehaviour {
         beginning = true;
         Cursor.visible = false;
 
-        FindObjectOfType<TitleSavingWrapper>().DeleteSaveFile();
+        titleSavingWrapper.DeleteSaveFile();
 
         AudioManager.instance.StopFromAudioManager(soundsEnum.Title);
 
@@ -196,8 +212,32 @@ public class Begin : MonoBehaviour {
         PlayerPrefs.SetFloat("mouse_sensivity", sensivitySlider.value);
     }
 
-    private IEnumerator ZoomPanel(bool IfNewGame)
+    /*public enum ResolutionList
+        {
+          res320x180,
+          res640x360
+        };
+    public void setResolutionSetting(Int32 value)
     {
+        if(value == (Int32)ResolutionList.res320x180)
+        {
+            PlayerPrefs.SetInt("resTargetWidth", 320);
+            PlayerPrefs.SetInt("resTargetHeigth", 180);
+        }
+        if (value == (Int32)ResolutionList.res640x360)
+        {
+            PlayerPrefs.SetInt("resTargetWidth", 640);
+            PlayerPrefs.SetInt("resTargetHeigth", 360);
+        }
+    }*/
+
+        private IEnumerator ZoomPanel(bool IfNewGame)
+    {
+        if (newGameCanvas.activeSelf)
+        {
+            newGameCanvas.SetActive(false);
+        }
+
         float t = 0;
         float scale = zoomInPanel.GetComponent<RectTransform>().localScale.x;
         while (t < zoomDuration)

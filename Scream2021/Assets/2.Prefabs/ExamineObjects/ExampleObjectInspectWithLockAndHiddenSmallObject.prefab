@@ -90,8 +90,8 @@ GameObject:
   - component: {fileID: 3350511623325047045}
   - component: {fileID: 1652595645003621023}
   - component: {fileID: 3178314520853915758}
-  - component: {fileID: 3678130862782223782}
   - component: {fileID: 7373875411463637917}
+  - component: {fileID: 3706721104866078594}
   m_Layer: 0
   m_Name: ExamineObject
   m_TagString: Untagged
@@ -169,13 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1210d2d75a802e84ba1f16c4b6f4e625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCam: 1.25
+  distanceFromCam: 0.95
   offsetCamPos: 0
   offsetY: 1
   offsetX: 1
-  xRotation: 50
-  yRotation: -90
+  xRotation: 0
+  yRotation: 0
   zRotation: 0
+  extraPressToShow: 1
 --- !u!114 &3178314520853915758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,22 +191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainObjRenderer: {fileID: 4834738872102688736}
   smallObjRenderer: {fileID: 2510271610565318983}
---- !u!114 &3678130862782223782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613865608695423042}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12cc6013756b6754bae5b836491528e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseObjInspectDialogue: {fileID: 11400000, guid: d2c8b4972b574144fad8e4b8f1d78898, type: 2}
-  smallObjInspectDialogue: {fileID: 11400000, guid: 9f4e83452e159ec40af144be638b1979, type: 2}
-  smallObject: {fileID: 6976517242831717537}
-  inspectCanvas: {fileID: 6492639807082480451}
 --- !u!114 &7373875411463637917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,10 +203,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960a608705cc4b4d90f33b9abbf5cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainObjectAnimator: {fileID: 3706721104866078594}
+  preOpenAnimationTriggerName: Pre-Open
+  openAnimationTriggerName: Open
+  CloseAnimationTriggerName: Close
   baseObjInspectDialogue: {fileID: 11400000, guid: d2c8b4972b574144fad8e4b8f1d78898, type: 2}
   LockInspectDialogue: {fileID: 11400000, guid: 54d3b90b185e0204093773895ce3921a, type: 2}
+  UnlockedDialogue: {fileID: 0}
   lockObject: {fileID: 6976517242831717537}
   inspectCanvas: {fileID: 6492639807082480451}
+--- !u!95 &3706721104866078594
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613865608695423042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2077700257724866857
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +862,7 @@ MonoBehaviour:
   - {fileID: -846350796871639857, guid: 1d1400468a85b864cbfbd8d9f7ad55d3, type: 3}
   slotUnselected: {r: 1, g: 1, b: 1, a: 1}
   slotSelected: {r: 0.10409507, g: 0.98039216, b: 0, a: 1}
+  unlockSequence: 000000000000000000000000
 --- !u!1 &8652765625924466571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2868220596457314540, guid: 5979885cf369c2c4898d9a32391a17c2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2868220596457314541, guid: 5979885cf369c2c4898d9a32391a17c2, type: 3}
       propertyPath: m_Pivot.x
@@ -1761,7 +1771,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
-      value: Inspect Gameboy
+      value: Inspect MainObject
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_IsActive

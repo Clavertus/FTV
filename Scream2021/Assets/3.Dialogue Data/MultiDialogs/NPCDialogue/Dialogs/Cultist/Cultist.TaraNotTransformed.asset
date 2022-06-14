@@ -1,0 +1,289 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8449926527663925208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: a12558be-86ff-4113-b106-059c85a89ed5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: We need to meet. Physically. I will guide you, so you could find me.
+  children:
+  - ddbfae83-7659-440f-803f-da5b4db66e04
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 3354
+    y: 704
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &-4981796700046063709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: ddbfae83-7659-440f-803f-da5b4db66e04
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Be brave, stranger and do not afraid. We will help each other.
+  children: []
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 3818
+    y: 733
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &-4297063942978689597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 16fd0ab3-26b8-42a8-8a9c-5aa2311e459b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: You mean Tara?
+  children:
+  - 522b86ab-1429-42c5-a9c2-408989afc03c
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2223
+    y: 558
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &-1943488547636667152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I will answer all of them later. We have not much time now.
+  children:
+  - 0ab92223-794c-431a-a7cd-55d45a9b47d0
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1223
+    y: 234
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &-497263980010782079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: b4c3cb86-d069-4e12-81dc-6d3f07f12841
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Directly with questions, right?
+  children:
+  - 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 865
+    y: 187
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965d37952a3dcab4e896755c2266dd63, type: 3}
+  m_Name: Cultist.TaraNotTransformed
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5780831932351350083}
+  - {fileID: 4867224095151257355}
+  - {fileID: -497263980010782079}
+  - {fileID: -1943488547636667152}
+  - {fileID: 498915994254615887}
+  - {fileID: 8432735185481493505}
+  - {fileID: -4297063942978689597}
+  - {fileID: 4942356775333792532}
+  - {fileID: 6269208268283517368}
+  - {fileID: -8449926527663925208}
+  - {fileID: -4981796700046063709}
+--- !u!114 &498915994254615887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 0ab92223-794c-431a-a7cd-55d45a9b47d0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: ...
+  children:
+  - 3769336b-b67d-4892-b548-d2d07eb73fcf
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1549
+    y: 323
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &4867224095151257355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: e5dbf818-a638-4ec7-9027-fb9e92100149
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: New one? ...and who are you?
+  children:
+  - b4c3cb86-d069-4e12-81dc-6d3f07f12841
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 579
+    y: 129
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+--- !u!114 &4942356775333792532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 522b86ab-1429-42c5-a9c2-408989afc03c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes, I have spoken with her at the last moment.
+  children:
+  - 6f7393f0-3f06-45ea-80a4-c4a08af73f39
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2578
+    y: 640
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &5780831932351350083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 84e5aabb-e1db-481d-b9f9-f1273db181dd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello the new one...
+  children:
+  - e5dbf818-a638-4ec7-9027-fb9e92100149
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 186
+    y: 82
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &6269208268283517368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 6f7393f0-3f06-45ea-80a4-c4a08af73f39
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: She had a gift for you. You will find it by your side when you wake up.
+  children:
+  - a12558be-86ff-4113-b106-059c85a89ed5
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 2909
+    y: 663
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
+--- !u!114 &8432735185481493505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
+  m_Name: 3769336b-b67d-4892-b548-d2d07eb73fcf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You have done well. The Elder One has got her, but she has not lost her soul.
+  children:
+  - 16fd0ab3-26b8-42a8-8a9c-5aa2311e459b
+  triggerId: 0
+  rect:
+    serializedVersion: 2
+    x: 1884
+    y: 451
+    width: 300
+    height: 130
+  style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}

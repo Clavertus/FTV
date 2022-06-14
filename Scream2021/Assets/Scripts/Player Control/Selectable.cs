@@ -22,7 +22,7 @@ public class Selectable : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log(gameObject.name);  
+        //Debug.Log(gameObject.name);  
     }
     void Start()
     {
@@ -37,7 +37,7 @@ public class Selectable : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(this.gameObject.name + this.tag);
+        //Debug.Log(this.gameObject.name + this.tag);
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == false)) { EnterSelectionZone();  }
@@ -46,7 +46,7 @@ public class Selectable : MonoBehaviour
 
         if ((distance <= maxDistanceFromPlayer) && (enteredSelectable == false) && (checkPlayerRotation == true)) 
         {
-            Debug.Log(player.transform.eulerAngles.y);
+            //Debug.Log(player.transform.eulerAngles.y);
             if (player.transform.eulerAngles.y >= minYLookRotation && player.transform.eulerAngles.y <= maxYLookRotation) 
             EnterSelectionZone(); 
         }
@@ -58,7 +58,7 @@ public class Selectable : MonoBehaviour
     //enables canvas that lets player know the object can be selected
     public void DisplaySelectable()
     {
-        Debug.Log(gameObject + " showing selectable");
+        //Debug.Log(gameObject + " showing selectable");
         selectableCanvas.gameObject.SetActive(true);
     }
 
@@ -86,7 +86,7 @@ public class Selectable : MonoBehaviour
     {
         enteredSelectable = true; 
         gameObject.tag = ("Selectable"); 
-        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.UI1);  
+        // AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.UI1);  
     }
     public void ExitSelectionZone() 
     {

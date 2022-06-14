@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 6045591277892984536}
   m_Layer: 0
   m_Name: Chef Boyardee
-  m_TagString: Untagged
+  m_TagString: ExamineHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6045591279598149612}
-  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.6599998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -603,13 +603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3046544c432e7384bab7136eb9308afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  examineCanvas: {fileID: 0}
-  dialogueBox: {fileID: 0}
-  playerBod: {fileID: 6045591277892984538}
+  playerBody: {fileID: 6045591277892984538}
   player: {fileID: 6045591278918779741}
   cameraFrontObject: {fileID: 695659500917824795}
   distanceFromCam: 2
-  examineMode: 0
 --- !u!1 &6391516838021723982
 GameObject:
   m_ObjectHideFlags: 0

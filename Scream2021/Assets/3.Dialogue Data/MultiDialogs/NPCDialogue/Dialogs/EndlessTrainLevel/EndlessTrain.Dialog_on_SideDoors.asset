@@ -27,8 +27,9 @@ MonoBehaviour:
   m_Name: 70a7c419-b605-43e7-8f31-256675652f07
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Opening door in running train is not a good idea.
+  text: Opening the door in a moving train is not a good idea.
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 103

@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b41827392050418485d1f4e9388fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeMaterialOnSelection: 1
+  allowMoreThanOneInspection: 0
   originalMat: {fileID: 2100000, guid: f10914071b0ec6842b711c2541846062, type: 2}
   highlightMat: {fileID: 2100000, guid: af6fad8a0feb8f845920865b3705731a, type: 2}
 --- !u!114 &110465944016938250
@@ -596,7 +598,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_Name
-      value: Inspect Gameboy
+      value: Inspect MainObject
       objectReference: {fileID: 0}
     - target: {fileID: 2744798833667800990, guid: 3a6879201aae20c4aba2a8da92ca6e9a, type: 3}
       propertyPath: m_IsActive
