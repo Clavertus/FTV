@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.001
+  m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2856,7 +2856,6 @@ GameObject:
   - component: {fileID: 8338348775057179185}
   - component: {fileID: 4556485513589151443}
   - component: {fileID: 2336199327638753183}
-  - component: {fileID: 5236201406046595559}
   - component: {fileID: 2863586649440579221}
   m_Layer: 5
   m_Name: Master Volume
@@ -2981,19 +2980,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5236201406046595559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8899476211962079792}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0308ccba229b24cb84fb4d11df77aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensivitySlider: {fileID: 6880275986222210454}
 --- !u!114 &2863586649440579221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3008,6 +2994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundSlider: {fileID: 6880275986222210454}
   am: {fileID: 24100000, guid: 7c17d0aba4a3cad40bd7c1fe558c3210, type: 2}
+  defaultVol: 0.3
 --- !u!1 &8946277237394957551
 GameObject:
   m_ObjectHideFlags: 0
