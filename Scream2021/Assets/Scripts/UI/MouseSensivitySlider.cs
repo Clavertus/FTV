@@ -10,13 +10,23 @@ public class MouseSensivitySlider : MonoBehaviour
 
 	MouseLook mouseLook;
 
+	const float default_mouse_sense = 20f;
+
     private void Awake()
 	{
 		mouseLook = FindObjectOfType<MouseLook>();
 		if (mouseLook)
 		{
 			//Debug.Log("mouse Look found!");
-			if (PlayerPrefs.HasKey("mouse_sensivity")) mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
+			if (PlayerPrefs.HasKey("mouse_sensivity")) 
+			{
+				mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
+			}
+			else
+            {
+				mouseLook.mouseSensitivity = default_mouse_sense;
+				PlayerPrefs.SetFloat("mouse_sensivity", default_mouse_sense);
+			}
 		}
 		else
 		{
@@ -28,12 +38,21 @@ public class MouseSensivitySlider : MonoBehaviour
 	{
 		if(sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
 
-		if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+		if (PlayerPrefs.HasKey("mouse_sensivity"))
+		{
+			sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+		}
+		else
+		{
+			sensivitySlider.value = default_mouse_sense;
+			PlayerPrefs.SetFloat("mouse_sensivity", default_mouse_sense);
+		}
 
 		mouseLook = FindObjectOfType<MouseLook>();
 		if(mouseLook)
 		{
 			if (PlayerPrefs.HasKey("mouse_sensivity")) mouseLook.mouseSensitivity = PlayerPrefs.GetFloat("mouse_sensivity");
+			else mouseLook.mouseSensitivity = default_mouse_sense;
 		}
 		else
 		{
