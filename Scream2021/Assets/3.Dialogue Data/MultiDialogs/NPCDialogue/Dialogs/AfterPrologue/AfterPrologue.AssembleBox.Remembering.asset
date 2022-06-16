@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Anyway I do not need to use it now.
+  speakerName: 
   children: []
   triggerId: 0
   rect:
@@ -37,15 +38,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: It was a horrible experience.
+  speakerName: 
   children:
   - 92857466-a1e6-4726-81da-b915cf6c999c
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 344
-    y: 229
+    x: 124
+    y: 245.9
     width: 300
-    height: 130
+    height: 180
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:

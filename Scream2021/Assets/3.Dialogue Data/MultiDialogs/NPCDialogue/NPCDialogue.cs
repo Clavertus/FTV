@@ -112,6 +112,7 @@ namespace FTV.Dialog
                 bool isParentPlayerSpeaker = parent.GetIsPlayerSpeaking();
 
                 newChildNode.SetIsPlayerSpeaking(!isParentPlayerSpeaker);
+                newChildNode.SetSpeakerName(parent.GetSpeakerName());
 
                 newChildNode.SetPosition(
                     new Vector2(parent.GetRect().position.x + 300, parent.GetRect().position.y + 50));

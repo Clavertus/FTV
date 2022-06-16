@@ -24,6 +24,8 @@ namespace FTV.Dialog.Editor
         [NonSerialized]
         DialogNode deletingNode = null;
         [NonSerialized]
+        DialogNode editSpeakerNameNode = null;
+        [NonSerialized]
         DialogNode linkingParentNode = null;
         Vector2 scrollPosition;
         [NonSerialized]
@@ -132,6 +134,15 @@ namespace FTV.Dialog.Editor
                     deletingNode = null;
                     //EditorUtility.SetDirty(selectedDialogue);
                 }
+                if(editSpeakerNameNode != null)
+                {
+                    foreach (DialogNode node in selectedDialogue.GetAllNodes())
+                    {
+                        if (node == editSpeakerNameNode) continue;
+                        node.SetSpeakerName(editSpeakerNameNode.GetSpeakerName());
+                    }
+                    editSpeakerNameNode = null;
+                }
             }
         }
 
@@ -195,6 +206,8 @@ namespace FTV.Dialog.Editor
 
             node.SetText(EditorGUILayout.TextField(node.GetText()));
 
+            node.SetSpeakerName(EditorGUILayout.TextField(node.GetSpeakerName()));
+
             node.SetTriggerId(EditorGUILayout.IntField(node.GetTriggerId()));
 
             GUILayout.BeginHorizontal();
@@ -220,6 +233,11 @@ namespace FTV.Dialog.Editor
                 EditorGUILayout.LabelField("Missing dialog style!", labelStyle);
             }
             node.SetIsPlayerSpeaking( GUILayout.Toggle(node.GetIsPlayerSpeaking(), "Is player speaking: "));
+
+            if (GUILayout.Button("Fill Speaker Name"))
+            {
+                editSpeakerNameNode = node;
+            }
 
             GUILayout.EndArea();
         }

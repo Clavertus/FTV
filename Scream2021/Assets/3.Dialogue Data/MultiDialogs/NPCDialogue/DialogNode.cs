@@ -13,6 +13,8 @@ namespace FTV.Dialog
         bool isPlayerSpeaking = false; //turn to enum in case of more participants then 2
         [SerializeField] 
         string text;
+        [SerializeField]
+        string speakerName = "";
         [SerializeField] 
         List<string> children = new List<string>();
         [SerializeField]
@@ -31,6 +33,10 @@ namespace FTV.Dialog
         public string GetText()
         {
             return text;
+        }
+        public string GetSpeakerName()
+        {
+            return speakerName;
         }
 
         public List<string> GetChildren()
@@ -63,6 +69,15 @@ namespace FTV.Dialog
             {
                 Undo.RecordObject(this, "Update Dialogue Node");
                 text = newText;
+                EditorUtility.SetDirty(this);
+            }
+        }
+        public void SetSpeakerName(string newSpeakerName)
+        {
+            if (newSpeakerName != speakerName)
+            {
+                Undo.RecordObject(this, "Update Dialogue Node");
+                speakerName = newSpeakerName;
                 EditorUtility.SetDirty(this);
             }
         }
