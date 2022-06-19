@@ -63,9 +63,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: b64f0ff9-e5ad-4e01-99dc-ba04efb6c1fa
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
+  isPlayerSpeaking: 0
   text: My name? This isn't the time for small talk.
-  speakerName: 
+  speakerName: ???
   children:
   - f741b62e-b5f0-4dc7-8487-1939e151a405
   triggerId: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     y: 522
     width: 200
     height: 120
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
