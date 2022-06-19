@@ -66,54 +66,70 @@ public class Begin : MonoBehaviour {
         }
     }
 
+
+    bool avoidDoublePress = false;
+    float avoidDoublePressTime = 0.05f;
+    float avoidDoublePressCounter = 0f;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+        if(avoidDoublePress == false)
         {
-            PlayButtonSound();
-            LoadGame();
-        }
+            if (Input.GetKeyDown(KeyCode.L) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+            {
+                PlayButtonSound();
+                LoadGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
-        {
-            PlayButtonSound();
-            BeginGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+            {
+                PlayButtonSound();
+                BeginGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleQuitCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleQuitCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleSettingsCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleSettingsCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            QuitGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                QuitGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleQuitCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleQuitCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && newGameCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            StartNewGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.Y) && newGameCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                StartNewGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.N) && newGameCanvas.activeSelf && !beginning)
+            else if (Input.GetKeyDown(KeyCode.N) && newGameCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleNewGameCanvas();
+            }
+        }
+        else
         {
-            PlayButtonSound();
-            ToggleNewGameCanvas();
+            avoidDoublePressCounter += Time.deltaTime;
+            if (avoidDoublePressCounter > avoidDoublePressTime)
+            {
+                avoidDoublePress = false;
+                avoidDoublePressCounter = 0f;
+            }
         }
     }
 
