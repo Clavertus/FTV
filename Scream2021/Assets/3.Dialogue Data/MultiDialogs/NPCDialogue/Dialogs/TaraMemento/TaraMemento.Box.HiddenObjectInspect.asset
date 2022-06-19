@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Here it goes ...
+  speakerName: 
   children:
   - a4ddfa6f-107c-44c3-ba99-1ef8db4906d1
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 63
@@ -37,8 +39,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Is it a weapon?
+  speakerName: 
   children:
   - a593e688-4c5b-4077-8250-9b304d2934d7
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 314
@@ -60,7 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Not sure I want to know the truth ...
+  speakerName: 
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 1215
@@ -100,8 +106,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Why she is hiding it so deep?
+  speakerName: 
   children:
   - 29d156ef-f48d-43c1-931f-e20e9c8a82ed
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 915
@@ -123,8 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Too rusty to fire...
+  speakerName: 
   children:
   - 5fc96126-cc30-43e2-8017-9a08c3073a8c
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 614

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: My head hurts...
+  speakerName: 
   children:
   - c18d3705-e896-4d0c-aaa9-e0d28428e682
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 399
@@ -37,8 +39,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Argh...
+  speakerName: 
   children:
   - d222d6fc-bccc-4cab-9b10-de985e1ffab8
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -60,7 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: She dissapeared...
+  speakerName: 
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 699

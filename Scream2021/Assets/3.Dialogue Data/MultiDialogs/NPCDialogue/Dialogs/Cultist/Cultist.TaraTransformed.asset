@@ -39,7 +39,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I will answer all of them later. We have not much time now.
-  speakerName: 
+  speakerName: ???
   children:
   - 0ab92223-794c-431a-a7cd-55d45a9b47d0
   triggerId: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Directly with questions, right?
-  speakerName: 
+  speakerName: ???
   children:
   - 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
   triggerId: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: We need to meet. Physically. I will guide you, so you could find me.
-  speakerName: 
+  speakerName: ???
   children:
   - 8a5d652f-e03e-4f74-856a-be761ae1ead4
   triggerId: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Yes. Unfortunately, that is how it works here.
-  speakerName: 
+  speakerName: ???
   children:
   - 6f7393f0-3f06-45ea-80a4-c4a08af73f39
   triggerId: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Hello the new one...
-  speakerName: 
+  speakerName: ???
   children:
   - e5dbf818-a638-4ec7-9027-fb9e92100149
   triggerId: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
     x: 186
     y: 82
     width: 300
-    height: 130
+    height: 200
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
 --- !u!114 &6269208268283517368
 MonoBehaviour:
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: But YOU have escaped the Elder one.
-  speakerName: 
+  speakerName: ???
   children:
   - 8a35804d-65e6-4a1d-bbbf-9bc0dd11cdeb
   triggerId: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Such a tragedy with that poor woman...
-  speakerName: 
+  speakerName: ???
   children:
   - 16fd0ab3-26b8-42a8-8a9c-5aa2311e459b
   triggerId: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Be brave, stranger and do not be afraid. We will help each other.
-  speakerName: 
+  speakerName: ???
   children: []
   triggerId: 0
   rect:

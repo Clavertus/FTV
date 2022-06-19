@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: We need to meet. Physically. I will guide you, so you could find me.
+  speakerName: ???
   children:
   - ddbfae83-7659-440f-803f-da5b4db66e04
   triggerId: 0
@@ -38,6 +39,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Be brave, stranger and do not afraid. We will help each other.
+  speakerName: ???
   children: []
   triggerId: 0
   rect:
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: You mean Tara?
+  speakerName: 
   children:
   - 522b86ab-1429-42c5-a9c2-408989afc03c
   triggerId: 0
@@ -85,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I will answer all of them later. We have not much time now.
+  speakerName: ???
   children:
   - 0ab92223-794c-431a-a7cd-55d45a9b47d0
   triggerId: 0
@@ -109,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Directly with questions, right?
+  speakerName: ???
   children:
   - 835c8877-52f7-46a5-b6b0-9d9a21ef3a97
   triggerId: 0
@@ -157,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: ...
+  speakerName: 
   children:
   - 3769336b-b67d-4892-b548-d2d07eb73fcf
   triggerId: 0
@@ -181,13 +187,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: New one? ...and who are you?
+  speakerName: 
   children:
   - b4c3cb86-d069-4e12-81dc-6d3f07f12841
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 579
-    y: 129
+    x: 530
+    y: 118
     width: 300
     height: 130
   style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
@@ -205,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Yes, I have spoken with her at the last moment.
+  speakerName: ???
   children:
   - 6f7393f0-3f06-45ea-80a4-c4a08af73f39
   triggerId: 0
@@ -229,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Hello the new one...
+  speakerName: ???
   children:
   - e5dbf818-a638-4ec7-9027-fb9e92100149
   triggerId: 0
@@ -237,7 +246,7 @@ MonoBehaviour:
     x: 186
     y: 82
     width: 300
-    height: 130
+    height: 200
   style: {fileID: 11400000, guid: 7c9d7d3d80b63294a8ea75453d774832, type: 2}
 --- !u!114 &6269208268283517368
 MonoBehaviour:
@@ -253,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: She had a gift for you. You will find it by your side when you wake up.
+  speakerName: ???
   children:
   - a12558be-86ff-4113-b106-059c85a89ed5
   triggerId: 0
@@ -277,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: You have done well. The Elder One has got her, but she has not lost her soul.
+  speakerName: ???
   children:
   - 16fd0ab3-26b8-42a8-8a9c-5aa2311e459b
   triggerId: 0

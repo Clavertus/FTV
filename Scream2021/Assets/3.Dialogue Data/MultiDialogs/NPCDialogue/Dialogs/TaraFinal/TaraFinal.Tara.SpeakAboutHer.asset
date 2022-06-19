@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: And the pistol, that you are trying to hide...
+  speakerName: 
   children:
   - a5152c99-b90a-4ea2-9d16-e50683daca6c
   triggerId: 0
@@ -38,6 +39,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Argh! Stop...
+  speakerName: Tara
   children:
   - 43c3c063-1fba-4017-a0d7-297f54e6839d
   triggerId: 0
@@ -62,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Why are you asking all this???
+  speakerName: Tara
   children:
   - 62d9d3e7-b67c-4714-8808-6b97adc806ed
   - e5be61be-bfdb-4ee3-b975-9199ba0f5152
@@ -88,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Tell me the truth. What you are hiding?
+  speakerName: 
   children:
   - 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
   triggerId: 0
@@ -112,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: ...that egyptian book...
+  speakerName: 
   children:
   - 6adc2df9-4742-4fcc-9549-ae5c20efa0f5
   triggerId: 0
@@ -136,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: ... that last time, when I... when we were there...
+  speakerName: 
   children:
   - 8398bb41-2118-4a11-939b-862457603f3b
   triggerId: 0
@@ -160,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I was.. I need revenge... I need to kill him...
+  speakerName: Tara
   children:
   - 4a90dcb5-91fc-4ede-821d-8cc7d219e415
   - 614770c1-cf80-4981-84fc-c84bd4fb2729
@@ -185,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Wait, I... Something... Argh, it hurts to remember...
+  speakerName: Tara
   children:
   - 60bca299-d43e-4c06-a1ce-0b068473a8d3
   triggerId: 0
@@ -209,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: What? I... I can not remember.
+  speakerName: Tara
   children:
   - fa0c85d4-3830-4d05-9217-00119d99cf47
   - 914c20e7-8640-42fc-9c57-3a59c3520599
@@ -236,6 +245,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Argh.... Yes... Last time in Egypt... We tried to change things... No one
     listened...
+  speakerName: Tara
   children:
   - d119468d-0384-47bc-90d4-216e145cee6c
   triggerId: 0
@@ -260,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: What?
+  speakerName: Tara
   children:
   - 72f39304-158f-4201-bf6d-11785f23648e
   triggerId: 1
@@ -284,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Just tell me what happened!
+  speakerName: 
   children:
   - 442dc9fe-220d-4e80-9080-8e44832605b6
   triggerId: 0
@@ -308,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I want to ask you something...
+  speakerName: 
   children:
   - 8d16702a-ec6e-43ec-b6e7-e53ffac4f9ff
   triggerId: 0
@@ -332,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Yes... I can remember that... But I do not want to...
+  speakerName: Tara
   children:
   - 47b151b3-9099-4af6-8561-e6ea025db1b3
   triggerId: 0
@@ -356,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I need to know the truth, so I can help both of us!
+  speakerName: 
   children:
   - 171a1187-5e47-4b0b-af05-1d42ec827877
   triggerId: 0
@@ -380,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: ...
+  speakerName: Tara
   children:
   - 72918fee-c214-4087-a578-308e0f8b45d8
   triggerId: 0
@@ -405,6 +421,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: ...They were destorying the land... History... EVERYTHING! With their stupid
     oil...
+  speakerName: Tara
   children:
   - 226ee6d9-940a-4f92-8f05-0c9b32444549
   triggerId: 0
@@ -429,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Why are you asking all this???
+  speakerName: Tara
   children:
   - 8398bb41-2118-4a11-939b-862457603f3b
   - 62d9d3e7-b67c-4714-8808-6b97adc806ed
@@ -455,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Revenge will not bring your loved one back... Are you crazy???
+  speakerName: 
   children:
   - c8407020-bf08-4912-94f5-0c2e706db275
   triggerId: 0
@@ -479,6 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Did you plan on using that gun?
+  speakerName: 
   children:
   - 60b68399-15d8-460f-97ca-22cf3b8ed1be
   triggerId: 0
@@ -503,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Arrrghhh! It is hurting me... I won't forgive you!
+  speakerName: Tara
   children: []
   triggerId: 2
   rect:
@@ -580,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: You have worked in archeology?
+  speakerName: 
   children:
   - b55aa88a-8ecf-415a-9bde-313b3cdadc4a
   triggerId: 0
@@ -604,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Arrgghh! I do not know what you are DOING, but it HURTS!
+  speakerName: Tara
   children:
   - f840a621-d400-4370-af3c-922acf7c9978
   triggerId: 0
@@ -628,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Where have you worked... In Egypt?
+  speakerName: 
   children:
   - ac2d6857-2460-46be-bee0-e116ff29f5fb
   triggerId: 0
@@ -652,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: No... I have to know...
+  speakerName: 
   children:
   - 442dc9fe-220d-4e80-9080-8e44832605b6
   triggerId: 0
@@ -676,6 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I... Yes... Argh...
+  speakerName: Tara
   children:
   - f02dae9a-b5f4-42b9-85d1-a039bf4e08e2
   triggerId: 0
@@ -701,6 +727,7 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: I saw some strange stuff in that other car. Is it yours? Could you tell me
     about it?
+  speakerName: 
   children:
   - 55f7083b-48ef-4baf-9cfd-adeb7dce4f09
   triggerId: 1
@@ -725,6 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I thought I told you, that I want to sit in quiet, but okay.
+  speakerName: Tara
   children:
   - b50822fe-b5dc-4893-aa3f-f5617e972bbe
   - ecca2f11-d8cd-462e-8d9a-bdfdb72efc42
@@ -750,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Broken ancient jars, looking to be really old...
+  speakerName: 
   children:
   - 02d2b46f-0685-4ff4-b687-37e0d0b04636
   triggerId: 0
@@ -774,6 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Do you remember how your life was before you got here?
+  speakerName: 
   children:
   - 73449551-0f1a-443b-80ea-6fe471237485
   triggerId: 1
@@ -798,6 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Yes... I can remember working on archeology, traveling with my husband...
+  speakerName: Tara
   children:
   - 7c782b91-68c9-4020-b957-bbf387783b6a
   triggerId: 0
@@ -822,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Are you blaming me?!
+  speakerName: Tara
   children:
   - 442dc9fe-220d-4e80-9080-8e44832605b6
   triggerId: 0
@@ -846,6 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: But that guy... that FUCKING GUY! He killed the only person I have ever loved!
+  speakerName: Tara
   children:
   - 9b5591cb-d704-4b39-87cc-957eba51acb1
   triggerId: 0
@@ -870,6 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: What!??? What are you saying? Argh...
+  speakerName: Tara
   children:
   - 171a1187-5e47-4b0b-af05-1d42ec827877
   triggerId: 0
@@ -894,6 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: ... he... we have not much money...
+  speakerName: 
   children:
   - d119468d-0384-47bc-90d4-216e145cee6c
   triggerId: 0
@@ -918,6 +953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: All your questions! You are forcing me to remember! It HURTS!
+  speakerName: Tara
   children:
   - 2800d31a-8715-458f-b57d-52dd5dee4647
   - 1cdb910d-b96a-4cc3-be86-c284490e2152
@@ -943,6 +979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: You... You are BLAMING me???
+  speakerName: Tara
   children:
   - 1cdb910d-b96a-4cc3-be86-c284490e2152
   - 2800d31a-8715-458f-b57d-52dd5dee4647
@@ -968,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: ...Yes... How?... Last time when we were there ...
+  speakerName: Tara
   children:
   - d119468d-0384-47bc-90d4-216e145cee6c
   triggerId: 0
@@ -992,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: You have stolen artefacts?
+  speakerName: 
   children:
   - 60b68399-15d8-460f-97ca-22cf3b8ed1be
   triggerId: 0
@@ -1016,6 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: If you feel such emotions... then you deserve revenge.
+  speakerName: 
   children:
   - c91b9979-7b00-464c-84ed-1ae2b65ce2eb
   triggerId: 0
@@ -1040,6 +1080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I have seen that book. Perhaps you worked on history or archeology...
+  speakerName: 
   children:
   - 46481a58-6c6d-4d7b-bff1-7b494611d59a
   triggerId: 0
@@ -1064,6 +1105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Have you worked in Egypt?
+  speakerName: 
   children:
   - e8541a2d-88b3-4c88-be06-70fcc5e1d3fd
   triggerId: 0
@@ -1088,6 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Yes... thanks...
+  speakerName: Tara
   children: []
   triggerId: 3
   rect:

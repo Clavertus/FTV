@@ -210,7 +210,9 @@ namespace FTV.Dialog.Editor
             {
                 style = playerNodeStyle;
             }
-            GUILayout.BeginArea(node.GetRect(), style);
+            Rect nodeRect = node.GetRect();
+            Rect replaceRect = new Rect(nodeRect.x, nodeRect.y, nodeRect.width, 190);
+            GUILayout.BeginArea(replaceRect, style);
 
             node.SetText(EditorGUILayout.TextField(node.GetText()));
 

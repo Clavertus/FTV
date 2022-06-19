@@ -30,6 +30,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Taaraaa! Open the door! Please!
+  speakerName: 
   children: []
   triggerId: 0
   rect:
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: The door is closed... I can't open it.
+  speakerName: 
   children:
   - 4bf5e034-4d59-498c-875e-f98017f674a0
   triggerId: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Tara!
+  speakerName: 
   children:
   - ee4549ea-c97e-4657-85f1-e644746bd532
   triggerId: 0

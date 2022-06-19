@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Was there always another car there?
+  speakerName: 
   children:
   - 9b122742-f16a-4e38-85ed-32a74772e606
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 110
@@ -37,7 +39,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Or I am just dreaming...
+  speakerName: 
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 411
