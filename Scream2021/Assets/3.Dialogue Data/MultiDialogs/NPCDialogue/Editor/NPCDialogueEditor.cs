@@ -139,7 +139,15 @@ namespace FTV.Dialog.Editor
                     foreach (DialogNode node in selectedDialogue.GetAllNodes())
                     {
                         if (node == editSpeakerNameNode) continue;
+
+                        if (node.GetIsPlayerSpeaking() != editSpeakerNameNode.GetIsPlayerSpeaking()) continue;
+
                         node.SetSpeakerName(editSpeakerNameNode.GetSpeakerName());
+
+                        if(editSpeakerNameNode.GetDialogStyle() != null)
+                        {
+                            node.SetDialogStyle(editSpeakerNameNode.GetDialogStyle());
+                        }
                     }
                     editSpeakerNameNode = null;
                 }
@@ -234,7 +242,7 @@ namespace FTV.Dialog.Editor
             }
             node.SetIsPlayerSpeaking( GUILayout.Toggle(node.GetIsPlayerSpeaking(), "Is player speaking: "));
 
-            if (GUILayout.Button("Fill Speaker Name"))
+            if (GUILayout.Button("Fill wtih same dialog style and speaker name"))
             {
                 editSpeakerNameNode = node;
             }

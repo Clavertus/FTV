@@ -24,6 +24,8 @@ public class Begin : MonoBehaviour {
 
     TitleSavingWrapper titleSavingWrapper = null;
 
+    const float default_mouse_sense = 20f;
+
     void Start()
     {
         beginning = false;
@@ -55,9 +57,20 @@ public class Begin : MonoBehaviour {
 
         if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
 
-        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
+        if (sensivitySlider)
+        {
+            sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
 
-        if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+            if (PlayerPrefs.HasKey("mouse_sensivity"))
+            {
+                sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+            }
+            else
+            {
+                sensivitySlider.value = default_mouse_sense;
+                PlayerPrefs.SetFloat("mouse_sensivity", default_mouse_sense);
+            }
+        }
 
         titleSavingWrapper = FindObjectOfType<TitleSavingWrapper>();
         if (titleSavingWrapper.CheckSaveGame() == false)
@@ -66,54 +79,70 @@ public class Begin : MonoBehaviour {
         }
     }
 
+
+    bool avoidDoublePress = false;
+    float avoidDoublePressTime = 0.05f;
+    float avoidDoublePressCounter = 0f;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+        if(avoidDoublePress == false)
         {
-            PlayButtonSound();
-            LoadGame();
-        }
+            if (Input.GetKeyDown(KeyCode.L) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+            {
+                PlayButtonSound();
+                LoadGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
-        {
-            PlayButtonSound();
-            BeginGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.E) && !settingsCanvas.activeInHierarchy && !quitCanvas.activeInHierarchy && !newGameCanvas.activeInHierarchy && !beginning)
+            {
+                PlayButtonSound();
+                BeginGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleQuitCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.Q) && !settingsCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleQuitCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleSettingsCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.Escape) && !quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleSettingsCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            QuitGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.Y) && quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                QuitGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            ToggleQuitCanvas();
-        }
+            else if (Input.GetKeyDown(KeyCode.N) && quitCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleQuitCanvas();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Y) && newGameCanvas.activeSelf && !beginning)
-        {
-            PlayButtonSound();
-            StartNewGame();
-        }
+            else if (Input.GetKeyDown(KeyCode.Y) && newGameCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                StartNewGame();
+            }
 
-        else if (Input.GetKeyDown(KeyCode.N) && newGameCanvas.activeSelf && !beginning)
+            else if (Input.GetKeyDown(KeyCode.N) && newGameCanvas.activeSelf && !beginning)
+            {
+                PlayButtonSound();
+                ToggleNewGameCanvas();
+            }
+        }
+        else
         {
-            PlayButtonSound();
-            ToggleNewGameCanvas();
+            avoidDoublePressCounter += Time.deltaTime;
+            if (avoidDoublePressCounter > avoidDoublePressTime)
+            {
+                avoidDoublePress = false;
+                avoidDoublePressCounter = 0f;
+            }
         }
     }
 

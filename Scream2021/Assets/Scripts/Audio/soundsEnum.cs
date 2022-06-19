@@ -68,5 +68,6 @@ public enum soundsEnum
 	OpenBook = 65,
 	TurnPageBook = 66,
 	CloseBook = 67,
+	HitGround = 68,
 
 }
