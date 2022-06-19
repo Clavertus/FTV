@@ -24,6 +24,8 @@ public class Begin : MonoBehaviour {
 
     TitleSavingWrapper titleSavingWrapper = null;
 
+    const float default_mouse_sense = 20f;
+
     void Start()
     {
         beginning = false;
@@ -55,9 +57,20 @@ public class Begin : MonoBehaviour {
 
         if (showFpsToogle) showFpsToogle.onValueChanged.AddListener(delegate { showFpsListener(); });
 
-        if (sensivitySlider) sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
+        if (sensivitySlider)
+        {
+            sensivitySlider.onValueChanged.AddListener(delegate { mouseSensivityChanged(); });
 
-        if (PlayerPrefs.HasKey("mouse_sensivity")) sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+            if (PlayerPrefs.HasKey("mouse_sensivity"))
+            {
+                sensivitySlider.value = PlayerPrefs.GetFloat("mouse_sensivity");
+            }
+            else
+            {
+                sensivitySlider.value = default_mouse_sense;
+                PlayerPrefs.SetFloat("mouse_sensivity", default_mouse_sense);
+            }
+        }
 
         titleSavingWrapper = FindObjectOfType<TitleSavingWrapper>();
         if (titleSavingWrapper.CheckSaveGame() == false)
