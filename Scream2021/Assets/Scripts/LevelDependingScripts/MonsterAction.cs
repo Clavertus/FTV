@@ -130,6 +130,11 @@ public class MonsterAction : MonoBehaviour
         TooCloseToMonsterZone.SetActive(true);
     }
 
+    public void SignalReceivePlaySound()
+    {
+        AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.HitGround);
+    }
+
     private void CinematicEnded(PlayableDirector obj)
     {
         FindObjectOfType<InGameMenuCotrols>().LockMenuControl();
