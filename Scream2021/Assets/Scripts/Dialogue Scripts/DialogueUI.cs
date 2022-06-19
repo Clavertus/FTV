@@ -18,6 +18,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] TMP_Text dialogueBoxTextLabel;
     [SerializeField] public GameObject dialogueBox;
 
+    [SerializeField] TMP_Text speakerNameLabel;
+
     [Header("choose box")]
     [SerializeField] GameObject chooseBox;
     [SerializeField] TMP_Text[] chooseBox_TextLabels;
@@ -123,6 +125,7 @@ public class DialogueUI : MonoBehaviour
             if (nextDialogue.GetChildren().Count > 1)
             {
                 DialogNode dialogZero = dialogueObject.GetSpecificChildren(nextDialogue, nextDialogue.GetChildren()[0]);
+
                 if (dialogZero.GetIsPlayerSpeaking())
                 {
                     chooseBox.SetActive(true);
@@ -183,6 +186,15 @@ public class DialogueUI : MonoBehaviour
         {
             dialogueBox_image.sprite = nextDialogue.GetDialogStyle().GetImage();
             dialogueBox_image.color = nextDialogue.GetDialogStyle().GetColor();
+
+            if (nextDialogue.GetIsPlayerSpeaking())
+            {
+                speakerNameLabel.text = "";
+            } else
+            {
+                //set speaker name
+                speakerNameLabel.text = "- " + nextDialogue.GetSpeakerName();
+            }
         }
         else
         {
