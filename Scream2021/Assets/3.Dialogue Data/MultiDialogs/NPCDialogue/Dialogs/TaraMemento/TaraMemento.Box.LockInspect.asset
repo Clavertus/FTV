@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I should look around those items again.
+  speakerName: 
   children: []
   triggerId: 0
   rect:
@@ -37,6 +38,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: There is a lock with symbols on it.
+  speakerName: 
   children:
   - a4ddfa6f-107c-44c3-ba99-1ef8db4906d1
   triggerId: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I have seen similar symbols already...
+  speakerName: 
   children:
   - 4424b53f-7720-4e0a-a8b5-79d7dee2fe1c
   triggerId: 0

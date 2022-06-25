@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: At least away from that creature!
+  speakerName: 
   children:
   - c503e459-6abc-4473-bfa2-10f20bc4576e
   triggerId: 0
@@ -38,6 +39,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Back to reality?
+  speakerName: 
   children:
   - fb8bf5e6-7645-4229-9ed1-27bcfa841ffe
   triggerId: 0
@@ -62,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Hmm...
+  speakerName: Tara
   children:
   - 85244d8c-6f53-4306-aa5a-d988ffb56ed8
   triggerId: 0
@@ -86,6 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I have not seen it for so long and now you want me to run away from it?
+  speakerName: Tara
   children:
   - 9d2b7941-1cb8-4d65-bbc7-f8f3c26337a3
   triggerId: 0
@@ -110,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Why aren't you trying to leave this place?
+  speakerName: 
   children:
   - bc07c7ce-c88f-469b-9713-43854e20b50f
   triggerId: 0
@@ -134,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Long...
+  speakerName: Tara
   children: []
   triggerId: 0
   rect:
@@ -157,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: No... I want to look at it.
+  speakerName: Tara
   children: []
   triggerId: 0
   rect:
@@ -180,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Besides I am not getting hungry, ill or tired.
+  speakerName: Tara
   children:
   - 889a1211-635f-465c-8a1c-f5fba001f1f7
   triggerId: 0
@@ -232,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Sorry, I have almost forgotten that I was not here forever.
+  speakerName: Tara
   children:
   - 33293314-1878-4a97-b2c3-6886ca2773fc
   triggerId: 0
@@ -256,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: ...
+  speakerName: Tara
   children:
   - 849a72ca-b160-4efb-8370-376570536803
   - 264e51fc-25b0-4697-b5cd-699c72eeea27
@@ -281,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: I still sleep sometimes, but nightmares are often...
+  speakerName: Tara
   children: []
   triggerId: 0
   rect:
@@ -304,16 +315,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: How long have you been here?
+  speakerName: 
   children:
   - d916fa43-7c7c-4657-bea2-ba455a5e30e0
   triggerId: 0
   rect:
     serializedVersion: 2
-    x: 527
-    y: 114
+    x: 497
+    y: 70
     width: 200
     height: 120
-  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
+  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
 --- !u!114 &2538092970268714284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Hah... I can remember that I had those ideas long time ago.
+  speakerName: Tara
   children:
   - 9f6b9028-62f4-4773-8a59-74fc13b49a0c
   triggerId: 0
@@ -352,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Where to go?
+  speakerName: Tara
   children:
   - 05fe693e-ecee-491f-ab7b-72b63cf16d5f
   - 47faf6a1-6c46-4b00-8d53-ce847a08c734
@@ -377,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Why should I try? There is no exit from here - believe me.
+  speakerName: Tara
   children:
   - 80b4c434-0f5d-4bfc-8f0f-4b1a3595ae7e
   triggerId: 0
