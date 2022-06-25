@@ -9520,6 +9520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBoxTextLabel: {fileID: 0}
   dialogueBox: {fileID: 2074534958}
+  speakerNameLabel: {fileID: 0}
   chooseBox: {fileID: 0}
   chooseBox_TextLabels: []
   dialogueBox_image: {fileID: 0}
@@ -9540,6 +9541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typewriteSpeed: 50
+  fixedDialogDisplayTime: 0.35
 --- !u!1001 &1851950990
 PrefabInstance:
   m_ObjectHideFlags: 0

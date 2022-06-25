@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class RenderTextureSizeController : MonoBehaviour
 {
-    int targetResWidth = 640;
-    int targetResHeigth = 360;
+    int targetResWidth = 640 * 4;
+    int targetResHeigth = 360 * 4;
 
     [Range(1, 24)]
     [SerializeField] int PixelateRate = 4;
 
-    int width = 1920;
-    int heigth = 1080;
     [SerializeField] RenderTexture rawImage= null;
 
     // Update is called once per frame
     void Start()
     {
-
-        width = Screen.width;
-        heigth = Screen.height;
-
         //targetResWidth = 640;
         /*if (PlayerPrefs.HasKey("resTargetWidth"))
         {
@@ -40,11 +34,10 @@ public class RenderTextureSizeController : MonoBehaviour
         if (pixaleRateWidth == 0) pixaleRateWidth = 1;
         if (pixaleRateHeigth == 0) pixaleRateHeigth = 1;*/
 
-
         if (rawImage != null)
         {
-            rawImage.width = width / PixelateRate;
-            rawImage.height = heigth / PixelateRate;
+            rawImage.width = targetResWidth / PixelateRate; // width / PixelateRate;
+            rawImage.height = targetResHeigth / PixelateRate; //heigth / PixelateRate;
         }
     }
 }

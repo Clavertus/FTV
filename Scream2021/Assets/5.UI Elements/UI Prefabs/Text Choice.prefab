@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 37769814709392780, guid: d500f0104fb277e418e368dce0b1a80b, type: 3}
+      propertyPath: m_Name
+      value: Select
+      objectReference: {fileID: 0}
     - target: {fileID: 37769814709392782, guid: d500f0104fb277e418e368dce0b1a80b, type: 3}
       propertyPath: m_text
       value: Select

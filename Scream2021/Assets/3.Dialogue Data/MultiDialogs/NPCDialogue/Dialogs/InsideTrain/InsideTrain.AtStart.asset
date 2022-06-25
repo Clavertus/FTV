@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Did we stop?
+  speakerName: 
   children: []
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 436
@@ -36,8 +38,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Ha?
+  speakerName: 
   children:
   - 63d1a741-cce3-46a8-9446-05eb64c2b1e6
+  triggerId: 0
   rect:
     serializedVersion: 2
     x: 136

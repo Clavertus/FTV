@@ -95,8 +95,9 @@ public class DialogueUI : MonoBehaviour
     {
         dialogueBox_image.sprite = defaultStyle.GetImage();
         dialogueBox_image.color = defaultStyle.GetColor();
-        foreach (string dialogue in dialogueObject.Dialogue) 
+        foreach (string dialogue in dialogueObject.Dialogue)
         {
+            speakerNameLabel.text = "";
             //call run method in displayDialogue, passing in each dialogue in the dialogue object
             yield return displayDialogue.Run(dialogue, dialogueBoxTextLabel);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));  

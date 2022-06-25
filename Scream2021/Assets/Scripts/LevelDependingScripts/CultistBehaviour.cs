@@ -12,21 +12,6 @@ public class CultistBehaviour : MonoBehaviour
     private AudioSource[] cultistSpeech = new AudioSource[5];
     private void OnEnable()
     {
-        if(ProgressTracker.instance)
-        {
-            if(ProgressTracker.instance.taraEnding == ProgressTracker.endingType.Good)
-            {
-                npc_Dialog.SetNewDialogAvailableAndPlay(dialogWithCultistTaraHuman);
-            }
-            else
-            {
-                npc_Dialog.SetNewDialogAvailableAndPlay(dialogWithCultistTaraMonster);
-            }
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         cultistSpeech[0] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.CultistSpeech1);
         cultistSpeech[1] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.CultistSpeech2);
         cultistSpeech[2] = AudioManager.instance.AddAudioSourceWithSound(gameObject, soundsEnum.CultistSpeech3);
@@ -38,6 +23,42 @@ public class CultistBehaviour : MonoBehaviour
         npc_Dialog.DialogIsFinished += OnDialogFinished;
         npc_Dialog.DialogNodeIsStarted += OnDialogNodeStarted;
         npc_Dialog.DialogNodeIsEnded += OnDialogNodeFinished;
+
+        if (ProgressTracker.instance)
+        {
+            if(ProgressTracker.instance.taraEnding == ProgressTracker.endingType.Good)
+            {
+                npc_Dialog.SetNewDialogAvailableAndPlay(dialogWithCultistTaraHuman);
+            }
+            else
+            {
+                npc_Dialog.SetNewDialogAvailableAndPlay(dialogWithCultistTaraMonster);
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        npc_Dialog.PreTriggerEventCall -= OnPreTriggerEventCall;
+        npc_Dialog.DialogIsStarted -= OnDialogStarted;
+        npc_Dialog.DialogIsFinished -= OnDialogFinished;
+        npc_Dialog.DialogNodeIsStarted -= OnDialogNodeStarted;
+        npc_Dialog.DialogNodeIsEnded -= OnDialogNodeFinished;
+    }
+
+    private void OnDestroy()
+    {
+        npc_Dialog.PreTriggerEventCall -= OnPreTriggerEventCall;
+        npc_Dialog.DialogIsStarted -= OnDialogStarted;
+        npc_Dialog.DialogIsFinished -= OnDialogFinished;
+        npc_Dialog.DialogNodeIsStarted -= OnDialogNodeStarted;
+        npc_Dialog.DialogNodeIsEnded -= OnDialogNodeFinished;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
