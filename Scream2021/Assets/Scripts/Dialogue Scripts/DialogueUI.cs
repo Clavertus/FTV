@@ -18,7 +18,9 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] TMP_Text dialogueBoxTextLabel;
     [SerializeField] public GameObject dialogueBox;
 
+    [Header("speaker name")]
     [SerializeField] TMP_Text speakerNameLabel;
+    [SerializeField] float typewriteSpeed;
 
     [Header("choose box")]
     [SerializeField] GameObject chooseBox;
@@ -186,6 +188,7 @@ public class DialogueUI : MonoBehaviour
         {
             dialogueBox_image.sprite = nextDialogue.GetDialogStyle().GetImage();
             dialogueBox_image.color = nextDialogue.GetDialogStyle().GetColor();
+            speakerNameLabel.text = "";
 
             if (nextDialogue.GetIsPlayerSpeaking())
             {
@@ -193,13 +196,25 @@ public class DialogueUI : MonoBehaviour
             } else
             {
                 //set speaker name
-                speakerNameLabel.text = "- " + nextDialogue.GetSpeakerName();
+                string oldName = "- " + speakerNameLabel.text;
+                string newName = "- " + nextDialogue.GetSpeakerName();
+
+
+                if (oldName != newName && oldName != "")
+                {
+                    StartCoroutine(TypeSpeakerName(oldName, newName, speakerNameLabel));
+                }
+                else
+                {
+                    speakerNameLabel.text = newName;
+                }
             }
         }
         else
         {
             dialogueBox_image.sprite = defaultStyle.GetImage();
             dialogueBox_image.color = defaultStyle.GetColor();
+            speakerNameLabel.text = "";
         }
     }
 
@@ -279,6 +294,44 @@ public class DialogueUI : MonoBehaviour
                 tutorialBox.SetActive(false);
             }
         }
+    }
+
+    private IEnumerator TypeSpeakerName(string oldName, string newName, TMP_Text textLabel)
+    {
+        float t = 0;
+        float time = 0f;
+        int charIndex = oldName.Length - 1;
+
+        while (charIndex > 0)
+        {
+            t += Time.deltaTime * typewriteSpeed;
+            time += Time.deltaTime;
+
+            charIndex -= Mathf.FloorToInt(t);
+            charIndex = Mathf.Clamp(charIndex, 0, oldName.Length);
+
+            textLabel.text = newName.Substring(0, charIndex);
+
+            yield return null;
+        }
+
+        t = 0;
+        time = 0f;
+
+        while (charIndex < newName.Length)
+        {
+            t += Time.deltaTime * typewriteSpeed;
+            time += Time.deltaTime;
+
+            charIndex = Mathf.FloorToInt(t);
+            charIndex = Mathf.Clamp(charIndex, 0, newName.Length);
+
+            textLabel.text = newName.Substring(0, charIndex);
+
+            yield return null;
+        }
+
+        textLabel.text = newName;
     }
     
 }

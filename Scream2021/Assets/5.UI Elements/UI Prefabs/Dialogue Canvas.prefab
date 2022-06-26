@@ -325,6 +325,7 @@ MonoBehaviour:
   dialogueBoxTextLabel: {fileID: 288722340765105486}
   dialogueBox: {fileID: 288722338895282709}
   speakerNameLabel: {fileID: 8253639137926656428}
+  typewriteSpeed: 0
   chooseBox: {fileID: 1421562796}
   chooseBox_TextLabels:
   - {fileID: 4578968754927327196}
@@ -451,7 +452,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -722,7 +723,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 26
+  m_lineSpacing: 60
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
