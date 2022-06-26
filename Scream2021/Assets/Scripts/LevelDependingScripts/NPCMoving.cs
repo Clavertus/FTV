@@ -31,6 +31,26 @@ public class NPCMoving : MonoBehaviour, ISaveable
             Debug.LogError("Can not calculate path to that position");
         }
     }
+    public void SetPosition(Transform newTarget, bool sitOnEnd)
+    {
+        agent.updateRotation = true;
+        agent.updatePosition = true;
+        sitTarget = sitOnEnd;
+        target = newTarget;
+        agent.enabled = false;
+        transform.rotation = newTarget.rotation;
+        transform.position = newTarget.position;
+        agent.enabled = true;
+        NavMeshPath path = new NavMeshPath();
+        if (agent.CalculatePath(target.position, path))
+        {
+            agent.SetDestination(target.position);
+        }
+        else
+        {
+            Debug.LogError("Can not calculate path to that position");
+        }
+    }
 
     public void Update()
     {

@@ -215,7 +215,7 @@ public class Tara_Behaviour : MonoBehaviour, ISaveable
             Debug.LogWarning(behaviour_state);
             npc_Dialog.SetNewDialogAvailableNoPlay(dialog_3);
             dialog_3_played = true;
-            GetComponent<NPCMoving>().SetDestination(point_3, false);
+            GetComponent<NPCMoving>().SetPosition(point_3, false);
 
             if (stopZone) stopZone.SetActive(false);
             if (taraMemento) taraMemento.SetActive(true);
