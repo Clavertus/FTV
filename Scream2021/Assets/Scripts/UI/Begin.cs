@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Begin : MonoBehaviour {
+
+
     public GameObject zoomInPanel;
     public float zoomAmount;
     public float zoomDuration;

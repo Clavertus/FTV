@@ -13,35 +13,46 @@ public class TargetResolutionSetting : MonoBehaviour
     {
         if (ResolutionSettings[0]) ResolutionSettings[0].onValueChanged.AddListener(delegate { ValueChange( 0 ); });
         if (ResolutionSettings[1]) ResolutionSettings[1].onValueChanged.AddListener(delegate { ValueChange( 1 ); });
+        if (ResolutionSettings[2]) ResolutionSettings[2].onValueChanged.AddListener(delegate { ValueChange( 2 ); });
+        if (ResolutionSettings[3]) ResolutionSettings[3].onValueChanged.AddListener(delegate { ValueChange( 3 ); });
 
         if (PlayerPrefs.HasKey("resTargetWidth") == false)
         {
-            if (ResolutionSettings[0])
+            if (ResolutionSettings[2])
             {
-                SetResoultionIdToTrue(0);
-                PlayerPrefs.SetInt("resTargetWidth", 1280);
-                PlayerPrefs.SetInt("resTargetHeigth", 720);
+                SetResolutionIdToTrue(2);
+                PlayerPrefs.SetInt("resTargetWidth", 720);
+                PlayerPrefs.SetInt("resTargetHeigth", 480);
             }
         }
         else
         {
             if(PlayerPrefs.GetInt("resTargetWidth") == 1280)
             {
-                SetResoultionIdToTrue(0);
+                SetResolutionIdToTrue(0);
+                ValueChange(0);
+            }
+            else if(PlayerPrefs.GetInt("resTargetWidth") == 960)
+            {
+                SetResolutionIdToTrue(1);
+                ValueChange(1);
+            }
+            else if (PlayerPrefs.GetInt("resTargetWidth") == 720)
+            {
+                SetResolutionIdToTrue(2);
+                ValueChange(2);
             }
             else
             {
-                SetResoultionIdToTrue(1);
+                SetResolutionIdToTrue(3);
+                ValueChange(3);
             }
         }
     }
 
-    private void SetResoultionIdToTrue(int id)
+    private void SetResolutionIdToTrue(int id)
     {
-        foreach(Toggle toogle in ResolutionSettings)
-        {
-            toogle.isOn = false;
-        }
+        SetOthersToFalse(id);
         ResolutionSettings[id].isOn = true;
     }
 
@@ -53,14 +64,23 @@ public class TargetResolutionSetting : MonoBehaviour
             {
                 PlayerPrefs.SetInt("resTargetWidth", 1280);
                 PlayerPrefs.SetInt("resTargetHeigth", 720);
-                ResolutionSettings[1].isOn = false;
+            }
+            else if(id == 1)
+            {
+                PlayerPrefs.SetInt("resTargetWidth", 960);
+                PlayerPrefs.SetInt("resTargetHeigth", 540);
+            }
+            else if (id == 2)
+            {
+                PlayerPrefs.SetInt("resTargetWidth", 720);
+                PlayerPrefs.SetInt("resTargetHeigth", 480);
             }
             else
             {
                 PlayerPrefs.SetInt("resTargetWidth", 640);
                 PlayerPrefs.SetInt("resTargetHeigth", 360);
-                ResolutionSettings[0].isOn = false;
             }
+            SetOthersToFalse(id);
         }
         else
         {
@@ -76,6 +96,15 @@ public class TargetResolutionSetting : MonoBehaviour
             {
                 ResolutionSettings[id].isOn = true;
             }
+        }
+    }
+
+    private void SetOthersToFalse(int id)
+    {
+        for(int ix = 0; ix < ResolutionSettings.Length; ix++)
+        {
+            if (ix == id) continue;
+            ResolutionSettings[ix].isOn = false;
         }
     }
 }
