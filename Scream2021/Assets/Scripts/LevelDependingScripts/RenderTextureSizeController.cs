@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class RenderTextureSizeController : MonoBehaviour
 {
-    int targetResWidth = 1280;
-    int targetResHeigth = 720;
-
-    //[Range(1, 24)]
-    //[SerializeField] int PixelateRate = 4;
-
     [SerializeField] RenderTexture rawImage= null;
 
     // Update is called once per frame
     void Start()
     {
-        int settingResWidth = targetResWidth;
-        int settingResHeigth = targetResHeigth;
-        if (PlayerPrefs.HasKey("resTargetWidth"))
+        int settingResWidth = Screen.width;
+        int settingResHeight = Screen.height;
+        int pixelatedRate = 2;
+        if (PlayerPrefs.HasKey("pixelatedRate"))
         {
-            settingResWidth = PlayerPrefs.GetInt("resTargetWidth");
-        }
-        if (PlayerPrefs.HasKey("resTargetHeigth"))
-        {
-            settingResHeigth = PlayerPrefs.GetInt("resTargetHeigth");
+            pixelatedRate = PlayerPrefs.GetInt("pixelatedRate");
         }
 
         if (rawImage != null)
         {
-            rawImage.width = settingResWidth;
-            rawImage.height = settingResHeigth;
+            if(rawImage.width != (settingResWidth / pixelatedRate))
+            {
+                rawImage.width = settingResWidth / pixelatedRate;
+            }
+            if (rawImage.height != (settingResHeight / pixelatedRate))
+            {
+                rawImage.height = settingResHeight / pixelatedRate;
+            }
+            Debug.Log("Setting game resolution to: " + rawImage.width + "x" + rawImage.height);
         }
     }
 }

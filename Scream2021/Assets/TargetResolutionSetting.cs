@@ -13,38 +13,26 @@ public class TargetResolutionSetting : MonoBehaviour
     {
         if (ResolutionSettings[0]) ResolutionSettings[0].onValueChanged.AddListener(delegate { ValueChange( 0 ); });
         if (ResolutionSettings[1]) ResolutionSettings[1].onValueChanged.AddListener(delegate { ValueChange( 1 ); });
-        if (ResolutionSettings[2]) ResolutionSettings[2].onValueChanged.AddListener(delegate { ValueChange( 2 ); });
-        if (ResolutionSettings[3]) ResolutionSettings[3].onValueChanged.AddListener(delegate { ValueChange( 3 ); });
 
-        if (PlayerPrefs.HasKey("resTargetWidth") == false)
+        if (PlayerPrefs.HasKey("pixelatedRate") == false)
         {
-            if (ResolutionSettings[1])
-            {
-                SetResolutionIdToTrue(1);
-                ValueChange(1);
-            }
-        }
-        else
-        {
-            if(PlayerPrefs.GetInt("resTargetWidth") == 1280)
+            if (ResolutionSettings[0])
             {
                 SetResolutionIdToTrue(0);
                 ValueChange(0);
             }
-            else if(PlayerPrefs.GetInt("resTargetWidth") == 960)
+        }
+        else
+        {
+            if(PlayerPrefs.GetInt("pixelatedRate") == 2)
+            {
+                SetResolutionIdToTrue(0);
+                ValueChange(0);
+            }
+            else if(PlayerPrefs.GetInt("pixelatedRate") == 4)
             {
                 SetResolutionIdToTrue(1);
                 ValueChange(1);
-            }
-            else if (PlayerPrefs.GetInt("resTargetWidth") == 720)
-            {
-                SetResolutionIdToTrue(2);
-                ValueChange(2);
-            }
-            else
-            {
-                SetResolutionIdToTrue(3);
-                ValueChange(3);
             }
         }
     }
@@ -61,23 +49,11 @@ public class TargetResolutionSetting : MonoBehaviour
         {
             if (id == 0)
             {
-                PlayerPrefs.SetInt("resTargetWidth", 1280);
-                PlayerPrefs.SetInt("resTargetHeigth", 720);
+                PlayerPrefs.SetInt("pixelatedRate", 2);
             }
             else if(id == 1)
             {
-                PlayerPrefs.SetInt("resTargetWidth", 960);
-                PlayerPrefs.SetInt("resTargetHeigth", 540);
-            }
-            else if (id == 2)
-            {
-                PlayerPrefs.SetInt("resTargetWidth", 720);
-                PlayerPrefs.SetInt("resTargetHeigth", 480);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("resTargetWidth", 640);
-                PlayerPrefs.SetInt("resTargetHeigth", 360);
+                PlayerPrefs.SetInt("pixelatedRate", 4);
             }
             SetOthersToFalse(id);
         }
