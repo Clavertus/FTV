@@ -18,10 +18,10 @@ public class TargetResolutionSetting : MonoBehaviour
 
         if (PlayerPrefs.HasKey("resTargetWidth") == false)
         {
-            if (ResolutionSettings[0])
+            if (ResolutionSettings[1])
             {
-                SetResolutionIdToTrue(0);
-                ValueChange(0);
+                SetResolutionIdToTrue(1);
+                ValueChange(1);
             }
         }
         else
