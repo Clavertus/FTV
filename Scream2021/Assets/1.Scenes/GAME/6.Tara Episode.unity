@@ -6057,10 +6057,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 288722339288275023, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: typewriteSpeed
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 288722339288275029, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
       propertyPath: m_Name
       value: Dialogue Canvas
@@ -6089,12 +6085,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 288722340765105486, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
+      propertyPath: m_text
+      value: The quick brown fox jumps over the lazy dog The quick brown fox jumps
+        over the lazy dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 288722340765105486, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 288722340765105487, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 288722340765105487, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288722340765105487, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 288722340765105487, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
@@ -6330,30 +6339,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6774896067219884342, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960356090423029096, guid: 5167047039beff8499b0a5bba445fba6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
