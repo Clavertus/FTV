@@ -127,6 +127,8 @@ MonoBehaviour:
   yRotation: -90
   zRotation: 0
   extraPressToShow: 1
+  turnSpeedModifier: 1
+  lookAtPlayer: 0
 --- !u!1 &8938807973677688349
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +312,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 144.8857, y: 138.9874}
+  m_AnchoredPosition: {x: -0.00000166893, y: 0}
+  m_SizeDelta: {x: 87.647, y: 85.6961}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8938807974246150598
 CanvasRenderer:

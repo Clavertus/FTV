@@ -1083,6 +1083,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4864519418332143963, guid: 44f3d0aae0a702a409e128e1fb95385e, type: 3}
+      propertyPath: m_lineSpacing
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864519418332143963, guid: 44f3d0aae0a702a409e128e1fb95385e, type: 3}
       propertyPath: m_fontSizeBase
       value: 5
       objectReference: {fileID: 0}
@@ -2580,8 +2584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 147, y: 0}
-  m_SizeDelta: {x: 200, y: 27.5}
+  m_AnchoredPosition: {x: 182.235, y: 0}
+  m_SizeDelta: {x: 270.47, y: 27.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579373355
 MonoBehaviour:
@@ -2644,7 +2648,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 44
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4282,8 +4286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 743.5355, y: 600}
+  m_AnchoredPosition: {x: 0, y: 0.000014662743}
+  m_SizeDelta: {x: 743.536, y: 684.864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351754603
 MonoBehaviour:
@@ -4943,7 +4947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 207, y: -512}
+  m_AnchoredPosition: {x: 203.2, y: -514.45}
   m_SizeDelta: {x: 326.40002, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530107685
@@ -5688,7 +5692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -50}
+  m_AnchoredPosition: {x: 163.20001, y: -50}
   m_SizeDelta: {x: 326.40002, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635628789

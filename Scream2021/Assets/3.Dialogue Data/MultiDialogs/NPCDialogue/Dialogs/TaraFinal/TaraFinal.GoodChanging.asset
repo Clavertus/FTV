@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc9a12b7ac08f148a62ff4e703a907c, type: 3}
   m_Name: 9db84ea9-39c2-4fc8-bba1-5263f5e46316
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
+  isPlayerSpeaking: 0
   text: There is a key in my box... in the corner... Arghh... Use it...
-  speakerName: 
+  speakerName: Tara
   children:
   - 2ed71cb6-3d0a-426d-bfd7-7e35c539d433
   triggerId: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     y: 192
     width: 300
     height: 130
-  style: {fileID: 11400000, guid: 025f6f2314696fb4fb147917a587ad9d, type: 2}
+  style: {fileID: 11400000, guid: fb739a0b0f61ef348a992691c3cbe9fd, type: 2}
 --- !u!114 &8219486062856378302
 MonoBehaviour:
   m_ObjectHideFlags: 0

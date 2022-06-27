@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2728,7 +2728,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'FEAR THE VOID
 
-    Prologue'
+    PROLOGUE'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d763a2cc78e10246901f3d38843759c, type: 2}
   m_sharedMaterial: {fileID: -4421569121397210317, guid: 1d763a2cc78e10246901f3d38843759c, type: 2}
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 37.83
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
