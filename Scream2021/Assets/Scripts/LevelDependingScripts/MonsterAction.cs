@@ -247,6 +247,7 @@ public class MonsterAction : MonoBehaviour
                     yield return new WaitUntil(() => !dialogueBox.activeSelf);
                     myExtraLight.enabled = true;
                     currentState = monsterStatesEnm.reveal;
+                    AudioManager.instance.PlayOneShotFromAudioManager(soundsEnum.Chestopen);
                 }
                 break;
             case monsterStatesEnm.reveal:
