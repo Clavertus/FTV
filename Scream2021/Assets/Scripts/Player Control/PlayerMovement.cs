@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour, ISaveable
 
     void Update()
     {
-        Debug.Log(isGrounded); 
+      //  Debug.Log(isGrounded); 
         Move();
         PlayerGravity();
         SimulateFall();
